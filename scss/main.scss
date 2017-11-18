@@ -1,0 +1,162 @@
+@import "reset";
+@import "animations";
+@import "components/components";
+
+
+/* Border Box Trick */
+/* padding ist in der Box Breite miteingerechnet*/
+html{
+	box-sizing: border-box;
+}
+*, *:before, *:after{
+	box-sizing: inherit;
+}
+/* Ende Border Box Trick*/
+
+
+
+html{
+	font-size: 16px;
+}
+
+
+body{
+	font-family: "Open Sans", "Arial", "sans-serif";
+	line-height: 1.25rem;
+
+	.wrapper{
+		max-width: 1200px;
+		width: 100%;
+		margin: 0 auto;
+		background-color: rgb(255,255,255);
+	}
+}
+
+
+nav{
+	padding-top: 7px;
+
+	img#hamburger {
+		display: block;
+		height: 2rem;
+		margin-left: 5px;
+		margin-bottom: 6px;
+	}
+
+	ul#mainNavi {
+		display: none;
+		list-style-type: none;
+		width: 100%;
+		background-color: rgb(255,255,255);
+		position: absolute;
+		animation: 1.5s slideIn;
+
+		> li {
+			margin-bottom: 1px;
+			> a {
+				text-decoration: none;
+				color: rgb(255, 255, 255);
+				background-color: rgb(0, 0, 0);
+				padding: 8px 5px;
+				display: block;
+			}
+		}
+		> li:last-child{
+			margin-bottom: 0px;
+		}
+	}
+}
+
+
+header {
+
+	img{
+		width: 100%;
+	}
+
+	img#mobile {
+		display: block;
+	}
+
+	.images-carousel {
+		display: none;
+	}
+}
+
+
+main{
+	.text-container{
+		margin-bottom: 20px;
+	}
+}
+
+
+
+
+
+
+/* ab hier für desktop */
+@media screen and (min-width: 740px) {    //wenn Bildschirm grösser 740 px gross ist, dann...
+
+	nav{
+		padding-top: 20px;
+
+		img#hamburger {
+			display: none;
+		}
+
+		ul#mainNavi {
+			display: block;
+			padding-right: 36px;
+			position: static;
+			//ul is floated to the right and li to the left because otherwise items order will change
+			float: right;
+			width: 500px;
+
+			> li {
+				float: left	;
+				padding-left: 12px;
+
+				> a {
+					display: inline-block;
+					text-decoration: none;
+					color: rgb(0,0,0);
+					background-color: rgb(255,255,255);
+					border-bottom: 5px solid rgb(203,210,239);
+					padding: 0px;
+					margin-bottom: 1px;
+				}
+				> a:hover{
+					border-bottom: 5px solid rgb(0,10,242);
+					transition: border-bottom 1.5s;
+				}
+			}
+		}
+	}
+
+
+	header{
+		img#desktop_logo{
+			display: block;
+			position: absolute;
+		}
+
+		img#mobile {
+			display: none;
+		}
+
+		.images-carousel {
+			display: block;
+			width: 100%;
+		}
+		margin-bottom: 40px;
+	}
+
+
+	main{
+		.text-container{
+			margin-bottom: 40px;
+		}
+	}
+
+}

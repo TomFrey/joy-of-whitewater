@@ -1,0 +1,209 @@
+@charset "UTF-8";
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: ‘’;
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/*
+ Slide in a container (for example: the navigation) from the left to the right.
+
+ */
+@keyframes slideIn {
+  from {
+    left: -100%; }
+  to {
+    left: 0%; } }
+/* text-container
+*  That's the container on the main page which contains text.
+*  It's 100% wide.
+*
+*/
+.text-container {
+  padding: 10px;
+  background-color: #cbd2ef; }
+  .text-container > .title {
+    font-size: 1.5rem;
+    color: #464646;
+    margin-bottom: 0.75rem; }
+  .text-container > .paragraph {
+    margin-bottom: 0.5rem; }
+
+/* ab hier für desktop */
+@media screen and (min-width: 740px) {
+  .text-container {
+    padding: 20px;
+    background-color: #cbd2ef; } }
+.images-carousel {
+  position: relative; }
+  .images-carousel > .images {
+    position: relative;
+    z-index: 1; }
+  .images-carousel > .images > .image {
+    list-style: none;
+    float: left;
+    left: 0;
+    position: absolute; }
+
+/* parallax-container
+*  That's the container which holds the background images and texts.
+*
+*/
+.parallax-container {
+  display: none;
+  /* to switch off the parallax effect, maybe we don't need it because of display:none */
+  background-attachment: scroll; }
+
+/* ******************* */
+/* ab hier für desktop */
+@media screen and (min-width: 740px) {
+  .parallax-container {
+    display: block;
+    /* The image used */
+    background-image: url("http://127.0.0.1:8888/theJoyOfWhitewater/app/images/flo_equador.jpg");
+    /* Set a specific height */
+    height: 250px;
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; } }
+/* Border Box Trick */
+/* padding ist in der Box Breite miteingerechnet*/
+html {
+  box-sizing: border-box; }
+
+*, *:before, *:after {
+  box-sizing: inherit; }
+
+/* Ende Border Box Trick*/
+html {
+  font-size: 16px; }
+
+body {
+  font-family: "Open Sans", "Arial", "sans-serif";
+  line-height: 1.25rem; }
+  body .wrapper {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    background-color: white; }
+
+nav {
+  padding-top: 7px; }
+  nav img#hamburger {
+    display: block;
+    height: 2rem;
+    margin-left: 5px;
+    margin-bottom: 6px; }
+  nav ul#mainNavi {
+    display: none;
+    list-style-type: none;
+    width: 100%;
+    background-color: white;
+    position: absolute;
+    animation: 1.5s slideIn; }
+    nav ul#mainNavi > li {
+      margin-bottom: 1px; }
+      nav ul#mainNavi > li > a {
+        text-decoration: none;
+        color: white;
+        background-color: black;
+        padding: 8px 5px;
+        display: block; }
+    nav ul#mainNavi > li:last-child {
+      margin-bottom: 0px; }
+
+header img {
+  width: 100%; }
+header img#mobile {
+  display: block; }
+header .images-carousel {
+  display: none; }
+
+main .text-container {
+  margin-bottom: 20px; }
+
+/* ab hier für desktop */
+@media screen and (min-width: 740px) {
+  nav {
+    padding-top: 20px; }
+    nav img#hamburger {
+      display: none; }
+    nav ul#mainNavi {
+      display: block;
+      padding-right: 36px;
+      position: static;
+      float: right;
+      width: 500px; }
+      nav ul#mainNavi > li {
+        float: left;
+        padding-left: 12px; }
+        nav ul#mainNavi > li > a {
+          display: inline-block;
+          text-decoration: none;
+          color: black;
+          background-color: white;
+          border-bottom: 5px solid #cbd2ef;
+          padding: 0px;
+          margin-bottom: 1px; }
+        nav ul#mainNavi > li > a:hover {
+          border-bottom: 5px solid #000af2;
+          transition: border-bottom 1.5s; }
+
+  header {
+    margin-bottom: 40px; }
+    header img#desktop_logo {
+      display: block;
+      position: absolute; }
+    header img#mobile {
+      display: none; }
+    header .images-carousel {
+      display: block;
+      width: 100%; }
+
+  main .text-container {
+    margin-bottom: 40px; } }
+
+/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,12 @@
+/*
+ Slide in a container (for example: the navigation) from the left to the right.
+
+ */
+@keyframes slideIn {
+  from {
+    left: -100%;
+  }
+  to {
+    left: 0%;
+  }
+}

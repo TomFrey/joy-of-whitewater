@@ -1,0 +1,34 @@
+/* parallax-container
+*  That's the container which holds the background images and texts.
+*
+*/
+
+.parallax-container{
+  display: none;
+
+  /* to switch off the parallax effect, maybe we don't need it because of display:none */
+  background-attachment: scroll;
+
+}
+
+/* ******************* */
+/* ab hier für desktop */
+@media screen and (min-width: 740px) {
+
+  .parallax-container {
+    display: block;
+
+    /* The image used */
+    background-image: url("http://127.0.0.1:8888/theJoyOfWhitewater/app/images/flo_equador.jpg");
+
+    /* Set a specific height */
+    height: 250px;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+}

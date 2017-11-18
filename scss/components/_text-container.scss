@@ -1,0 +1,40 @@
+/* text-container
+*  That's the container on the main page which contains text.
+*  It's 100% wide.
+*
+*/
+
+.text-container{
+  padding: 10px;
+  background-color: rgb(203,210,239);
+
+  > .title{
+    font-size: 1.5rem;
+    color: rgb(70,70,70);
+    margin-bottom: 0.75rem;
+  }
+
+  > .paragraph{
+    margin-bottom: 0.5rem;
+  }
+}
+
+/* ab hier für desktop */
+@media screen and (min-width: 740px) {
+
+  .text-container{
+    padding: 20px;
+    background-color: rgb(203,210,239);
+  }
+
+}
+
+
+//variants
+
+//.like-button {
+//  &.-wide { /* ... */ }
+//  &.-short { /* ... */ }
+//  &.-disabled { /* ... */ }
+//}
+
