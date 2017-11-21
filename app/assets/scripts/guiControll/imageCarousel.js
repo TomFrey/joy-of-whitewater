@@ -83,7 +83,7 @@ define(["jquery"], function ($) {
         //move all 5s to the next image when on desktop
         //call slide or crossfade to slide or crossfade it
         if ($(document).width() > 740){
-            setIntervalId = setInterval(slide, 5000);
+            setIntervalId = setInterval(crossfade, 5000);
         }
     });
 

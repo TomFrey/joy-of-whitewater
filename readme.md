@@ -1,4 +1,5 @@
-#
+# The joy of whitewater
+
 Die Applikation läuft unter:
 http://127.0.0.1:8888/theJoyOfWhitewater/app/
 
