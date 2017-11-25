@@ -138,7 +138,7 @@ nav {
     margin-left: 5px;
     margin-bottom: 6px; }
   nav ul#mainNavi {
-    display: none;
+    display: block;
     list-style-type: none;
     width: 100%;
     background-color: white;
@@ -154,6 +154,8 @@ nav {
         display: block; }
     nav ul#mainNavi > li:last-child {
       margin-bottom: 0px; }
+  nav ul#mainNavi.hide {
+    display: none; }
 
 header img {
   width: 100%; }
@@ -171,16 +173,16 @@ main .text-container {
     padding-top: 20px; }
     nav img#hamburger {
       display: none; }
-    nav ul#mainNavi {
+    nav ul#mainNavi, nav ul#mainNavi.hide {
       display: block;
       padding-right: 36px;
       position: static;
       float: right;
       width: 500px; }
-      nav ul#mainNavi > li {
+      nav ul#mainNavi > li, nav ul#mainNavi.hide > li {
         float: left;
         padding-left: 12px; }
-        nav ul#mainNavi > li > a {
+        nav ul#mainNavi > li > a, nav ul#mainNavi.hide > li > a {
           display: inline-block;
           text-decoration: none;
           color: black;
@@ -188,7 +190,7 @@ main .text-container {
           border-bottom: 5px solid #cbd2ef;
           padding: 0px;
           margin-bottom: 1px; }
-        nav ul#mainNavi > li > a:hover {
+        nav ul#mainNavi > li > a:hover, nav ul#mainNavi.hide > li > a:hover {
           border-bottom: 5px solid #000af2;
           transition: border-bottom 1.5s; }
 

@@ -7,10 +7,12 @@ var Navigation = (function(){
         mainNavi;
 
     function showHideNavigation() {
-        if(mainNavi.style.display === 'block'){
-            mainNavi.style.display = 'none';
+        if(/*mainNavi.style.display === 'block'*/mainNavi.classList.contains('hide')){
+            //mainNavi.style.display = 'none';
+            mainNavi.classList.remove('hide')
         } else {
-            mainNavi.style.display = 'block';
+            //mainNavi.style.display = 'block';
+            mainNavi.classList.add('hide');
         }
     }
 
@@ -19,6 +21,12 @@ var Navigation = (function(){
         mainNavi = document.getElementById('mainNavi');
 
         hamburger.addEventListener('click', showHideNavigation);
+
+      /*  window.onresize = function() {
+            if(window.innerWidth >= 740) {
+                mainNavi.style.display = '';
+            }
+        }; */
     }
 
     //public api
