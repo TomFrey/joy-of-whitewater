@@ -80,16 +80,12 @@ var ImageCarousel = (function(){
         simpleSlider.find( 'li.image' ).last().addClass('topImage').css('position','relative');
     };
 
-
-
-
+    
     function init()
     {
-        //move all 5s to the next image when on desktop
+        //move all 5s to the next image
         //call slide or crossfade to slide or crossfade it
-        if ($(document).width() > 740){
-            setIntervalId = setInterval(crossfade, 5000);
-        }
+        setIntervalId = setInterval(crossfade, 5000);
     }
 
     //public api
