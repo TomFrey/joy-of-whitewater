@@ -55,6 +55,7 @@ table {
     left: -100%; }
   to {
     left: 0%; } }
+
 /* text-container
 *  That's the container on the main page which contains text.
 *  It's 100% wide.
@@ -75,6 +76,7 @@ table {
   .text-container {
     padding: 20px;
     background-color: #cbd2ef; } }
+
 .images-carousel {
   position: relative; }
   .images-carousel > .images {
@@ -109,6 +111,7 @@ table {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover; } }
+
 /* Border Box Trick */
 /* padding ist in der Box Breite miteingerechnet*/
 html {
@@ -159,8 +162,10 @@ nav {
 
 header img {
   width: 100%; }
+
 header img#mobile {
   display: block; }
+
 header .images-carousel {
   display: none; }
 
@@ -193,7 +198,6 @@ main .text-container {
         nav ul#mainNavi > li > a:hover, nav ul#mainNavi.hide > li > a:hover {
           border-bottom: 5px solid #000af2;
           transition: border-bottom 1.5s; }
-
   header {
     margin-bottom: 40px; }
     header img#desktop_logo {
@@ -204,8 +208,5 @@ main .text-container {
     header .images-carousel {
       display: block;
       width: 100%; }
-
   main .text-container {
     margin-bottom: 40px; } }
-
-/*# sourceMappingURL=main.css.map */
