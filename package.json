@@ -1,18 +1,15 @@
 {
-  "name": "the_joy_of_whitewater",
+  "name": "theJoyOfWhitewater",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "th.frey",
-  "license": "ISC",
+  "description": "the new paddling homepage",
+  "main": "index.html",
+  "repository": "git@github.com:TomFrey/joy-of-whitewater.git",
+  "author": "Thomas Frey <joe@mitlinxlernen.ch>",
+  "license": "MIT",
   "devDependencies": {
-    "grunt": "^1.0.1",
-    "grunt-cli": "^1.2.0",
-    "grunt-contrib-sass": "^1.0.0",
-    "grunt-contrib-watch": "^1.0.0",
-    "update": "^0.7.4"
+    "browser-sync": "^2.23.6",
+    "gulp": "^3.9.1",
+    "gulp-inject": "^4.3.2",
+    "gulp-sass": "^3.2.1"
   }
 }

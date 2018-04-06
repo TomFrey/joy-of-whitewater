@@ -1,3 +1,4 @@
+<!-- inject:htmlHeader -->
 <!doctype html>
 <html lang="de">
 <head>
@@ -13,43 +14,44 @@
 </head>
 <body>
 
-    <div class="wrapper">
+<div class="wrapper">
 
-        <nav>
-            <img id="hamburger" src="images/list.svg" alt="Navigation">
-            <ul id="mainNavi" class="hide">
-                <li><a href="#">Kanukurse</a></li>
-                <li><a href="#">Abenteuer-/Genusspaddeln</a></li>
-                <li><a href="#">Joy of Whitewater</a></li>
+    <nav>
+        <img id="hamburger" src="images/list.svg" alt="Navigation">
+        <ul id="mainNavi" class="hide">
+            <li><a href="kanukurse.html">Kanukurse</a></li>
+            <li><a href="abenteuerundgenusspaddeln.html">Abenteuer-/Genusspaddeln</a></li>
+            <li><a href="joyofwhitewater.html">Joy of Whitewater</a></li>
+        </ul>
+        <div class="clearfix"></div>
+    </nav>
+
+    <header>
+        <!-- <img id="desktop_logo" src="images/joy_logo.jpg" alt="">  -->
+        <img id="mobile" src="images/flo_equador.jpg" alt="">
+        <!-- <img id="desktop" src="images/flo_equador.jpg" alt=""> -->
+
+        <div class="images-carousel">
+            <ul class="images">
+                <li class="image">
+                    <img src="images/carousel/idaho1.jpg" alt="Idaho">
+                </li>
+                <li class="image">
+                    <img src="images/carousel/idaho2.jpg" alt="Idaho">
+                </li>
+                <li class="image">
+                    <img src="images/carousel/idaho3.jpg" alt="Idaho">
+                </li>
+                <li class="image">
+                    <img src="images/carousel/idaho4.jpg" alt="Idaho">
+                </li>
+                <li class="image">
+                    <img src="images/flo_equador.jpg" alt="">
+                </li>
             </ul>
-            <div class="clearfix"></div>
-        </nav>
-
-        <header>
-           <!-- <img id="desktop_logo" src="images/joy_logo.jpg" alt="">  -->
-            <img id="mobile" src="images/flo_equador.jpg" alt="">
-            <!-- <img id="desktop" src="images/flo_equador.jpg" alt=""> -->
-
-            <div class="images-carousel">
-                <ul class="images">
-                    <li class="image">
-                        <img src="images/carousel/idaho1.jpg" alt="">
-                    </li>
-                    <li class="image">
-                        <img src="images/carousel/idaho2.jpg" alt="">
-                    </li>
-                    <li class="image">
-                        <img src="images/carousel/idaho3.jpg" alt="">
-                    </li>
-                    <li class="image">
-                        <img src="images/carousel/idaho4.jpg" alt="">
-                    </li>
-                    <li class="image">
-                        <img src="images/flo_equador.jpg" alt="">
-                    </li>
-                </ul>
-            </div>
-        </header>
+        </div>
+    </header>
+<!-- endinject -->
 
         <main>
             <section class="text-container">
@@ -99,15 +101,19 @@
 
         </main>
 
+    <!-- inject:htmlFooter -->
 
+<!-- ende wrapper -->
+</div>
+<footer>footer</footer>
 
-    </div>
-    <footer>footer</footer>
-
-    <script src="assets/scripts/utils/jquery-3.2.1.js"></script>
-    <script src="assets/scripts/guiControll/navigation.js"></script>
-    <script src="assets/scripts/guiControll/imageCarousel.js"></script>
-    <script src="assets/scripts/app.js"></script>
+<script src="assets/js/utils/jquery-3.2.1.js"></script>
+<script src="assets/js/guiControll/navigation.js"></script>
+<script src="assets/js/guiControll/imageCarousel.js"></script>
+<script src="assets/js/app.js"></script>
 
 </body>
 </html>
+
+
+<!-- endinject -->
