@@ -120,19 +120,36 @@ main{
 			> li {
 				float: left	;
 				padding-left: 12px;
+				position: relative;
 
-				> a {
-					display: inline-block;
-					text-decoration: none;
+				a.u-slide-line{
 					color: rgb(0,0,0);
-					background-color: rgb(255,255,255);
-					border-bottom: 5px solid rgb(203,210,239);
-					padding: 0px;
+					background: url("../../images/link.png") white bottom left repeat-x;
+					position: relative;
+					display: inline-block;
+					overflow: hidden;
+					text-decoration: none;
+					padding: 0px 0px 3px 0px;
 					margin-bottom: 1px;
 				}
-				> a:hover{
-					border-bottom: 5px solid rgb(0,10,242);
-					transition: border-bottom 1.5s;
+
+				a.u-slide-line::after{
+					content: "";
+					position: absolute;
+					bottom: 0;
+					left: 0;
+					width: 100%;
+					height: 3px;
+					background-color: rgb(255,189,30);
+					visibility: hidden;
+					transform: translate3d(-100%,0,0);
+					transition: visibility 0ms linear 350ms, transform 350ms cubic-bezier(.215, .61, .355,1);
+				}
+
+				a.u-slide-line:hover::after{
+					visibility: visible;
+					transform: translate3d(0%,0,0);
+					transition: visibility 0ms linear 0ms, transform 350ms cubic-bezier(.215, .61, .355,1);
 				}
 			}
 		}
