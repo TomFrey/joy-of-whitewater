@@ -103,7 +103,7 @@ table {
   .parallax-container {
     display: block;
     /* The image used */
-    background-image: url("http://127.0.0.1:8888/theJoyOfWhitewater/app/images/flo_equador.jpg");
+    background-image: url("/../../images/flo_equador.jpg");
     /* Set a specific height */
     height: 250px;
     /* Create the parallax scrolling effect */
@@ -186,18 +186,32 @@ main .text-container {
       width: 500px; }
       nav ul#mainNavi > li, nav ul#mainNavi.hide > li {
         float: left;
-        padding-left: 12px; }
-        nav ul#mainNavi > li > a, nav ul#mainNavi.hide > li > a {
-          display: inline-block;
-          text-decoration: none;
+        padding-left: 12px;
+        position: relative; }
+        nav ul#mainNavi > li a.u-slide-line, nav ul#mainNavi.hide > li a.u-slide-line {
           color: black;
-          background-color: white;
-          border-bottom: 5px solid #cbd2ef;
-          padding: 0px;
+          background: url("../../images/link.png") white bottom left repeat-x;
+          position: relative;
+          display: inline-block;
+          overflow: hidden;
+          text-decoration: none;
+          padding: 0px 0px 3px 0px;
           margin-bottom: 1px; }
-        nav ul#mainNavi > li > a:hover, nav ul#mainNavi.hide > li > a:hover {
-          border-bottom: 5px solid #000af2;
-          transition: border-bottom 1.5s; }
+        nav ul#mainNavi > li a.u-slide-line::after, nav ul#mainNavi.hide > li a.u-slide-line::after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 3px;
+          background-color: #ffbd1e;
+          visibility: hidden;
+          transform: translate3d(-100%, 0, 0);
+          transition: visibility 0ms linear 350ms, transform 350ms cubic-bezier(0.215, 0.61, 0.355, 1); }
+        nav ul#mainNavi > li a.u-slide-line:hover::after, nav ul#mainNavi.hide > li a.u-slide-line:hover::after {
+          visibility: visible;
+          transform: translate3d(0%, 0, 0);
+          transition: visibility 0ms linear 0ms, transform 350ms cubic-bezier(0.215, 0.61, 0.355, 1); }
   header {
     margin-bottom: 40px; }
     header img#desktop_logo {
