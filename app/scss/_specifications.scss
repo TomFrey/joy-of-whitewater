@@ -1,0 +1,35 @@
+/*** colors ***/
+
+$baseColor1: #0B3CB2;
+$baseColor2: #3873FF;
+$baseColor3: #1E61FF;
+$complimentaryColor1: #B27E00;
+$complimentaryColor2: #FFBD1E;
+
+$backgroundColor:  #ffffff;
+
+$mobileNavBackground: $baseColor1;
+$mobileNavFontColor: $complimentaryColor2;
+
+$navUSlider: $complimentaryColor2;
+
+$textBackground: $baseColor1;
+
+$textTitle: $complimentaryColor1;
+$text: $complimentaryColor2;
+
+
+/*** sizes ***/
+
+$standardFontSize: 16px;
+
+$textSize: 1rem;
+$titleSize: 1.75rem;
+
+$navTextSize: 1.125rem;
+
+
+/*** fonts ***/
+
+$standardTextFont: "Open Sans", "Arial", "sans-serif";
+$textContainerTitleFont: "Gloria Hallelujah", "Arial", "sans-serif";

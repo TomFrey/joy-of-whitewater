@@ -1,5 +1,6 @@
 @import "reset";
 @import "animations";
+@import "specifications";
 @import "components/components";
 
 
@@ -16,19 +17,19 @@ html{
 
 
 html{
-	font-size: 16px;
+	font-size: $standardFontSize;
 }
 
 
 body{
-	font-family: "Open Sans", "Arial", "sans-serif";
+	font-family: $standardTextFont;
 	line-height: 1.25rem;
 
 	.wrapper{
 		max-width: 1200px;
 		width: 100%;
 		margin: 0 auto;
-		background-color: rgb(255,255,255);
+		background-color: $backgroundColor;
 	}
 }
 
@@ -55,8 +56,8 @@ nav{
 			margin-bottom: 1px;
 			> a {
 				text-decoration: none;
-				color: rgb(255, 255, 255);
-				background-color: rgb(0, 0, 0);
+				color: $mobileNavFontColor;
+				background-color: $mobileNavBackground;
 				padding: 8px 5px;
 				display: block;
 			}
@@ -115,7 +116,7 @@ main{
 			position: static;
 			//ul is floated to the right and li to the left because otherwise items order will change
 			float: right;
-			width: 500px;
+			width: 550px;
 
 			> li {
 				float: left	;
@@ -125,6 +126,7 @@ main{
 				a.u-slide-line{
 					color: rgb(0,0,0);
 					background: url("../../images/link.png") white bottom left repeat-x;
+					font-size: $navTextSize;
 					position: relative;
 					display: inline-block;
 					overflow: hidden;
@@ -140,7 +142,7 @@ main{
 					left: 0;
 					width: 100%;
 					height: 3px;
-					background-color: rgb(255,189,30);
+					background-color: $navUSlider;
 					visibility: hidden;
 					transform: translate3d(-100%,0,0);
 					transition: visibility 0ms linear 350ms, transform 350ms cubic-bezier(.215, .61, .355,1);

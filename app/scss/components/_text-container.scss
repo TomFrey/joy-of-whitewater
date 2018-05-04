@@ -6,15 +6,18 @@
 
 .text-container{
   padding: 10px;
-  background-color: rgb(203,210,239);
+  background-color: $textBackground;
 
   > .title{
-    font-size: 1.5rem;
-    color: rgb(70,70,70);
+    font-family: $textContainertitleFont;
+    font-size: $titleSize;
+    color: $textTitle;
     margin-bottom: 0.75rem;
   }
 
   > .paragraph{
+    color: $text;
+    font-size: $textSize;
     margin-bottom: 0.5rem;
   }
 }
@@ -24,7 +27,7 @@
 
   .text-container{
     padding: 20px;
-    background-color: rgb(203,210,239);
+    background-color: $textBackground;
   }
 
 }
