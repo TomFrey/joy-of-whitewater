@@ -68,7 +68,7 @@ table {
   padding: 10px;
   background-color: #0B3CB2; }
   .text-container > .title {
-    font-family: "Gloria Hallelujah";
+    font-family: "Gloria Hallelujah", "Arial", "sans-serif";
     font-size: 1.75rem;
     color: #B27E00;
     margin-bottom: 0.75rem; }
@@ -229,5 +229,24 @@ main .text-container {
     header .images-carousel {
       display: block;
       width: 100%; }
+      header .images-carousel .containerForTitle {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        padding: 40px 30px;
+        background: inherit;
+        background-attachment: fixed;
+        overflow: hidden;
+        z-index: 10; }
+      header .images-carousel .containerForTitle h1 {
+        position: relative;
+        z-index: 10;
+        width: 40%;
+        font-family: "Gloria Hallelujah", "Arial", "sans-serif";
+        font-size: 3rem;
+        color: #FFBD1E;
+        line-height: 3rem;
+        text-align: center; }
   main .text-container {
     margin-bottom: 40px; } }

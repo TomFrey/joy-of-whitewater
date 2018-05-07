@@ -171,6 +171,30 @@ main{
 		.images-carousel {
 			display: block;
 			width: 100%;
+
+
+			.containerForTitle {
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				width: 100%;
+				padding: 40px 30px;
+				background: inherit;
+				background-attachment: fixed;
+				overflow: hidden;
+				z-index: 10;
+			}
+
+			.containerForTitle h1{
+				position: relative;
+				z-index: 10;
+				width: 40%;
+				font-family: $textContainerTitleFont;
+				font-size: $bigTitleSize;
+				color: $text;
+				line-height: 3rem;
+				text-align: center;
+			}
 		}
 		margin-bottom: 40px;
 	}
