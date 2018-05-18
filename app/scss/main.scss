@@ -26,7 +26,7 @@ body{
 	line-height: 1.25rem;
 
 	.wrapper{
-		max-width: 1200px;
+		max-width: $maxWidth;
 		width: 100%;
 		margin: 0 auto;
 		background-color: $backgroundColor;
@@ -104,7 +104,12 @@ main{
 @media screen and (min-width: 740px) {    //wenn Bildschirm grösser 740 px gross ist, dann...
 
 	nav{
+		background-color: #ffffff;
 		padding-top: 20px;
+		position: fixed;
+		top: 0;
+		width: $maxWidth;
+		z-index: 10;
 
 		img#hamburger {
 			display: none;
@@ -159,6 +164,9 @@ main{
 
 
 	header{
+		margin-top: 40px;
+		margin-bottom: 40px;
+
 		img#desktop_logo{
 			display: block;
 			position: absolute;
@@ -182,12 +190,12 @@ main{
 				background: inherit;
 				background-attachment: fixed;
 				overflow: hidden;
-				z-index: 10;
+				z-index: 5;
 			}
 
 			.containerForTitle h1{
 				position: relative;
-				z-index: 10;
+				z-index: 5;
 				width: 40%;
 				font-family: $textContainerTitleFont;
 				font-size: $bigTitleSize;
@@ -196,7 +204,6 @@ main{
 				text-align: center;
 			}
 		}
-		margin-bottom: 40px;
 	}
 
 
