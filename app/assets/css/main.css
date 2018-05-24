@@ -63,25 +63,90 @@ table {
 *  That's the container on the main page which contains text.
 *  It's 100% wide.
 *
+
+
+Mobile
+
+---------------- text-container------------------------------
+|-----------------------------------------------------------|                                                        |
+|                                                           |
+|   title                                                   |
+|                                                           |
+|   paragraph                                               |
+|                                                           |
+|-----------------------------------------------------------|
+
+|-----------------------------------------------------------|                                                        |
+|                                                           |
+|   title                                                   |
+|                                                           |
+|   paragraph                                               |
+|                                                           |
+|-----------------------------------------------------------|
+-------------------------------------------------------------
+
+
+Desktop
+
+---------------- text-container------------------------------
+|---------------------------------------|-------------------|
+|                                       |                   |
+|       text-container-left  62%        |   filler-right    |
+|                                       |       38%         |
+|   title                               |                   |
+|                                       |                   |
+|   paragraph                           |                   |
+|                                       |                   |
+|---------------------------------------|-------------------|
+-------------------------------------------------------------
+
+---------------- text-container------------------------------
+|-----------------|-----------------------------------------|
+|                 |                                         |
+|   filler-left   |            text-container-right         |
+|                 |      title                              |
+|                 |                                         |
+|                 |      paragraph                          |
+|                 |                                         |
+|-----------------|-----------------------------------------|
+-------------------------------------------------------------
 */
 .text-container {
   padding: 10px;
   background-color: #0B3CB2; }
-  .text-container > .title {
+  .text-container .title {
     font-family: "Gloria Hallelujah", "Arial", "sans-serif";
     font-size: 1.75rem;
     color: #B27E00;
     margin-bottom: 0.75rem; }
-  .text-container > .paragraph {
+  .text-container .paragraph {
     color: #FFBD1E;
     font-size: 1rem;
     margin-bottom: 0.5rem; }
 
-/* ab hier für desktop */
+/* *************************************************** */
+/* *********** ab hier für desktop ******************* */
 @media screen and (min-width: 740px) {
   .text-container {
-    padding: 20px;
-    background-color: #0B3CB2; } }
+    display: flex;
+    flex-flow: row nowrap;
+    background-color: #0B3CB2; }
+    .text-container > .text-container-left {
+      flex: 0 1 62%;
+      order: 0;
+      padding-right: 10px; }
+    .text-container > .text-container-right {
+      flex: 0 1 38%;
+      order: 1;
+      padding-left: 10px; }
+    .text-container > .filler {
+      background-color: #FFBD1E; }
+    .text-container > .filler-right {
+      flex: 0 1 38%;
+      order: 1; }
+    .text-container > .filler-left {
+      flex: 0 1 62%;
+      order: 0; } }
 
 .images-carousel {
   position: relative; }
@@ -176,7 +241,7 @@ header .images-carousel {
   display: none; }
 
 main .text-container {
-  margin-bottom: 20px; }
+  margin-bottom: 10px; }
 
 /* ab hier für desktop */
 @media screen and (min-width: 740px) {
@@ -253,6 +318,4 @@ main .text-container {
         font-size: 3rem;
         color: #FFBD1E;
         line-height: 3rem;
-        text-align: center; }
-  main .text-container {
-    margin-bottom: 40px; } }
+        text-align: center; } }

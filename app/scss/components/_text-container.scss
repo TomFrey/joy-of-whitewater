@@ -2,32 +2,110 @@
 *  That's the container on the main page which contains text.
 *  It's 100% wide.
 *
+
+
+Mobile
+
+---------------- text-container------------------------------
+|-----------------------------------------------------------|                                                        |
+|                                                           |
+|   title                                                   |
+|                                                           |
+|   paragraph                                               |
+|                                                           |
+|-----------------------------------------------------------|
+
+|-----------------------------------------------------------|                                                        |
+|                                                           |
+|   title                                                   |
+|                                                           |
+|   paragraph                                               |
+|                                                           |
+|-----------------------------------------------------------|
+-------------------------------------------------------------
+
+
+Desktop
+
+---------------- text-container------------------------------
+|---------------------------------------|-------------------|
+|                                       |                   |
+|       text-container-left  62%        |   filler-right    |
+|                                       |       38%         |
+|   title                               |                   |
+|                                       |                   |
+|   paragraph                           |                   |
+|                                       |                   |
+|---------------------------------------|-------------------|
+-------------------------------------------------------------
+
+---------------- text-container------------------------------
+|-----------------|-----------------------------------------|
+|                 |                                         |
+|   filler-left   |            text-container-right         |
+|                 |      title                              |
+|                 |                                         |
+|                 |      paragraph                          |
+|                 |                                         |
+|-----------------|-----------------------------------------|
+-------------------------------------------------------------
 */
 
 .text-container{
   padding: 10px;
   background-color: $textBackground;
 
-  > .title{
+   .title{
     font-family: $textContainerTitleFont;
     font-size: $titleSize;
     color: $textTitle;
     margin-bottom: 0.75rem;
   }
 
-  > .paragraph{
+   .paragraph{
     color: $text;
     font-size: $textSize;
     margin-bottom: 0.5rem;
   }
 }
 
-/* ab hier für desktop */
+
+/* *************************************************** */
+/* *********** ab hier für desktop ******************* */
 @media screen and (min-width: 740px) {
 
   .text-container{
-    padding: 20px;
+    display: flex;
+    flex-flow: row nowrap;
     background-color: $textBackground;
+
+    > .text-container-left{
+      flex: 0 1 62%;
+      order: 0;
+      padding-right: 10px;
+    }
+
+    > .text-container-right{
+      flex: 0 1 38%;
+      order: 1;
+      padding-left: 10px;
+    }
+
+    > .filler{
+      background-color: $complimentaryColor2;
+    }
+
+    > .filler-right{
+      flex: 0 1 38%;
+      order:1;
+    }
+
+    > .filler-left{
+      flex: 0 1 62%;
+      order: 0;
+    }
+
+
   }
 
 }
