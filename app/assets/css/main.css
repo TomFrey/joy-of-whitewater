@@ -68,7 +68,7 @@ table {
 Mobile
 
 ---------------- text-container------------------------------
-|-----------------------------------------------------------|                                                        |
+|-----------------------------------------------------------|
 |                                                           |
 |   title                                                   |
 |                                                           |
@@ -76,7 +76,7 @@ Mobile
 |                                                           |
 |-----------------------------------------------------------|
 
-|-----------------------------------------------------------|                                                        |
+|-----------------------------------------------------------|
 |                                                           |
 |   title                                                   |
 |                                                           |
@@ -114,11 +114,25 @@ Desktop
 .text-container {
   padding: 10px;
   background-color: #0B3CB2; }
-  .text-container .title {
+  .text-container > .text-container-left {
+    width: 100%; }
+  .text-container > .text-container-right {
+    width: 100%; }
+  .text-container > .filler {
+    display: none; }
+  .text-container h2.title {
     font-family: "Gloria Hallelujah", "Arial", "sans-serif";
     font-size: 1.75rem;
     color: #B27E00;
-    margin-bottom: 0.75rem; }
+    line-height: 2rem;
+    margin-bottom: 1rem; }
+  .text-container h3.title {
+    font-family: "Gloria Hallelujah", "Arial", "sans-serif";
+    font-size: 1.25rem;
+    color: #B27E00;
+    line-height: 1.5rem;
+    padding-top: 0.25rem;
+    margin-bottom: 0.5rem; }
   .text-container .paragraph {
     color: #FFBD1E;
     font-size: 1rem;
@@ -140,7 +154,11 @@ Desktop
       order: 1;
       padding-left: 10px; }
     .text-container > .filler {
-      background-color: #FFBD1E; }
+      display: block;
+      background-color: #0B3CB2; }
+      .text-container > .filler img {
+        max-width: 100%;
+        height: auto; }
     .text-container > .filler-right {
       flex: 0 1 38%;
       order: 1; }

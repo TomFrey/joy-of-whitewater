@@ -7,7 +7,7 @@
 Mobile
 
 ---------------- text-container------------------------------
-|-----------------------------------------------------------|                                                        |
+|-----------------------------------------------------------|
 |                                                           |
 |   title                                                   |
 |                                                           |
@@ -15,7 +15,7 @@ Mobile
 |                                                           |
 |-----------------------------------------------------------|
 
-|-----------------------------------------------------------|                                                        |
+|-----------------------------------------------------------|
 |                                                           |
 |   title                                                   |
 |                                                           |
@@ -55,11 +55,36 @@ Desktop
   padding: 10px;
   background-color: $textBackground;
 
-   .title{
+
+  > .text-container-left{
+    width: 100%;
+  }
+
+  > .text-container-right{
+    width: 100%;
+  }
+
+  > .filler{
+    display: none;
+  }
+
+
+
+  h2.title{
     font-family: $textContainerTitleFont;
     font-size: $titleSize;
     color: $textTitle;
-    margin-bottom: 0.75rem;
+    line-height: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  h3.title{
+    font-family: $textContainerTitleFont;
+    font-size: $smallTitleSize;
+    color: $textTitle;
+    line-height: 1.5rem;
+    padding-top: 0.25rem;
+    margin-bottom: 0.5rem;
   }
 
    .paragraph{
@@ -92,7 +117,13 @@ Desktop
     }
 
     > .filler{
-      background-color: $complimentaryColor2;
+      display: block;
+      background-color: $textBackground;
+
+      img{
+        max-width: 100%;
+        height: auto;
+      }
     }
 
     > .filler-right{
