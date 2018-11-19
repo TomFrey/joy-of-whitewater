@@ -1,0 +1,54 @@
+.open-drawer{
+  background-color: $textBackground;;
+  bottom: 0;
+  display: inline-block;
+  padding: 0px 10px 10px 10px;
+ // position: absolute;
+}
+
+.open-drawer-wrapper{
+  align-items: baseline;
+  color: $baseColor2Light;
+  display: flex;
+  flex-flow: row nowrap;
+  text-decoration: none;
+}
+
+.open-drawer-wrapper__label{
+
+}
+
+.open-drawer-wrapper__icon{
+  border-bottom: 2px solid $baseColor2Light;
+  border-right: 2px solid $baseColor2Light;
+  height: 12px;
+  margin-left: 12px;
+  transform: rotate(45 + deg);
+  transition: transform 0.2s ease-in-out;
+  width: 12px;
+}
+
+.open-drawer-wrapper__icon.js-show{
+ // border-bottom: 2px solid $baseColor2Light;
+ // border-right: 2px solid $baseColor2Light;
+ // height: 12px;
+ // margin-left: 8px;
+  align-self: flex-end;
+  transform: rotate(-135 + deg);
+ // width: 12px;
+}
+
+
+
+/* ab hier für desktop */
+@media screen and (min-width: 740px) { //wenn Bildschirm grösser 740 px gross ist, dann...
+
+  .open-drawer-wrapper:hover{
+    color: $baseColor2;
+
+    .open-drawer-wrapper__icon{
+      border-bottom: 2px solid $baseColor2;
+      border-right: 2px solid $baseColor2;
+    }
+  }
+}

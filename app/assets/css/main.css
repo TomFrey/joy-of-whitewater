@@ -88,17 +88,32 @@ Mobile
 
 Desktop
 
----------------- text-container------------------------------
-|---------------------------------------|-------------------|
-|                                       |                   |
-|       text-container-left  62%        |   filler-right    |
-|                                       |       38%         |
-|   title                               |                   |
-|                                       |                   |
-|   paragraph                           |                   |
-|                                       |                   |
-|---------------------------------------|-------------------|
--------------------------------------------------------------
+|---------------- text-container------------------------------------|
+|                                                                   |
+| |---------------- text-container-main --------------------------| |
+| | |---------------------------------------|-------------------| | |
+| | |                                       |                   | | |
+| | |      text-container-left  62%         |   filler-right    | | |
+| | |                                       |       38%         | | |
+| | |      title                            |                   | | |
+| | |                                       |                   | | |
+| | |      paragraph                        |                   | | |
+| | |                                       |                   | | |
+| | |---------------------------------------|-------------------| | |
+| |---------------------------------------------------------------| |
+|                                                                 | |
+| |---------------- text-container-detail ------------------------| |
+| | |-----------------------------------------------------------| | |
+| | |                                                           | | |
+| | |             open-drawer                                   | | |
+| | |                                                           | | |
+| | |-----------------------------------------------------------| | |
+| | |                                                           | | |
+| | |             text-container-drawer                         | | |
+| | |                                                           | | |
+| | |-----------------------------------------------------------| | |
+| |---------------------------------------------------------------| |
+|-------------------------------------------------------------------|
 
 ---------------- text-container------------------------------
 |-----------------|-----------------------------------------|
@@ -112,59 +127,83 @@ Desktop
 -------------------------------------------------------------
 */
 .text-container {
-  padding: 10px;
+  display: flex;
+  flex-flow: column nowrap; }
+
+.text-container-main {
+  padding: 8px 8px;
   background-color: #0B3CB2; }
-  .text-container > .text-container-left {
+  .text-container-main > .text-container-left {
     width: 100%; }
-  .text-container > .text-container-right {
+  .text-container-main > .text-container-right {
     width: 100%; }
-  .text-container > .filler {
+  .text-container-main > .filler {
     display: none; }
-  .text-container h2.title {
+  .text-container-main h2.title {
     font-family: "Gloria Hallelujah", "Arial", "sans-serif";
     font-size: 1.75rem;
     color: #B27E00;
     line-height: 2rem;
     margin-bottom: 1rem; }
-  .text-container h3.title {
+  .text-container-main h3.title {
     font-family: "Gloria Hallelujah", "Arial", "sans-serif";
     font-size: 1.25rem;
     color: #B27E00;
     line-height: 1.5rem;
     padding-top: 0.25rem;
     margin-bottom: 0.5rem; }
-  .text-container .paragraph {
+  .text-container-main .paragraph {
     color: #FFBD1E;
     font-size: 1rem;
     margin-bottom: 0.5rem; }
 
+.text-container-drawer {
+  background-color: #3873FF;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-in-out 1ms; }
+
+.text-container-drawer.js-show {
+  max-height: 1000px;
+  transition: max-height 1s ease-in-out 1ms; }
+
+.text-container-drawer__paragraph {
+  padding: 8px 8px; }
+
+.text-container-detail {
+  background-color: #0B3CB2; }
+
 /* *************************************************** */
 /* *********** ab hier für desktop ******************* */
 @media screen and (min-width: 740px) {
-  .text-container {
+  .text-container-main {
     display: flex;
     flex-flow: row nowrap;
     background-color: #0B3CB2; }
-    .text-container > .text-container-left {
+    .text-container-main > .text-container-left {
       flex: 0 1 62%;
       order: 0;
-      padding-right: 10px; }
-    .text-container > .text-container-right {
+      padding-right: 8px; }
+    .text-container-main > .text-container-right {
       flex: 0 1 38%;
       order: 1;
-      padding-left: 10px; }
-    .text-container > .filler {
+      padding-left: 8px; }
+    .text-container-main > .filler {
       display: block;
       background-color: #0B3CB2; }
-      .text-container > .filler img {
+      .text-container-main > .filler img {
         max-width: 100%;
         height: auto; }
-    .text-container > .filler-right {
+    .text-container-main > .filler-right {
       flex: 0 1 38%;
       order: 1; }
-    .text-container > .filler-left {
+    .text-container-main > .filler-left {
       flex: 0 1 62%;
-      order: 0; } }
+      order: 0; }
+    .text-container-main .filler-left__fillarea {
+      background-color: #B27E00;
+      height: 100%;
+      width: 100%; } }
 
 .images-carousel {
   position: relative; }
@@ -200,6 +239,83 @@ Desktop
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover; } }
+
+.course-list {
+  color: #FFBD1E;
+  font-family: "Open Sans", "Arial", "sans-serif";
+  font-size: 16px;
+  line-height: 32px;
+  border: 1px solid #FFBD1E;
+  display: flex;
+  flex-flow: column nowrap;
+  padding: 8px 8px; }
+
+.course-list-item {
+  background-color: #1E61FF;
+  display: flex;
+  flex-flow: row nowrap;
+  padding: 8px 0; }
+
+.course-list-item:not(:last-of-type) {
+  margin-bottom: 8px; }
+
+.course-item__name {
+  color: #B27E00;
+  font-family: "Open Sans", "Arial", "sans-serif";
+  font-size: 20px;
+  line-height: 32px;
+  padding: 0 8px; }
+
+.course-item__place {
+  padding: 0 8px; }
+
+.course-place__city::after {
+  content: ','; }
+
+.course-item__duration {
+  padding: 0 8px; }
+
+.course-item__date {
+  padding: 0 8px; }
+
+.course-date__from::after {
+  content: ' -'; }
+
+/* *************************************************** */
+/* *********** ab hier für desktop ******************* */
+.open-drawer {
+  background-color: #0B3CB2;
+  bottom: 0;
+  display: inline-block;
+  padding: 0px 10px 10px 10px; }
+
+.open-drawer-wrapper {
+  align-items: baseline;
+  color: #9ebbff;
+  display: flex;
+  flex-flow: row nowrap;
+  text-decoration: none; }
+
+.open-drawer-wrapper__icon {
+  border-bottom: 2px solid #9ebbff;
+  border-right: 2px solid #9ebbff;
+  height: 12px;
+  margin-left: 12px;
+  transform: rotate(45deg);
+  transition: transform 0.2s ease-in-out;
+  width: 12px; }
+
+.open-drawer-wrapper__icon.js-show {
+  align-self: flex-end;
+  transform: rotate(-135deg); }
+
+/* ab hier für desktop */
+@media screen and (min-width: 740px) {
+  .open-drawer-wrapper:hover {
+    color: #3873FF; }
+    .open-drawer-wrapper:hover .open-drawer-wrapper__icon {
+      border-bottom: 2px solid #3873FF;
+      border-right: 2px solid #3873FF; } }
 
 /* Border Box Trick */
 /* padding ist in der Box Breite miteingerechnet*/

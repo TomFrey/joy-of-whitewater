@@ -1,0 +1,59 @@
+.course-list{
+  @include courseTableFont();
+  border: 1px solid $complimentaryColor2;
+  display: flex;
+  flex-flow: column nowrap;
+  padding: $basicHeight $basicWidth;
+}
+
+
+.course-list-item{
+  background-color: $baseColor3;
+  display: flex;
+  flex-flow: row nowrap;
+  padding: $basicHeight 0;
+}
+
+.course-list-item:not(:last-of-type){
+  margin-bottom: $basicHeight;
+}
+
+.course-item__name{
+  @include courseTableTitelFont();
+  padding: 0 $basicWidth;
+}
+
+.course-item__place{
+  padding: 0 $basicWidth;
+}
+
+.course-place__city::after{
+  content: ',';
+}
+
+.course-item__duration{
+  padding: 0 $basicWidth;
+}
+
+.course-item__date{
+  padding: 0 $basicWidth;
+}
+
+.course-date__from::after{
+  content: ' -';
+}
+
+
+
+
+
+
+/* *************************************************** */
+/* *********** ab hier für desktop ******************* */
+@media screen and (min-width: 740px) {
+
+
+
+
+
+}

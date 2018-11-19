@@ -27,17 +27,32 @@ Mobile
 
 Desktop
 
----------------- text-container------------------------------
-|---------------------------------------|-------------------|
-|                                       |                   |
-|       text-container-left  62%        |   filler-right    |
-|                                       |       38%         |
-|   title                               |                   |
-|                                       |                   |
-|   paragraph                           |                   |
-|                                       |                   |
-|---------------------------------------|-------------------|
--------------------------------------------------------------
+|---------------- text-container------------------------------------|
+|                                                                   |
+| |---------------- text-container-main --------------------------| |
+| | |---------------------------------------|-------------------| | |
+| | |                                       |                   | | |
+| | |      text-container-left  62%         |   filler-right    | | |
+| | |                                       |       38%         | | |
+| | |      title                            |                   | | |
+| | |                                       |                   | | |
+| | |      paragraph                        |                   | | |
+| | |                                       |                   | | |
+| | |---------------------------------------|-------------------| | |
+| |---------------------------------------------------------------| |
+|                                                                 | |
+| |---------------- text-container-detail ------------------------| |
+| | |-----------------------------------------------------------| | |
+| | |                                                           | | |
+| | |             open-drawer                                   | | |
+| | |                                                           | | |
+| | |-----------------------------------------------------------| | |
+| | |                                                           | | |
+| | |             text-container-drawer                         | | |
+| | |                                                           | | |
+| | |-----------------------------------------------------------| | |
+| |---------------------------------------------------------------| |
+|-------------------------------------------------------------------|
 
 ---------------- text-container------------------------------
 |-----------------|-----------------------------------------|
@@ -52,9 +67,13 @@ Desktop
 */
 
 .text-container{
-  padding: 10px;
-  background-color: $textBackground;
+  display: flex;
+  flex-flow: column nowrap;
+}
 
+.text-container-main{
+  padding: $basicHeight $basicWidth;
+  background-color: $textBackground;
 
   > .text-container-left{
     width: 100%;
@@ -94,12 +113,33 @@ Desktop
   }
 }
 
+.text-container-drawer{
+  background-color: $baseColor2;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-in-out 1ms;
+
+}
+
+.text-container-drawer.js-show{
+  max-height: 1000px;
+  transition: max-height 1s ease-in-out 1ms;
+}
+
+.text-container-drawer__paragraph{
+  padding: $basicHeight $basicWidth;
+}
+
+.text-container-detail{
+  background-color: $textBackground;
+}
+
 
 /* *************************************************** */
 /* *********** ab hier für desktop ******************* */
 @media screen and (min-width: 740px) {
 
-  .text-container{
+  .text-container-main{
     display: flex;
     flex-flow: row nowrap;
     background-color: $textBackground;
@@ -107,13 +147,13 @@ Desktop
     > .text-container-left{
       flex: 0 1 62%;
       order: 0;
-      padding-right: 10px;
+      padding-right: $basicWidth;
     }
 
     > .text-container-right{
       flex: 0 1 38%;
       order: 1;
-      padding-left: 10px;
+      padding-left: $basicWidth;
     }
 
     > .filler{
@@ -136,17 +176,13 @@ Desktop
       order: 0;
     }
 
+    .filler-left__fillarea{
+      background-color: $complimentaryColor1;
+      height: 100%;
+      width: 100%;
+    }
+
 
   }
 
 }
-
-
-//variants
-
-//.like-button {
-//  &.-wide { /* ... */ }
-//  &.-short { /* ... */ }
-//  &.-disabled { /* ... */ }
-//}
-
