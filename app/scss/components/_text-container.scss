@@ -72,19 +72,29 @@ Desktop
 }
 
 .text-container-main{
-  padding: $basicHeight $basicWidth;
   background-color: $textBackground;
+  display: flex;
+  flex-flow: column nowrap;
+  padding: $basicHeight $basicWidth;
+
 
   > .text-container-left{
+    order: 0;
     width: 100%;
   }
 
   > .text-container-right{
+    order: 0;
     width: 100%;
   }
 
   > .filler{
-    display: none;
+    display: block;
+    order: 1;
+
+    .filler__picture__img{
+      width: 100%;
+    }
   }
 
 
@@ -94,7 +104,8 @@ Desktop
     font-size: $titleSize;
     color: $textTitle;
     line-height: 2rem;
-    margin-bottom: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 0.75rem;
   }
 
   h3.title{
@@ -102,7 +113,7 @@ Desktop
     font-size: $smallTitleSize;
     color: $textTitle;
     line-height: 1.5rem;
-    padding-top: 0.25rem;
+    padding-top: 0.5rem;
     margin-bottom: 0.5rem;
   }
 

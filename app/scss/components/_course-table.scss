@@ -1,6 +1,6 @@
 .course-list{
   @include courseTableFont();
-  border: 1px solid $complimentaryColor2;
+  //border: 1px solid $complimentaryColor2;
   display: flex;
   flex-flow: column nowrap;
   padding: $basicHeight $basicWidth;
@@ -11,16 +11,32 @@
   background-color: $baseColor3;
   display: flex;
   flex-flow: row nowrap;
-  padding: $basicHeight 0;
+  //padding: $basicHeight 0;
 }
 
 .course-list-item:not(:last-of-type){
   margin-bottom: $basicHeight;
 }
 
+
+// Name
+.course-item__name-wrapper{
+  border-right: 3px solid $baseColor2;
+  flex: 2 2 40%;
+  padding: $basicHeight $basicWidth;
+}
+
 .course-item__name{
   @include courseTableTitelFont();
-  padding: 0 $basicWidth;
+  padding: 0;
+}
+
+
+// Ort
+.course-item__place-wrapper{
+  border-right: 3px solid $baseColor2;
+  flex: 1 1 20%;
+  padding: $basicHeight 0;
 }
 
 .course-item__place{
@@ -31,8 +47,17 @@
   content: ',';
 }
 
-.course-item__duration{
-  padding: 0 $basicWidth;
+
+// Dauer
+.course-item__duration-wrapper{
+  display: none;
+}
+
+
+// Datum
+.course-item__date-wrapper{
+  flex: 1 1 20%;
+  padding: $basicHeight 0;
 }
 
 .course-item__date{
@@ -53,7 +78,17 @@
 @media screen and (min-width: 740px) {
 
 
+  // Dauer
+  .course-item__duration-wrapper{
+    border-right: 3px solid $baseColor2;
+    display: block;
+    flex: 1 1 10%;
+    padding: $basicHeight 0;
+  }
 
+  .course-item__duration{
+    padding: 0 $basicWidth;
+  }
 
 
 }
