@@ -1,0 +1,97 @@
+/*
+|------------.footer-------------------------------------------------------|
+||------------------.footer-wrapper---------------------------------------||
+|| |----------------.footer-nav-----|------.backtotop-------------------| ||
+|| |                                |                                   | ||
+|| |--------------------------------|-----------------------------------| ||
+|| |--------------------------.social-media-----------------------------| ||
+|| |                                                                    | ||
+|| |--------------------------------------------------------------------| ||
+||------------------------------------------------------------------------||
+||------------------------------------------------------------------------||
+*/
+.footer{
+  @include footerFont();
+  background-color: $baseColor3;
+  color: $complimentaryColor2;
+  // height: 14*$basicHeight;
+  margin: 0 auto;
+  max-width: $maxWidth;
+  padding: $basicHeight $basicWidth;
+  width: 100%;
+}
+
+.footer-wrapper{
+  display: flex;
+  flex-flow: row wrap;
+  //height: 14*$basicHeight;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-address{
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+
+
+/*
+  |------------.backtotop--------------------------------------------------------|
+  ||------------------.backtotop-wrapper----------------------------------------||
+  || |----------------------.backtotop-wrapper__img---------------------------| ||
+  || |                                                                        | ||
+  || |                                                                        | ||
+  || |------------------------------------------------------------------------| ||
+  ||----------------------------------------------------------------------------||
+  |------------------------------------------------------------------------------|
+  */
+.backtotop{
+  order: 1;
+}
+
+.backtotop-wrapper{
+  align-items: center;
+  color: $complimentaryColor2;
+  display: flex;
+  flex-flow: row nowrap;
+  text-decoration: none;
+}
+
+.backtotop-wrapper__label{
+  display: none;
+}
+
+.backtotop-wrapper__img{
+
+}
+
+
+
+
+/* ab hier für desktop */
+@media screen and (min-width: 740px) { //wenn Bildschirm grösser 740 px gross ist, dann...
+
+  .footer{
+    padding: $basicHeight 2*$basicWidth;
+  }
+
+  .footer-wrapper{
+    flex-flow: row nowrap;
+  }
+
+
+  .backtotop-wrapper:hover{
+    color: $complimentaryColor1;
+  }
+
+  .backtotop{
+    order: 2;
+  }
+
+  .backtotop-wrapper__label{
+    display: inline-block;
+    padding-right: 1.5*$basicWidth;
+  }
+
+}

@@ -71,12 +71,13 @@
 
 
 
-
-
 /* *************************************************** */
 /* *********** ab hier für desktop ******************* */
 @media screen and (min-width: 740px) {
 
+  .course-list{
+    padding: $basicHeight 2*$basicWidth;
+  }
 
   // Dauer
   .course-item__duration-wrapper{
@@ -89,6 +90,4 @@
   .course-item__duration{
     padding: 0 $basicWidth;
   }
-
-
 }

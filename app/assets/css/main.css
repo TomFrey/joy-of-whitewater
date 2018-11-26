@@ -187,15 +187,16 @@ Desktop
   .text-container-main {
     display: flex;
     flex-flow: row nowrap;
-    background-color: #0B3CB2; }
+    background-color: #0B3CB2;
+    padding: 8px 16px; }
     .text-container-main > .text-container-left {
       flex: 0 1 62%;
       order: 0;
-      padding-right: 8px; }
+      padding-right: 16px; }
     .text-container-main > .text-container-right {
       flex: 0 1 38%;
       order: 1;
-      padding-left: 8px; }
+      padding-left: 16px; }
     .text-container-main > .filler {
       display: block;
       background-color: #0B3CB2; }
@@ -211,7 +212,9 @@ Desktop
     .text-container-main .filler-left__fillarea {
       background-color: #B27E00;
       height: 100%;
-      width: 100%; } }
+      width: 100%; }
+  .text-container-drawer__paragraph {
+    padding: 8px 16px; } }
 
 .images-carousel {
   position: relative; }
@@ -304,6 +307,8 @@ Desktop
 /* *************************************************** */
 /* *********** ab hier für desktop ******************* */
 @media screen and (min-width: 740px) {
+  .course-list {
+    padding: 8px 16px; }
   .course-item__duration-wrapper {
     border-right: 3px solid #3873FF;
     display: block;
@@ -312,11 +317,83 @@ Desktop
   .course-item__duration {
     padding: 0 8px; } }
 
+/*
+|------------.footer-------------------------------------------------------|
+||------------------.footer-wrapper---------------------------------------||
+|| |----------------.footer-nav-----|------.backtotop-------------------| ||
+|| |                                |                                   | ||
+|| |--------------------------------|-----------------------------------| ||
+|| |--------------------------.social-media-----------------------------| ||
+|| |                                                                    | ||
+|| |--------------------------------------------------------------------| ||
+||------------------------------------------------------------------------||
+||------------------------------------------------------------------------||
+*/
+.footer {
+  color: #FFBD1E;
+  font-family: "Open Sans", "Arial", "sans-serif";
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 24px;
+  background-color: #1E61FF;
+  color: #FFBD1E;
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 8px 8px;
+  width: 100%; }
+
+.footer-wrapper {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center; }
+
+.footer-address {
+  display: flex;
+  flex-flow: column nowrap; }
+
+/*
+  |------------.backtotop--------------------------------------------------------|
+  ||------------------.backtotop-wrapper----------------------------------------||
+  || |----------------------.backtotop-wrapper__img---------------------------| ||
+  || |                                                                        | ||
+  || |                                                                        | ||
+  || |------------------------------------------------------------------------| ||
+  ||----------------------------------------------------------------------------||
+  |------------------------------------------------------------------------------|
+  */
+.backtotop {
+  order: 1; }
+
+.backtotop-wrapper {
+  align-items: center;
+  color: #FFBD1E;
+  display: flex;
+  flex-flow: row nowrap;
+  text-decoration: none; }
+
+.backtotop-wrapper__label {
+  display: none; }
+
+/* ab hier für desktop */
+@media screen and (min-width: 740px) {
+  .footer {
+    padding: 8px 16px; }
+  .footer-wrapper {
+    flex-flow: row nowrap; }
+  .backtotop-wrapper:hover {
+    color: #B27E00; }
+  .backtotop {
+    order: 2; }
+  .backtotop-wrapper__label {
+    display: inline-block;
+    padding-right: 12px; } }
+
 .open-drawer {
   background-color: #0B3CB2;
   bottom: 0;
   display: inline-block;
-  padding: 0px 10px 10px 10px; }
+  padding: 0px 10px 10px 8px; }
 
 .open-drawer-wrapper {
   align-items: baseline;
@@ -340,6 +417,8 @@ Desktop
 
 /* ab hier für desktop */
 @media screen and (min-width: 740px) {
+  .open-drawer {
+    padding: 0px 10px 10px 16px; }
   .open-drawer-wrapper:hover {
     color: #3873FF; }
     .open-drawer-wrapper:hover .open-drawer-wrapper__icon {

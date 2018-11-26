@@ -154,17 +154,18 @@ Desktop
     display: flex;
     flex-flow: row nowrap;
     background-color: $textBackground;
+    padding: $basicHeight 2*$basicWidth;
 
     > .text-container-left{
       flex: 0 1 62%;
       order: 0;
-      padding-right: $basicWidth;
+      padding-right: 2*$basicWidth;
     }
 
     > .text-container-right{
       flex: 0 1 38%;
       order: 1;
-      padding-left: $basicWidth;
+      padding-left: 2*$basicWidth;
     }
 
     > .filler{
@@ -192,8 +193,12 @@ Desktop
       height: 100%;
       width: 100%;
     }
-
-
   }
+
+
+  .text-container-drawer__paragraph{
+    padding: $basicHeight 2*$basicWidth;
+  }
+
 
 }

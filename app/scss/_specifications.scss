@@ -43,6 +43,14 @@ $navTextSize: 1.125rem;
 $standardTextFont: "Open Sans", "Arial", "sans-serif";
 $textContainerTitleFont: "Gloria Hallelujah", "Arial", "sans-serif";
 
+@mixin footerFont(){
+  color: $complimentaryColor2;
+  font-family: $standardTextFont;
+  font-size: $standardFontSize;
+  font-weight: bold;
+  line-height: 24px;
+}
+
 @mixin courseTableFont(){
   color: $complimentaryColor2;
   font-family: $standardTextFont;

@@ -18,7 +18,7 @@
 <div class="wrapper">
 
     <nav>
-        <img id="hamburger" src="images/hamburger.svg" alt="Navigation">
+        <img id="hamburger" src="images/icon/hamburger.svg" alt="Navigation">
         <ul id="mainNavi" class="hide">
             <li><a class="u-slide-line" href="kanukurse.html">Kanukurse</a></li>
             <li><a class="u-slide-line" href="abenteuerundgenusspaddeln.html">Abenteuer-/Genusspaddeln</a></li>
@@ -55,6 +55,7 @@
             </ul>
         </div>
     </header>
+
 <!-- endinject -->
 
 
@@ -292,9 +293,28 @@
 
 
 
+
+
 <!-- ende wrapper -->
 </div>
-<footer>footer</footer>
+<footer class="footer">
+    <div class="footer-wrapper">
+
+        <div class="footer-address">
+            <span>mitLinXlernen AG</span>
+            <span>Station Versam 7</span>
+            <span>CH - 7104 Versam</span>
+            <span>E-Mail</span>
+        </div>
+
+        <div class="backtotop">
+            <a href="#top" class="backtotop-wrapper">
+                <span class="backtotop-wrapper__label">ZURÜCK NACH OBEN</span>
+                <img class="backtotop-wrapper__img" src="images/icon/arrow_up.svg" alt="Link nach oben" title="zurück nach oben">
+            </a>
+        </div>
+    </div>
+</footer>
 
 <script src="assets/js/utils/jquery-3.2.1.js"></script>
 <script src="assets/js/guiControll/navigation.js"></script>
@@ -304,55 +324,8 @@
 </body>
 </html>
 
+<!--<script src="/assets/scripts/app.min.js"></script>-->
 
-
-
-
-
-
-
-<!-- ACHTUNG! Änderungen nur in templates/footer.html machen.  -->
-<footer class="footer">
-    <div class="footer-wrapper">
-
-        <nav class="footer-nav">
-            <ul class="footer-nav-liste">
-                <li class="footer-nav-liste__item">
-                    <a class="footer-nav-liste__item__link" href="/festivals.html" title="festivals">FESTIVALS</a>
-                </li>
-                <li class="footer-nav-liste__item">
-                    <a class="footer-nav-liste__item__link" href="/#magazinAnchor" title="magazin">MAGAZIN</a>
-                </li>
-                <li class="footer-nav-liste__item">
-                    <a class="footer-nav-liste__item__link" href="/#newsAnchor" title="news">NEWS</a>
-                </li>
-            </ul>
-        </nav>
-
-        <div class="social-media">
-            <img class="social-media__img" src="/assets/images/socialmedia_facebook.svg" alt="facebook" title="facebookk">
-            <img class="social-media__img" src="/assets/images/socialmedia_instagram.svg" alt="instagram" title="instagram">
-            <img class="social-media__img" src="/assets/images/socialmedia_snapchat.svg" alt="snapchat" title="snapchat">
-            <img class="social-media__img" src="/assets/images/socialmedia_youtube.svg" alt="youtube" title="youtube">
-            <img class="social-media__img" src="/assets/images/socialmedia_twitter.svg" alt="twitter" title="twitter">
-        </div>
-
-        <div class="backtotop">
-            <a href="#top" class="backtotop-wrapper">
-                <span class="backtotop-wrapper__label">BACK TO TOP</span>
-                <img class="backtotop-wrapper__img" src="/assets/images/navigation_backtotop.svg" alt="back-to-top" title="back-to-top">
-            </a>
-        </div>
-
-    </div>
-</footer>
-</div>
-
-<script src="/assets/scripts/app.min.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD494hALIokc4FzoDREP-pI5t-vC1QTAfU&callback=initMap"
-        async defer></script>
-</body>
-</html>
 
 
 
