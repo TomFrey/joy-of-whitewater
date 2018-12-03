@@ -3,7 +3,7 @@
 var Navigation = (function(){
     console.log('inside Navigation IIFE');
 
-    const SHOW = 'js-show'
+    const SHOW = 'js-show';
 
     var hamburger,
         mainNavi,
@@ -38,7 +38,9 @@ var Navigation = (function(){
         hamburger.addEventListener('click', showHideNavigation);
 
         basisKursDrawerButton = document.querySelector('#open-close-drawer-button-basiskurse');
-        basisKursDrawerButton.addEventListener('click', toggleTextContainerDrawer)
+        if (basisKursDrawerButton !== null) {
+            basisKursDrawerButton.addEventListener('click', toggleTextContainerDrawer)
+        }
     }
 
     //public api
