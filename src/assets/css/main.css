@@ -505,7 +505,7 @@ main .text-container {
         position: relative; }
         nav ul#mainNavi > li a.u-slide-line, nav ul#mainNavi.hide > li a.u-slide-line {
           color: black;
-          background: url("../../images/link.svg") white repeat-x;
+          background: url("/assets/images/link.svg") white repeat-x;
           font-size: 1.125rem;
           position: relative;
           display: inline-block;

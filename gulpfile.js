@@ -38,6 +38,21 @@ const allJsFiles = [
 
 
 
+/**
+ * build task:
+ * Löscht den dist Ordner
+ *
+ */
+gulp.task('build', (callback) => {
+    gulpSequence(
+        'clean',
+        ['minifyJsForDist', 'sass'],
+        'minifyCss',
+        ['copyHtml','copyJs','copyImages'],
+        callback
+    );
+});
+
 
 /**
  * Default task, running just `gulp` will compile the sass,
@@ -136,19 +151,6 @@ gulp.task('minifyJs', (callback) => {
 
 
 
-/**
- * build task:
- * Löscht den dist Ordner
- *
- */
-gulp.task('build', (callback) => {
-    gulpSequence(
-        'clean',
-        'minifyJsForDist',
-        'copyJs',
-        callback
-    );
-});
 
 
 /**
@@ -182,9 +184,41 @@ gulp.task('minifyJsForDist', (callback) => {
 
 
 /**
+ * Minimiert die css Datei und schreibt sie in den 'dist' Ordner.
+ */
+gulp.task('minifyCss', () => {
+    return gulp.src('./src/assets/css/*.css')
+        .pipe(cleanCss())
+        .pipe(gulp.dest('dist/assets/css'));
+});
+
+
+/**
  * Kopiert die scripts/app.min.js Datei in den dist Ordner
  */
 gulp.task('copyJs', () => {
     return gulp.src(['./src/assets/scripts/app.min.js'])
         .pipe(gulp.dest('dist/assets/scripts'));
+});
+
+
+/**
+ * Kopiert alle html Dateien in den dist Ordner, ausser den
+ * html Dateien, die im templates Order liegen.
+ */
+gulp.task('copyHtml', () => {
+    return gulp.src(['./src/**/**/*.html', '!./src/templates/**/*.html'])
+        .pipe(gulp.dest('dist'));
+});
+
+
+/**
+ * Kopiert alle Bilder und Icons in den dist Ordner
+ */
+gulp.task('copyImages', () => {
+    return gulp.src(['./src/assets/images/**/*.png',
+                     './src/assets/images/**/*.svg',
+                     './src/assets/images/**/*.gif',
+                     './src/assets/images/**/*.jpg'])
+        .pipe(gulp.dest('dist/assets/images'));
 });
