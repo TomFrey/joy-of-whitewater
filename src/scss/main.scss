@@ -38,11 +38,29 @@ body{
 nav{
 	padding-top: 7px;
 
-	img#hamburger {
+	#hamburger {
 		display: block;
-		height: 2rem;
 		margin-left: 5px;
 		margin-bottom: 6px;
+	}
+
+	#hamburger.js-close-nav-button{
+		.hamburger__line-2 rect{
+			x: -50px;
+			transition: x 0.5s ease-in-out 1ms;
+		}
+
+		.hamburger__line-1 rect{
+			width: 60px;
+			transform: translateX(9px) translateY(-4px) rotate(45deg);
+			transition: transform 0.5s ease-in-out 1ms;
+		}
+
+		.hamburger__line-3 rect{
+			width: 60px;
+			transform: translateX(-24px) translateY(19px) rotate(-45deg);
+			transition: transform 0.5s ease-in-out 1ms;
+		}
 	}
 
 	ul#mainNavi {
@@ -112,7 +130,7 @@ main{
 		width: $maxWidth;
 		z-index: 10;
 
-		img#hamburger {
+		#hamburger {
 			display: none;
 		}
 

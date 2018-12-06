@@ -4,6 +4,7 @@ var Navigation = (function(){
     console.log('inside Navigation IIFE');
 
     const SHOW = 'js-show';
+    const CLOSE_NAV = 'js-close-nav-button';
 
     var hamburger,
         mainNavi,
@@ -11,9 +12,11 @@ var Navigation = (function(){
 
     function showHideNavigation() {
         if(mainNavi.classList.contains('hide')){
-            mainNavi.classList.remove('hide')
+            mainNavi.classList.remove('hide');
+            hamburger.classList.add(CLOSE_NAV);
         } else {
             mainNavi.classList.add('hide');
+            hamburger.classList.remove(CLOSE_NAV);
         }
     }
 

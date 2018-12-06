@@ -445,11 +445,21 @@ body {
 
 nav {
   padding-top: 7px; }
-  nav img#hamburger {
+  nav #hamburger {
     display: block;
-    height: 2rem;
     margin-left: 5px;
     margin-bottom: 6px; }
+  nav #hamburger.js-close-nav-button .hamburger__line-2 rect {
+    x: -50px;
+    transition: x 0.5s ease-in-out 1ms; }
+  nav #hamburger.js-close-nav-button .hamburger__line-1 rect {
+    width: 60px;
+    transform: translateX(9px) translateY(-4px) rotate(45deg);
+    transition: transform 0.5s ease-in-out 1ms; }
+  nav #hamburger.js-close-nav-button .hamburger__line-3 rect {
+    width: 60px;
+    transform: translateX(-24px) translateY(19px) rotate(-45deg);
+    transition: transform 0.5s ease-in-out 1ms; }
   nav ul#mainNavi {
     display: block;
     list-style-type: none;
@@ -491,7 +501,7 @@ main .text-container {
     top: 0;
     width: 1200px;
     z-index: 10; }
-    nav img#hamburger {
+    nav #hamburger {
       display: none; }
     nav ul#mainNavi, nav ul#mainNavi.hide {
       display: block;
