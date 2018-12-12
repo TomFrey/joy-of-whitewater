@@ -109,7 +109,7 @@ gulp.task('sass', function() {
  * Hört auf Änderungen in html Files im Ordner templates
  */
 gulp.task('injectHeaderAndFooter', function () {
-  gulp.watch('./src/templates/*.html', function (file) {
+  gulp.watch('./src/templates/*.html', function () {
     return gulp.src('./src/*.html')
       .pipe(fileinject(gulp.src(['./src/templates/header.html']), {
         starttag: '<!-- inject:htmlHeader -->',
