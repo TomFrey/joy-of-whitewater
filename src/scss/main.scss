@@ -37,6 +37,11 @@ body{
 
 nav{
 	padding-top: 7px;
+	background-color: #ffffff;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 10;
 
 	#hamburger {
 		display: block;
@@ -93,6 +98,7 @@ nav{
 
 
 header {
+	margin-top: 61px;
 
 	img{
 		width: 100%;
@@ -117,9 +123,8 @@ main{
 
 
 
-
-
-/* ab hier für desktop */
+/* *************************************************** */
+/* *********** ab hier für desktop ******************* */
 @media screen and (min-width: 740px) {    //wenn Bildschirm grösser 740 px gross ist, dann...
 
 	nav{

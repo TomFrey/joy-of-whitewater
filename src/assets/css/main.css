@@ -444,7 +444,12 @@ body {
     background-color: #ffffff; }
 
 nav {
-  padding-top: 7px; }
+  padding-top: 7px;
+  background-color: #ffffff;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10; }
   nav #hamburger {
     display: block;
     margin-left: 5px;
@@ -480,19 +485,20 @@ nav {
   nav ul#mainNavi.hide {
     display: none; }
 
-header img {
-  width: 100%; }
-
-header img#mobile {
-  display: block; }
-
-header .images-carousel {
-  display: none; }
+header {
+  margin-top: 61px; }
+  header img {
+    width: 100%; }
+  header img#mobile {
+    display: block; }
+  header .images-carousel {
+    display: none; }
 
 main .text-container {
   margin-bottom: 10px; }
 
-/* ab hier für desktop */
+/* *************************************************** */
+/* *********** ab hier für desktop ******************* */
 @media screen and (min-width: 740px) {
   nav {
     background-color: #ffffff;
