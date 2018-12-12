@@ -19,23 +19,22 @@ var pump = require('pump');
 
 /* Change your directory and settings here */
 const settings = {
-  publicDir: './src',
-  sassDir: './src/scss',
-  cssDir: './src/assets/css',
-  jsDir: './src/assets/js'
+	publicDir: './src',
+	sassDir: './src/scss',
+	cssDir: './src/assets/css',
+	jsDir: './src/assets/js'
 };
 
 
 /* Alle verwendeten JS Files, damit das eine JS File zusammengesetzt werden kann. */
 const allJsFiles = [
-    './node_modules/jquery/dist/jquery.js',
+	'./node_modules/jquery/dist/jquery.js',
 
-    './src/assets/js/guiControll/navigation.js',
-    './src/assets/js/guiControll/imageCarousel.js',
+	'./src/assets/js/guiControll/navigation.js',
+	'./src/assets/js/guiControll/imageCarousel.js',
 
-    './src/assets/js/app.js'
+	'./src/assets/js/app.js'
 ];
-
 
 
 /**
