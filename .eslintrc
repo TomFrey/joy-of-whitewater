@@ -1,0 +1,74 @@
+{
+	"extends": "airbnb-base",
+	"parserOptions": {
+		"ecmaVersion": 6
+	},
+	"env": {
+		"browser": true,
+		"node": true,
+		"builtin": false,
+		"jquery": true
+	},
+	"globals": {
+		//Objekte aus der Festivallovers Applikation
+		"ImageCarousel": false,
+		"Navigation": false,
+		"Store": false,
+		"Render": false,
+		"RenderPaymentBox": false,
+		"RenderHeader": false,
+		"RenderBreadcrumb": false,
+		"Festival": false,
+		"FestivalList": false,
+		"TicketType": false,
+		"TicketTypeList": false,
+		"Ticket": false,
+		"TicketList": false,
+		"Accordion": false,
+		"Breadcrumb": false,
+		"MusicFilter": false,
+		"TicketOverview": false,
+		"TicketDetail": false,
+		"ExternalPaymentService": false,
+		"Payment": false,
+		"Play": false,
+		"Login": false,
+		"Register": false,
+		"Service": false,
+		"Dashboard": false,
+		"Validator": false,
+
+		//Objekte aus TweenMax.js
+		"TweenMax": false,
+		"Quad": false,
+		"Sine": false,
+
+		//Google Maps
+		"google": false,
+
+		//moment.js
+		"moment": false
+	},
+	"rules": {
+		"indent": [	2,
+					"tab",
+					{"SwitchCase": 1}
+					],
+		"camelcase": 2,
+		"no-tabs": 0,
+		//http://eslint.org/docs/rules/no-param-reassign
+		"no-param-reassign": [2, { "props": false }],
+		"no-trailing-spaces": 0,
+		"no-undef": 2,
+		//maximale Zeilenlänge
+		"max-len": 0,
+		//Keine 'dangling' Kommas: https://eslint.org/docs/rules/comma-dangle
+		"comma-dangle": [2, "never"],
+		"arrow-body-style": [2, "always"],
+		"wrap-iife": [2, "inside"],
+		//let oder const anstelle von var benutzen
+		"no-var": 0,
+		//auch String concatination zulassen
+		"prefer-template": 0
+	}
+}

@@ -1,6 +1,7 @@
-<!-- inject:htmlHeader -->
 <!doctype html>
 <html lang="de">
+
+<!-- inject:htmlHead -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -11,60 +12,68 @@
     <link href="" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="assets/css/main.css">
 
+
     <title>the joy of whitewater</title>
 </head>
-<body>
 
+<!-- endinject -->
+
+<body>
 <div class="wrapper">
 
-    <nav>
-        <svg id="hamburger" xmlns="http://www.w3.org/2000/svg" width="50px" height="48px" version="1.1">
-            <g class="hamburger__line-1">
-                <rect x="0" y="5" width="50px" height="8px" rx="2" ry="2" fill="#0B3CB2"/>
-            </g>
-            <g class="hamburger__line-2">
-                <rect x="0" y="19" width="50px" height="8px" rx="2" ry="2" fill="#0B3CB2"/>
-            </g>
-            <g class="hamburger__line-3">
-                <rect x="0" y="33" width="50px" height="8px" rx="2" ry="2" fill="#0B3CB2"/>
-            </g>
-        </svg>
-        <ul id="mainNavi" class="hide">
-            <li><a class="u-slide-line" href="kanukurse.html">Kanukurse</a></li>
-            <li><a class="u-slide-line" href="abenteuerundgenusspaddeln.html">Abenteuer-/Genusspaddeln</a></li>
-            <li><a class="u-slide-line" href="/">Joy of Whitewater</a></li>
-        </ul>
-        <div class="clearfix"></div>
-    </nav>
+<!-- inject:htmlNavigation -->
+<nav>
+    <svg id="hamburger" xmlns="http://www.w3.org/2000/svg" width="50px" height="48px" version="1.1">
+        <g class="hamburger__line-1">
+            <rect x="0" y="5" width="50px" height="8px" rx="2" ry="2" fill="#0B3CB2"/>
+        </g>
+        <g class="hamburger__line-2">
+            <rect x="0" y="19" width="50px" height="8px" rx="2" ry="2" fill="#0B3CB2"/>
+        </g>
+        <g class="hamburger__line-3">
+            <rect x="0" y="33" width="50px" height="8px" rx="2" ry="2" fill="#0B3CB2"/>
+        </g>
+    </svg>
+    <ul id="mainNavi" class="hide">
+        <li><a class="u-slide-line" href="kanukurse.html">Kanukurse</a></li>
+        <li><a class="u-slide-line" href="paddelreisen.html">Abenteuer-/Genusspaddeln</a></li>
+        <li><a class="u-slide-line" href="/">Joy of Whitewater</a></li>
+    </ul>
 
-    <header>
-        <!-- <img id="desktop_logo" src="images/joy_logo.jpg" alt="">  -->
-        <img id="mobile" src="assets/images/flo_equador.jpg" alt="">
-        <!-- <img id="desktop" src="images/flo_equador.jpg" alt=""> -->
+    <div class="clearfix"></div>
+</nav>
 
-        <div class="images-carousel">
-            <div class="containerForTitle">
-                <h1>THE JOY <br>OF WHITEWATER</h1>
-            </div>
-            <ul class="images">
-                <li class="image">
-                    <img src="assets/images/carousel/idaho1.jpg" alt="Idaho">
-                </li>
-                <li class="image">
-                    <img src="assets/images/carousel/idaho2.jpg" alt="Idaho">
-                </li>
-                <li class="image">
-                    <img src="assets/images/carousel/idaho3.jpg" alt="Idaho">
-                </li>
-                <li class="image">
-                    <img src="assets/images/carousel/idaho4.jpg" alt="Idaho">
-                </li>
-                <li class="image">
-                    <img src="assets/images/flo_equador.jpg" alt="">
-                </li>
-            </ul>
+<!-- endinject -->
+
+<!-- inject:htmlHeader -->
+<header>
+    <!-- <img id="desktop_logo" src="images/joy_logo.jpg" alt="test">  -->
+    <img id="mobile" src="assets/images/flo_equador.jpg" alt="">
+    <!-- <img id="desktop" src="images/flo_equador.jpg" alt=""> -->
+
+    <div class="images-carousel">
+        <div class="containerForTitle">
+            <h1>THE JOY <br>OF WHITEWATER</h1>
         </div>
-    </header>
+        <ul class="images">
+            <li class="image">
+                <img src="assets/images/carousel/idaho1.jpg" alt="Idaho">
+            </li>
+            <li class="image">
+                <img src="assets/images/carousel/idaho2.jpg" alt="Idaho">
+            </li>
+            <li class="image">
+                <img src="assets/images/carousel/idaho3.jpg" alt="Idaho">
+            </li>
+            <li class="image">
+                <img src="assets/images/carousel/idaho4.jpg" alt="Idaho">
+            </li>
+            <li class="image">
+                <img src="assets/images/flo_equador.jpg" alt="">
+            </li>
+        </ul>
+    </div>
+</header>
 
 <!-- endinject -->
 
@@ -264,42 +273,9 @@
 
         </main>
 
-    <!-- inject:htmlFooter -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- ende wrapper -->
 </div>
+
+<!-- inject:htmlFooter -->
 <footer class="footer">
     <div class="footer-wrapper">
 
@@ -331,6 +307,9 @@
 </footer>
 
 <script src="/assets/scripts/app.min.js"></script>
+
+<!-- endinject -->
+
 
 </body>
 </html>

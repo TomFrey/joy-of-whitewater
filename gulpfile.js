@@ -105,24 +105,39 @@ gulp.task('sass', function() {
 
 
 /**
- * Setzt den Standard html header und footer auf jeder Seite ein
+ * Setzt den Standard html Templates auf jeder Seite ein
  * Hört auf Änderungen in html Files im Ordner templates
  */
 gulp.task('injectHeaderAndFooter', function () {
   gulp.watch('./src/templates/*.html', function () {
     return gulp.src('./src/*.html')
-      .pipe(fileinject(gulp.src(['./src/templates/header.html']), {
-        starttag: '<!-- inject:htmlHeader -->',
-        transform: function(filepath, file) {
-          return file.contents.toString();
-        }
-      }))
-      .pipe(fileinject(gulp.src(['./src/templates/footer.html']), {
-        starttag: '<!-- inject:htmlFooter -->',
-        transform: function(filepath, file) {
-          return file.contents.toString();
-        }
-      }))
+          .pipe(fileinject(gulp.src(['./src/templates/header.html']), {
+            starttag: '<!-- inject:htmlHeader -->',
+            transform: function(filepath, file) {
+              return file.contents.toString();
+            }
+          }))
+
+        .pipe(fileinject(gulp.src(['./src/templates/head.html']), {
+            starttag: '<!-- inject:htmlHead -->',
+            transform: function(filepath, file) {
+                return file.contents.toString();
+            }
+        }))
+
+        .pipe(fileinject(gulp.src(['./src/templates/navigation.html']), {
+            starttag: '<!-- inject:htmlNavigation -->',
+            transform: function(filepath, file) {
+                return file.contents.toString();
+            }
+        }))
+
+          .pipe(fileinject(gulp.src(['./src/templates/footer.html']), {
+            starttag: '<!-- inject:htmlFooter -->',
+            transform: function(filepath, file) {
+              return file.contents.toString();
+            }
+          }))
       .pipe(gulp.dest('src/'));
   });
 });
