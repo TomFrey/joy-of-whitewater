@@ -43,13 +43,13 @@ const allJsFiles = [
  *
  */
 gulp.task('build', (callback) => {
-    gulpSequence(
-        'clean',
-        ['minifyJsForDist', 'sass'],
-        'minifyCss',
-        ['copyHtml','copyJs','copyImages'],
-        callback
-    );
+	gulpSequence(
+		'clean',
+		['minifyJsForDist', 'sass'],
+		'minifyCss',
+		['copyHtml', 'copyJs', 'copyImages'],
+		callback
+	);
 });
 
 
@@ -65,29 +65,24 @@ gulp.task('default', ['serve']);
  * serve task, will launch browserSync and launch index.html files,
  * and watch the changes for html and sass files
  * and watching if a file in the template folder is changing and then insert the changes in all html files in app
- **/
-gulp.task('serve', ['sass', 'injectHeaderAndFooter'], function() {
+ */
+gulp.task('serve', ['sass', 'injectHeaderAndFooter'], () => {
+	browserSync.init({
+		server: settings.publicDir
+	});
 
-  /**
-   * Launch BrowserSync from publicDir
-   */
-  browserSync.init({
-    server: settings.publicDir
-  });
+	/**
+   	* watch for changes in sass files
+   	*/
+	gulp.watch(settings.sassDir + '/**/*.scss', ['sass']);
 
-  /**
-   * watch for changes in sass files
-   */
-  gulp.watch(settings.sassDir + "/**/*.scss", ['sass']);
+	/**
+   	* watch for changes in html files
+   	*/
+	gulp.watch(settings.publicDir + '/*.html').on('change', browserSync.reload);
 
-  /**
-   * watch for changes in html files
-   */
-  gulp.watch(settings.publicDir + "/*.html").on('change', browserSync.reload);
-
-  // Wartet auf Änderungen in einer .js Datei
-    gulp.watch(settings.jsDir + '/**/*.js', ['minifyJs']).on('change', browserSync.reload);
-
+	// Wartet auf Änderungen in einer .js Datei
+	gulp.watch(settings.jsDir + '/**/*.js', ['minifyJs']).on('change', browserSync.reload);
 });
 
 
@@ -95,11 +90,11 @@ gulp.task('serve', ['sass', 'injectHeaderAndFooter'], function() {
  * sass task, will compile the .SCSS files,
  * and handle the error through plumber and notify through system message.
  */
-gulp.task('sass', function() {
-  return gulp.src(settings.sassDir + "/**/*.scss")
-    .pipe(sass().on('error', sass.logError))
-    .pipe(gulp.dest(settings.cssDir))
-    .pipe(browserSync.stream());
+gulp.task('sass', () => {
+	return gulp.src(settings.sassDir + '/**/*.scss')
+		.pipe(sass().on('error', sass.logError))
+		.pipe(gulp.dest(settings.cssDir))
+		.pipe(browserSync.stream());
 });
 
 
@@ -107,38 +102,38 @@ gulp.task('sass', function() {
  * Setzt den Standard html Templates auf jeder Seite ein
  * Hört auf Änderungen in html Files im Ordner templates
  */
-gulp.task('injectHeaderAndFooter', function () {
-  gulp.watch('./src/templates/*.html', function () {
-    return gulp.src('./src/*.html')
-          .pipe(fileinject(gulp.src(['./src/templates/header.html']), {
-            starttag: '<!-- inject:htmlHeader -->',
-            transform: function(filepath, file) {
-              return file.contents.toString();
-            }
-          }))
+gulp.task('injectHeaderAndFooter', () => {
+	gulp.watch('./src/templates/*.html', () => {
+		return gulp.src('./src/*.html')
+			.pipe(fileinject(gulp.src(['./src/templates/header.html']), {
+				starttag: '<!-- inject:htmlHeader -->',
+				transform(filepath, file) {
+					return file.contents.toString();
+				}
+			}))
 
-        .pipe(fileinject(gulp.src(['./src/templates/head.html']), {
-            starttag: '<!-- inject:htmlHead -->',
-            transform: function(filepath, file) {
-                return file.contents.toString();
-            }
-        }))
+			.pipe(fileinject(gulp.src(['./src/templates/head.html']), {
+				starttag: '<!-- inject:htmlHead -->',
+				transform(filepath, file) {
+					return file.contents.toString();
+				}
+			}))
 
-        .pipe(fileinject(gulp.src(['./src/templates/navigation.html']), {
-            starttag: '<!-- inject:htmlNavigation -->',
-            transform: function(filepath, file) {
-                return file.contents.toString();
-            }
-        }))
+			.pipe(fileinject(gulp.src(['./src/templates/navigation.html']), {
+				starttag: '<!-- inject:htmlNavigation -->',
+				transform(filepath, file) {
+					return file.contents.toString();
+				}
+			}))
 
-          .pipe(fileinject(gulp.src(['./src/templates/footer.html']), {
-            starttag: '<!-- inject:htmlFooter -->',
-            transform: function(filepath, file) {
-              return file.contents.toString();
-            }
-          }))
-      .pipe(gulp.dest('src/'));
-  });
+			.pipe(fileinject(gulp.src(['./src/templates/footer.html']), {
+				starttag: '<!-- inject:htmlFooter -->',
+				transform(filepath, file) {
+					return file.contents.toString();
+				}
+			}))
+			.pipe(gulp.dest('src/'));
+	});
 });
 
 
@@ -148,31 +143,28 @@ gulp.task('injectHeaderAndFooter', function () {
  * - pump ist eine Alternative zu pipe, dank pump gibt's schlaue Fehlermeldungen.
  */
 gulp.task('minifyJs', (callback) => {
-    pump([
-        gulp.src(allJsFiles),
-        sourcemaps.init(),
-        concat('app.js'),
-        babel({
-                compact: false, // unterdrückt die Warnung 'The code generator has deoptimised the styling ... as it exceeds the max of'
-                presets: ['@babel/env']
-            }),
-        uglify(),
-        rename('app.min.js'),
-        sourcemaps.write('./'),
-        gulp.dest('src/assets/scripts')
-    ], callback);
+	pump([
+		gulp.src(allJsFiles),
+		sourcemaps.init(),
+		concat('app.js'),
+		babel({
+			compact: false, // unterdrückt die Warnung 'The code generator has deoptimised the styling ... as it exceeds the max of'
+			presets: ['@babel/env']
+		}),
+		uglify(),
+		rename('app.min.js'),
+		sourcemaps.write('./'),
+		gulp.dest('src/assets/scripts')
+	], callback);
 });
-
-
-
 
 
 /**
  * Löscht das dist
  */
 gulp.task('clean', () => {
-    return gulp.src('dist', { read: false })
-        .pipe(clean());
+	return gulp.src('dist', { read: false })
+		.pipe(clean());
 });
 
 
@@ -183,17 +175,17 @@ gulp.task('clean', () => {
  * Babel (ES6 zu ES5) braucht es, weil sonst der minifyer nicht geht, der versteht nur ES5.
  */
 gulp.task('minifyJsForDist', (callback) => {
-    pump([
-        gulp.src(allJsFiles),
-        concat('app.js'),
-        babel({
-            compact: false, // unterdrückt die Warnung 'The code generator has deoptimised the styling ... as it exceeds the max of'
-            presets: ['@babel/env']
-        }),
-        uglify(),
-        rename('app.min.js'),
-        gulp.dest('src/assets/scripts')
-    ], callback);
+	pump([
+		gulp.src(allJsFiles),
+		concat('app.js'),
+		babel({
+			compact: false, // unterdrückt die Warnung 'The code generator has deoptimised the styling ... as it exceeds the max of'
+			presets: ['@babel/env']
+		}),
+		uglify(),
+		rename('app.min.js'),
+		gulp.dest('src/assets/scripts')
+	], callback);
 });
 
 
@@ -201,9 +193,9 @@ gulp.task('minifyJsForDist', (callback) => {
  * Minimiert die css Datei und schreibt sie in den 'dist' Ordner.
  */
 gulp.task('minifyCss', () => {
-    return gulp.src('./src/assets/css/*.css')
-        .pipe(cleanCss())
-        .pipe(gulp.dest('dist/assets/css'));
+	return gulp.src('./src/assets/css/*.css')
+		.pipe(cleanCss())
+		.pipe(gulp.dest('dist/assets/css'));
 });
 
 
@@ -211,8 +203,8 @@ gulp.task('minifyCss', () => {
  * Kopiert die scripts/app.min.js Datei in den dist Ordner
  */
 gulp.task('copyJs', () => {
-    return gulp.src(['./src/assets/scripts/app.min.js'])
-        .pipe(gulp.dest('dist/assets/scripts'));
+	return gulp.src(['./src/assets/scripts/app.min.js'])
+		.pipe(gulp.dest('dist/assets/scripts'));
 });
 
 
@@ -221,8 +213,8 @@ gulp.task('copyJs', () => {
  * html Dateien, die im templates Order liegen.
  */
 gulp.task('copyHtml', () => {
-    return gulp.src(['./src/**/**/*.html', '!./src/templates/**/*.html'])
-        .pipe(gulp.dest('dist'));
+	return gulp.src(['./src/**/**/*.html', '!./src/templates/**/*.html'])
+		.pipe(gulp.dest('dist'));
 });
 
 
@@ -230,9 +222,10 @@ gulp.task('copyHtml', () => {
  * Kopiert alle Bilder und Icons in den dist Ordner
  */
 gulp.task('copyImages', () => {
-    return gulp.src(['./src/assets/images/**/*.png',
-                     './src/assets/images/**/*.svg',
-                     './src/assets/images/**/*.gif',
-                     './src/assets/images/**/*.jpg'])
-        .pipe(gulp.dest('dist/assets/images'));
+	return gulp.src([
+		'./src/assets/images/**/*.png',
+		'./src/assets/images/**/*.svg',
+		'./src/assets/images/**/*.gif',
+		'./src/assets/images/**/*.jpg'
+	]).pipe(gulp.dest('dist/assets/images'));
 });
