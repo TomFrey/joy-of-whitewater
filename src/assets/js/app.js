@@ -1,6 +1,4 @@
-'use strict';
-
-$(document).ready(function () {
-    Navigation.init();
-    ImageCarousel.init();
+$(document).ready(() => {
+	Navigation.init();
+	ImageCarousel.init();
 });

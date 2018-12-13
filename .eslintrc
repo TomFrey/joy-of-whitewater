@@ -10,44 +10,10 @@
 		"jquery": true
 	},
 	"globals": {
-		//Objekte aus der Festivallovers Applikation
-		"ImageCarousel": false,
+		//Objekte aus der joyOfWhitewater Applikation
 		"Navigation": false,
-		"Store": false,
-		"Render": false,
-		"RenderPaymentBox": false,
-		"RenderHeader": false,
-		"RenderBreadcrumb": false,
-		"Festival": false,
-		"FestivalList": false,
-		"TicketType": false,
-		"TicketTypeList": false,
-		"Ticket": false,
-		"TicketList": false,
-		"Accordion": false,
-		"Breadcrumb": false,
-		"MusicFilter": false,
-		"TicketOverview": false,
-		"TicketDetail": false,
-		"ExternalPaymentService": false,
-		"Payment": false,
-		"Play": false,
-		"Login": false,
-		"Register": false,
-		"Service": false,
-		"Dashboard": false,
-		"Validator": false,
+		"ImageCarousel": false,
 
-		//Objekte aus TweenMax.js
-		"TweenMax": false,
-		"Quad": false,
-		"Sine": false,
-
-		//Google Maps
-		"google": false,
-
-		//moment.js
-		"moment": false
 	},
 	"rules": {
 		"indent": [	2,
