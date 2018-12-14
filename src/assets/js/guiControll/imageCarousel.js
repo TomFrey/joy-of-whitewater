@@ -82,6 +82,7 @@ var ImageCarousel = (function () {
 		setIntervalId = setInterval(crossFade, 5000);
 	}
 
+
 	// public api
 	return {
 		init: initiate

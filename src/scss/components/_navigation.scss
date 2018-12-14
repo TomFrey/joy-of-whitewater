@@ -1,0 +1,126 @@
+nav{
+	padding-top: 7px;
+	background-color: #ffffff;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 10;
+
+	#hamburger {
+		display: block;
+		margin-left: 5px;
+		margin-bottom: 6px;
+	}
+
+	#hamburger.js-close-nav-button{
+		.hamburger__line-2 rect{
+			x: -50px;
+			transition: x 0.5s ease-in-out 1ms;
+		}
+
+		.hamburger__line-1 rect{
+			width: 60px;
+			transform: translateX(9px) translateY(-4px) rotate(45deg);
+			transition: transform 0.5s ease-in-out 1ms;
+		}
+
+		.hamburger__line-3 rect{
+			width: 60px;
+			transform: translateX(-24px) translateY(19px) rotate(-45deg);
+			transition: transform 0.5s ease-in-out 1ms;
+		}
+	}
+
+	ul#mainNavi {
+		display: block;
+		list-style-type: none;
+		width: 100%;
+		background-color: rgb(255,255,255);
+		position: absolute;
+		animation: 1.5s slideIn;
+
+		> li {
+			margin-bottom: 1px;
+			> a {
+				text-decoration: none;
+				color: $mobileNavFontColor;
+				background-color: $mobileNavBackground;
+				padding: 8px 5px;
+				display: block;
+			}
+		}
+		> li:last-child{
+			margin-bottom: 0px;
+		}
+	}
+
+	ul#mainNavi.hide {
+		display: none;
+	}
+}
+
+
+
+/* *************************************************** */
+/* *********** ab hier für desktop ******************* */
+@media screen and (min-width: 740px) { //wenn Bildschirm grösser 740 px gross ist, dann...
+
+	nav {
+		background-color: #ffffff;
+		padding-top: 20px;
+		position: fixed;
+		top: 0;
+		width: $maxWidth;
+		z-index: 10;
+
+		#hamburger {
+			display: none;
+		}
+
+		ul#mainNavi, ul#mainNavi.hide {
+			display: block;
+			padding-right: 36px;
+			position: static;
+			//ul is floated to the right and li to the left because otherwise items order will change
+			float: right;
+			width: 550px;
+
+			> li {
+				float: left;
+				padding-left: 12px;
+				position: relative;
+
+				a.u-slide-line {
+					color: rgb(0, 0, 0);
+					background: url("/assets/images/link.svg") white repeat-x;
+					font-size: $navTextSize;
+					position: relative;
+					display: inline-block;
+					overflow: hidden;
+					text-decoration: none;
+					padding: 0px 0px 3px 0px;
+					margin-bottom: 1px;
+				}
+
+				a.u-slide-line::after {
+					content: "";
+					position: absolute;
+					bottom: 0;
+					left: 0;
+					width: 100%;
+					height: 3px;
+					background-color: $navUSlider;
+					visibility: hidden;
+					transform: translate3d(-100%, 0, 0);
+					transition: visibility 0ms linear 350ms, transform 350ms cubic-bezier(.215, .61, .355, 1);
+				}
+
+				a.u-slide-line:hover::after {
+					visibility: visible;
+					transform: translate3d(0%, 0, 0);
+					transition: visibility 0ms linear 0ms, transform 350ms cubic-bezier(.215, .61, .355, 1);
+				}
+			}
+		}
+	}
+}
