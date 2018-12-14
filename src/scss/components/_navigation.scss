@@ -70,7 +70,7 @@ nav{
 		padding-top: 20px;
 		position: fixed;
 		top: 0;
-		width: $maxWidth;
+		max-width: $maxWidth;
 		z-index: 10;
 
 		#hamburger {
