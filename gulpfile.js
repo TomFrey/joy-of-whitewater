@@ -33,7 +33,8 @@ const allJsFiles = [
 	'./src/assets/js/guiControll/navigation.js',
 	'./src/assets/js/guiControll/imageCarousel.js',
 
-	'./src/assets/js/app.js'
+	'./src/assets/js/app.js',
+	'./src/assets/js/ready.js'
 ];
 
 
