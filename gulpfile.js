@@ -67,7 +67,7 @@ gulp.task('default', ['serve']);
  * and watch the changes for html and sass files
  * and watching if a file in the template folder is changing and then insert the changes in all html files in app
  */
-gulp.task('serve', ['sass', 'injectHeaderAndFooter'], () => {
+gulp.task('serve', ['sass', 'injectHeaderAndFooter', 'minifyJs'], () => {
 	browserSync.init({
 		server: settings.publicDir
 	});

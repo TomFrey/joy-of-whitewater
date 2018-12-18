@@ -6,7 +6,7 @@ const App = (function () {
 		Navigation.init();
 		ImageCarousel.init();
 	}
-	
+
 	// public api
 	return {
 		init
