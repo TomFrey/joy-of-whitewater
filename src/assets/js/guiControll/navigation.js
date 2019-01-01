@@ -5,7 +5,8 @@ var Navigation = (function () {
 
 	let hamburger;
 	let mainNavi;
-	let basisKursDrawerButton;
+	let bKursDrawerButton;
+	let fKursDrawerButton;
 
 	function showHideNavigation() {
 		if (mainNavi.classList.contains('hide')) {
@@ -18,16 +19,16 @@ var Navigation = (function () {
 	}
 
 
-	function toggleTextContainerDrawer() {
-		const basisKursDrawer = basisKursDrawerButton.parentElement.parentElement.lastElementChild;
-		const basisKursButtonIcon = basisKursDrawerButton.lastElementChild;
+	function toggleTextContainerDrawer(event) {
+		const drawer = event.parentElement.parentElement.lastElementChild;
+		const drawerButtonIcon = event.lastElementChild;
 
-		if (basisKursDrawer.classList.contains(SHOW)) {
-			basisKursDrawer.classList.remove(SHOW);
-			basisKursButtonIcon.classList.remove(SHOW);
+		if (drawer.classList.contains(SHOW)) {
+			drawer.classList.remove(SHOW);
+			drawerButtonIcon.classList.remove(SHOW);
 		} else {
-			basisKursDrawer.classList.add(SHOW);
-			basisKursButtonIcon.classList.add(SHOW);
+			drawer.classList.add(SHOW);
+			drawerButtonIcon.classList.add(SHOW);
 		}
 	}
 
@@ -37,9 +38,18 @@ var Navigation = (function () {
 		mainNavi = document.getElementById('mainNavi');
 		hamburger.addEventListener('click', showHideNavigation);
 
-		basisKursDrawerButton = document.querySelector('#open-close-drawer-button-basiskurse');
-		if (basisKursDrawerButton !== null) {
-			basisKursDrawerButton.addEventListener('click', toggleTextContainerDrawer);
+		bKursDrawerButton = document.querySelector('#open-close-drawer-button-bkurse');
+		if (bKursDrawerButton !== null) {
+			bKursDrawerButton.addEventListener('click', (event) => {
+				toggleTextContainerDrawer(event.target);
+			});
+		}
+
+		fKursDrawerButton = document.querySelector('#open-close-drawer-button-fkurse');
+		if (fKursDrawerButton !== null) {
+			fKursDrawerButton.addEventListener('click', (event) => {
+				toggleTextContainerDrawer(event.target);
+			});
 		}
 	}
 

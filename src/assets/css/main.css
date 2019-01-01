@@ -489,11 +489,15 @@ Desktop
   flex-flow: row nowrap;
   text-decoration: none; }
 
+.open-drawer-wrapper__label {
+  pointer-events: none; }
+
 .open-drawer-wrapper__icon {
   border-bottom: 2px solid #9ebbff;
   border-right: 2px solid #9ebbff;
   height: 12px;
   margin-left: 12px;
+  pointer-events: none;
   transform: rotate(45deg);
   transition: transform 0.2s ease-in-out;
   width: 12px; }
