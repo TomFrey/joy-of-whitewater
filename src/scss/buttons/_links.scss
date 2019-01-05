@@ -1,0 +1,14 @@
+.general-link{
+	color: $complimentaryColor2;
+}
+
+
+/* *************************************************** */
+/* *********** ab hier für desktop ******************* */
+@media screen and (min-width: 740px) {
+
+	.general-link:hover{
+		color: $complimentaryColor1;
+	}
+
+}
