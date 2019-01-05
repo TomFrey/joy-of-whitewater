@@ -1,0 +1,28 @@
+.general-button{
+	@include primaryButtonFont();
+	border: 1px solid #ffffff;
+	display: block;
+	line-height: 6*$basicHeight;
+	text-decoration: none;
+}
+
+.general-button--primary{
+	background-color: #ffffff;
+	color: #000000;
+}
+
+/* *************************************************************************************/
+/*                                ab hier nur für desktop                              */
+/* *************************************************************************************/
+@media screen and (min-width: 376px) { //wenn Bildschirm grösser 376 px gross ist, dann auf Desktop Ansicht umschalten
+	.general-button {
+		display: inline-block;
+		padding: 0 3*$basicWidth;
+	}
+
+	.general-button--primary:hover, .general-button--primary-payment-confirmation:hover {
+		background-color: #2c2c2c;
+		border: 1px solid #2c2c2c;
+		color: #ffffff;
+	}
+}

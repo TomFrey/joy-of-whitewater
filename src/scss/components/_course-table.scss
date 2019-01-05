@@ -8,9 +8,11 @@
 
 
 .course-list-item{
-  background-color: $baseColor3;
-  display: flex;
-  flex-flow: row nowrap;
+	@include courseTableFont();
+  	background-color: $baseColor3;
+	display: flex;
+  	flex-flow: row nowrap;
+	text-decoration: none;
   //padding: $basicHeight 0;
 }
 
@@ -27,8 +29,8 @@
 }
 
 .course-item__name{
-  @include courseTableTitelFont();
-  padding: 0;
+  	@include courseTableTitelFont();
+  	padding: 0;
 }
 
 
@@ -75,19 +77,24 @@
 /* *********** ab hier für desktop ******************* */
 @media screen and (min-width: 740px) {
 
-  .course-list{
-    padding: $basicHeight 2*$basicWidth;
-  }
+  	.course-list{
+    	padding: $basicHeight 2*$basicWidth;
+  	}
 
-  // Dauer
-  .course-item__duration-wrapper{
-    border-right: 3px solid $baseColor2;
-    display: block;
-    flex: 1 1 10%;
-    padding: $basicHeight 0;
-  }
 
-  .course-item__duration{
-    padding: 0 $basicWidth;
-  }
+	.course-list-item:hover{
+		background-color: $baseColor1;
+	}
+
+  	// Dauer
+  	.course-item__duration-wrapper{
+		border-right: 3px solid $baseColor2;
+		display: block;
+		flex: 1 1 10%;
+		padding: $basicHeight 0;
+  	}
+
+  	.course-item__duration{
+    	padding: 0 $basicWidth;
+  	}
 }

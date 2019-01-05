@@ -351,9 +351,14 @@ Desktop
   padding: 8px 8px; }
 
 .course-list-item {
+  color: #FFBD1E;
+  font-family: "Open Sans", "Arial", "sans-serif";
+  font-size: 16px;
+  line-height: 32px;
   background-color: #1E61FF;
   display: flex;
-  flex-flow: row nowrap; }
+  flex-flow: row nowrap;
+  text-decoration: none; }
 
 .course-list-item:not(:last-of-type) {
   margin-bottom: 8px; }
@@ -399,6 +404,8 @@ Desktop
 @media screen and (min-width: 740px) {
   .course-list {
     padding: 8px 16px; }
+  .course-list-item:hover {
+    background-color: #0B3CB2; }
   .course-item__duration-wrapper {
     border-right: 3px solid #3873FF;
     display: block;
@@ -476,6 +483,191 @@ Desktop
     display: inline-block;
     padding-right: 12px; } }
 
+.anmeldung {
+  background-color: #3873FF;
+  display: flex;
+  flex-flow: column nowrap;
+  padding: 16px 16px;
+  width: 100%; }
+
+.anmeldung__item {
+  display: flex;
+  flex-flow: column nowrap; }
+
+.anmeldung__item:first-of-type {
+  margin-top: 16px; }
+
+.anmeldung__links {
+  background-color: #3873FF;
+  width: 100%;
+  height: 100%; }
+
+.anmeldung__rechts {
+  background-color: #3873FF;
+  width: 100%;
+  height: 100%; }
+
+.equipment-wrapper {
+  color: #e5a200;
+  font-family: "Open Sans", "Arial", "sans-serif";
+  font-size: 16px;
+  line-height: 32px;
+  margin-bottom: 16px; }
+
+.equipment-needed-wrapper {
+  margin-left: 24px; }
+
+.equipment-needed-input {
+  color: #FFBD1E;
+  font-family: "Open Sans", "Arial", "sans-serif";
+  font-size: 16px;
+  line-height: 32px;
+  background-color: #1E61FF;
+  border: none;
+  width: 100%; }
+
+.agb-wrapper {
+  color: #e5a200;
+  font-family: "Open Sans", "Arial", "sans-serif";
+  font-size: 16px;
+  line-height: 32px;
+  margin-bottom: 16px; }
+
+.anmeldung__send-button-wrapper {
+  margin-top: 16px; }
+
+.anmeldung__send-button {
+  width: 100%; }
+
+.send-button__wrapper {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center; }
+
+.send-button__icon {
+  padding-right: 16px; }
+
+/*
+	Input Formular Felder, bei denen sich das Label noch oben verschiebt, wenn der Focus auf das Feld kommt.
+	Der Effekt funktioniert nur bei Plichtfeldern: <input class="beispiel" required>. Weil nur bei einem 'valid' Status
+	das Label oben bleibt.
+
+	Code teilweise übernommen von: Chris Sevilleja (https://codepen.io/sevilayha/pen/IdGKH)
+
+	|---------------.form-field-moving-placeholder------------------------------------|
+	|                                                                                 |
+	| |------------------.moving-placeholder__input---------------------------------| |
+	| |                                                                             | |
+	| |                                 (input muss 'required' sein)                | |
+	| |                                                                             | |
+	| |-----------------------------------------------------------------------------| |
+	|                                                                                 |
+	| |-------------------.moving-placeholder__label--------------------------------| |
+	| |                                                                             | |
+	| |                                                                             | |
+	| |                                                                             | |
+	| |-----------------------------------------------------------------------------| |
+	|                                                                                 |
+	| |-------------------.moving-placeholder__highlight----------------------------| |
+	| |                                                                             | |
+	| |                                 (Erzeugt den Schatten Effekt)               | |
+	| |                                                                             | |
+	| |-----------------------------------------------------------------------------| |
+	|                                                                                 |
+	|---------------------------------------------------------------------------------|
+*/
+.form-field-moving-placeholder {
+  position: relative;
+  margin-bottom: 16px; }
+
+.moving-placeholder__input {
+  color: #e5a200;
+  font-family: "Open Sans", "Arial", "sans-serif";
+  font-size: 16px;
+  line-height: 32px;
+  background-color: #1E61FF;
+  border: none;
+  color: #FFBD1E;
+  display: block;
+  padding: 24px 0 0 16px;
+  width: 100%; }
+
+.moving-placeholder__input:focus {
+  outline: none; }
+
+.moving-placeholder__label {
+  color: #e5a200;
+  left: 0px;
+  padding: 8px 0 0 16px;
+  position: absolute;
+  pointer-events: none;
+  top: 10px;
+  transition: 0.3s ease all;
+  -moz-transition: 0.3s ease all;
+  -webkit-transition: 0.3s ease all; }
+
+/*
+	active und valid Status (Label nach oben verschieben)
+*/
+.moving-placeholder__input:focus ~ .moving-placeholder__label,
+.moving-placeholder__input:valid ~ .moving-placeholder__label,
+.moving-placeholder__input:disabled ~ .moving-placeholder__label {
+  top: -10px;
+  font-size: 14px; }
+
+.moving-placeholder__highlight {
+  position: absolute;
+  height: 60%;
+  width: 100%;
+  top: 35%;
+  left: 0;
+  pointer-events: none;
+  opacity: 0.5; }
+
+/*
+	beim Focus auf dem Input Feld (Schatteneffekt ausführen)
+*/
+.moving-placeholder__input:focus ~ .moving-placeholder__highlight {
+  -webkit-animation: inputHighlighter 0.3s ease;
+  -moz-animation: inputHighlighter 0.3s ease;
+  animation: inputHighlighter 0.3s ease; }
+
+@-webkit-keyframes inputHighlighter {
+  from {
+    background: #0B3CB2; }
+  to {
+    width: 0;
+    background: transparent; } }
+
+@-moz-keyframes inputHighlighter {
+  from {
+    background: #0B3CB2; }
+  to {
+    width: 0;
+    background: transparent; } }
+
+@keyframes inputHighlighter {
+  from {
+    background: #0B3CB2; }
+  to {
+    width: 0;
+    background: transparent; } }
+
+/* *************************************************** */
+/* *********** ab hier für desktop ******************* */
+@media screen and (min-width: 740px) {
+  .anmeldung {
+    margin: 16px 16px;
+    padding: 16px 16px; }
+  .anmeldung__item {
+    flex-flow: row nowrap; }
+  .anmeldung__links {
+    margin-right: 24px; }
+  .equipment-needed-input {
+    width: 50%; }
+  .anmeldung__send-button {
+    width: unset; } }
+
 .open-drawer {
   background-color: #0B3CB2;
   bottom: 0;
@@ -515,6 +707,31 @@ Desktop
     .open-drawer-wrapper:hover .open-drawer-wrapper__icon {
       border-bottom: 2px solid #3873FF;
       border-right: 2px solid #3873FF; } }
+
+.general-button {
+  font-family: "Open Sans", "Arial", "sans-serif";
+  font-size: 16px;
+  line-height: 32px;
+  border: 1px solid #ffffff;
+  display: block;
+  line-height: 48px;
+  text-decoration: none; }
+
+.general-button--primary {
+  background-color: #ffffff;
+  color: #000000; }
+
+/* *************************************************************************************/
+/*                                ab hier nur für desktop                              */
+/* *************************************************************************************/
+@media screen and (min-width: 376px) {
+  .general-button {
+    display: inline-block;
+    padding: 0 24px; }
+  .general-button--primary:hover, .general-button--primary-payment-confirmation:hover {
+    background-color: #2c2c2c;
+    border: 1px solid #2c2c2c;
+    color: #ffffff; } }
 
 /* Border Box Trick */
 /* padding ist in der Box Breite miteingerechnet*/

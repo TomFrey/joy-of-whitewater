@@ -1,0 +1,216 @@
+.anmeldung{
+	background-color: $baseColor2;
+	display: flex;
+	flex-flow: column nowrap;
+	padding: 2*$basicHeight 2*$basicWidth;
+	width: 100%;
+}
+
+.anmeldung__item{
+	//border: 1px solid red;
+	display: flex;
+	flex-flow: column nowrap;
+}
+
+.anmeldung__item:first-of-type{
+	margin-top: 2*$basicHeight;
+}
+
+.anmeldung__links{
+	background-color: $baseColor2;
+	width: 100%;
+	height: 100%;
+}
+
+.anmeldung__rechts{
+	background-color: $baseColor2;
+	width: 100%;
+	height: 100%;
+}
+
+.equipment-wrapper{
+	@include registrationFormFont();
+	margin-bottom: 2*$basicHeight;
+}
+
+.equipment-needed-wrapper{
+	margin-left: 3*$basicWidth;
+}
+
+.equipment-needed-input{
+	@include courseTableFont();
+	background-color: $baseColor3;
+	border: none;
+	width: 100%;
+}
+
+.agb-wrapper{
+	@include registrationFormFont();
+	margin-bottom: 2*$basicHeight;
+}
+
+.anmeldung__send-button-wrapper{
+	margin-top: 2*$basicHeight;
+}
+
+.anmeldung__send-button{
+	width: 100%;
+}
+
+.send-button__wrapper{
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: center;
+}
+
+.send-button__icon{
+	padding-right: 2*$basicWidth;
+}
+
+
+/*
+	Input Formular Felder, bei denen sich das Label noch oben verschiebt, wenn der Focus auf das Feld kommt.
+	Der Effekt funktioniert nur bei Plichtfeldern: <input class="beispiel" required>. Weil nur bei einem 'valid' Status
+	das Label oben bleibt.
+
+	Code teilweise übernommen von: Chris Sevilleja (https://codepen.io/sevilayha/pen/IdGKH)
+
+	|---------------.form-field-moving-placeholder------------------------------------|
+	|                                                                                 |
+	| |------------------.moving-placeholder__input---------------------------------| |
+	| |                                                                             | |
+	| |                                 (input muss 'required' sein)                | |
+	| |                                                                             | |
+	| |-----------------------------------------------------------------------------| |
+	|                                                                                 |
+	| |-------------------.moving-placeholder__label--------------------------------| |
+	| |                                                                             | |
+	| |                                                                             | |
+	| |                                                                             | |
+	| |-----------------------------------------------------------------------------| |
+	|                                                                                 |
+	| |-------------------.moving-placeholder__highlight----------------------------| |
+	| |                                                                             | |
+	| |                                 (Erzeugt den Schatten Effekt)               | |
+	| |                                                                             | |
+	| |-----------------------------------------------------------------------------| |
+	|                                                                                 |
+	|---------------------------------------------------------------------------------|
+*/
+.form-field-moving-placeholder{
+	position:relative;
+	margin-bottom: 2*$basicHeight;
+}
+
+.moving-placeholder__input{
+	@include registrationFormFont();
+	background-color: $baseColor3;
+	border: none;
+	color: $complimentaryColor2;
+	display: block;
+	padding: 3*$basicWidth 0 0 2*$basicWidth;
+	width: 100%;
+}
+
+.moving-placeholder__input:focus{
+	outline:none;
+}
+
+.moving-placeholder__label{
+	color: lighten($complimentaryColor1, 10%);
+	left: 0px;
+	padding: $basicWidth 0 0 2*$basicWidth;
+	position: absolute;
+	pointer-events: none;
+	top: 10px;
+	transition: 0.3s ease all;
+	-moz-transition: 0.3s ease all;
+	-webkit-transition: 0.3s ease all;
+}
+
+/*
+	active und valid Status (Label nach oben verschieben)
+*/
+.moving-placeholder__input:focus ~ .moving-placeholder__label,
+.moving-placeholder__input:valid ~ .moving-placeholder__label,
+.moving-placeholder__input:disabled ~ .moving-placeholder__label
+{
+	top: -10px;
+	font-size: 14px;
+}
+
+.moving-placeholder__highlight {
+	position: absolute;
+	height: 60%;
+	width: 100%;
+	top: 35%;
+	left: 0;
+	pointer-events: none;
+	opacity: 0.5;
+}
+
+/*
+	beim Focus auf dem Input Feld (Schatteneffekt ausführen)
+*/
+.moving-placeholder__input:focus ~ .moving-placeholder__highlight {
+	-webkit-animation: inputHighlighter 0.3s ease;
+	-moz-animation: inputHighlighter 0.3s ease;
+	animation: inputHighlighter 0.3s ease;
+}
+
+@-webkit-keyframes inputHighlighter {
+	from { background: $baseColor1; }
+	to 	{
+		width: 0;
+		background: transparent;
+	}
+}
+@-moz-keyframes inputHighlighter {
+	from { background: $baseColor1; }
+	to 	{
+		width: 0;
+		background: transparent;
+	}
+}
+@keyframes inputHighlighter {
+	from { background: $baseColor1; }
+	to 	{
+		width: 0;
+		background: transparent;
+	}
+}
+
+
+
+
+/* *************************************************** */
+/* *********** ab hier für desktop ******************* */
+@media screen and (min-width: 740px) {
+
+	.anmeldung{
+		margin: 2*$basicHeight 2*$basicWidth;
+		padding: 2*$basicHeight 2*$basicWidth;
+	}
+
+	.anmeldung__item{
+		flex-flow: row nowrap;
+		//margin: 0*$basicHeight 2*$basicWidth;
+	}
+
+	.anmeldung__links{
+		margin-right: 3*$basicWidth;
+	}
+
+	.anmeldung__rechts{
+
+	}
+
+	.equipment-needed-input{
+		width: 50%;
+	}
+
+	.anmeldung__send-button{
+		width: unset;
+	}
+
+}

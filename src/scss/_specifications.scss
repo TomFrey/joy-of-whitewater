@@ -64,3 +64,17 @@ $textContainerTitleFont: "Gloria Hallelujah", "Arial", "sans-serif";
   font-size: 20px;
   line-height: 32px;
 }
+
+@mixin registrationFormFont(){
+	color: lighten($complimentaryColor1, 10%);
+	font-family: $standardTextFont;
+	font-size: $standardFontSize;
+	line-height: 32px;
+}
+
+@mixin primaryButtonFont(){
+	font-family: $standardTextFont;
+	font-size: $standardFontSize;
+	line-height: 32px;
+}
+
