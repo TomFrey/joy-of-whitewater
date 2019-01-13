@@ -547,6 +547,12 @@ Desktop
 .send-button__icon {
   padding-right: 16px; }
 
+.send-button__icon-ok.js-show, .send-button__icon-nok.js-show {
+  display: inline; }
+
+.send-button__icon-ok, .send-button__icon-nok {
+  display: none; }
+
 /*
 	Input Formular Felder, bei denen sich das Label noch oben verschiebt, wenn der Focus auf das Feld kommt.
 	Der Effekt funktioniert nur bei Plichtfeldern: <input class="beispiel" required>. Weil nur bei einem 'valid' Status
@@ -652,6 +658,9 @@ Desktop
   to {
     width: 0;
     background: transparent; } }
+
+.js-invalid {
+  border: 1px solid red; }
 
 /* *************************************************** */
 /* *********** ab hier für desktop ******************* */

@@ -30,8 +30,11 @@ const settings = {
 const allJsFiles = [
 	'./node_modules/jquery/dist/jquery.js',
 
+	'./src/assets/js/util/validator.js',
+
 	'./src/assets/js/guiControll/navigation.js',
 	'./src/assets/js/guiControll/imageCarousel.js',
+	'./src/assets/js/guiControll/kanukursanmeldung.js',
 
 	'./src/assets/js/app.js',
 	'./src/assets/js/ready.js'

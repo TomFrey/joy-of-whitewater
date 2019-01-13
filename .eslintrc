@@ -13,7 +13,8 @@
 		//Objekte aus der joyOfWhitewater Applikation
 		"Navigation": false,
 		"ImageCarousel": false,
-
+		"CourseRegistration": false,
+		"Validator": false,
 	},
 	"rules": {
 		"indent": [	2,

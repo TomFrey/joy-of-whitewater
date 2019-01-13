@@ -67,6 +67,14 @@
 	padding-right: 2*$basicWidth;
 }
 
+.send-button__icon-ok.js-show, .send-button__icon-nok.js-show{
+	display: inline;
+}
+
+.send-button__icon-ok, .send-button__icon-nok{
+	display: none;
+}
+
 
 /*
 	Input Formular Felder, bei denen sich das Label noch oben verschiebt, wenn der Focus auf das Feld kommt.
@@ -180,6 +188,9 @@
 	}
 }
 
+.js-invalid{
+	border: 1px solid red;
+}
 
 
 
