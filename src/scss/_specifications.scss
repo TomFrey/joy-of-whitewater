@@ -9,8 +9,9 @@ $complimentaryColor2: #FFBD1E;
 
 $baseColor2Light: lighten($baseColor2, 20%);
 
-
 $backgroundColor:  #ffffff;
+$footerColor: #000000;
+$footerColorMobile: $baseColor1;
 
 $mobileNavBackground: $baseColor1;
 $mobileNavFontColor: $complimentaryColor2;
@@ -32,6 +33,7 @@ $basicWidth: 8px;
 $basicHeight: 8px;
 
 $textSize: 1rem;
+$smallTextSize: 0.80rem;
 $smallTitleSize: 1.25rem;
 $titleSize: 1.75rem;
 $bigTitleSize: 3rem;
@@ -43,13 +45,37 @@ $navTextSize: 1.125rem;
 $standardTextFont: "Open Sans", "Arial", "sans-serif";
 $textContainerTitleFont: "Gloria Hallelujah", "Arial", "sans-serif";
 
-@mixin footerFont(){
-  color: $complimentaryColor2;
+@mixin footerFontMobile(){
+  color: $footerColorMobile;
   font-family: $standardTextFont;
   font-size: $standardFontSize;
   font-weight: bold;
   line-height: 24px;
 }
+
+@mixin footerFontMobileSmall(){
+	color: $footerColorMobile;
+	font-family: $standardTextFont;
+	font-size: $smallTextSize;
+	line-height: 16px;
+}
+
+@mixin footerFont(){
+	color: black;
+	font-family: $standardTextFont;
+	font-size: $standardFontSize;
+	font-weight: bold;
+	line-height: 24px;
+}
+
+@mixin footerFontSmall(){
+	color: black;
+	font-family: $standardTextFont;
+	font-size: $smallTextSize;
+	line-height: 16px;
+}
+
+
 
 @mixin courseTableFont(){
   color: $complimentaryColor2;
