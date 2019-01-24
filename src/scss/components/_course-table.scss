@@ -9,7 +9,7 @@
 
 .course-list-item{
 	@include courseTableFont();
-  	background-color: $baseColor3;
+  	background-color: $color-drawer-background-dateTable;
 	display: flex;
   	flex-flow: row nowrap;
 	text-decoration: none;
@@ -23,7 +23,7 @@
 
 // Name
 .course-item__name-wrapper{
-  border-right: 3px solid $baseColor2;
+  border-right: 3px solid $color-drawer-background-drawer;
   flex: 2 2 40%;
   padding: $basicHeight $basicWidth;
 }
@@ -36,7 +36,7 @@
 
 // Ort
 .course-item__place-wrapper{
-  border-right: 3px solid $baseColor2;
+  border-right: 3px solid $color-drawer-background-drawer;
   flex: 1 1 20%;
   padding: $basicHeight 0;
 }
@@ -83,12 +83,12 @@
 
 
 	.course-list-item:hover{
-		background-color: $baseColor1;
+		background-color: $color-drawer-background-dateTable-hover;
 	}
 
   	// Dauer
   	.course-item__duration-wrapper{
-		border-right: 3px solid $baseColor2;
+		border-right: 3px solid $color-drawer-background-drawer;
 		display: block;
 		flex: 1 1 10%;
 		padding: $basicHeight 0;

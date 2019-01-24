@@ -9,8 +9,8 @@
 */
 .footer{
   @include footerFontMobile();
-  background-color: white; //$baseColor3;
-  color: $complimentaryColor2;
+  background-color: $color-footer-mobile-background;
+  color: $color-footer-mobile-text;
   margin: 0 auto;
   max-width: $maxWidth;
   padding: $basicHeight $basicWidth;
@@ -90,14 +90,14 @@
   */
 .backtotop-wrapper{
   align-items: center;
-  color: $footerColorMobile;
+  color: $color-footer-mobile-text;
   display: flex;
   flex-flow: row nowrap;
   text-decoration: none;
 
 	.backtotop-wrapper__img{
 		svg g g {
-			stroke: $footerColorMobile;
+			stroke: $color-footer-mobile-text;
 		}
 	}
 }
@@ -119,6 +119,7 @@
 @media screen and (min-width: 740px) { //wenn Bildschirm grösser 740 px gross ist, dann...
 
   	.footer{
+		background-color: $color-footer-desktop-background;
     	padding: $basicHeight 2*$basicWidth;
   	}
 
@@ -128,7 +129,7 @@
 
 
 	.footer-address{
-		color: $footerColor;
+		color: $color-footer-desktop-text;
 		align-self: center;
 	}
 
@@ -137,7 +138,7 @@
 	}
 
 	.footer-address__link:hover{
-		color: $baseColor3;
+		color: $color-footer-link-hover;
 	}
 
 
@@ -146,7 +147,7 @@
 	}
 
 	.footer-links__agb__list{
-		color: $footerColor;
+		color: $color-footer-desktop-text;
 		display: flex;
 		flex-flow: row nowrap;
 
@@ -162,7 +163,7 @@
 	}
 
 	.agb-list__item:hover{
-		color: $baseColor3;
+		color: $color-footer-link-hover;
 	}
 
 
@@ -171,26 +172,26 @@
 	}
 
 	.impressum-list__item:hover{
-		color: $baseColor3;
+		color: $color-footer-link-hover;
 	}
 
 
 	.backtotop-wrapper{
-		color: $footerColor;
+		color: $color-footer-desktop-text;
 
 		.backtotop-wrapper__img{
 			svg g g {
-				stroke: $footerColor;
+				stroke: $color-footer-desktop-text;
 			}
 		}
 	}
 
   	.backtotop-wrapper:hover{
-		color: $baseColor3;
+		color: $color-footer-link-hover;
 
     	.backtotop-wrapper__img{
       		svg g g {
-        		stroke: $baseColor3;
+        		stroke: $color-footer-desktop-text;
       		}
     	}
   	}

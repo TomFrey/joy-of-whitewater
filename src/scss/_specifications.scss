@@ -1,27 +1,51 @@
 /*** colors ***/
 
-$baseColor1: #0B3CB2;
-$baseColor2: #3873FF;
+$baseColor1: #ACDFFF; //0B3CB2  //25C8FF  //8DDFFF   //ACDFFF
+$baseColor2: #0B3CB2; //3873FF
 $baseColor3: #1E61FF;
-$complimentaryColor1: #B27E00;
-$complimentaryColor2: #FFBD1E;
-
+$complimentaryColor1: #ffffff;
+$complimentaryColor2: #000000;
 
 $baseColor2Light: lighten($baseColor2, 20%);
 
-$backgroundColor:  #ffffff;
-$footerColor: #000000;
-$footerColorMobile: $baseColor1;
 
-$mobileNavBackground: $baseColor1;
-$mobileNavFontColor: $complimentaryColor2;
+$color-main-background: #ffffff;
+$color-main-titleInTheBigPicture: #FFBD1E;
 
-$navUSlider: $complimentaryColor2;
 
-$textBackground: $baseColor1;
+//colors _text-container
+$color-textContainer-titleH2: $complimentaryColor1;
+$color-textContainer-titleH3: $complimentaryColor1;
+$color-textContainer-text: $complimentaryColor2;
+$color-textContainer-background: $baseColor1;
 
-$textTitle: $complimentaryColor1;
-$text: $complimentaryColor2;
+
+//colors _text-container-drawer
+$color-drawer-buttonToOpenDrawer: $baseColor1;
+$color-drawer-text: #000000;
+$color-drawer-background-drawer: #6795B2;
+$color-drawer-background-dateTable: $baseColor1;
+$color-drawer-background-dateTable-hover: darken($baseColor1, 20%);
+
+
+//colors navigation
+$color-nav-mobile-background: #ffffff;
+$color-nav-mobile-background-slider: $baseColor1;
+$color-nav-mobile-text: #000000;
+
+$color-nav-desktop-background: #ffffff;
+$color-nav-desktop-text: #000000;
+$color-nav-desktop-uSlider: #FFBD1E;
+
+
+//footer
+$color-footer-mobile-text: $baseColor1;
+$color-footer-mobile-background: #000000;
+
+$color-footer-desktop-text: #000000;
+$color-footer-desktop-background: #ffffff;
+$color-footer-link-hover: #FFBD1E;
+
 
 
 /*** sizes ***/
@@ -37,7 +61,7 @@ $smallTextSize: 0.80rem;
 $smallTitleSize: 1.25rem;
 $titleSize: 1.75rem;
 $bigTitleSize: 3rem;
-$navTextSize: 1.125rem;
+$navTextSize: 1.5rem;
 
 
 /*** fonts ***/
@@ -45,8 +69,15 @@ $navTextSize: 1.125rem;
 $standardTextFont: "Open Sans", "Arial", "sans-serif";
 $textContainerTitleFont: "Gloria Hallelujah", "Arial", "sans-serif";
 
+@mixin navigationFontDesktop(){
+	color: $color-nav-desktop-text;
+	font-family: $standardTextFont;
+	font-size: $navTextSize;
+	font-weight: bold;
+}
+
 @mixin footerFontMobile(){
-  color: $footerColorMobile;
+  color: $color-footer-mobile-text;
   font-family: $standardTextFont;
   font-size: $standardFontSize;
   font-weight: bold;
@@ -54,7 +85,7 @@ $textContainerTitleFont: "Gloria Hallelujah", "Arial", "sans-serif";
 }
 
 @mixin footerFontMobileSmall(){
-	color: $footerColorMobile;
+	color: $color-footer-mobile-text;
 	font-family: $standardTextFont;
 	font-size: $smallTextSize;
 	line-height: 16px;

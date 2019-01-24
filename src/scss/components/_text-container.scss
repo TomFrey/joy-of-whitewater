@@ -72,7 +72,7 @@ Desktop
 }
 
 .text-container-main{
-  background-color: $textBackground;
+  background-color: $color-textContainer-background;
   display: flex;
   flex-flow: column nowrap;
   padding: $basicHeight $basicWidth;
@@ -102,7 +102,7 @@ Desktop
   h2.title{
     font-family: $textContainerTitleFont;
     font-size: $titleSize;
-    color: $textTitle;
+    color: $color-textContainer-titleH2;
     line-height: 2rem;
     margin-top: 1rem;
     margin-bottom: 0.75rem;
@@ -111,25 +111,25 @@ Desktop
   h3.title{
     font-family: $textContainerTitleFont;
     font-size: $smallTitleSize;
-    color: $textTitle;
+    color: $color-textContainer-titleH3;
     line-height: 1.5rem;
     padding-top: 0.5rem;
     margin-bottom: 0.5rem;
   }
 
    .paragraph{
-    color: $text;
+    color: $color-textContainer-text;
     font-size: $textSize;
     margin-bottom: 0.5rem;
   }
 }
 
 .text-container-drawer{
-  background-color: $baseColor2;
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.5s ease-in-out 1ms;
-
+  	background-color: $color-drawer-background-drawer;
+	color: $color-drawer-text;
+  	max-height: 0;
+  	overflow: hidden;
+  	transition: max-height 0.5s ease-in-out 1ms;
 }
 
 .text-container-drawer.js-show{
@@ -142,7 +142,7 @@ Desktop
 }
 
 .text-container-detail{
-  background-color: $textBackground;
+  background-color: $color-textContainer-background;
 }
 
 
@@ -153,7 +153,7 @@ Desktop
   .text-container-main{
     display: flex;
     flex-flow: row nowrap;
-    background-color: $textBackground;
+    background-color: $color-textContainer-background;
     padding: $basicHeight 2*$basicWidth;
 
     > .text-container-left{
@@ -170,7 +170,7 @@ Desktop
 
     > .filler{
       display: block;
-      background-color: $textBackground;
+      background-color: $color-textContainer-background;
 
       img{
         max-width: 100%;

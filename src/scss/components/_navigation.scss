@@ -1,6 +1,6 @@
 nav{
 	padding-top: 7px;
-	background-color: #ffffff;
+	background-color: $color-nav-mobile-background;
 	position: fixed;
 	top: 0;
 	width: 100%;
@@ -43,8 +43,8 @@ nav{
 			margin-bottom: 1px;
 			> a {
 				text-decoration: none;
-				color: $mobileNavFontColor;
-				background-color: $mobileNavBackground;
+				color: $color-nav-mobile-text;
+				background-color: $color-nav-mobile-background-slider;
 				padding: 8px 5px;
 				display: block;
 			}
@@ -66,7 +66,7 @@ nav{
 @media screen and (min-width: 740px) { //wenn Bildschirm grösser 740 px gross ist, dann...
 
 	nav {
-		background-color: #ffffff;
+		background-color: $color-nav-desktop-background;
 		padding-top: 20px;
 		position: fixed;
 		top: 0;
@@ -79,11 +79,10 @@ nav{
 
 		ul#mainNavi, ul#mainNavi.hide {
 			display: block;
-			padding-right: 36px;
 			position: static;
 			//ul is floated to the right and li to the left because otherwise items order will change
 			float: right;
-			width: 550px;
+			width: 725px;
 
 			> li {
 				float: left;
@@ -91,9 +90,8 @@ nav{
 				position: relative;
 
 				a.u-slide-line {
-					color: rgb(0, 0, 0);
+					@include navigationFontDesktop();
 					background: url("/assets/images/link.svg") white repeat-x;
-					font-size: $navTextSize;
 					position: relative;
 					display: inline-block;
 					overflow: hidden;
@@ -109,7 +107,7 @@ nav{
 					left: 0;
 					width: 100%;
 					height: 3px;
-					background-color: $navUSlider;
+					background-color: $color-nav-desktop-uSlider;
 					visibility: hidden;
 					transform: translate3d(-100%, 0, 0);
 					transition: visibility 0ms linear 350ms, transform 350ms cubic-bezier(.215, .61, .355, 1);

@@ -92,8 +92,8 @@ nav {
       margin-bottom: 1px; }
       nav ul#mainNavi > li > a {
         text-decoration: none;
-        color: #FFBD1E;
-        background-color: #0B3CB2;
+        color: #000000;
+        background-color: #ACDFFF;
         padding: 8px 5px;
         display: block; }
     nav ul#mainNavi > li:last-child {
@@ -115,18 +115,19 @@ nav {
       display: none; }
     nav ul#mainNavi, nav ul#mainNavi.hide {
       display: block;
-      padding-right: 36px;
       position: static;
       float: right;
-      width: 550px; }
+      width: 725px; }
       nav ul#mainNavi > li, nav ul#mainNavi.hide > li {
         float: left;
         padding-left: 12px;
         position: relative; }
         nav ul#mainNavi > li a.u-slide-line, nav ul#mainNavi.hide > li a.u-slide-line {
-          color: black;
+          color: #000000;
+          font-family: "Open Sans", "Arial", "sans-serif";
+          font-size: 1.5rem;
+          font-weight: bold;
           background: url("/assets/images/link.svg") white repeat-x;
-          font-size: 1.125rem;
           position: relative;
           display: inline-block;
           overflow: hidden;
@@ -221,7 +222,7 @@ Desktop
   flex-flow: column nowrap; }
 
 .text-container-main {
-  background-color: #0B3CB2;
+  background-color: #ACDFFF;
   display: flex;
   flex-flow: column nowrap;
   padding: 8px 8px; }
@@ -239,24 +240,25 @@ Desktop
   .text-container-main h2.title {
     font-family: "Gloria Hallelujah", "Arial", "sans-serif";
     font-size: 1.75rem;
-    color: #B27E00;
+    color: #ffffff;
     line-height: 2rem;
     margin-top: 1rem;
     margin-bottom: 0.75rem; }
   .text-container-main h3.title {
     font-family: "Gloria Hallelujah", "Arial", "sans-serif";
     font-size: 1.25rem;
-    color: #B27E00;
+    color: #ffffff;
     line-height: 1.5rem;
     padding-top: 0.5rem;
     margin-bottom: 0.5rem; }
   .text-container-main .paragraph {
-    color: #FFBD1E;
+    color: #000000;
     font-size: 1rem;
     margin-bottom: 0.5rem; }
 
 .text-container-drawer {
-  background-color: #3873FF;
+  background-color: #6795B2;
+  color: #000000;
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.5s ease-in-out 1ms; }
@@ -269,7 +271,7 @@ Desktop
   padding: 8px 8px; }
 
 .text-container-detail {
-  background-color: #0B3CB2; }
+  background-color: #ACDFFF; }
 
 /* *************************************************** */
 /* *********** ab hier für desktop ******************* */
@@ -277,7 +279,7 @@ Desktop
   .text-container-main {
     display: flex;
     flex-flow: row nowrap;
-    background-color: #0B3CB2;
+    background-color: #ACDFFF;
     padding: 8px 16px; }
     .text-container-main > .text-container-left {
       flex: 0 1 62%;
@@ -289,7 +291,7 @@ Desktop
       padding-left: 16px; }
     .text-container-main > .filler {
       display: block;
-      background-color: #0B3CB2; }
+      background-color: #ACDFFF; }
       .text-container-main > .filler img {
         max-width: 100%;
         height: auto; }
@@ -300,7 +302,7 @@ Desktop
       flex: 0 1 62%;
       order: 0; }
     .text-container-main .filler__fillarea {
-      background-color: #B27E00;
+      background-color: #ffffff;
       height: 100%;
       width: 100%; }
   .text-container-drawer__paragraph {
@@ -342,7 +344,7 @@ Desktop
     background-size: cover; } }
 
 .course-list {
-  color: #FFBD1E;
+  color: #000000;
   font-family: "Open Sans", "Arial", "sans-serif";
   font-size: 16px;
   line-height: 32px;
@@ -351,11 +353,11 @@ Desktop
   padding: 8px 8px; }
 
 .course-list-item {
-  color: #FFBD1E;
+  color: #000000;
   font-family: "Open Sans", "Arial", "sans-serif";
   font-size: 16px;
   line-height: 32px;
-  background-color: #1E61FF;
+  background-color: #ACDFFF;
   display: flex;
   flex-flow: row nowrap;
   text-decoration: none; }
@@ -364,19 +366,19 @@ Desktop
   margin-bottom: 8px; }
 
 .course-item__name-wrapper {
-  border-right: 3px solid #3873FF;
+  border-right: 3px solid #6795B2;
   flex: 2 2 40%;
   padding: 8px 8px; }
 
 .course-item__name {
-  color: #B27E00;
+  color: #ffffff;
   font-family: "Open Sans", "Arial", "sans-serif";
   font-size: 20px;
   line-height: 32px;
   padding: 0; }
 
 .course-item__place-wrapper {
-  border-right: 3px solid #3873FF;
+  border-right: 3px solid #6795B2;
   flex: 1 1 20%;
   padding: 8px 0; }
 
@@ -405,9 +407,9 @@ Desktop
   .course-list {
     padding: 8px 16px; }
   .course-list-item:hover {
-    background-color: #0B3CB2; }
+    background-color: #46b8ff; }
   .course-item__duration-wrapper {
-    border-right: 3px solid #3873FF;
+    border-right: 3px solid #6795B2;
     display: block;
     flex: 1 1 10%;
     padding: 8px 0; }
@@ -424,13 +426,13 @@ Desktop
 ||------------------------------------------------------------------------||
 */
 .footer {
-  color: #0B3CB2;
+  color: #ACDFFF;
   font-family: "Open Sans", "Arial", "sans-serif";
   font-size: 16px;
   font-weight: bold;
   line-height: 24px;
-  background-color: white;
-  color: #FFBD1E;
+  background-color: #000000;
+  color: #ACDFFF;
   margin: 0 auto;
   max-width: 1200px;
   padding: 8px 8px;
@@ -450,7 +452,7 @@ Desktop
   margin: 0 auto; }
 
 .footer-address {
-  color: #0B3CB2;
+  color: #ACDFFF;
   font-family: "Open Sans", "Arial", "sans-serif";
   font-size: 16px;
   font-weight: bold;
@@ -460,7 +462,7 @@ Desktop
   align-self: flex-start; }
 
 .footer-address__link {
-  color: #0B3CB2;
+  color: #ACDFFF;
   font-family: "Open Sans", "Arial", "sans-serif";
   font-size: 16px;
   font-weight: bold;
@@ -488,7 +490,7 @@ Desktop
   margin-bottom: 4px; }
 
 .agb-list__item {
-  color: #0B3CB2;
+  color: #ACDFFF;
   font-family: "Open Sans", "Arial", "sans-serif";
   font-size: 16px;
   font-weight: bold;
@@ -508,18 +510,18 @@ Desktop
   */
 .backtotop-wrapper {
   align-items: center;
-  color: #0B3CB2;
+  color: #ACDFFF;
   display: flex;
   flex-flow: row nowrap;
   text-decoration: none; }
   .backtotop-wrapper .backtotop-wrapper__img svg g g {
-    stroke: #0B3CB2; }
+    stroke: #ACDFFF; }
 
 .backtotop-wrapper__label {
   display: none; }
 
 .impressum-list__item {
-  color: #0B3CB2;
+  color: #ACDFFF;
   font-family: "Open Sans", "Arial", "sans-serif";
   font-size: 0.8rem;
   line-height: 16px;
@@ -529,6 +531,7 @@ Desktop
 /* *********** ab hier für desktop ******************* */
 @media screen and (min-width: 740px) {
   .footer {
+    background-color: #ffffff;
     padding: 8px 16px; }
   .footer__main {
     flex-flow: row nowrap; }
@@ -542,7 +545,7 @@ Desktop
     font-weight: bold;
     line-height: 24px; }
   .footer-address__link:hover {
-    color: #1E61FF; }
+    color: #FFBD1E; }
   .footer-links-wrapper {
     align-self: center; }
   .footer-links__agb__list {
@@ -560,28 +563,28 @@ Desktop
     font-weight: bold;
     line-height: 24px; }
   .agb-list__item:hover {
-    color: #1E61FF; }
+    color: #FFBD1E; }
   .impressum-list__item {
     color: black;
     font-family: "Open Sans", "Arial", "sans-serif";
     font-size: 0.8rem;
     line-height: 16px; }
   .impressum-list__item:hover {
-    color: #1E61FF; }
+    color: #FFBD1E; }
   .backtotop-wrapper {
     color: #000000; }
     .backtotop-wrapper .backtotop-wrapper__img svg g g {
       stroke: #000000; }
   .backtotop-wrapper:hover {
-    color: #1E61FF; }
+    color: #FFBD1E; }
     .backtotop-wrapper:hover .backtotop-wrapper__img svg g g {
-      stroke: #1E61FF; }
+      stroke: #000000; }
   .backtotop-wrapper__label {
     display: inline-block;
     padding-right: 12px; } }
 
 .anmeldung {
-  background-color: #3873FF;
+  background-color: #0B3CB2;
   display: flex;
   flex-flow: column nowrap;
   padding: 16px 16px;
@@ -595,17 +598,17 @@ Desktop
   margin-top: 16px; }
 
 .anmeldung__links {
-  background-color: #3873FF;
+  background-color: #0B3CB2;
   width: 100%;
   height: 100%; }
 
 .anmeldung__rechts {
-  background-color: #3873FF;
+  background-color: #0B3CB2;
   width: 100%;
   height: 100%; }
 
 .equipment-wrapper {
-  color: #e5a200;
+  color: white;
   font-family: "Open Sans", "Arial", "sans-serif";
   font-size: 16px;
   line-height: 32px;
@@ -615,7 +618,7 @@ Desktop
   margin-left: 24px; }
 
 .equipment-needed-input {
-  color: #FFBD1E;
+  color: #000000;
   font-family: "Open Sans", "Arial", "sans-serif";
   font-size: 16px;
   line-height: 32px;
@@ -624,7 +627,7 @@ Desktop
   width: 100%; }
 
 .agb-wrapper {
-  color: #e5a200;
+  color: white;
   font-family: "Open Sans", "Arial", "sans-serif";
   font-size: 16px;
   line-height: 32px;
@@ -684,13 +687,13 @@ Desktop
   margin-bottom: 16px; }
 
 .moving-placeholder__input {
-  color: #e5a200;
+  color: white;
   font-family: "Open Sans", "Arial", "sans-serif";
   font-size: 16px;
   line-height: 32px;
   background-color: #1E61FF;
   border: none;
-  color: #FFBD1E;
+  color: #000000;
   display: block;
   padding: 24px 0 0 16px;
   width: 100%; }
@@ -699,7 +702,7 @@ Desktop
   outline: none; }
 
 .moving-placeholder__label {
-  color: #e5a200;
+  color: white;
   left: 0px;
   padding: 8px 0 0 16px;
   position: absolute;
@@ -737,21 +740,21 @@ Desktop
 
 @-webkit-keyframes inputHighlighter {
   from {
-    background: #0B3CB2; }
+    background: #ACDFFF; }
   to {
     width: 0;
     background: transparent; } }
 
 @-moz-keyframes inputHighlighter {
   from {
-    background: #0B3CB2; }
+    background: #ACDFFF; }
   to {
     width: 0;
     background: transparent; } }
 
 @keyframes inputHighlighter {
   from {
-    background: #0B3CB2; }
+    background: #ACDFFF; }
   to {
     width: 0;
     background: transparent; } }
@@ -775,14 +778,14 @@ Desktop
     width: unset; } }
 
 .open-drawer {
-  background-color: #0B3CB2;
+  background-color: #ACDFFF;
   bottom: 0;
   display: inline-block;
   padding: 0px 10px 10px 8px; }
 
 .open-drawer-wrapper {
   align-items: baseline;
-  color: #9ebbff;
+  color: #316af2;
   display: flex;
   flex-flow: row nowrap;
   text-decoration: none; }
@@ -791,8 +794,8 @@ Desktop
   pointer-events: none; }
 
 .open-drawer-wrapper__icon {
-  border-bottom: 2px solid #9ebbff;
-  border-right: 2px solid #9ebbff;
+  border-bottom: 2px solid #316af2;
+  border-right: 2px solid #316af2;
   height: 12px;
   margin-left: 12px;
   pointer-events: none;
@@ -809,10 +812,10 @@ Desktop
   .open-drawer {
     padding: 0px 10px 10px 16px; }
   .open-drawer-wrapper:hover {
-    color: #3873FF; }
+    color: #0B3CB2; }
     .open-drawer-wrapper:hover .open-drawer-wrapper__icon {
-      border-bottom: 2px solid #3873FF;
-      border-right: 2px solid #3873FF; } }
+      border-bottom: 2px solid #0B3CB2;
+      border-right: 2px solid #0B3CB2; } }
 
 .general-button {
   font-family: "Open Sans", "Arial", "sans-serif";
@@ -840,13 +843,13 @@ Desktop
     color: #ffffff; } }
 
 .general-link {
-  color: #FFBD1E; }
+  color: #000000; }
 
 /* *************************************************** */
 /* *********** ab hier für desktop ******************* */
 @media screen and (min-width: 740px) {
   .general-link:hover {
-    color: #B27E00; } }
+    color: #ffffff; } }
 
 /* Border Box Trick */
 /* padding ist in der Box Breite miteingerechnet*/
@@ -885,8 +888,21 @@ main .text-container {
 /* *********** ab hier für desktop ******************* */
 @media screen and (min-width: 740px) {
   header {
+    position: relative;
     margin-top: 40px;
     margin-bottom: 40px; }
+    header svg.header-fill__bottom {
+      position: absolute;
+      bottom: 4px;
+      width: 100%;
+      height: 100px;
+      z-index: 2; }
+    header svg.header-fill__top {
+      position: absolute;
+      top: 9px;
+      width: 100%;
+      height: 100px;
+      z-index: 2; }
     header img#desktop_logo {
       display: block;
       position: absolute; }
@@ -900,7 +916,7 @@ main .text-container {
         top: 0px;
         left: 0px;
         width: 100%;
-        padding: 40px 30px;
+        padding: 60px 30px 0px 30px;
         background: inherit;
         background-attachment: fixed;
         overflow: hidden;
