@@ -65,12 +65,19 @@ nav{
 /* *********** ab hier für desktop ******************* */
 @media screen and (min-width: 740px) { //wenn Bildschirm grösser 740 px gross ist, dann...
 
+	.nav-wrapper{
+		position: sticky;
+		top: 0;
+		z-index: 10;
+	}
+
 	nav {
 		background-color: $color-nav-desktop-background;
+		padding-bottom: $basicHeight;
 		padding-top: 20px;
+		padding-left: 500px;
 		position: fixed;
 		top: 0;
-		max-width: $maxWidth;
 		z-index: 10;
 
 		#hamburger {
@@ -81,8 +88,8 @@ nav{
 			display: block;
 			position: static;
 			//ul is floated to the right and li to the left because otherwise items order will change
-			float: right;
-			width: 725px;
+			//float: right;
+			width: 700px;
 
 			> li {
 				float: left;
@@ -119,6 +126,10 @@ nav{
 					transition: visibility 0ms linear 0ms, transform 350ms cubic-bezier(.215, .61, .355, 1);
 				}
 			}
+		}
+
+		.clearfix {
+			clear: both;
 		}
 	}
 }

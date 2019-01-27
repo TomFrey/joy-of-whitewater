@@ -36,18 +36,31 @@ body{
 
 
 header {
-	margin-top: 61px;
+	//margin-top: 61px;
 
 	img{
 		width: 100%;
 	}
 
-	img#mobile {
+	picture#mobile {
 		display: block;
 	}
 
 	.images-carousel {
 		display: none;
+	}
+
+	svg.header-fill__bottom {
+		display: none;
+	}
+
+	svg.header-fill__top {
+		display: block;
+		position: absolute;
+		top: 60px;
+		width: 100%;
+		height: 100px;
+		z-index: 2;
 	}
 }
 
@@ -65,34 +78,35 @@ main{
 /* *********** ab hier für desktop ******************* */
 @media screen and (min-width: 740px) {    //wenn Bildschirm grösser 740 px gross ist, dann...
 
-
 	header{
 		position: relative;
-		margin-top: 40px;
+		margin-top: 0px;
 		margin-bottom: 40px;
 
 		svg.header-fill__bottom {
+			display: block;
 			position: absolute;
-			bottom: 4px;
+			bottom: 0px;
 			width: 100%;
-			height: 100px;
+			height: 200px;
 			z-index: 2;
 		}
 
 		svg.header-fill__top {
+			display: block;
 			position: absolute;
-			top: 9px;
+			top: 0px;
 			width: 100%;
-			height: 100px;
+			height: 350px;
 			z-index: 2;
 		}
 
-		img#desktop_logo{
+		/*img#desktop_logo{
 			display: block;
 			position: absolute;
-		}
+		}*/
 
-		img#mobile {
+		picture#mobile {
 			display: none;
 		}
 
@@ -100,17 +114,16 @@ main{
 			display: block;
 			width: 100%;
 
-
 			.containerForTitle {
 				position: absolute;
 				top: 0px;
 				left: 0px;
 				width: 100%;
-				padding: 60px 30px 0px 30px;
+				padding: 15px 30px 0px 30px;
 				background: inherit;
 				background-attachment: fixed;
 				overflow: hidden;
-				z-index: 5;
+				z-index: 15;
 			}
 
 			.containerForTitle h1{

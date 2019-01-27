@@ -15,20 +15,59 @@
 /* ab hier für desktop */
 @media screen and (min-width: 740px) {
 
-  .parallax-container {
-    display: block;
 
-    /* The image used */
-    background-image: url("/../../images/flo_equador.jpg");
+	.parallax {
+		perspective: 1px;
+		height: 100vh;
+		overflow-x: hidden;
+		overflow-y: auto;
+	}
 
-    /* Set a specific height */
-    height: 250px;
+	.parallax__group {
+		position: relative;
+		height: 100vh;
+		transform-style: preserve-3d;
+	}
 
-    /* Create the parallax scrolling effect */
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
+	.parallax__layer {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+	}
+
+	.parallax__layer--base {
+		transform: translateZ(0);
+
+		p {
+			color: red;
+			padding-top: 120px;
+		}
+	}
+
+	.parallax__layer--back {
+		transform: translateZ(-2px) scale(3);
+
+		p {
+			padding-top: 60px;
+		}
+	}
+
+	.parallax-container {
+	  	display: block;
+
+		/* The image used */
+    	//background-image: url("/../../images/flo_equador.jpg");
+
+    	/* Set a specific height */
+    	height: 250px;
+
+    	/* Create the parallax scrolling effect */
+    	background-attachment: fixed;
+    	background-position: center;
+   		background-repeat: no-repeat;
+   		background-size: cover;
+  	}
 
 }
