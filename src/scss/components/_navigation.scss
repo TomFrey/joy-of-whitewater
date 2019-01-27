@@ -74,7 +74,7 @@ nav{
 	nav {
 		background-color: $color-nav-desktop-background;
 		padding-bottom: $basicHeight;
-		padding-top: 20px;
+		padding-top: 16px;
 		padding-left: 500px;
 		position: fixed;
 		top: 0;
@@ -87,9 +87,6 @@ nav{
 		ul#mainNavi, ul#mainNavi.hide {
 			display: block;
 			position: static;
-			//ul is floated to the right and li to the left because otherwise items order will change
-			//float: right;
-			width: 700px;
 
 			> li {
 				float: left;
@@ -98,19 +95,19 @@ nav{
 
 				a.u-slide-line {
 					@include navigationFontDesktop();
-					background: url("/assets/images/link.svg") white repeat-x;
+					background: url("/assets/images/link.svg") 0px 2px white repeat-x;
 					position: relative;
 					display: inline-block;
 					overflow: hidden;
 					text-decoration: none;
-					padding: 0px 0px 3px 0px;
+					padding: 0px 0px 7px 0px;
 					margin-bottom: 1px;
 				}
 
 				a.u-slide-line::after {
 					content: "";
 					position: absolute;
-					bottom: 0;
+					bottom: 2px;
 					left: 0;
 					width: 100%;
 					height: 3px;

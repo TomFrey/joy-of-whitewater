@@ -111,7 +111,7 @@ nav {
   nav {
     background-color: #ffffff;
     padding-bottom: 8px;
-    padding-top: 20px;
+    padding-top: 16px;
     padding-left: 500px;
     position: fixed;
     top: 0;
@@ -120,8 +120,7 @@ nav {
       display: none; }
     nav ul#mainNavi, nav ul#mainNavi.hide {
       display: block;
-      position: static;
-      width: 700px; }
+      position: static; }
       nav ul#mainNavi > li, nav ul#mainNavi.hide > li {
         float: left;
         padding-left: 12px;
@@ -131,17 +130,17 @@ nav {
           font-family: "Open Sans", "Arial", "sans-serif";
           font-size: 1.5rem;
           font-weight: bold;
-          background: url("/assets/images/link.svg") white repeat-x;
+          background: url("/assets/images/link.svg") 0px 2px white repeat-x;
           position: relative;
           display: inline-block;
           overflow: hidden;
           text-decoration: none;
-          padding: 0px 0px 3px 0px;
+          padding: 0px 0px 7px 0px;
           margin-bottom: 1px; }
         nav ul#mainNavi > li a.u-slide-line::after, nav ul#mainNavi.hide > li a.u-slide-line::after {
           content: "";
           position: absolute;
-          bottom: 0;
+          bottom: 2px;
           left: 0;
           width: 100%;
           height: 3px;
