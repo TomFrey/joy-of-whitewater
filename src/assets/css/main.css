@@ -224,7 +224,8 @@ Desktop
 */
 .text-container {
   display: flex;
-  flex-flow: column nowrap; }
+  flex-flow: column nowrap;
+  position: relative; }
 
 .text-container-main {
   background-color: #ACDFFF;
@@ -278,6 +279,12 @@ Desktop
 .text-container-detail {
   background-color: #ACDFFF; }
 
+img.text-container-fill__top {
+  display: none; }
+
+img.text-container-fill__bottom {
+  display: none; }
+
 /* *************************************************** */
 /* *********** ab hier für desktop ******************* */
 @media screen and (min-width: 740px) {
@@ -285,7 +292,7 @@ Desktop
     display: flex;
     flex-flow: row nowrap;
     background-color: #ACDFFF;
-    padding: 8px 16px; }
+    padding: 24px 16px; }
     .text-container-main > .text-container-left {
       flex: 0 1 62%;
       order: 0;
@@ -311,7 +318,21 @@ Desktop
       height: 100%;
       width: 100%; }
   .text-container-drawer__paragraph {
-    padding: 8px 16px; } }
+    padding: 8px 16px; }
+  img.text-container-fill__top {
+    display: block;
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    height: 100px;
+    z-index: 2; }
+  img.text-container-fill__bottom {
+    display: block;
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    height: 200px;
+    z-index: 2; } }
 
 .images-carousel {
   position: relative; }

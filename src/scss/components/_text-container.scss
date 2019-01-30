@@ -69,6 +69,7 @@ Desktop
 .text-container{
   display: flex;
   flex-flow: column nowrap;
+	position: relative;
 }
 
 .text-container-main{
@@ -145,6 +146,15 @@ Desktop
   background-color: $color-textContainer-background;
 }
 
+//die svg am Anfang und Ende (Wellenlinie und Baum) eines text-containers
+img.text-container-fill__top {
+	display: none;
+}
+
+img.text-container-fill__bottom {
+	display: none;
+}
+
 
 /* *************************************************** */
 /* *********** ab hier für desktop ******************* */
@@ -154,7 +164,7 @@ Desktop
     display: flex;
     flex-flow: row nowrap;
     background-color: $color-textContainer-background;
-    padding: $basicHeight 2*$basicWidth;
+    padding: 3*$basicHeight 2*$basicWidth;
 
     > .text-container-left{
       flex: 0 1 62%;
@@ -199,6 +209,26 @@ Desktop
   .text-container-drawer__paragraph{
     padding: $basicHeight 2*$basicWidth;
   }
+
+
+	//die svg am Anfang und Ende (Wellenlinie und Baum) eines text-containers
+	img.text-container-fill__top {
+		display: block;
+		position: absolute;
+		top: 0px;
+		width: 100%;
+		height: 100px;
+		z-index: 2;
+	}
+
+	img.text-container-fill__bottom {
+		display: block;
+		position: absolute;
+		bottom: 0px;
+		width: 100%;
+		height: 200px;
+		z-index: 2;
+	}
 
 
 }
