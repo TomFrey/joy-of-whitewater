@@ -31,7 +31,7 @@ nav{
 		}
 	}
 
-	ul#mainNavi {
+	ul.main-navi-desktop {
 		display: block;
 		list-style-type: none;
 		width: 100%;
@@ -54,7 +54,7 @@ nav{
 		}
 	}
 
-	ul#mainNavi.hide {
+	ul.main-navi-desktop.js-hide {
 		display: none;
 	}
 }
@@ -84,7 +84,7 @@ nav{
 			display: none;
 		}
 
-		ul#mainNavi, ul#mainNavi.hide {
+		ul.main-navi-desktop, ul.main-navi-desktop.js-hide {
 			display: block;
 			position: static;
 
@@ -121,6 +121,11 @@ nav{
 					visibility: visible;
 					transform: translate3d(0%, 0, 0);
 					transition: visibility 0ms linear 0ms, transform 350ms cubic-bezier(.215, .61, .355, 1);
+				}
+
+				a.u-slide-line.js-isSelected::after {
+					visibility: visible;
+					transform: translate3d(0%, 0, 0);
 				}
 			}
 		}

@@ -81,24 +81,24 @@ nav {
     width: 60px;
     transform: translateX(-24px) translateY(19px) rotate(-45deg);
     transition: transform 0.5s ease-in-out 1ms; }
-  nav ul#mainNavi {
+  nav ul.main-navi-desktop {
     display: block;
     list-style-type: none;
     width: 100%;
     background-color: white;
     position: absolute;
     animation: 1.5s slideIn; }
-    nav ul#mainNavi > li {
+    nav ul.main-navi-desktop > li {
       margin-bottom: 1px; }
-      nav ul#mainNavi > li > a {
+      nav ul.main-navi-desktop > li > a {
         text-decoration: none;
         color: #000000;
         background-color: #ACDFFF;
         padding: 8px 5px;
         display: block; }
-    nav ul#mainNavi > li:last-child {
+    nav ul.main-navi-desktop > li:last-child {
       margin-bottom: 0px; }
-  nav ul#mainNavi.hide {
+  nav ul.main-navi-desktop.js-hide {
     display: none; }
 
 /* *************************************************** */
@@ -118,14 +118,14 @@ nav {
     z-index: 10; }
     nav #hamburger {
       display: none; }
-    nav ul#mainNavi, nav ul#mainNavi.hide {
+    nav ul.main-navi-desktop, nav ul.main-navi-desktop.js-hide {
       display: block;
       position: static; }
-      nav ul#mainNavi > li, nav ul#mainNavi.hide > li {
+      nav ul.main-navi-desktop > li, nav ul.main-navi-desktop.js-hide > li {
         float: left;
         padding-left: 12px;
         position: relative; }
-        nav ul#mainNavi > li a.u-slide-line, nav ul#mainNavi.hide > li a.u-slide-line {
+        nav ul.main-navi-desktop > li a.u-slide-line, nav ul.main-navi-desktop.js-hide > li a.u-slide-line {
           color: #000000;
           font-family: "Open Sans", "Arial", "sans-serif";
           font-size: 1.5rem;
@@ -137,7 +137,7 @@ nav {
           text-decoration: none;
           padding: 0px 0px 7px 0px;
           margin-bottom: 1px; }
-        nav ul#mainNavi > li a.u-slide-line::after, nav ul#mainNavi.hide > li a.u-slide-line::after {
+        nav ul.main-navi-desktop > li a.u-slide-line::after, nav ul.main-navi-desktop.js-hide > li a.u-slide-line::after {
           content: "";
           position: absolute;
           bottom: 2px;
@@ -148,10 +148,13 @@ nav {
           visibility: hidden;
           transform: translate3d(-100%, 0, 0);
           transition: visibility 0ms linear 350ms, transform 350ms cubic-bezier(0.215, 0.61, 0.355, 1); }
-        nav ul#mainNavi > li a.u-slide-line:hover::after, nav ul#mainNavi.hide > li a.u-slide-line:hover::after {
+        nav ul.main-navi-desktop > li a.u-slide-line:hover::after, nav ul.main-navi-desktop.js-hide > li a.u-slide-line:hover::after {
           visibility: visible;
           transform: translate3d(0%, 0, 0);
           transition: visibility 0ms linear 0ms, transform 350ms cubic-bezier(0.215, 0.61, 0.355, 1); }
+        nav ul.main-navi-desktop > li a.u-slide-line.js-isSelected::after, nav ul.main-navi-desktop.js-hide > li a.u-slide-line.js-isSelected::after {
+          visibility: visible;
+          transform: translate3d(0%, 0, 0); }
     nav .clearfix {
       clear: both; } }
 

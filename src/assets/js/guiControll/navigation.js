@@ -1,7 +1,9 @@
 // eslint-disable-next-line no-unused-vars
 var Navigation = (function () {
 	const SHOW = 'js-show';
+	const HIDE = 'js-hide';
 	const CLOSE_NAV = 'js-close-nav-button';
+	const SELECTED = 'js-isSelected';
 
 	let hamburger;
 	let mainNavi;
@@ -9,12 +11,36 @@ var Navigation = (function () {
 	let fKursDrawerButton;
 
 	function showHideNavigation() {
-		if (mainNavi.classList.contains('hide')) {
-			mainNavi.classList.remove('hide');
+		if (mainNavi.classList.contains(HIDE)) {
+			mainNavi.classList.remove(HIDE);
 			hamburger.classList.add(CLOSE_NAV);
 		} else {
-			mainNavi.classList.add('hide');
+			mainNavi.classList.add(HIDE);
 			hamburger.classList.remove(CLOSE_NAV);
+		}
+	}
+
+	function setIsSelectedOnNavigationLinks() {
+		const allUrls = [];
+
+		const kanuKurse = document.querySelector('li.main-navi-desktop__kanukurse a.u-slide-line');
+		allUrls.push(kanuKurse);
+		const paddelReisen = document.querySelector('li.main-navi-desktop__paddelreisen a.u-slide-line');
+		allUrls.push(paddelReisen);
+		const joyOfWhitewater = document.querySelector('li.main-navi-desktop__joyOfWhitewater a.u-slide-line');
+		allUrls.push(joyOfWhitewater);
+
+		allUrls.forEach((url) => {
+			url.classList.remove(SELECTED);
+		});
+
+		const whereAmI = location.pathname.split('/')[1].split('.')[0];
+		if (whereAmI === 'kanukurse') {
+			kanuKurse.classList.add(SELECTED);
+		} else if (whereAmI === 'paddelreisen') {
+			paddelReisen.classList.add(SELECTED);
+		} else {
+			joyOfWhitewater.classList.add(SELECTED);
 		}
 	}
 
@@ -34,9 +60,11 @@ var Navigation = (function () {
 
 
 	function initiate() {
+		setIsSelectedOnNavigationLinks();
+
 		hamburger = document.getElementById('hamburger');
-		mainNavi = document.getElementById('mainNavi');
 		hamburger.addEventListener('click', showHideNavigation);
+		mainNavi = document.querySelector('.main-navi-desktop');
 
 		bKursDrawerButton = document.querySelector('#open-close-drawer-button-bkurse');
 		if (bKursDrawerButton !== null) {
