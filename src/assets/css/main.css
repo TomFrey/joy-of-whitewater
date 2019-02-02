@@ -1007,8 +1007,8 @@ main .text-container {
         position: absolute;
         top: 0px;
         left: 0px;
-        width: 100%;
-        padding: 15px 30px 0px 30px;
+        width: 42%;
+        padding: 15px 0px 0px 0px;
         background: inherit;
         background-attachment: fixed;
         overflow: hidden;
@@ -1016,7 +1016,7 @@ main .text-container {
       header .images-carousel .containerForTitle h1 {
         position: relative;
         z-index: 5;
-        width: 40%;
+        width: 100%;
         font-family: "Gloria Hallelujah", "Arial", "sans-serif";
         font-size: 3rem;
         color: #FFBD1E;
