@@ -409,7 +409,7 @@ img.text-container-fill__bottom {
   font-family: "Open Sans", "Arial", "sans-serif";
   font-size: 16px;
   line-height: 32px;
-  background-color: #ACDFFF;
+  background-color: #c6e9ff;
   display: flex;
   flex-flow: row nowrap;
   text-decoration: none; }
@@ -459,7 +459,7 @@ img.text-container-fill__bottom {
   .course-list {
     padding: 8px 16px; }
   .course-list-item:hover {
-    background-color: #46b8ff; }
+    background-color: #acdfff; }
   .course-item__duration-wrapper {
     border-right: 3px solid #6795B2;
     display: block;
@@ -605,7 +605,7 @@ img.text-container-fill__bottom {
     display: flex;
     flex-flow: row nowrap; }
     .footer-links__agb__list li:not(:last-of-type):after {
-      color: #1E61FF;
+      color: #C5E9FF;
       content: '|';
       margin: 0 8px; }
   .agb-list__item {
@@ -636,7 +636,7 @@ img.text-container-fill__bottom {
     padding-right: 12px; } }
 
 .anmeldung {
-  background-color: #0B3CB2;
+  background-color: #6795B2;
   display: flex;
   flex-flow: column nowrap;
   padding: 16px 16px;
@@ -650,12 +650,12 @@ img.text-container-fill__bottom {
   margin-top: 16px; }
 
 .anmeldung__links {
-  background-color: #0B3CB2;
+  background-color: #6795B2;
   width: 100%;
   height: 100%; }
 
 .anmeldung__rechts {
-  background-color: #0B3CB2;
+  background-color: #6795B2;
   width: 100%;
   height: 100%; }
 
@@ -674,7 +674,7 @@ img.text-container-fill__bottom {
   font-family: "Open Sans", "Arial", "sans-serif";
   font-size: 16px;
   line-height: 32px;
-  background-color: #1E61FF;
+  background-color: #C5E9FF;
   border: none;
   width: 100%; }
 
@@ -743,7 +743,7 @@ img.text-container-fill__bottom {
   font-family: "Open Sans", "Arial", "sans-serif";
   font-size: 16px;
   line-height: 32px;
-  background-color: #1E61FF;
+  background-color: #C5E9FF;
   border: none;
   color: #000000;
   display: block;
@@ -856,24 +856,24 @@ img.text-container-fill__bottom {
     height: 57px; } }
 
 .open-drawer {
-  background-color: #ACDFFF;
-  bottom: 0;
-  display: inline-block;
-  padding: 0px 10px 10px 8px; }
+  background-color: #B28B55;
+  bottom: 0; }
 
 .open-drawer-wrapper {
   align-items: baseline;
-  color: #316af2;
+  color: #ffffff;
   display: flex;
   flex-flow: row nowrap;
+  justify-content: center;
+  padding: 8px 0px;
   text-decoration: none; }
 
 .open-drawer-wrapper__label {
   pointer-events: none; }
 
 .open-drawer-wrapper__icon {
-  border-bottom: 2px solid #316af2;
-  border-right: 2px solid #316af2;
+  border-bottom: 2px solid #ffffff;
+  border-right: 2px solid #ffffff;
   height: 12px;
   margin-left: 12px;
   pointer-events: none;
@@ -888,12 +888,17 @@ img.text-container-fill__bottom {
 /* ab hier für desktop */
 @media screen and (min-width: 740px) {
   .open-drawer {
-    padding: 0px 10px 10px 16px; }
-  .open-drawer-wrapper:hover {
-    color: #0B3CB2; }
-    .open-drawer-wrapper:hover .open-drawer-wrapper__icon {
-      border-bottom: 2px solid #0B3CB2;
-      border-right: 2px solid #0B3CB2; } }
+    border: 1px solid #B28B55;
+    border-radius: 8px;
+    margin: 16px 16px;
+    width: 30%; }
+  .open-drawer:hover {
+    background-color: #ffffff; }
+    .open-drawer:hover .open-drawer-wrapper {
+      color: #B28B55; }
+      .open-drawer:hover .open-drawer-wrapper .open-drawer-wrapper__icon {
+        border-bottom: 2px solid #B28B55;
+        border-right: 2px solid #B28B55; } }
 
 .general-button {
   font-family: "Open Sans", "Arial", "sans-serif";

@@ -1,10 +1,12 @@
 /*** colors ***/
 
 $baseColor1: #ACDFFF; //0B3CB2  //25C8FF  //8DDFFF   //ACDFFF
-$baseColor2: #0B3CB2; //3873FF
-$baseColor3: #1E61FF;
+$baseColor2: #6795B2; //3873FF
+$baseColor3: #C5E9FF;
 $complimentaryColor1: #ffffff;
 $complimentaryColor2: #000000;
+$complimentaryColor3: #FFDCAC;
+$complimentaryColor4: #B28B55;
 
 $baseColor2Light: lighten($baseColor2, 20%);
 
@@ -21,11 +23,14 @@ $color-textContainer-background: $baseColor1;
 
 
 //colors _text-container-drawer
-$color-drawer-buttonToOpenDrawer: $baseColor1;
+$color-drawer-buttonToOpenDrawer: $complimentaryColor4;
+$color-drawer-buttonToOpenDrawer-hover: $complimentaryColor1;
+$color-drawer-buttonToOpenDrawerText: $complimentaryColor1;
+$color-drawer-buttonToOpenDrawerText-hover: $complimentaryColor4;
 $color-drawer-text: #000000;
-$color-drawer-background-drawer: #6795B2;
-$color-drawer-background-dateTable: $baseColor1;
-$color-drawer-background-dateTable-hover: darken($baseColor1, 20%);
+$color-drawer-background-drawer: $baseColor2;
+$color-drawer-background-dateTable: lighten($baseColor1, 5%);
+$color-drawer-background-dateTable-hover: darken($baseColor1, 0%);
 
 
 //colors navigation

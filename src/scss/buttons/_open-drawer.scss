@@ -1,16 +1,20 @@
 .open-drawer{
-  background-color: $color-drawer-buttonToOpenDrawer;
-  bottom: 0;
-  display: inline-block;
-  padding: 0px 10px 10px $basicWidth;
+  	background-color: $color-drawer-buttonToOpenDrawer;
+  	bottom: 0;
+  //	display: flex;
+	//justify-content: center;
+  //	padding: $basicHeight 0px;
+//	width: 100%;
 }
 
 .open-drawer-wrapper{
-  align-items: baseline;
-  color: $baseColor2Light;
-  display: flex;
-  flex-flow: row nowrap;
-  text-decoration: none;
+  	align-items: baseline;
+  	color: $color-drawer-buttonToOpenDrawerText;
+  	display: flex;
+  	flex-flow: row nowrap;
+	justify-content: center;
+	padding: $basicHeight 0px;
+  	text-decoration: none;
 }
 
 .open-drawer-wrapper__label{
@@ -18,8 +22,8 @@
 }
 
 .open-drawer-wrapper__icon{
-  border-bottom: 2px solid $baseColor2Light;
-  border-right: 2px solid $baseColor2Light;
+  border-bottom: 2px solid $color-drawer-buttonToOpenDrawerText;
+  border-right: 2px solid $color-drawer-buttonToOpenDrawerText;
   height: 12px;
   margin-left: 12px;
 	pointer-events: none;
@@ -38,16 +42,24 @@
 /* ab hier für desktop */
 @media screen and (min-width: 740px) { //wenn Bildschirm grösser 740 px gross ist, dann...
 
-  .open-drawer{
-    padding: 0px 10px 10px 2*$basicWidth;
-  }
 
-  .open-drawer-wrapper:hover{
-    color: $baseColor2;
+	.open-drawer{
+		border: 1px solid $complimentaryColor4;
+	  	border-radius: $basicHeight;
+		margin: 2*$basicWidth 2*$basicHeight;
+		width: 30%;
+  	}
 
-    .open-drawer-wrapper__icon{
-      border-bottom: 2px solid $baseColor2;
-      border-right: 2px solid $baseColor2;
-    }
-  }
+	.open-drawer:hover{
+		background-color: $color-drawer-buttonToOpenDrawer-hover;
+
+		.open-drawer-wrapper{
+			color: $color-drawer-buttonToOpenDrawerText-hover;
+
+			.open-drawer-wrapper__icon{
+				border-bottom: 2px solid $color-drawer-buttonToOpenDrawerText-hover;
+				border-right: 2px solid $color-drawer-buttonToOpenDrawerText-hover;
+			}
+		}
+	}
 }
