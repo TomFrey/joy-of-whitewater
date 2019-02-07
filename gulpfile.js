@@ -30,6 +30,8 @@ const settings = {
 const allJsFiles = [
 	'./node_modules/jquery/dist/jquery.js',
 
+	'./src/assets/js/config.js',
+
 	'./src/assets/js/util/validator.js',
 
 	'./src/assets/js/guiControll/renderHeader.js',

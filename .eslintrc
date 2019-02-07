@@ -16,6 +16,7 @@
 		"CourseRegistration": false,
 		"Validator": false,
 		"RenderHeader": false,
+		"Configuration": false
 	},
 	"rules": {
 		"indent": [	2,

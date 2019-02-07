@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-var Navigation = (function (RenderHeader) {
+var Navigation = (function (RenderHeader, Configuration) {
 	const SHOW = 'js-show';
 	const HIDE = 'js-hide';
 	const CLOSE_NAV = 'js-close-nav-button';
@@ -10,23 +10,6 @@ var Navigation = (function (RenderHeader) {
 	let bKursDrawerButton;
 	let fKursDrawerButton;
 
-	const theJoyOfWhiteWaterImages = [
-		{ name: 'caousel_gr_1', title: 'kanukurs', alt: 'kanukurs' },
-		{ name: 'caousel_gr_2', title: 'kanukurs', alt: 'kanukurs' },
-		{ name: 'caousel_gr_4', title: 'kanukurs', alt: 'kanukurs' }
-	];
-	const kanukurseImages = [
-		{ name: 'caousel_gr_1', title: 'kanukurs', alt: 'kanukurs' },
-		{ name: 'caousel_gr_2', title: 'kanukurs', alt: 'kanukurs' },
-		{ name: 'caousel_gr_4', title: 'kanukurs', alt: 'kanukurs' }
-	];
-	const paddelreisenImages = [
-		{ name: 'caousel_gr_1', title: 'Paddelreisen', alt: 'Paddelreisen' },
-		{ name: 'caousel_gr_2', title: 'Paddelreisen', alt: 'Paddelreisen' },
-		{ name: 'caousel_gr_4', title: 'Paddelreisen', alt: 'Paddelreisen' }
-	];
-
-	
 	function getNameOfCurrentSite() {
 		return location.pathname.split('/')[1].split('.')[0];
 	}
@@ -94,17 +77,17 @@ var Navigation = (function (RenderHeader) {
 		switch (whereAmI) {
 			case 'kanukurse':
 				setHeaderTitle('Kajak- und  <br> Kanadierkurse');
-				RenderHeader.createImagesListForTheCarousel(kanukurseImages);
+				RenderHeader.createImagesListForTheCarousel(Configuration.getImagesForKanukurse());
 				break;
 
 			case 'paddelreisen':
 				setHeaderTitle('Abenteuer- und <br> Genusspaddelreisen');
-				RenderHeader.createImagesListForTheCarousel(paddelreisenImages);
+				RenderHeader.createImagesListForTheCarousel(Configuration.getImagesForPaddelreisen());
 				break;
 
 			default: // Startseite
 				setHeaderTitle('THE JOY <br>OF WHITEWATER');
-				RenderHeader.createImagesListForTheCarousel(theJoyOfWhiteWaterImages);
+				RenderHeader.createImagesListForTheCarousel(Configuration.getImagesForJoyOfWhitewater());
 		}
 
 	}
@@ -137,4 +120,4 @@ var Navigation = (function (RenderHeader) {
 	return {
 		init: initiate
 	};
-})(RenderHeader);
+})(RenderHeader, Configuration);
