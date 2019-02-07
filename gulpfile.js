@@ -32,6 +32,7 @@ const allJsFiles = [
 
 	'./src/assets/js/util/validator.js',
 
+	'./src/assets/js/guiControll/renderHeader.js',
 	'./src/assets/js/guiControll/navigation.js',
 	'./src/assets/js/guiControll/imageCarousel.js',
 	'./src/assets/js/guiControll/kanukursanmeldung.js',

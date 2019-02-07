@@ -15,6 +15,7 @@
 		"ImageCarousel": false,
 		"CourseRegistration": false,
 		"Validator": false,
+		"RenderHeader": false,
 	},
 	"rules": {
 		"indent": [	2,

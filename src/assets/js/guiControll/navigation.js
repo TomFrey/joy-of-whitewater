@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-var Navigation = (function () {
+var Navigation = (function (RenderHeader) {
 	const SHOW = 'js-show';
 	const HIDE = 'js-hide';
 	const CLOSE_NAV = 'js-close-nav-button';
@@ -10,6 +10,34 @@ var Navigation = (function () {
 	let bKursDrawerButton;
 	let fKursDrawerButton;
 
+	const theJoyOfWhiteWaterImages = [
+		{ name: 'caousel_gr_1', title: 'kanukurs', alt: 'kanukurs' },
+		{ name: 'caousel_gr_2', title: 'kanukurs', alt: 'kanukurs' },
+		{ name: 'caousel_gr_4', title: 'kanukurs', alt: 'kanukurs' }
+	];
+	const kanukurseImages = [
+		{ name: 'caousel_gr_1', title: 'kanukurs', alt: 'kanukurs' },
+		{ name: 'caousel_gr_2', title: 'kanukurs', alt: 'kanukurs' },
+		{ name: 'caousel_gr_4', title: 'kanukurs', alt: 'kanukurs' }
+	];
+	const paddelreisenImages = [
+		{ name: 'caousel_gr_1', title: 'Paddelreisen', alt: 'Paddelreisen' },
+		{ name: 'caousel_gr_2', title: 'Paddelreisen', alt: 'Paddelreisen' },
+		{ name: 'caousel_gr_4', title: 'Paddelreisen', alt: 'Paddelreisen' }
+	];
+
+	
+	function getNameOfCurrentSite() {
+		return location.pathname.split('/')[1].split('.')[0];
+	}
+
+
+	function setHeaderTitle(titleContent) {
+		const title = document.querySelector('.images-carousel .containerForTitle h1');
+		title.innerHTML = titleContent;
+	}
+
+
 	function showHideNavigation() {
 		if (mainNavi.classList.contains(HIDE)) {
 			mainNavi.classList.remove(HIDE);
@@ -19,6 +47,7 @@ var Navigation = (function () {
 			hamburger.classList.remove(CLOSE_NAV);
 		}
 	}
+
 
 	function setIsSelectedOnNavigationLinks() {
 		const allUrls = [];
@@ -34,7 +63,7 @@ var Navigation = (function () {
 			url.classList.remove(SELECTED);
 		});
 
-		const whereAmI = location.pathname.split('/')[1].split('.')[0];
+		const whereAmI = getNameOfCurrentSite();
 		if (whereAmI === 'kanukurse') {
 			kanuKurse.classList.add(SELECTED);
 		} else if (whereAmI === 'paddelreisen') {
@@ -59,8 +88,31 @@ var Navigation = (function () {
 	}
 
 
+	function setSettingsDependingOnUrl() {
+		const whereAmI = getNameOfCurrentSite();
+
+		switch (whereAmI) {
+			case 'kanukurse':
+				setHeaderTitle('Kajak- und  <br> Kanadierkurse');
+				RenderHeader.createImagesListForTheCarousel(kanukurseImages);
+				break;
+
+			case 'paddelreisen':
+				setHeaderTitle('Abenteuer- und <br> Genusspaddelreisen');
+				RenderHeader.createImagesListForTheCarousel(paddelreisenImages);
+				break;
+
+			default: // Startseite
+				setHeaderTitle('THE JOY <br>OF WHITEWATER');
+				RenderHeader.createImagesListForTheCarousel(theJoyOfWhiteWaterImages);
+		}
+
+	}
+
+
 	function initiate() {
 		setIsSelectedOnNavigationLinks();
+		setSettingsDependingOnUrl();
 
 		hamburger = document.getElementById('hamburger');
 		hamburger.addEventListener('click', showHideNavigation);
@@ -85,4 +137,4 @@ var Navigation = (function () {
 	return {
 		init: initiate
 	};
-})();
+})(RenderHeader);

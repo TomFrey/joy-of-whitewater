@@ -3,19 +3,6 @@ var ImageCarousel = (function () {
 	const simpleSlider = $('.images-carousel');
 	const sliderWidth = simpleSlider.parent().width(); // width of header
 	const stageWidth = sliderWidth * 2; // space to slide away the top image
-	let setIntervalId;
-
-	// give every image the width of it's parent
-	simpleSlider.find('li.image').width(sliderWidth);
-
-	// let the images float over each other, hide everything out of the webside width
-	simpleSlider.css('overflow', 'hidden');
-	simpleSlider.find('ul.images').css('width', '' + stageWidth + '');
-	simpleSlider.find('li.image').css('float', 'left').css('position', 'absolute');
-
-	// add class topImage to the first image in the stack
-	// give it position relative (at least one image needs relative that their is space)
-	simpleSlider.find('li.image').last().addClass('topImage').css('position', 'relative');
 
 
 	// function regroupSlider()
@@ -77,9 +64,21 @@ var ImageCarousel = (function () {
 
 
 	function initiate() {
+		// give every image the width of it's parent
+		simpleSlider.find('li.image').width(sliderWidth);
+
+		// let the images float over each other, hide everything out of the webside width
+		simpleSlider.css('overflow', 'hidden');
+		simpleSlider.find('ul.images').css('width', '' + stageWidth + '');
+		simpleSlider.find('li.image').css('float', 'left').css('position', 'absolute');
+
+		// add class topImage to the first image in the stack
+		// give it position relative (at least one image needs relative that their is space)
+		simpleSlider.find('li.image').last().addClass('topImage').css('position', 'relative');
+
 		// move all 5s to the next image
 		// call slide or crossFade to slide or crossfade it
-		setIntervalId = setInterval(crossFade, 5000);
+		setInterval(crossFade, 5000);
 	}
 
 
