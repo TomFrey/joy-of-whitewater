@@ -79,50 +79,52 @@ Desktop
   padding: $basicHeight $basicWidth;
 
 
-  > .text-container-left{
-    order: 0;
-    width: 100%;
-  }
+  	> .text-container-left{
+    	order: 0;
+    	width: 100%;
+  	}
 
-  > .text-container-right{
-    order: 0;
-    width: 100%;
-  }
+  	> .text-container-right{
+		order: 0;
+    	width: 100%;
+  	}
 
-  > .filler{
-    display: block;
-    order: 1;
+  	> .filler{
+    	display: block;
+    	order: 1;
 
-    .filler__picture__img{
-      width: 100%;
-    }
-  }
+		&.hide-on-mobile{
+			display: none;
+		}
 
+    	.filler__picture__img{
+      		width: 100%;
+    	}
+  	}
 
+	h2.title{
+		font-family: $textContainerTitleFont;
+		font-size: $titleSize;
+		color: $color-textContainer-titleH2;
+		line-height: 2rem;
+		margin-top: 1rem;
+		margin-bottom: 0.75rem;
+	}
 
-  h2.title{
-    font-family: $textContainerTitleFont;
-    font-size: $titleSize;
-    color: $color-textContainer-titleH2;
-    line-height: 2rem;
-    margin-top: 1rem;
-    margin-bottom: 0.75rem;
-  }
+	h3.title{
+		font-family: $textContainerTitleFont;
+		font-size: $smallTitleSize;
+		color: $color-textContainer-titleH3;
+		line-height: 1.5rem;
+		padding-top: 0.5rem;
+		margin-bottom: 0.5rem;
+	}
 
-  h3.title{
-    font-family: $textContainerTitleFont;
-    font-size: $smallTitleSize;
-    color: $color-textContainer-titleH3;
-    line-height: 1.5rem;
-    padding-top: 0.5rem;
-    margin-bottom: 0.5rem;
-  }
-
-   .paragraph{
-    color: $color-textContainer-text;
-    font-size: $textSize;
-    margin-bottom: 0.5rem;
-  }
+	.paragraph{
+		color: $color-textContainer-text;
+		font-size: $textSize;
+		margin-bottom: 0.5rem;
+	}
 }
 
 .text-container-drawer{
@@ -179,13 +181,17 @@ img.text-container-fill__bottom {
     }
 
     > .filler{
-      display: block;
-      background-color: $color-textContainer-background;
+      	display: block;
+      	background-color: $color-textContainer-background;
 
-      img{
-        max-width: 100%;
-        height: auto;
-      }
+		&.hide-on-mobile{
+			display: block;
+		}
+
+      	img{
+        	max-width: 100%;
+        	height: auto;
+      	}
     }
 
     > .filler-right{

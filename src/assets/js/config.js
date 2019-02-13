@@ -2,19 +2,22 @@
 var Configuration = (function () {
 	const imageCarousel = {
 		theJoyOfWhiteWaterImages: [
-			{ name: 'caousel_gr_4', title: 'The Joy Of Whitewater', alt: 'The Joy Of Whitewater' },
-			{ name: 'caousel_gr_2', title: 'The Joy Of Whitewater', alt: 'The Joy Of Whitewater' },
-			{ name: 'caousel_gr_1', title: 'The Joy Of Whitewater', alt: 'The Joy Of Whitewater' }
+			{ name: 'joyOfWhitewater_4', title: 'Big Wave in Idaho', alt: 'The Joy Of Whitewater' },
+			{ name: 'joyOfWhitewater_3', title: 'Entspannung am trocknen', alt: 'The Joy Of Whitewater' },
+			{ name: 'joyOfWhitewater_2', title: 'Paddeln in Costa Rica', alt: 'The Joy Of Whitewater' },
+			{ name: 'joyOfWhitewater_1', title: 'Paddeln in Costa Rica', alt: 'The Joy Of Whitewater' }
 		],
 		kanukurseImages: [
-			{ name: 'caousel_gr_1', title: 'Kanukurs', alt: 'Kanukurs' },
-			{ name: 'caousel_gr_2', title: 'Kanukurs', alt: 'Kanukurs' },
-			{ name: 'caousel_gr_4', title: 'Kanukurs', alt: 'Kanukurs' }
+			{ name: 'kanukurse_3', title: 'Kanukurs', alt: 'Kanukurs' },
+			{ name: 'kanukurse_2', title: 'Kanukurs', alt: 'Kanukurs' },
+			{ name: 'kanukurse_1', title: 'Kanukurs', alt: 'Kanukurs' }
 		],
 		paddelreisenImages: [
-			{ name: 'caousel_gr_1', title: 'Paddelreisen', alt: 'Paddelreisen' },
-			{ name: 'caousel_gr_2', title: 'Paddelreisen', alt: 'Paddelreisen' },
-			{ name: 'caousel_gr_4', title: 'Paddelreisen', alt: 'Paddelreisen' }
+			{ name: 'paddelreisen_5', title: 'Paddelreisen', alt: 'Paddelreisen' },
+			{ name: 'paddelreisen_4', title: 'Paddelreisen', alt: 'Paddelreisen' },
+			{ name: 'paddelreisen_3', title: 'Paddelreisen', alt: 'Paddelreisen' },
+			{ name: 'paddelreisen_2', title: 'Paddelreisen', alt: 'Paddelreisen' },
+			{ name: 'paddelreisen_1', title: 'Paddelreisen', alt: 'Paddelreisen' }
 		]
 	};
 

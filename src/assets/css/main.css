@@ -244,6 +244,8 @@ Desktop
   .text-container-main > .filler {
     display: block;
     order: 1; }
+    .text-container-main > .filler.hide-on-mobile {
+      display: none; }
     .text-container-main > .filler .filler__picture__img {
       width: 100%; }
   .text-container-main h2.title {
@@ -307,6 +309,8 @@ img.text-container-fill__bottom {
     .text-container-main > .filler {
       display: block;
       background-color: #ACDFFF; }
+      .text-container-main > .filler.hide-on-mobile {
+        display: block; }
       .text-container-main > .filler img {
         max-width: 100%;
         height: auto; }
