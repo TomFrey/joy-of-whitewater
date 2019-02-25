@@ -29,14 +29,18 @@ const settings = {
 /* Alle verwendeten JS Files, damit das eine JS File zusammengesetzt werden kann. */
 const allJsFiles = [
 	'./node_modules/jquery/dist/jquery.js',
+	'./node_modules/slick-carousel/slick/slick.js',
+	'./node_modules/gsap/src/uncompressed/TweenMax.js',
 
 	'./src/assets/js/config.js',
 
 	'./src/assets/js/util/validator.js',
 
 	'./src/assets/js/guiControll/renderHeader.js',
+	'./src/assets/js/guiControll/renderImageSlider.js',
 	'./src/assets/js/guiControll/navigation.js',
 	'./src/assets/js/guiControll/imageCarousel.js',
+	'./src/assets/js/guiControll/imageSlider.js',
 	'./src/assets/js/guiControll/kanukursanmeldung.js',
 
 	'./src/assets/js/app.js',
@@ -128,6 +132,13 @@ gulp.task('injectHeaderAndFooter', () => {
 
 			.pipe(fileinject(gulp.src(['./src/templates/navigation.html']), {
 				starttag: '<!-- inject:htmlNavigation -->',
+				transform(filepath, file) {
+					return file.contents.toString();
+				}
+			}))
+
+			.pipe(fileinject(gulp.src(['./src/templates/imageSlider.html']), {
+				starttag: '<!-- inject:htmlImageSlider -->',
 				transform(filepath, file) {
 					return file.contents.toString();
 				}

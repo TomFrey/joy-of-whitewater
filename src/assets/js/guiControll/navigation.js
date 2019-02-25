@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-var Navigation = (function (RenderHeader, Configuration) {
+var Navigation = (function (RenderHeader, RenderImageSlider, Configuration) {
 	const SHOW = 'js-show';
 	const HIDE = 'js-hide';
 	const CLOSE_NAV = 'js-close-nav-button';
@@ -9,6 +9,7 @@ var Navigation = (function (RenderHeader, Configuration) {
 	let mainNavi;
 	let bKursDrawerButton;
 	let fKursDrawerButton;
+	let paddelReisenDrawerButton;
 
 	function getNameOfCurrentSite() {
 		return location.pathname.split('/')[1].split('.')[0];
@@ -68,6 +69,11 @@ var Navigation = (function (RenderHeader, Configuration) {
 			drawer.classList.add(SHOW);
 			drawerButtonIcon.classList.add(SHOW);
 		}
+
+		// Abfragen, welcher Drawer (Korsika, Soca) geöffnet wurde.
+	/*	if (true) {
+			RenderImageSlider.createImageItemsForTheImageSlider(Configuration.getImagesForKorsika());
+		} */
 	}
 
 
@@ -89,7 +95,6 @@ var Navigation = (function (RenderHeader, Configuration) {
 				setHeaderTitle('THE JOY <br>OF WHITEWATER');
 				RenderHeader.createImagesListForTheCarousel(Configuration.getImagesForJoyOfWhitewater());
 		}
-
 	}
 
 
@@ -114,10 +119,17 @@ var Navigation = (function (RenderHeader, Configuration) {
 				toggleTextContainerDrawer(event.target);
 			});
 		}
+
+		paddelReisenDrawerButton = document.querySelector('.open-close-drawer-button-paddelreisen');
+		if (paddelReisenDrawerButton !== null) {
+			paddelReisenDrawerButton.addEventListener('click', (event) => {
+				toggleTextContainerDrawer(event.target);
+			});
+		}
 	}
 
 	// public api
 	return {
 		init: initiate
 	};
-})(RenderHeader, Configuration);
+})(RenderHeader, RenderImageSlider, Configuration);

@@ -2668,6 +2668,10 @@ group-array@^0.3.0:
     split-string "^1.0.1"
     union-value "^0.2.3"
 
+gsap@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/gsap/-/gsap-2.1.0.tgz#f8ddd091a2fefc7defb19dd4e9b80bd36903d64c"
+
 gulp-babel@^8.0.0:
   version "8.0.0"
   resolved "https://registry.yarnpkg.com/gulp-babel/-/gulp-babel-8.0.0.tgz#e0da96f4f2ec4a88dd3a3030f476e38ab2126d87"
@@ -4992,6 +4996,10 @@ slice-ansi@2.0.0:
     ansi-styles "^3.2.0"
     astral-regex "^1.0.0"
     is-fullwidth-code-point "^2.0.0"
+
+slick-carousel@^1.8.1:
+  version "1.8.1"
+  resolved "https://registry.yarnpkg.com/slick-carousel/-/slick-carousel-1.8.1.tgz#a4bfb29014887bb66ce528b90bd0cda262cc8f8d"
 
 snapdragon-node@^2.0.1:
   version "2.1.1"

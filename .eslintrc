@@ -13,10 +13,17 @@
 		//Objekte aus der joyOfWhitewater Applikation
 		"Navigation": false,
 		"ImageCarousel": false,
+		"ImageSlider": false,
 		"CourseRegistration": false,
 		"Validator": false,
 		"RenderHeader": false,
-		"Configuration": false
+		"RenderImageSlider": false,
+		"Configuration": false,
+
+		//Objekte aus TweenMax.js
+		"TweenMax": false,
+		"Quad": false,
+		"Sine": false
 	},
 	"rules": {
 		"indent": [	2,
