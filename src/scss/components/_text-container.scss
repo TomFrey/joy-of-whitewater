@@ -127,6 +127,11 @@ Desktop
 	}
 }
 
+
+.text-container-detail{
+	background-color: $color-textContainer-background;
+}
+
 .text-container-drawer{
   	background-color: $color-drawer-background-drawer;
 	color: $color-drawer-text;
@@ -135,17 +140,22 @@ Desktop
   	transition: max-height 0.5s ease-in-out 1ms;
 }
 
-.text-container-drawer.js-show{
-  max-height: 1000px;
+.text-container-drawer.text-container-drawer--course-dates.js-show{
+  max-height: 500px;
   transition: max-height 1s ease-in-out 1ms;
 }
 
-.text-container-drawer__paragraph{
-  padding: $basicHeight $basicWidth;
+.text-container-drawer.text-container-drawer--paddling-trip-details.js-show{
+	max-height: 1200px;
+	transition: max-height 1s ease-in-out 1ms;
 }
 
-.text-container-detail{
-  background-color: $color-textContainer-background;
+.text-container-drawer__content-wrapper{
+	padding: 2*$basicHeight 2*$basicWidth;
+}
+
+.text-container-drawer__paragraph{
+  padding: $basicHeight 2*$basicWidth;
 }
 
 //die svg am Anfang und Ende (Wellenlinie und Baum) eines text-containers
@@ -157,6 +167,28 @@ img.text-container-fill__bottom {
 	display: none;
 }
 
+//Liste im Detail Drawer
+.text-container-drawer__list{
+	list-style: none;
+}
+
+.text-container-drawer__list-item{
+	display: flex;
+	flex-flow: row nowrap;
+	margin-bottom: 0.5*$basicHeight;
+}
+
+.text-container-drawer-list__label{
+	flex: 1 1 33%;
+}
+
+.text-container-drawer-list__label:after{
+	content: ':';
+}
+
+.text-container-drawer-list__value{
+	flex: 3 3 66%;
+}
 
 /* *************************************************** */
 /* *********** ab hier für desktop ******************* */
@@ -211,10 +243,22 @@ img.text-container-fill__bottom {
     }
   }
 
+	.text-container-drawer__content-wrapper{
+		padding: 2*$basicHeight 0px;
+	}
 
-  .text-container-drawer__paragraph{
-    padding: $basicHeight 2*$basicWidth;
-  }
+  	.text-container-drawer__paragraph{
+    	padding: $basicHeight 2*$basicWidth;
+  	}
+
+
+	.text-container-drawer-list__label{
+		flex: 1 1 25%;
+	}
+
+	.text-container-drawer-list__value{
+		flex: 3 3 75%;
+	}
 
 
 	//die svg am Anfang und Ende (Wellenlinie und Baum) eines text-containers

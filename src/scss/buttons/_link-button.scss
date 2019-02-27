@@ -1,0 +1,52 @@
+.link-button{
+	background-color: $color-drawer-buttonToOpenDrawer;
+	bottom: 0;
+}
+
+.link-button-wrapper{
+	align-items: baseline;
+	color: $color-drawer-buttonToOpenDrawerText;
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: center;
+	padding: $basicHeight 0px;
+	text-decoration: none;
+}
+
+.link-button-wrapper__label{
+	pointer-events: none;
+}
+
+.link-button-wrapper__icon{
+	border-bottom: 2px solid $color-drawer-buttonToOpenDrawerText;
+	border-right: 2px solid $color-drawer-buttonToOpenDrawerText;
+	height: 12px;
+	margin-left: 12px;
+	pointer-events: none;
+	transform: rotate(-45 + deg);
+	width: 12px;
+}
+
+
+/* ab hier für desktop */
+@media screen and (min-width: 740px) { //wenn Bildschirm grösser 740 px gross ist, dann...
+
+
+	.link-button{
+		border: 1px solid $complimentaryColor4;
+		border-radius: $basicHeight;
+	}
+
+	.link-button:hover{
+		background-color: $color-drawer-buttonToOpenDrawer-hover;
+
+		.link-button-wrapper{
+			color: $color-drawer-buttonToOpenDrawerText-hover;
+
+			.link-button-wrapper__icon{
+				border-bottom: 2px solid $color-drawer-buttonToOpenDrawerText-hover;
+				border-right: 2px solid $color-drawer-buttonToOpenDrawerText-hover;
+			}
+		}
+	}
+}
