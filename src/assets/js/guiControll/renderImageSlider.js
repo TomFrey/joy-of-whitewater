@@ -4,12 +4,12 @@ var RenderImageSlider = (function () {
 	 * Kreiert folgenes HTML Element:
 	 * 	<div class="image-slider--item">
 	 *		<picture>
-	 *			<source srcset="/assets/images/Bildergalerie_DT_eins.jpg" media="(min-width: 376px)">
+	 *			<source srcset="/assets/images/Bildergalerie_DT_eins.jpg" media="(min-width: 740px)">
 	 *			<img class="slider--item__img" src="/assets/images/Bildergalerie_MP_eins.jpg" alt="Festival Lovers" title="Festival Lovers">
 	 *		</picture>
 	 *	</div>
 	 * @param image
-	 * @returns {HTMLLIElement}
+	 * @returns {HTMLDIVElement}
 	 */
 	function createImageSliderItem(image) {
 		const imageSliderItemElement = document.createElement('div');
@@ -19,7 +19,7 @@ var RenderImageSlider = (function () {
 
 		const sourceElement = document.createElement('source');
 		sourceElement.setAttribute('srcset', '/assets/images/slider/' + image.name + '.jpg');
-		sourceElement.setAttribute('media', '(min-width: 376px)');
+		sourceElement.setAttribute('media', '(min-width: 740px)');
 
 		const imgElement = document.createElement('img');
 		imgElement.setAttribute('src', '/assets/images/slider/' + image.nameMobile + '.jpg');
@@ -28,8 +28,15 @@ var RenderImageSlider = (function () {
 
 		pictureElement.appendChild(sourceElement);
 		pictureElement.appendChild(imgElement);
-		imageSliderItemElement.appendChild(imgElement);
+		imageSliderItemElement.appendChild(pictureElement);
 		return imageSliderItemElement;
+	}
+
+	function deleteAllImagesFromSliderItems(imageSlider) {
+		// delete all current images
+		while (imageSlider.firstChild) {
+			imageSlider.removeChild(imageSlider.firstChild);
+		}
 	}
 
 	/**
@@ -38,11 +45,7 @@ var RenderImageSlider = (function () {
 	 */
 	function createImageItemsForTheImageSlider(images) {
 		const imageSlider = document.querySelector('.image-slider');
-
-		// delete all current images
-		while (imageSlider.firstChild) {
-			imageSlider.removeChild(imageSlider.firstChild);
-		}
+		deleteAllImagesFromSliderItems(imageSlider);
 
 		// add the new images
 		images.forEach((image) => {
@@ -51,9 +54,9 @@ var RenderImageSlider = (function () {
 		});
 	}
 
-
 	// public api
 	return {
-		createImageItemsForTheImageSlider
+		createImageItemsForTheImageSlider,
+		deleteAllImagesFromSliderItems
 	};
 })();

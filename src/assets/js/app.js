@@ -5,7 +5,7 @@ const App = (function () {
 	function init() {
 		Navigation.init();
 		ImageCarousel.init();
-		ImageSlider.init();
+		// ImageSlider.init();
 		CourseRegistration.init();
 	}
 

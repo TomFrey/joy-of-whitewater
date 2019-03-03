@@ -65,15 +65,28 @@ var Navigation = (function (RenderHeader, RenderImageSlider, Configuration) {
 		if (drawer.classList.contains(SHOW)) {
 			drawer.classList.remove(SHOW);
 			drawerButtonIcon.classList.remove(SHOW);
+
+			const imageSlider = document.querySelector('.image-slider');
+			if (imageSlider !== null) {
+				imageSlider.classList.remove('slick-initialized');
+				imageSlider.classList.remove('slick-slider');
+				imageSlider.classList.remove('slick-dotted');
+
+				RenderImageSlider.deleteAllImagesFromSliderItems(imageSlider);
+			}
 		} else {
 			drawer.classList.add(SHOW);
 			drawerButtonIcon.classList.add(SHOW);
-		}
 
-		// Abfragen, welcher Drawer (Korsika, Soca) geöffnet wurde.
-	/*	if (true) {
-			RenderImageSlider.createImageItemsForTheImageSlider(Configuration.getImagesForKorsika());
-		} */
+			// Abfragen, welcher Drawer (Korsika, Soca) geöffnet wurde.
+			if (event.firstElementChild.innerHTML === 'Details zu Korsika') {
+				RenderImageSlider.createImageItemsForTheImageSlider(Configuration.getImagesForKorsika());
+				// ImageSlider.init();
+				setTimeout(() => {
+					ImageSlider.init();
+				}, 1000);
+			}
+		}
 	}
 
 

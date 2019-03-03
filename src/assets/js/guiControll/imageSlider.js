@@ -9,7 +9,7 @@ var ImageSlider = (function () {
 	var $slider = $('.image-slider');
 	var slideDuration = 900;
 
-	const screenIsAtDesktopSize = window.matchMedia('(min-width: 376px)');
+	const screenIsAtDesktopSize = window.matchMedia('(min-width: 740px)');
 
 	function init() {
 		// RESET ANIMATIONS
@@ -55,7 +55,7 @@ var ImageSlider = (function () {
 			cssEase: 'cubic-bezier(0.455, 0.030, 0.130, 1.000)',
 
 			responsive: [{
-				breakpoint: 376,
+				breakpoint: 740,
 				settings: {
 					// arrows: false
 				}
