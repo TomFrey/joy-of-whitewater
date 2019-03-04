@@ -65,7 +65,23 @@ var Navigation = (function (RenderHeader, RenderImageSlider, Configuration) {
 		if (drawer.classList.contains(SHOW)) {
 			drawer.classList.remove(SHOW);
 			drawerButtonIcon.classList.remove(SHOW);
+		} else {
+			drawer.classList.add(SHOW);
+			drawerButtonIcon.classList.add(SHOW);
+		}
+	}
 
+
+	function togglePaddelReisenDrawer(event) {
+		const drawer = event.parentElement.parentElement.lastElementChild;
+		const drawerButtonIcon = event.lastElementChild;
+
+		// Detaildrawer schliessen
+		if (drawer.classList.contains(SHOW)) {
+			drawer.classList.remove(SHOW);
+			drawerButtonIcon.classList.remove(SHOW);
+
+			// Imageslider löschen
 			const imageSlider = document.querySelector('.image-slider');
 			if (imageSlider !== null) {
 				imageSlider.classList.remove('slick-initialized');
@@ -74,11 +90,13 @@ var Navigation = (function (RenderHeader, RenderImageSlider, Configuration) {
 
 				RenderImageSlider.deleteAllImagesFromSliderItems(imageSlider);
 			}
+
+		// Deteildrawer öffnen
 		} else {
 			drawer.classList.add(SHOW);
 			drawerButtonIcon.classList.add(SHOW);
 
-			// Abfragen, welcher Drawer (Korsika, Soca) geöffnet wurde.
+			// Abfragen, welcher Drawer (Korsika, Soca...) geöffnet wurde.
 			if (event.firstElementChild.innerHTML === 'Details zu Korsika') {
 				RenderImageSlider.createImageItemsForTheImageSlider(Configuration.getImagesForKorsika());
 				// ImageSlider.init();
@@ -136,7 +154,7 @@ var Navigation = (function (RenderHeader, RenderImageSlider, Configuration) {
 		paddelReisenDrawerButton = document.querySelector('.open-close-drawer-button-paddelreisen');
 		if (paddelReisenDrawerButton !== null) {
 			paddelReisenDrawerButton.addEventListener('click', (event) => {
-				toggleTextContainerDrawer(event.target);
+				togglePaddelReisenDrawer(event.target);
 			});
 		}
 	}
