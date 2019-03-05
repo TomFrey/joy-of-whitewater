@@ -98,11 +98,13 @@ var Navigation = (function (RenderHeader, RenderImageSlider, Configuration) {
 
 			// Abfragen, welcher Drawer (Korsika, Soca...) geöffnet wurde.
 			if (event.firstElementChild.innerHTML === 'Details zu Korsika') {
-				RenderImageSlider.createImageItemsForTheImageSlider(Configuration.getImagesForKorsika());
-				// ImageSlider.init();
-				setTimeout(() => {
-					ImageSlider.init();
-				}, 1000);
+				RenderImageSlider.createImageItemsForTheImageSlider(Configuration.getImagesForKorsika())
+					.then(() => {
+						ImageSlider.init();
+					})
+					.catch((error) => {
+						console.log(error);
+					});
 			}
 		}
 	}

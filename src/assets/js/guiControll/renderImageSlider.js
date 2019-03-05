@@ -41,17 +41,28 @@ var RenderImageSlider = (function () {
 
 	/**
 	 * Fügt alle 'image-slider--item' Elemente in das 'image-slider' Element.
+	 *
 	 * @param images
+	 * @returns {Promise<any>}
 	 */
 	function createImageItemsForTheImageSlider(images) {
-		const imageSlider = document.querySelector('.image-slider');
-		deleteAllImagesFromSliderItems(imageSlider);
+		const promise = new Promise((resolve, reject) => {
+			const imageSlider = document.querySelector('.image-slider');
+			if (imageSlider !== null) {
+				deleteAllImagesFromSliderItems(imageSlider);
 
-		// add the new images
-		images.forEach((image) => {
-			const imageSliderItem = createImageSliderItem(image);
-			imageSlider.appendChild(imageSliderItem);
+				// add the new images
+				images.forEach((image) => {
+					const imageSliderItem = createImageSliderItem(image);
+					imageSlider.appendChild(imageSliderItem);
+				});
+				resolve(imageSlider);
+			} else {
+				const error = new Error('class .image-slider does not exist');
+				reject(error);
+			}
 		});
+		return promise;
 	}
 
 	// public api
