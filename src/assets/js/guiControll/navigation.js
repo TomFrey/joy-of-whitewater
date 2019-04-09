@@ -12,6 +12,7 @@ var Navigation = (function (RenderHeader, RenderImageSlider, Configuration) {
 	let paddelReisenDrawerButton;
 
 	function getNameOfCurrentSite() {
+		console.log('path: '+ location.pathname);
 		return location.pathname.split('/')[1].split('.')[0];
 	}
 
@@ -112,6 +113,7 @@ var Navigation = (function (RenderHeader, RenderImageSlider, Configuration) {
 
 	function setSettingsDependingOnUrl() {
 		const whereAmI = getNameOfCurrentSite();
+		console.log('where am I ' + whereAmI);
 
 		switch (whereAmI) {
 			case 'kanukurse':
@@ -124,9 +126,13 @@ var Navigation = (function (RenderHeader, RenderImageSlider, Configuration) {
 				RenderHeader.createImagesListForTheCarousel(Configuration.getImagesForPaddelreisen());
 				break;
 
-			default: // Startseite
+			case '': // Startseite
 				setHeaderTitle('THE JOY <br>OF WHITEWATER');
 				RenderHeader.createImagesListForTheCarousel(Configuration.getImagesForJoyOfWhitewater());
+				break;
+
+			default: // alle Seiten ohne Header, wie Anmeldung, Impressum, AGB ...
+				console.log('default');
 		}
 	}
 
