@@ -34,31 +34,6 @@ var Navigation = (function (RenderHeader, RenderImageSlider, Configuration) {
 	}
 
 
-	function setIsSelectedOnNavigationLinks() {
-		const allUrls = [];
-
-		const kanuKurse = document.querySelector('li.main-navi-desktop__kanukurse a.u-slide-line');
-		allUrls.push(kanuKurse);
-		const paddelReisen = document.querySelector('li.main-navi-desktop__paddelreisen a.u-slide-line');
-		allUrls.push(paddelReisen);
-		const joyOfWhitewater = document.querySelector('li.main-navi-desktop__joyOfWhitewater a.u-slide-line');
-		allUrls.push(joyOfWhitewater);
-
-		allUrls.forEach((url) => {
-			url.classList.remove(SELECTED);
-		});
-
-		const whereAmI = getNameOfCurrentSite();
-		if (whereAmI === 'kanukurse') {
-			kanuKurse.classList.add(SELECTED);
-		} else if (whereAmI === 'paddelreisen') {
-			paddelReisen.classList.add(SELECTED);
-		} else {
-			joyOfWhitewater.classList.add(SELECTED);
-		}
-	}
-
-
 	function toggleTextContainerDrawer(event) {
 		const drawer = event.parentElement.parentElement.lastElementChild;
 		const drawerButtonIcon = event.lastElementChild;
@@ -113,32 +88,44 @@ var Navigation = (function (RenderHeader, RenderImageSlider, Configuration) {
 
 	function setSettingsDependingOnUrl() {
 		const whereAmI = getNameOfCurrentSite();
-		console.log('where am I ' + whereAmI);
+		const allLinksFromMainNavigation = [];
+
+		const kanuKurse = document.querySelector('li.main-navi-desktop__kanukurse a.u-slide-line');
+		allLinksFromMainNavigation.push(kanuKurse);
+		const paddelReisen = document.querySelector('li.main-navi-desktop__paddelreisen a.u-slide-line');
+		allLinksFromMainNavigation.push(paddelReisen);
+		const joyOfWhitewater = document.querySelector('li.main-navi-desktop__joyOfWhitewater a.u-slide-line');
+		allLinksFromMainNavigation.push(joyOfWhitewater);
+
+		allLinksFromMainNavigation.forEach((url) => {
+			url.classList.remove(SELECTED);
+		});
 
 		switch (whereAmI) {
 			case 'kanukurse':
 				setHeaderTitle('Kajak- und  <br> Kanadierkurse');
 				RenderHeader.createImagesListForTheCarousel(Configuration.getImagesForKanukurse());
+				kanuKurse.classList.add(SELECTED);
 				break;
 
 			case 'paddelreisen':
 				setHeaderTitle('Abenteuer- und <br> Genusspaddelreisen');
 				RenderHeader.createImagesListForTheCarousel(Configuration.getImagesForPaddelreisen());
+				paddelReisen.classList.add(SELECTED);
 				break;
 
 			case '': // Startseite
 				setHeaderTitle('THE JOY <br>OF WHITEWATER');
 				RenderHeader.createImagesListForTheCarousel(Configuration.getImagesForJoyOfWhitewater());
+				joyOfWhitewater.classList.add(SELECTED);
 				break;
 
 			default: // alle Seiten ohne Header, wie Anmeldung, Impressum, AGB ...
-				console.log('default');
 		}
 	}
 
 
 	function initiate() {
-		setIsSelectedOnNavigationLinks();
 		setSettingsDependingOnUrl();
 
 		hamburger = document.getElementById('hamburger');
