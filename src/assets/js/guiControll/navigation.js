@@ -103,18 +103,21 @@ var Navigation = (function (RenderHeader, RenderImageSlider, Configuration) {
 
 		switch (whereAmI) {
 			case 'kanukurse':
+				RenderHeader.createPictureTagForMobileHeader(Configuration.getMobileImagesForKanukurse());
 				setHeaderTitle('Kajak- und  <br> Kanadierkurse');
 				RenderHeader.createImagesListForTheCarousel(Configuration.getImagesForKanukurse());
 				kanuKurse.classList.add(SELECTED);
 				break;
 
 			case 'paddelreisen':
+				RenderHeader.createPictureTagForMobileHeader(Configuration.getMobileImagesForPaddelreisen());
 				setHeaderTitle('Abenteuer- und <br> Genusspaddelreisen');
 				RenderHeader.createImagesListForTheCarousel(Configuration.getImagesForPaddelreisen());
 				paddelReisen.classList.add(SELECTED);
 				break;
 
 			case '': // Startseite
+				RenderHeader.createPictureTagForMobileHeader(Configuration.getMobileImagesForJoyOfWhitewater());
 				setHeaderTitle('THE JOY <br>OF WHITEWATER');
 				RenderHeader.createImagesListForTheCarousel(Configuration.getImagesForJoyOfWhitewater());
 				joyOfWhitewater.classList.add(SELECTED);

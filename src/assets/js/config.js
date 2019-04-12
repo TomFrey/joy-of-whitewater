@@ -1,6 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 var Configuration = (function () {
 	// Die Bilder, die im Header automatisch alle paar Sekunden wechseln.
+	// Die Bilder müssen unter /assets/images/carousel/*.jpg liegen
 	const imageCarousel = {
 		theJoyOfWhiteWaterImages: [
 			{ name: 'joyOfWhitewater_5', title: 'Big Wave in Idaho', alt: 'The Joy Of Whitewater' },
@@ -25,6 +26,24 @@ var Configuration = (function () {
 			{ name: 'paddelreisen_3', title: 'Open Canoe in Costa Rica', alt: 'Paddelreisen' },
 			{ name: 'paddelreisen_7', title: 'Transportmittel in Chile', alt: 'Paddelreisen' },
 			{ name: 'paddelreisen_1', title: 'Sesia, Piemont', alt: 'Paddelreisen' }
+		]
+	};
+
+	// Die Bilder, die in der Mobile Version im Header erscheinen.
+	// Jeweils nur ein Bild, aber in der Hoch- und Querversion.
+	// Die Bilder müssen unter /assets/images/mobileHeader/*.jpg liegen
+	const mobileImages = {
+		theJoyOfWhiteWaterImages: [
+			{ name: 'mobile_quer_karoline_costarica', title: 'The Joy Of Whitewater', alt: 'The Joy Of Whitewater' },
+			{ name: 'mobile_karoline_costarica', title: 'The Joy Of Whitewater', alt: 'The Joy Of Whitewater' }
+		],
+		kanukurseImages: [
+			{ name: 'mobile_quer_kanukurse_costarica', title: 'Kanukurs', alt: 'Kanukurs' },
+			{ name: 'mobile_kanukurse_costarica', title: 'Kanukurs', alt: 'Kanukurs' }
+		],
+		paddelreisenImages: [
+			{ name: 'mobile_quer_paddelreisen_costarica', title: 'Paddelreisen', alt: 'Paddelreisen' },
+			{ name: 'mobile_paddelreisen_costarica', title: 'Paddelreisen', alt: 'Paddelreisen' }
 		]
 	};
 
@@ -83,6 +102,18 @@ var Configuration = (function () {
 		return imageCarousel.theJoyOfWhiteWaterImages;
 	}
 
+	function getMobileImagesForKanukurse() {
+		return mobileImages.kanukurseImages;
+	}
+
+	function getMobileImagesForPaddelreisen() {
+		return mobileImages.paddelreisenImages;
+	}
+
+	function getMobileImagesForJoyOfWhitewater() {
+		return mobileImages.theJoyOfWhiteWaterImages;
+	}
+
 
 	function getImagesForKorsika() {
 		return imageSlider.korsika;
@@ -93,6 +124,9 @@ var Configuration = (function () {
 		getImagesForKanukurse,
 		getImagesForPaddelreisen,
 		getImagesForJoyOfWhitewater,
+		getMobileImagesForKanukurse,
+		getMobileImagesForPaddelreisen,
+		getMobileImagesForJoyOfWhitewater,
 		getImagesForKorsika
 	};
 })();

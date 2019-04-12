@@ -37,9 +37,39 @@ var RenderHeader = (function () {
 		});
 	}
 
+	/**
+	 * 	<source srcset="assets/images/mobile_quer_karoline_costarica.jpg" media="(min-width: 440px)">
+	 * <img src="assets/images/mobile_karoline_costarica.jpg"  alt="Kajak" title="Kajak">
+	 * */
+	function createPictureTagForMobileHeader(images) {
+		const mobilePictureElement = document.querySelector('header .mobile-header-picture');
+
+		// delete all current images
+		while (mobilePictureElement.firstChild) {
+			mobilePictureElement.removeChild(mobilePictureElement.firstChild);
+		}
+
+		// add the new images
+		images.forEach((image, index) => {
+			let element;
+			if (index === 0) {
+				element = document.createElement('source');
+				element.setAttribute('srcset', '/assets/images/mobileHeader/' + image.name + '.jpg');
+				element.setAttribute('media', '(min-width: 440px)');
+			} else {
+				element = document.createElement('img');
+				element.setAttribute('src', '/assets/images/mobileHeader/' + image.name + '.jpg');
+				element.setAttribute('alt', image.alt);
+				element.setAttribute('title', image.title);
+			}
+			mobilePictureElement.appendChild(element);
+		});
+	}
+
 
 	// public api
 	return {
-		createImagesListForTheCarousel
+		createImagesListForTheCarousel,
+		createPictureTagForMobileHeader
 	};
 })();

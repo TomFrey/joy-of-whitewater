@@ -45,7 +45,7 @@ header {
 		width: 100%;
 	}
 
-	picture#mobile {
+	picture.mobile-header-picture {
 		display: block;
 	}
 
@@ -109,7 +109,7 @@ main{
 			position: absolute;
 		}*/
 
-		picture#mobile {
+		picture.mobile-header-picture {
 			display: none;
 		}
 
