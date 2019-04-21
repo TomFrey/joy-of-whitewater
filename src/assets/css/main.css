@@ -1416,6 +1416,13 @@ body {
     margin: 0 auto;
     background-color: #ffffff; }
 
+header .mobile-header-logo {
+  left: 50%;
+  position: absolute;
+  top: 8px;
+  width: 45%;
+  z-index: 15; }
+
 header img {
   width: 100%; }
 
@@ -1450,6 +1457,8 @@ main .text-container {
 			display: block;
 			position: absolute;
 		}*/ }
+    header .mobile-header-logo {
+      display: none; }
     header svg.header-fill__bottom {
       display: block;
       position: absolute;

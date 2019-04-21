@@ -40,6 +40,13 @@ body{
 
 
 header {
+	.mobile-header-logo{
+		left: 50%;
+		position: absolute;
+		top: $basicHeight;
+		width: 45%;
+		z-index: 15;
+	}
 
 	img{
 		width: 100%;
@@ -85,6 +92,10 @@ main{
 		position: relative;
 		margin-top: 0px;
 		margin-bottom: 40px;
+
+		.mobile-header-logo{
+			display: none;
+		}
 
 		svg.header-fill__bottom {
 			display: block;

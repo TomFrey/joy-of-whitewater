@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg width="100%" height="100%" viewBox="0 0 1764 755" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
-    <g transform="matrix(0.24,0,0,0.24,-340.309,-1139.57)">
+<svg width="100%" height="100%" viewBox="0 0 1655 755" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
+    <g transform="matrix(0.24,0,0,0.24,-448.789,-1139.57)">
         <g transform="matrix(0.293056,0.133271,-0.133271,0.293056,6566.45,3174.49)">
             <g transform="matrix(-0.945326,0.326126,-0.326126,-0.945326,21543.4,13717.9)">
                 <path d="M8332.78,11615.5C8601.88,11894.1 9009.9,12269.8 9397.28,12269.8C9767.38,12269.8 10077.7,11992.3 10344,11735.2L10228.4,11615.5C9993.16,11842.6 9680.96,11912.6 9354,11912.6C9011.78,11912.6 8455.24,11657.5 8217.51,11411.4L8332.78,11615.5Z" style="fill:rgb(0,177,229);"/>
@@ -19,8 +19,8 @@
                     <rect x="8395" y="5700" width="1468" height="1243"/>
                 </clipPath>
                 <g clip-path="url(#_clip1)">
-                    <g transform="matrix(4.90822,-0.00102643,0.00102152,4.9318,1738.86,5701.39)">
-                        <use xlink:href="#_Image2" x="1359.95" y="0" width="299.142px" height="252.1px" transform="matrix(0.997141,0,0,0.996442,0,0)"/>
+                    <g transform="matrix(4.90822,-0.00102643,0.00102152,4.9318,2271.3,5701.28)">
+                        <use xlink:href="#_Image2" x="1251.16" y="0" width="299.142px" height="252.1px" transform="matrix(0.997141,0,0,0.996442,0,0)"/>
                     </g>
                 </g>
             </g>
@@ -29,8 +29,8 @@
                     <rect x="8482" y="5725" width="1425" height="1217"/>
                 </clipPath>
                 <g clip-path="url(#_clip3)">
-                    <g transform="matrix(4.90822,-0.00102643,0.00102152,4.9318,1740,5706.91)">
-                        <use xlink:href="#_Image4" x="1376.49" y="3.956" width="290.38px" height="246.826px" transform="matrix(0.997871,0,0,0.999296,0,0)"/>
+                    <g transform="matrix(4.90822,-0.00102643,0.00102152,4.9318,2272.44,5706.8)">
+                        <use xlink:href="#_Image4" x="1267.78" y="3.956" width="290.38px" height="246.826px" transform="matrix(0.997871,0,0,0.999296,0,0)"/>
                     </g>
                 </g>
             </g>
@@ -70,8 +70,8 @@
                     <rect x="7820" y="6702" width="975" height="862"/>
                 </clipPath>
                 <g clip-path="url(#_clip5)">
-                    <g transform="matrix(5.33985,-0,-0,5.47376,1979.8,6268.5)">
-                        <use xlink:href="#_Image6" x="1096.16" y="79.458" width="182.59px" height="157.479px" transform="matrix(0.997757,0,0,0.9967,0,0)"/>
+                    <g transform="matrix(5.33985,-0,-0,5.47376,2559.06,6268.5)">
+                        <use xlink:href="#_Image6" x="987.438" y="79.458" width="182.59px" height="157.479px" transform="matrix(0.997757,0,0,0.9967,0,0)"/>
                     </g>
                 </g>
             </g>
@@ -80,8 +80,8 @@
                     <rect x="8036" y="6701" width="794" height="878"/>
                 </clipPath>
                 <g clip-path="url(#_clip7)">
-                    <g transform="matrix(5.33985,-0,-0,5.47376,1984.75,6269.58)">
-                        <use xlink:href="#_Image8" x="1135.56" y="79.11" width="148.693px" height="160.402px" transform="matrix(0.997943,0,0,0.996283,0,0)"/>
+                    <g transform="matrix(5.33985,-0,-0,5.47376,2564.01,6269.58)">
+                        <use xlink:href="#_Image8" x="1026.86" y="79.11" width="148.693px" height="160.402px" transform="matrix(0.997943,0,0,0.996283,0,0)"/>
                     </g>
                 </g>
             </g>
@@ -92,8 +92,8 @@
                     <rect x="7671" y="12532" width="1064" height="1825"/>
                 </clipPath>
                 <g clip-path="url(#_clip9)">
-                    <g transform="matrix(5.36335,-0,-0,5.4027,1896.26,10305.1)">
-                        <use xlink:href="#_Image10" x="1080.05" y="412.442" width="198.384px" height="337.794px" transform="matrix(0.996902,0,0,0.99939,0,0)"/>
+                    <g transform="matrix(5.36335,-0,-0,5.4027,2478.07,10305.1)">
+                        <use xlink:href="#_Image10" x="971.233" y="412.442" width="198.384px" height="337.794px" transform="matrix(0.996902,0,0,0.99939,0,0)"/>
                     </g>
                 </g>
             </g>
@@ -102,16 +102,16 @@
                     <rect x="7724" y="12532" width="1058" height="1848"/>
                 </clipPath>
                 <g clip-path="url(#_clip11)">
-                    <g transform="matrix(5.36335,-0,-0,5.4027,1896.26,10305.1)">
-                        <use xlink:href="#_Image12" x="1090.64" y="413.334" width="197.265px" height="342.051px" transform="matrix(0.996287,0,0,0.997233,0,0)"/>
+                    <g transform="matrix(5.36335,-0,-0,5.4027,2478.07,10305.1)">
+                        <use xlink:href="#_Image12" x="981.752" y="413.334" width="197.265px" height="342.051px" transform="matrix(0.996287,0,0,0.997233,0,0)"/>
                     </g>
                 </g>
             </g>
         </g>
-        <g transform="matrix(5.1436,0,0,9.40287,-15824.5,-99620.7)">
+        <g transform="matrix(5.1436,0,0,9.40287,-15372.5,-99893.7)">
             <text x="3350.85px" y="11259.9px" style="font-family:'GloriaHallelujah', 'Gloria Hallelujah';font-size:63.81px;">The Joy</text>
         </g>
-        <g transform="matrix(4.86004,0,0,9.07318,-13232.5,-95927.4)">
+        <g transform="matrix(4.86004,0,0,9.07318,-12846.5,-96178.4)">
             <text x="3350.85px" y="11259.9px" style="font-family:'GloriaHallelujah', 'Gloria Hallelujah';font-size:66.129px;">of Whitewater</text>
         </g>
         <g transform="matrix(-0.199828,0.252412,-0.252412,-0.199828,10191.4,6618.89)">
@@ -128,8 +128,8 @@
                     <rect x="7064" y="5831" width="495" height="481"/>
                 </clipPath>
                 <g clip-path="url(#_clip13)">
-                    <g transform="matrix(4.31958,-0,-0,4.68092,1572.03,5499.85)">
-                        <use xlink:href="#_Image14" x="1275.91" y="70.911" width="114.594px" height="102.757px" transform="matrix(0.996473,0,0,0.997645,0,0)"/>
+                    <g transform="matrix(4.31958,-0,-0,4.68092,2040.62,5499.85)">
+                        <use xlink:href="#_Image14" x="1167.05" y="70.911" width="114.594px" height="102.757px" transform="matrix(0.996473,0,0,0.997645,0,0)"/>
                     </g>
                 </g>
             </g>
@@ -138,8 +138,8 @@
                     <rect x="7302" y="10589" width="303" height="328"/>
                 </clipPath>
                 <g clip-path="url(#_clip15)">
-                    <g transform="matrix(4.31958,-0,-0,4.68092,1581.03,10107.4)">
-                        <use xlink:href="#_Image16" x="1340.56" y="104.259" width="70.146px" height="70.072px" transform="matrix(0.987967,0,0,0.986924,0,0)"/>
+                    <g transform="matrix(4.31958,-0,-0,4.68092,2049.62,10107.4)">
+                        <use xlink:href="#_Image16" x="1230.76" y="104.259" width="70.146px" height="70.072px" transform="matrix(0.987967,0,0,0.986924,0,0)"/>
                     </g>
                 </g>
             </g>
@@ -148,8 +148,8 @@
                     <rect x="7356" y="10437" width="146" height="149"/>
                 </clipPath>
                 <g clip-path="url(#_clip17)">
-                    <g transform="matrix(4.31958,-0,-0,4.68092,1578.03,10109.9)">
-                        <use xlink:href="#_Image18" x="1345.56" y="70.26" width="33.8px" height="31.831px" transform="matrix(0.994104,0,0,0.994729,0,0)"/>
+                    <g transform="matrix(4.31958,-0,-0,4.68092,2046.62,10109.9)">
+                        <use xlink:href="#_Image18" x="1236.43" y="70.26" width="33.8px" height="31.831px" transform="matrix(0.994104,0,0,0.994729,0,0)"/>
                     </g>
                 </g>
             </g>
