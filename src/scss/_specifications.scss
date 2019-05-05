@@ -19,6 +19,7 @@ $color-main-titleInTheBigPicture: #FFBD1E;
 $color-textContainer-titleH2: $complimentaryColor1;
 $color-textContainer-titleH3: $complimentaryColor1;
 $color-textContainer-text: $complimentaryColor2;
+$color-textContainer-text-hover: $complimentaryColor1;
 $color-textContainer-background: $baseColor1;
 
 
@@ -35,7 +36,7 @@ $color-drawer-background-dateTable-hover: darken($baseColor1, 0%);
 
 //colors navigation
 $color-nav-mobile-background: #ffffff;
-$color-nav-mobile-background-slider: $baseColor1;
+$color-nav-mobile-background-slider: $baseColor2;
 $color-nav-mobile-text: #000000;
 
 $color-nav-desktop-background: #ffffff;
@@ -44,12 +45,12 @@ $color-nav-desktop-uSlider: #FFBD1E;
 
 
 //footer
-$color-footer-mobile-text: $baseColor1;
-$color-footer-mobile-background: #000000;
+$color-footer-mobile-text: $baseColor2;
+$color-footer-mobile-background: $complimentaryColor1;
 
-$color-footer-desktop-text: #000000;
-$color-footer-desktop-background: #ffffff;
-$color-footer-link-hover: #FFBD1E;
+$color-footer-desktop-text: $complimentaryColor2;
+$color-footer-desktop-background: $complimentaryColor1;
+$color-footer-link-hover: $baseColor1;
 
 
 

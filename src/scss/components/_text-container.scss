@@ -125,6 +125,14 @@ Desktop
 		font-size: $textSize;
 		margin-bottom: 0.5rem;
 	}
+
+	a{
+		color: $color-textContainer-text;
+	}
+
+	a:hover{
+		color: $color-textContainer-text-hover;
+	}
 }
 
 
