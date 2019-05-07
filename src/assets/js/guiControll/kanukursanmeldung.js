@@ -72,13 +72,18 @@ const CourseRegistration = (function (Validator) {
 		return Validator.isNumberOfParticipantsValid(numberOfParticipantsInputField);
 	}
 
+	function setRegistrationFormInvalid() {
+		sendRegistraitionFormButtonNokIcon.classList.add(SHOW);
+		sendRegistraitionFormButtonOkIcon.classList.remove(SHOW);
+	}
+
 
 	/**
 	 *	Prüft, ob das Zahlungsformular korrekt ausgefüllt wurde.
 	 *
 	 *  @returns {boolean}
 	 */
-	function isRegistraitionFormValid() {
+	function isRegistrationFormValid() {
 		if (isCourseNameValid()
 			&& isCourseDateValid()
 			&& isNumberOfParticipantsValid()
@@ -88,13 +93,13 @@ const CourseRegistration = (function (Validator) {
 			&& isPlzValid()
 			&& isPlaceValid()
 			&& isEmailValid()
+			&& agbCheckbox.checked
 		) {
 			sendRegistraitionFormButtonNokIcon.classList.remove(SHOW);
 			sendRegistraitionFormButtonOkIcon.classList.add(SHOW);
 			return true;
 		}
-		sendRegistraitionFormButtonNokIcon.classList.add(SHOW);
-		sendRegistraitionFormButtonOkIcon.classList.remove(SHOW);
+		setRegistrationFormInvalid();
 		return false;
 	}
 
@@ -116,70 +121,72 @@ const CourseRegistration = (function (Validator) {
 			courseNameInputField = document.querySelector('.anmeldung__course .moving-placeholder__input');
 			courseNameInputField.addEventListener('blur', () => {
 				if (isCourseNameValid()) {
-					isRegistraitionFormValid();
+					isRegistrationFormValid();
 				}
 			});
 
 			courseDateInputField = document.querySelector('.anmeldung__date .moving-placeholder__input');
 			courseDateInputField.addEventListener('blur', () => {
 				if (isCourseDateValid()) {
-					isRegistraitionFormValid();
+					isRegistrationFormValid();
 				}
 			});
 
 			numberOfParticipantsInputField = document.querySelector('.anmeldung__number-of-participants .moving-placeholder__input');
 			numberOfParticipantsInputField.addEventListener('blur', () => {
 				if (isNumberOfParticipantsValid()) {
-					isRegistraitionFormValid();
+					isRegistrationFormValid();
 				}
 			});
 
 			firstNameInputField = document.querySelector('.anmeldung__vorname .moving-placeholder__input');
 			firstNameInputField.addEventListener('blur', () => {
 				if (isFirstNameValid()) {
-					isRegistraitionFormValid();
+					isRegistrationFormValid();
 				}
 			});
 
 			surNameInputField = document.querySelector('.anmeldung__name .moving-placeholder__input');
 			surNameInputField.addEventListener('blur', () => {
 				if (isSurNameValid()) {
-					isRegistraitionFormValid();
+					isRegistrationFormValid();
 				}
 			});
 
 			addressInputField = document.querySelector('.anmeldung__adresse .moving-placeholder__input');
 			addressInputField.addEventListener('blur', () => {
 				if (isAddressValid()) {
-					isRegistraitionFormValid();
+					isRegistrationFormValid();
 				}
 			});
 
 			plzInputField = document.querySelector('.anmeldung__plz .moving-placeholder__input');
 			plzInputField.addEventListener('blur', () => {
 				if (isPlzValid()) {
-					isRegistraitionFormValid();
+					isRegistrationFormValid();
 				}
 			});
 
 			placeInputField = document.querySelector('.anmeldung__ort .moving-placeholder__input');
 			placeInputField.addEventListener('blur', () => {
 				if (isPlaceValid()) {
-					isRegistraitionFormValid();
+					isRegistrationFormValid();
 				}
 			});
 
 			emailInputField = document.querySelector('.anmeldung__email .moving-placeholder__input');
 			emailInputField.addEventListener('blur', () => {
 				if (isEmailValid()) {
-					isRegistraitionFormValid();
+					isRegistrationFormValid();
 				}
 			});
 
 			agbCheckbox = document.querySelector('.agb-wrapper input');
 			agbCheckbox.addEventListener('click', () => {
-				if (isEmailValid()) {
-					isRegistraitionFormValid();
+				if (agbCheckbox.checked) {
+					isRegistrationFormValid();
+				} else {
+					setRegistrationFormInvalid();
 				}
 			});
 
@@ -188,7 +195,7 @@ const CourseRegistration = (function (Validator) {
 			sendRegistraitionFormButton = document.querySelector('.anmeldung__send-button');
 			if (sendRegistraitionFormButton !== null) {
 				sendRegistraitionFormButton.addEventListener('click', () => {
-					if (isRegistraitionFormValid()) {
+					if (isRegistrationFormValid()) {
 						sendRegistraitionFormData();
 					}
 				});
