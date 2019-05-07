@@ -77,9 +77,14 @@ const CourseRegistration = (function (Validator) {
 		sendRegistraitionFormButtonOkIcon.classList.remove(SHOW);
 	}
 
+	function setRegistrationFormValid() {
+		sendRegistraitionFormButtonNokIcon.classList.remove(SHOW);
+		sendRegistraitionFormButtonOkIcon.classList.add(SHOW);
+	}
+
 
 	/**
-	 *	Prüft, ob das Zahlungsformular korrekt ausgefüllt wurde.
+	 *	Prüft, ob das gesamte Zahlungsformular korrekt ausgefüllt wurde.
 	 *
 	 *  @returns {boolean}
 	 */
@@ -94,13 +99,23 @@ const CourseRegistration = (function (Validator) {
 			&& isPlaceValid()
 			&& isEmailValid()
 			&& agbCheckbox.checked
-		) {
-			sendRegistraitionFormButtonNokIcon.classList.remove(SHOW);
-			sendRegistraitionFormButtonOkIcon.classList.add(SHOW);
-			return true;
-		}
-		setRegistrationFormInvalid();
+		) { return true; }
 		return false;
+	}
+
+
+	/**
+	 * Prüft die übergebene Funktion (das entsprechende Feld) und dann den Rest des Formulars.
+	 * Und setzt dann das Formular valid oder invalid.
+	 *
+	 * @param isFieldValid
+	 */
+	function setRegistrationFormValidity(isFieldValid) {
+		if (isFieldValid() && isRegistrationFormValid()) {
+			setRegistrationFormValid();
+		} else {
+			setRegistrationFormInvalid();
+		}
 	}
 
 
@@ -120,71 +135,53 @@ const CourseRegistration = (function (Validator) {
 
 			courseNameInputField = document.querySelector('.anmeldung__course .moving-placeholder__input');
 			courseNameInputField.addEventListener('blur', () => {
-				if (isCourseNameValid()) {
-					isRegistrationFormValid();
-				}
+				setRegistrationFormValidity(isCourseNameValid);
 			});
 
 			courseDateInputField = document.querySelector('.anmeldung__date .moving-placeholder__input');
 			courseDateInputField.addEventListener('blur', () => {
-				if (isCourseDateValid()) {
-					isRegistrationFormValid();
-				}
+				setRegistrationFormValidity(isCourseDateValid);
 			});
 
 			numberOfParticipantsInputField = document.querySelector('.anmeldung__number-of-participants .moving-placeholder__input');
 			numberOfParticipantsInputField.addEventListener('blur', () => {
-				if (isNumberOfParticipantsValid()) {
-					isRegistrationFormValid();
-				}
+				setRegistrationFormValidity(isNumberOfParticipantsValid);
 			});
 
 			firstNameInputField = document.querySelector('.anmeldung__vorname .moving-placeholder__input');
 			firstNameInputField.addEventListener('blur', () => {
-				if (isFirstNameValid()) {
-					isRegistrationFormValid();
-				}
+				setRegistrationFormValidity(isFirstNameValid);
 			});
 
 			surNameInputField = document.querySelector('.anmeldung__name .moving-placeholder__input');
 			surNameInputField.addEventListener('blur', () => {
-				if (isSurNameValid()) {
-					isRegistrationFormValid();
-				}
+				setRegistrationFormValidity(isSurNameValid);
 			});
 
 			addressInputField = document.querySelector('.anmeldung__adresse .moving-placeholder__input');
 			addressInputField.addEventListener('blur', () => {
-				if (isAddressValid()) {
-					isRegistrationFormValid();
-				}
+				setRegistrationFormValidity(isAddressValid);
 			});
 
 			plzInputField = document.querySelector('.anmeldung__plz .moving-placeholder__input');
 			plzInputField.addEventListener('blur', () => {
-				if (isPlzValid()) {
-					isRegistrationFormValid();
-				}
+				setRegistrationFormValidity(isPlzValid);
 			});
 
 			placeInputField = document.querySelector('.anmeldung__ort .moving-placeholder__input');
 			placeInputField.addEventListener('blur', () => {
-				if (isPlaceValid()) {
-					isRegistrationFormValid();
-				}
+				setRegistrationFormValidity(isPlaceValid);
 			});
 
 			emailInputField = document.querySelector('.anmeldung__email .moving-placeholder__input');
 			emailInputField.addEventListener('blur', () => {
-				if (isEmailValid()) {
-					isRegistrationFormValid();
-				}
+				setRegistrationFormValidity(isEmailValid);
 			});
 
 			agbCheckbox = document.querySelector('.agb-wrapper input');
 			agbCheckbox.addEventListener('click', () => {
-				if (agbCheckbox.checked) {
-					isRegistrationFormValid();
+				if (agbCheckbox.checked && isRegistrationFormValid()) {
+					setRegistrationFormValid();
 				} else {
 					setRegistrationFormInvalid();
 				}
