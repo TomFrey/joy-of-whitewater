@@ -108,7 +108,7 @@ const Validator = (function () {
 	 * @returns {boolean}
 	 */
 	function isAddressValid(addressInputField) {
-		const isValidAddress = new RegExp(/^[a-zA-Z\s0-9.]+$/);
+		const isValidAddress = new RegExp(/^[a-zA-Z\s0-9.öüäéàèçœøæåêÖÜÄÉÈÀÇÅËÊ]+$/);
 		return validate(isValidAddress, addressInputField);
 	}
 
@@ -126,6 +126,30 @@ const Validator = (function () {
 	}
 
 
+	/**
+	 * Prüft, ob die PLZ (z.B. 6300 oder 22345) im korrekten Format eingegeben wurde.
+	 * Vier oder fünf stellige Nummern sind erlaubt.
+	 *
+	 * @returns {boolean}
+	 */
+	function isPlzValid(dateInputField) {
+		const isValidPlz = new RegExp(/^[0-9]{4,5}$/);
+		return validate(isValidPlz, dateInputField);
+	}
+
+
+	/**
+	 * Prüft, ob die Anzahl Teilnehmer (z.B. 1 oder 11) im korrekten Format eingegeben wurde.
+	 * Eine oder zwei stellige Nummern sind erlaubt.
+	 *
+	 * @returns {boolean}
+	 */
+	function isNumberOfParticipantsValid(dateInputField) {
+		const isValidNumberOfParticipants = new RegExp(/^[0-9]{1,2}$/);
+		return validate(isValidNumberOfParticipants, dateInputField);
+	}
+
+
 	// public api
 	return {
 		onlyNumbers,
@@ -134,6 +158,8 @@ const Validator = (function () {
 		isNameValid,
 		isAddressValid,
 		isDateValid,
+		isPlzValid,
+		isNumberOfParticipantsValid,
 		validate
 	};
 })();

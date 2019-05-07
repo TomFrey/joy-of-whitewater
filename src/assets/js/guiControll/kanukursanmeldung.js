@@ -13,6 +13,14 @@ const CourseRegistration = (function (Validator) {
 
 	let courseNameInputField;
 	let courseDateInputField;
+	let firstNameInputField;
+	let surNameInputField;
+	let plzInputField;
+	let addressInputField;
+	let placeInputField;
+	let emailInputField;
+	let numberOfParticipantsInputField;
+	let agbCheckbox;
 
 	let sendRegistraitionFormButtonOkIcon;
 	let sendRegistraitionFormButtonNokIcon
@@ -32,9 +40,38 @@ const CourseRegistration = (function (Validator) {
 		return Validator.isNameValid(courseNameInputField);
 	}
 
+	function isFirstNameValid() {
+		return Validator.isNameValid(firstNameInputField);
+	}
+
+	function isSurNameValid() {
+		return Validator.isNameValid(surNameInputField);
+	}
+
 	function isCourseDateValid() {
 		return Validator.isDateValid(courseDateInputField);
 	}
+
+	function isAddressValid() {
+		return Validator.isAddressValid(addressInputField);
+	}
+
+	function isPlzValid() {
+		return Validator.isPlzValid(plzInputField);
+	}
+
+	function isPlaceValid() {
+		return Validator.isNameValid(placeInputField);
+	}
+
+	function isEmailValid() {
+		return Validator.isEMailValid(emailInputField);
+	}
+
+	function isNumberOfParticipantsValid() {
+		return Validator.isNumberOfParticipantsValid(numberOfParticipantsInputField);
+	}
+
 
 	/**
 	 *	Prüft, ob das Zahlungsformular korrekt ausgefüllt wurde.
@@ -44,6 +81,13 @@ const CourseRegistration = (function (Validator) {
 	function isRegistraitionFormValid() {
 		if (isCourseNameValid()
 			&& isCourseDateValid()
+			&& isNumberOfParticipantsValid()
+			&& isFirstNameValid()
+			&& isSurNameValid()
+			&& isAddressValid()
+			&& isPlzValid()
+			&& isPlaceValid()
+			&& isEmailValid()
 		) {
 			sendRegistraitionFormButtonNokIcon.classList.remove(SHOW);
 			sendRegistraitionFormButtonOkIcon.classList.add(SHOW);
@@ -71,13 +115,73 @@ const CourseRegistration = (function (Validator) {
 
 			courseNameInputField = document.querySelector('.anmeldung__course .moving-placeholder__input');
 			courseNameInputField.addEventListener('blur', () => {
-				isRegistraitionFormValid();
+				if (isCourseNameValid()) {
+					isRegistraitionFormValid();
+				}
 			});
 
 			courseDateInputField = document.querySelector('.anmeldung__date .moving-placeholder__input');
 			courseDateInputField.addEventListener('blur', () => {
-				isRegistraitionFormValid();
-			})
+				if (isCourseDateValid()) {
+					isRegistraitionFormValid();
+				}
+			});
+
+			numberOfParticipantsInputField = document.querySelector('.anmeldung__number-of-participants .moving-placeholder__input');
+			numberOfParticipantsInputField.addEventListener('blur', () => {
+				if (isNumberOfParticipantsValid()) {
+					isRegistraitionFormValid();
+				}
+			});
+
+			firstNameInputField = document.querySelector('.anmeldung__vorname .moving-placeholder__input');
+			firstNameInputField.addEventListener('blur', () => {
+				if (isFirstNameValid()) {
+					isRegistraitionFormValid();
+				}
+			});
+
+			surNameInputField = document.querySelector('.anmeldung__name .moving-placeholder__input');
+			surNameInputField.addEventListener('blur', () => {
+				if (isSurNameValid()) {
+					isRegistraitionFormValid();
+				}
+			});
+
+			addressInputField = document.querySelector('.anmeldung__adresse .moving-placeholder__input');
+			addressInputField.addEventListener('blur', () => {
+				if (isAddressValid()) {
+					isRegistraitionFormValid();
+				}
+			});
+
+			plzInputField = document.querySelector('.anmeldung__plz .moving-placeholder__input');
+			plzInputField.addEventListener('blur', () => {
+				if (isPlzValid()) {
+					isRegistraitionFormValid();
+				}
+			});
+
+			placeInputField = document.querySelector('.anmeldung__ort .moving-placeholder__input');
+			placeInputField.addEventListener('blur', () => {
+				if (isPlaceValid()) {
+					isRegistraitionFormValid();
+				}
+			});
+
+			emailInputField = document.querySelector('.anmeldung__email .moving-placeholder__input');
+			emailInputField.addEventListener('blur', () => {
+				if (isEmailValid()) {
+					isRegistraitionFormValid();
+				}
+			});
+
+			agbCheckbox = document.querySelector('.agb-wrapper input');
+			agbCheckbox.addEventListener('click', () => {
+				if (isEmailValid()) {
+					isRegistraitionFormValid();
+				}
+			});
 
 
 			// Listener auf dem 'Verbindlich anmelden' Button
