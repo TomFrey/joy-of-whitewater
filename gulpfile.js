@@ -34,6 +34,9 @@ const allJsFiles = [
 
 	'./src/assets/js/config.js',
 
+	'./src/assets/js/services/ajaxService.js',
+	'./src/assets/js/services/serverCalls.js',
+
 	'./src/assets/js/util/validator.js',
 
 	'./src/assets/js/guiControll/renderHeader.js',

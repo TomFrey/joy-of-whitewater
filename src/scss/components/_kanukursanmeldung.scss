@@ -33,6 +33,10 @@
 	margin-bottom: 2*$basicHeight;
 }
 
+.equipment-wrapper label{
+	//pointer-events: none;
+}
+
 .equipment-needed-wrapper{
 	margin-left: 3*$basicWidth;
 }
@@ -42,6 +46,10 @@
 	background-color: $baseColor3;
 	border: none;
 	width: 100%;
+}
+
+.equipment-needed-input[disabled]{
+	background-color: lighten($baseColor2, 15%);
 }
 
 .agb-wrapper{
@@ -167,21 +175,21 @@
 }
 
 @-webkit-keyframes inputHighlighter {
-	from { background: $baseColor1; }
+	from { background: $baseColor2; }
 	to 	{
 		width: 0;
 		background: transparent;
 	}
 }
 @-moz-keyframes inputHighlighter {
-	from { background: $baseColor1; }
+	from { background: $baseColor2; }
 	to 	{
 		width: 0;
 		background: transparent;
 	}
 }
 @keyframes inputHighlighter {
-	from { background: $baseColor1; }
+	from { background: $baseColor2; }
 	to 	{
 		width: 0;
 		background: transparent;

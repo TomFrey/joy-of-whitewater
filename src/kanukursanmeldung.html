@@ -96,25 +96,26 @@
 							<div class="anmeldung__links">
 
 								<div class="equipment-wrapper">
-									<div>
+									<div class="equipment__all">
 										<input type="radio" id="all" name="equipment" value="all"
 											   checked>
 										<label for="all">Ich brauche die ganze die Ausrüstung</label>
 									</div>
 
-									<div>
-										<input type="radio" id="some" name="equipment" value="some">
-										<label for="some">Ich brauche nur...</label>
-									</div>
-									<div class="equipment-needed-wrapper">
-										<textarea
-											class="equipment-needed-input"
-											name="needed-equipment"
-											disabled>
-										</textarea>
+									<div class="equipment__some-wrapper">
+										<div class="equipment__some">
+											<input type="radio" id="some" name="equipment" value="some">
+											<label for="some">Ich brauche nur...</label>
+										</div>
+										<div class="equipment-needed-wrapper">
+											<textarea
+												class="equipment-needed-input"
+												name="needed-equipment"
+												disabled></textarea>
+										</div>
 									</div>
 
-									<div>
+									<div class="equipment__nothing">
 										<input type="radio" id="nothing" name="equipment" value="nothing">
 										<label for="nothing">Ich bringe alles selber mit</label>
 									</div>
@@ -122,7 +123,6 @@
 							</div>
 
 							<div class="anmeldung__rechts">
-
 								<div class="anmeldung__number-of-participants">
 									<div class="form-field-moving-placeholder">
 										<input class="moving-placeholder__input"
@@ -134,7 +134,6 @@
 										<label class="moving-placeholder__label">Anzahl Teilnehmer</label>
 									</div>
 								</div>
-
 							</div>
 
 						</div>
@@ -227,13 +226,10 @@
 										<label class="moving-placeholder__label">E-Mail</label>
 									</div>
 								</div>
-
 							</div>
 
 							<div class="anmeldung__rechts">
-
 							</div>
-
 						</div>
 
 

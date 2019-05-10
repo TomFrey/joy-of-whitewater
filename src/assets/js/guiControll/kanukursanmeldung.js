@@ -2,15 +2,10 @@
 const CourseRegistration = (function (Validator) {
 	const SHOW = 'js-show';
 
-	let ticketData = [];
+	const registrationData = {};
 
-
-	const registerData = {};
-
-	let paymentKindDropdown;
 	let registrationForm;
 	let sendRegistraitionFormButton;
-
 	let courseNameInputField;
 	let courseDateInputField;
 	let firstNameInputField;
@@ -21,20 +16,16 @@ const CourseRegistration = (function (Validator) {
 	let emailInputField;
 	let numberOfParticipantsInputField;
 	let agbCheckbox;
+	let equipment;
+	let equipmentTextArea;
+	let equipmentSelectedRadioButton;
+	let equipmentAll;
+	let equipmentSome;
+	let equipmentNothing;
 
 	let sendRegistraitionFormButtonOkIcon;
 	let sendRegistraitionFormButtonNokIcon
 
-	/**
-	 * Prüft, ob die Kreditkartennummer im korrekten Format eingegen wurde.
-	 * Nur Ganzzahlen in vier Vierergruppen. z.B.: 1234-3453-5345-4677
-	 *
-	 * @returns {boolean}
-	 */
-	function isCreditCardNumberValid() {
-		const isValidCreditCardNumber = new RegExp(/([0-9]{4}-){3}[0-9]{4}$/);
-		return Validator.validate(isValidCreditCardNumber, paymentData.creditCardNumberInputField);
-	}
 
 	function isCourseNameValid() {
 		return Validator.isNameValid(courseNameInputField);
@@ -122,8 +113,34 @@ const CourseRegistration = (function (Validator) {
 	/**
 	 *
 	 */
-	function sendRegistraitionFormData() {
+	function sendFormData() {
+		registrationData.courseName = courseNameInputField.value;
+		registrationData.courseDate = courseDateInputField.value;
+		registrationData.numberOfParticipants = numberOfParticipantsInputField.value;
+		registrationData.firstName = firstNameInputField.value;
+		registrationData.surName = surNameInputField.value;
+		registrationData.address = addressInputField.value;
+		registrationData.plz = plzInputField.value;
+		registrationData.place = placeInputField.value;
+		registrationData.email = emailInputField.value;
+		registrationData.agb = agbCheckbox.checked ? 'angenommen' : 'nicht angenommen';
+		registrationData.equipment = equipmentSelectedRadioButton;
+		registrationData.equipmentDetails = equipmentTextArea.value;
 
+		Server.sendRegistrationFormData(registrationData)
+			.then((response) => {
+				console.log(response);
+				// Die Formular Daten konnten vom Server entgegengenommen werden, ein EMail wurde verschickt...
+
+				// Zur Startseite wechseln
+				// window.location.href = '/index.html';
+			})
+			.catch((error) => {
+				console.log(error.message);
+				if (error.jow_message === 'email already used') {
+					alert('Die E-Mail Adresse wurde schon verwendet. Hast du dich schon registriert?');
+				}
+			});
 	}
 
 
@@ -188,37 +205,49 @@ const CourseRegistration = (function (Validator) {
 			});
 
 
+			equipment = document.querySelector('.equipment-wrapper');
+			if (equipment !== null) {
+				equipmentTextArea = document.querySelector('.equipment-needed-input');
+
+				equipmentAll = document.querySelector('.equipment__all input');
+				equipmentNothing = document.querySelector('.equipment__nothing input');
+				equipmentSome = document.querySelector('.equipment__some input');
+
+				// Eventlistener über alle Radiobuttons innerhalb der 'equipment-wrapper' Klasse
+				equipment.addEventListener('click', (event) => {
+					if (event.target && event.target.parentElement.matches('.equipment__some')) {
+						equipmentTextArea.removeAttribute('disabled');
+						equipmentSome.setAttribute('checked', 'true');
+						equipmentAll.removeAttribute('checked');
+						equipmentNothing.removeAttribute('checked');
+					} else if (event.target && event.target.parentElement.matches('.equipment__all')) {
+						equipmentTextArea.value = '';
+						equipmentTextArea.setAttribute('disabled', 'disabled');
+						equipmentAll.setAttribute('checked', 'true');
+						equipmentNothing.removeAttribute('checked');
+						equipmentSome.removeAttribute('checked');
+					} else if (event.target && event.target.parentElement.matches('.equipment__nothing')) {
+						equipmentTextArea.value = '';
+						equipmentTextArea.setAttribute('disabled', 'disabled');
+						equipmentNothing.setAttribute('checked', 'checked');
+						equipmentAll.removeAttribute('checked');
+						equipmentSome.removeAttribute('checked');
+					}
+					equipmentSelectedRadioButton = document.querySelector('.equipment-wrapper input[name=equipment]:checked').value;
+				});
+			}
+
+
 			// Listener auf dem 'Verbindlich anmelden' Button
 			sendRegistraitionFormButton = document.querySelector('.anmeldung__send-button');
 			if (sendRegistraitionFormButton !== null) {
 				sendRegistraitionFormButton.addEventListener('click', () => {
 					if (isRegistrationFormValid()) {
-						sendRegistraitionFormData();
+						sendFormData();
 					}
 				});
 			}
 		}
-
-		// registerData.courseNameInputField = document.querySelector('.anmeldung__course .moving-placeholder__input');
-
-		/* paymentForm = document.querySelector('.payment-box__wrapper');
-		if (paymentForm !== null) {
-			paymentForm.addEventListener('keydown', (event) => {
-				if (event.target && event.target.matches('.payment-box__credit-card-number .moving-placeholder__input')) {
-					Validator.onlyNumbers(event);
-					autoCompleteBlocksOfNumbersWithACertainCharacter(event, '-', 4, 19);
-				}
-
-				if (event.target && event.target.matches('.payment-box__expire-date .moving-placeholder__input')) {
-					Validator.onlyNumbers(event);
-					autoCompleteBlocksOfNumbersWithACertainCharacter(event, '/', 2, 5);
-				}
-
-				if (event.target && event.target.matches('.payment-box__cvc__input .moving-placeholder__input')) {
-					Validator.onlyNumbers(event);
-				}
-			});
-		} */
 	}
 
 	// public api

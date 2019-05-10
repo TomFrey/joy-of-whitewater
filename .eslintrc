@@ -19,6 +19,8 @@
 		"RenderHeader": false,
 		"RenderImageSlider": false,
 		"Configuration": false,
+		"Service": false,
+		"Server": false,
 
 		//Objekte aus TweenMax.js
 		"TweenMax": false,

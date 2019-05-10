@@ -933,6 +933,9 @@ img.text-container-fill__bottom {
   border: none;
   width: 100%; }
 
+.equipment-needed-input[disabled] {
+  background-color: #9ab8cc; }
+
 .agb-wrapper {
   color: white;
   font-family: "Open Sans", "Arial", "sans-serif";
@@ -1047,21 +1050,21 @@ img.text-container-fill__bottom {
 
 @-webkit-keyframes inputHighlighter {
   from {
-    background: #ACDFFF; }
+    background: #6795B2; }
   to {
     width: 0;
     background: transparent; } }
 
 @-moz-keyframes inputHighlighter {
   from {
-    background: #ACDFFF; }
+    background: #6795B2; }
   to {
     width: 0;
     background: transparent; } }
 
 @keyframes inputHighlighter {
   from {
-    background: #ACDFFF; }
+    background: #6795B2; }
   to {
     width: 0;
     background: transparent; } }
