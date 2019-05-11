@@ -63,7 +63,7 @@ gulp.task('build', (callback) => {
 		'clean',
 		['minifyJsForDist', 'sass'],
 		'minifyCss',
-		['copyHtml', 'copyJs', 'copyImages'],
+		['copyApi', 'copyHtml', 'copyJs', 'copyImages'],
 		callback
 	);
 });
@@ -256,4 +256,13 @@ gulp.task('copyImages', () => {
 		'./src/assets/images/**/*.gif',
 		'./src/assets/images/**/*.jpg'
 	]).pipe(gulp.dest('dist/assets/images'));
+});
+
+
+/**
+ * Kopiert alle Dateien aus dem api Ordner in den dist Ordner
+ */
+gulp.task('copyApi', () => {
+	return gulp.src(['./src/api/**/*.*'])
+		.pipe(gulp.dest('dist/api'));
 });
