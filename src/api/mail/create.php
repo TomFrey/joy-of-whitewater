@@ -23,12 +23,20 @@ if ($data->courseName
 ){
 
 
-	$to = $data->email;
-	$subject = "Anmeldebestätigung von the Joy of Whitewater";
-	$headers = "From: joe@mitlinxlernen.ch" . "\r\n" . "CC: joe@mitlinxlernen.ch";
-	$txt = "Hallo " . $data->firstName . "\r\n" .
-		   "Danke für deine Anmeldung!" . "\r\n" .
-			"Du hast dich für den Kurs " . $data->courseName . " am " .  $data->courseDate . " angemeldet.";
+	$to = 'info@mitlinxlernen.ch';
+	$subject = "Anmeldung über the Joy of Whitewater";
+	$headers = "From: " . $data->email . "\r\n" . "CC: joe@mitlinxlernen.ch";
+	$txt = "Eine Anmeldung über das Formular auf the joy of whitewater: " . "\r\n" . "\r\n"
+			. $data->firstName . " " . $data->surName . "\r\n"
+			. $data->address . "\r\n"
+		 	. $data->plz . " " . $data->city . "\r\n"
+			. $data->email . "\r\n"
+			. "\r\n" . "\r\n"
+
+			. "Kurs: " . $data->courseName . "\r\n"
+			. "Datum: " .  $data->courseDate . "\r\n"
+			. "Anzahl Personen: " . $data->numberOfParticipants . "\r\n"
+			. "Ausrüstung: " . $data->equipment;
 
 
 	mail($to,$subject,$txt,$headers);
