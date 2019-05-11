@@ -197,7 +197,12 @@
 }
 
 .js-invalid{
-	border: 1px solid red;
+	@include fieldInvalidStyles();
+}
+
+.registration-confirmation__paragraph{
+	color: $complimentaryColor1;
+	margin: 2*$basicHeight  2*$basicWidth;
 }
 
 

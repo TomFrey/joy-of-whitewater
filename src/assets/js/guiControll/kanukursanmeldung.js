@@ -121,7 +121,7 @@ const CourseRegistration = (function (Validator) {
 		registrationData.surName = surNameInputField.value;
 		registrationData.address = addressInputField.value;
 		registrationData.plz = plzInputField.value;
-		registrationData.place = placeInputField.value;
+		registrationData.city = placeInputField.value;
 		registrationData.email = emailInputField.value;
 		registrationData.agb = agbCheckbox.checked ? 'angenommen' : 'nicht angenommen';
 		registrationData.equipment = equipmentSelectedRadioButton;
@@ -131,9 +131,7 @@ const CourseRegistration = (function (Validator) {
 			.then((response) => {
 				console.log(response);
 				// Die Formular Daten konnten vom Server entgegengenommen werden, ein EMail wurde verschickt...
-
-				// Zur Startseite wechseln
-				// window.location.href = '/index.html';
+				RenderConfirmation.createRegistrationConfirmation(registrationData);
 			})
 			.catch((error) => {
 				console.log(error.message);
@@ -207,6 +205,7 @@ const CourseRegistration = (function (Validator) {
 
 			equipment = document.querySelector('.equipment-wrapper');
 			if (equipment !== null) {
+				equipmentSelectedRadioButton = document.querySelector('.equipment-wrapper input[name=equipment]:checked').value;
 				equipmentTextArea = document.querySelector('.equipment-needed-input');
 
 				equipmentAll = document.querySelector('.equipment__all input');
@@ -254,4 +253,4 @@ const CourseRegistration = (function (Validator) {
 	return {
 		init
 	};
-})(Validator);
+})(Validator, RenderConfirmation);

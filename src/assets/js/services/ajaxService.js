@@ -12,10 +12,12 @@ const Service = (function () {
 			var jsonResponseData;
 
 			request.open(method, url, true);
+			request.setRequestHeader('Content-Type', 'application/json');
 			request.send(jsonRequestData);
 
 			request.onreadystatechange = function () {
 				if (request.readyState === DONE) {
+					console.warn(request.responseText)
 					jsonResponseData = JSON.parse(request.responseText);
 					if (request.status >= 200 && request.status < 400) {
 						resolve(jsonResponseData);

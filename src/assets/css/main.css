@@ -1070,7 +1070,12 @@ img.text-container-fill__bottom {
     background: transparent; } }
 
 .js-invalid {
-  border: 1px solid red; }
+  border: 1px solid red;
+  box-shadow: 1px 1px 15px 0px rgba(255, 0, 0, 0.75); }
+
+.registration-confirmation__paragraph {
+  color: #ffffff;
+  margin: 16px 16px; }
 
 /* *************************************************** */
 /* *********** ab hier für desktop ******************* */

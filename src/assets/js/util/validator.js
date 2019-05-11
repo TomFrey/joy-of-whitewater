@@ -66,10 +66,10 @@ const Validator = (function () {
 		const isValidEMail = new RegExp(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
 
 		if (isValidEMail.test(mailInputField.value)) {
-			mailInputField.classList.remove('js-invalid');
+			mailInputField.parentElement.classList.remove('js-invalid');
 			return true;
 		}
-		mailInputField.classList.add('js-invalid');
+		mailInputField.parentElement.classList.add('js-invalid');
 		return false;
 	}
 

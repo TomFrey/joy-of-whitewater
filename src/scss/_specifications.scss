@@ -141,3 +141,8 @@ $textContainerTitleFont: "Gloria Hallelujah", "Arial", "sans-serif";
 	line-height: 32px;
 }
 
+@mixin fieldInvalidStyles(){
+	border: 1px solid rgb(255,0,0);
+	box-shadow: 1px 1px 15px 0px rgba(255,0,0,0.75);
+}
+

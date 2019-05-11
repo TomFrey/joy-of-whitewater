@@ -18,6 +18,7 @@
 		"Validator": false,
 		"RenderHeader": false,
 		"RenderImageSlider": false,
+		"RenderConfirmation": false,
 		"Configuration": false,
 		"Service": false,
 		"Server": false,
@@ -25,7 +26,10 @@
 		//Objekte aus TweenMax.js
 		"TweenMax": false,
 		"Quad": false,
-		"Sine": false
+		"Sine": false,
+
+		//moment.js
+		"moment": false
 	},
 	"rules": {
 		"indent": [	2,

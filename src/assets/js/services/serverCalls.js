@@ -1,13 +1,13 @@
 // eslint-disable-next-line no-unused-vars
 const Server = (function (Service) {
 	/**
-	 * Speichert alle gekauften Tickets eines Users auf der DB.
-	 * Mehrere Tickets von mehreren Festivals sind möglich.
+	 * Sendet dem Kunden ein Bestätigungsmail anhand seiner Daten aus dem
+	 * Anmeldungsformular.
 	 *
 	 * @returns {Promise}
 	 */
 	function sendDataToServer(registrationFormData) {
-		return Service.call('POST', '/api/sendRegistrationFormEmail.php', registrationFormData);
+		return Service.call('POST', '/api/mail.php', registrationFormData);
 	}
 
 

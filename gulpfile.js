@@ -31,6 +31,7 @@ const allJsFiles = [
 	'./node_modules/jquery/dist/jquery.js',
 	'./node_modules/slick-carousel/slick/slick.js',
 	'./node_modules/gsap/src/uncompressed/TweenMax.js',
+	// './node_modules/moment/moment.js',
 
 	'./src/assets/js/config.js',
 
@@ -39,6 +40,7 @@ const allJsFiles = [
 
 	'./src/assets/js/util/validator.js',
 
+	'./src/assets/js/guiControll/renderRegistrationConfirmation.js',
 	'./src/assets/js/guiControll/renderHeader.js',
 	'./src/assets/js/guiControll/renderImageSlider.js',
 	'./src/assets/js/guiControll/navigation.js',
@@ -81,8 +83,13 @@ gulp.task('default', ['serve']);
  * and watching if a file in the template folder is changing and then insert the changes in all html files in app
  */
 gulp.task('serve', ['sass', 'injectHeaderAndFooter', 'minifyJs'], () => {
-	browserSync.init({
+	/* browserSync.init({
 		server: settings.publicDir
+	}); */
+
+	// auf dem Port 8888 läuft das Backend
+	browserSync.init({
+		proxy: 'http://localhost:8888'
 	});
 
 	/**
