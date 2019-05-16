@@ -1,0 +1,45 @@
+.scrollable-table-wrapper{
+	max-width: 350px;
+	overflow: scroll;
+}
+
+.prices{
+	margin-top: 2*$basicHeight;
+
+	thead{
+		@include courseTableTitelFont();
+		background-color: $baseColor2;
+	}
+
+	th{
+		padding: 2px $basicWidth;
+		text-align: left;
+	}
+
+	th:not(:first-of-type){
+		text-align: center;
+	}
+
+	//border: 1px solid black;
+
+	tr:nth-of-type(even){
+		background-color: $complimentaryColor1;
+	}
+
+	td{
+		padding: 2px $basicWidth;
+		text-align: left;
+	}
+
+	td:not(:first-of-type){
+		text-align: right;
+	}
+}
+
+
+/* *************************************************** */
+/* *********** ab hier für desktop ******************* */
+@media screen and (min-width: 740px) {
+
+
+}

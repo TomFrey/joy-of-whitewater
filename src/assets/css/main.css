@@ -477,6 +477,13 @@ Desktop
     font-size: 1.25rem;
     color: #ffffff;
     line-height: 1.5rem;
+    padding-top: 1rem;
+    margin-bottom: 0.5rem; }
+  .text-container-main h4.title {
+    font-family: "Open Sans", "Arial", "sans-serif";
+    font-size: 1.25rem;
+    color: #000000;
+    line-height: 1.5rem;
     padding-top: 0.5rem;
     margin-bottom: 0.5rem; }
   .text-container-main .paragraph {
@@ -1290,6 +1297,33 @@ img.text-container-fill__bottom {
   .slick-dots {
     bottom: -30px; } }
 
+.scrollable-table-wrapper {
+  max-width: 350px;
+  overflow: scroll; }
+
+.prices {
+  margin-top: 16px; }
+  .prices thead {
+    color: #ffffff;
+    font-family: "Open Sans", "Arial", "sans-serif";
+    font-size: 20px;
+    line-height: 32px;
+    background-color: #6795B2; }
+  .prices th {
+    padding: 2px 8px;
+    text-align: left; }
+  .prices th:not(:first-of-type) {
+    text-align: center; }
+  .prices tr:nth-of-type(even) {
+    background-color: #ffffff; }
+  .prices td {
+    padding: 2px 8px;
+    text-align: left; }
+  .prices td:not(:first-of-type) {
+    text-align: right; }
+
+/* *************************************************** */
+/* *********** ab hier für desktop ******************* */
 .open-drawer {
   background-color: #B28B55;
   bottom: 0; }

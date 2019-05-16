@@ -116,6 +116,15 @@ Desktop
 		font-size: $smallTitleSize;
 		color: $color-textContainer-titleH3;
 		line-height: 1.5rem;
+		padding-top: 1rem;
+		margin-bottom: 0.5rem;
+	}
+
+	h4.title{
+		font-family: $standardTextFont;
+		font-size: $smallTitleSize;
+		color: $color-textContainer-titleH4;
+		line-height: 1.5rem;
 		padding-top: 0.5rem;
 		margin-bottom: 0.5rem;
 	}
