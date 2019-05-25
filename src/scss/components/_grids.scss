@@ -32,6 +32,16 @@
 	grid-area: 1 / 1 / 1 / 13;
 }
 
+.gridx12__width6--col1of2{
+	//background-color: green;
+	grid-area: 1 / 1 / 1 / 13;
+}
+
+.gridx12__width6--col2of2{
+	//background-color: yellow;
+	grid-area: 2 / 1 / 2 / 13;
+}
+
 
 
 /* *************************************************** */
@@ -81,7 +91,7 @@
 		grid-area: 1 / 7 / 1 / 12;
 	}
 
-	.gridx12__width5--col2of2.content-at-the-end{
+	.content-at-the-end{
 		align-self: end;
 	}
 
@@ -89,5 +99,14 @@
 		grid-area: 1 / 2 / 1 / 12;
 	}
 
+	.gridx12__width6--col1of2{
+		//background-color: green;
+		grid-area: 1 / 1 / 1 / 7;
+	}
+
+	.gridx12__width6--col2of2{
+		//background-color: yellow;
+		grid-area: 1 / 7 / 1 / 13;
+	}
 }
 

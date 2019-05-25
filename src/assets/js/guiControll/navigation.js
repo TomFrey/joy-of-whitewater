@@ -10,6 +10,7 @@ var Navigation = (function (RenderHeader, RenderImageSlider, Configuration) {
 	let bKursDrawerButton;
 	let fKursDrawerButton;
 	let paddelReisenDrawerButton;
+	let courseList;
 
 	function getNameOfCurrentSite() {
 		console.log('path: '+ location.pathname);
@@ -86,6 +87,22 @@ var Navigation = (function (RenderHeader, RenderImageSlider, Configuration) {
 	}
 
 
+	function toggleCourseDetails(event) {
+		console.log('klick');
+
+		const drawer = event.parentElement.parentElement.lastElementChild;
+		// const drawerButtonIcon = event.lastElementChild;
+
+		if (drawer.classList.contains(SHOW)) {
+			drawer.classList.remove(SHOW);
+			// drawerButtonIcon.classList.remove(SHOW);
+		} else {
+			drawer.classList.add(SHOW);
+			// drawerButtonIcon.classList.add(SHOW);
+		}
+	}
+
+
 	function setSettingsDependingOnUrl() {
 		const whereAmI = getNameOfCurrentSite();
 		const allLinksFromMainNavigation = [];
@@ -153,6 +170,13 @@ var Navigation = (function (RenderHeader, RenderImageSlider, Configuration) {
 		if (paddelReisenDrawerButton !== null) {
 			paddelReisenDrawerButton.addEventListener('click', (event) => {
 				togglePaddelReisenDrawer(event.target);
+			});
+		}
+
+		courseList = document.querySelector('.course-list');
+		if (courseList !== null) {
+			courseList.addEventListener('click', (event) => {
+				toggleCourseDetails(event.target);
 			});
 		}
 	}

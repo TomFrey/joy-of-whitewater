@@ -129,6 +129,13 @@ $textContainerTitleFont: "Gloria Hallelujah", "Arial", "sans-serif";
   line-height: 32px;
 }
 
+@mixin courseTableDetailFont(){
+	color: $complimentaryColor2;
+	font-family: $standardTextFont;
+	font-size: $standardFontSize;
+	line-height: 24px;
+}
+
 @mixin registrationFormFont(){
 	color: lighten($complimentaryColor1, 10%);
 	font-family: $standardTextFont;

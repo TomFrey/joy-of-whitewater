@@ -1,11 +1,14 @@
 .course-list{
   @include courseTableFont();
-  //border: 1px solid $complimentaryColor2;
   display: flex;
   flex-flow: column nowrap;
   padding: $basicHeight $basicWidth;
 }
 
+
+.course-list-item-wrapper:not(:first-of-type){
+	margin-top: $basicHeight;
+}
 
 .course-list-item{
 	@include courseTableFont();
@@ -13,17 +16,56 @@
 	display: flex;
   	flex-flow: row nowrap;
 	text-decoration: none;
-  //padding: $basicHeight 0;
 }
 
-.course-list-item:not(:last-of-type){
-  margin-bottom: $basicHeight;
+.course-list-item-detail{
+	@include courseTableDetailFont();
+	background-color: $color-drawer-background-dateTable;
+	margin-top: 0.5*$basicHeight;
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height 300ms ease-in-out 1ms;
 }
+
+.course-list-item-detail.js-show{
+	max-height: 350px;
+	transition: max-height 300ms ease-in-out 1ms;
+}
+
+.course-list-item-detail__content-wrapper{
+	padding: 2*$basicHeight 2*$basicWidth;
+}
+
+h4.course-list-detail__title{
+	font-family: $standardTextFont;
+	font-size: $smallTitleSize;
+	color: $color-textContainer-titleH4;
+	line-height: 1.5rem;
+	padding-top: 0.5rem;
+	margin-bottom: 0.5rem;
+}
+
+.course-list-detail__amount--part, .course-list-detail__amount--total{
+	margin-right: $basicWidth;
+	padding-top: 0.5*$basicHeight;
+	text-align: right;
+}
+
+.course-list-detail__amount--total{
+	border-top: black solid 1px;
+	font-weight: bold;
+}
+
+.course-list-detail__amount--part::after, .course-list-detail__amount--total::after{
+	content: ' CHF';
+}
+
+
 
 
 // Name
 .course-item__name-wrapper{
-  border-right: 3px solid $color-drawer-background-drawer;
+  border-right: 0.5*$basicWidth solid $color-drawer-background-drawer;
   flex: 2 2 40%;
   padding: $basicHeight $basicWidth;
 }
@@ -31,18 +73,20 @@
 .course-item__name{
   	@include courseTableTitelFont();
   	padding: 0;
+	pointer-events: none;
 }
 
 
 // Ort
 .course-item__place-wrapper{
-  border-right: 3px solid $color-drawer-background-drawer;
+  border-right: 0.5*$basicWidth solid $color-drawer-background-drawer;
   flex: 1 1 20%;
   padding: $basicHeight 0;
 }
 
 .course-item__place{
-  padding: 0 $basicWidth;
+  	padding: 0 $basicWidth;
+	pointer-events: none;
 }
 
 .course-place__city::after{
@@ -52,7 +96,11 @@
 
 // Dauer
 .course-item__duration-wrapper{
-  display: none;
+  	display: none;
+}
+
+.course-item__duration{
+	pointer-events: none;
 }
 
 
@@ -63,7 +111,8 @@
 }
 
 .course-item__date{
-  padding: 0 $basicWidth;
+  	padding: 0 $basicWidth;
+	pointer-events: none;
 }
 
 .course-date__from::after{
@@ -88,7 +137,7 @@
 
   	// Dauer
   	.course-item__duration-wrapper{
-		border-right: 3px solid $color-drawer-background-drawer;
+		border-right: 0.5*$basicWidth solid $color-drawer-background-drawer;
 		display: block;
 		flex: 1 1 10%;
 		padding: $basicHeight 0;
