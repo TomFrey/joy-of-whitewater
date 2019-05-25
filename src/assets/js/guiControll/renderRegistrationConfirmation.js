@@ -1,5 +1,15 @@
 // eslint-disable-next-line no-unused-vars
 var RenderConfirmation = (function () {
+	function getEquipmentString(registrationData) {
+		if (registrationData.equipment === 'all') {
+			return 'Du benötigst die gesamte Ausrüstung.';
+		}
+		if (registrationData.equipment === 'nothing') {
+			return 'Du benötigst keine Ausrüstung, du bringst alles selber mit.';
+		}
+		return registrationData.equipmentDetails;
+	}
+
 	function createRegistrationConfirmation(registrationData) {
 		const registration = document.querySelector('.anmeldung');
 
@@ -47,7 +57,7 @@ var RenderConfirmation = (function () {
 							+ 'Kurs: ' + registrationData.courseName + '<br>'
 							+ 'Datum: ' + registrationData.courseDate + '<br>'
 							+ 'Anzahl Personen: ' + registrationData.numberOfParticipants + '<br>'
-							+ 'Ausrüstung: ';
+							+ 'Ausrüstung: ' + getEquipmentString(registrationData);
 
 		confirmationText.appendChild(anrede);
 		confirmationText.appendChild(text);
