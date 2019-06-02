@@ -551,11 +551,11 @@ img.text-container-fill__bottom {
     background-color: #ACDFFF;
     padding: 24px 16px; }
     .text-container-main > .text-container-left {
-      flex: 0 1 62%;
+      flex: 0 1 60%;
       order: 0;
       padding-right: 16px; }
     .text-container-main > .text-container-right {
-      flex: 0 1 38%;
+      flex: 0 1 40%;
       order: 1;
       padding-left: 16px; }
     .text-container-main > .filler {
@@ -567,10 +567,10 @@ img.text-container-fill__bottom {
         max-width: 100%;
         height: auto; }
     .text-container-main > .filler-right {
-      flex: 0 1 38%;
+      flex: 0 1 40%;
       order: 1; }
     .text-container-main > .filler-left {
-      flex: 0 1 62%;
+      flex: 0 1 60%;
       order: 0; }
     .text-container-main .filler__fillarea {
       background-color: #ffffff;

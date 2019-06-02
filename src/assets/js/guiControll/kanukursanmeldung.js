@@ -24,7 +24,9 @@ const CourseRegistration = (function (Validator) {
 	let equipmentNothing;
 
 	let sendRegistraitionFormButtonOkIcon;
-	let sendRegistraitionFormButtonNokIcon
+	let sendRegistraitionFormButtonNokIcon;
+
+	let registrationButtons;
 
 
 	function isCourseNameValid() {
@@ -142,7 +144,23 @@ const CourseRegistration = (function (Validator) {
 	}
 
 
+	function callRegistrationForm(event) {
+		console.log(event.target);
+		event.stopPropagation();
+		window.location.href = '/kanukursanmeldung.html?course=testKurs';
+	}
+
+
 	function init() {
+		registrationButtons = document.querySelectorAll('.link-button-wrapper');
+		if (registrationButtons !== null) {
+			registrationButtons.forEach((registrationButton) => {
+				registrationButton.addEventListener('click', (event) => {
+					callRegistrationForm(event);
+				});
+			});
+		}
+
 		registrationForm = document.querySelector('.anmeldung');
 		if (registrationForm !== null) {
 			sendRegistraitionFormButtonOkIcon = document.querySelector('.send-button__icon.send-button__icon-ok');
