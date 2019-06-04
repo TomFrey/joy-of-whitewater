@@ -1352,32 +1352,66 @@ h4.course-list-detail__title {
     bottom: -30px; } }
 
 .scrollable-table-wrapper {
-  max-width: 350px;
-  overflow: scroll; }
+  overflow-x: scroll;
+  overflow-y: visible;
+  width: 170px;
+  margin-left: 180px; }
 
 .prices {
-  margin-top: 16px; }
+  margin-top: 16px;
+  /*th:nth-child(2)::after{
+		content: ' ';
+	}*/ }
   .prices thead {
     color: #ffffff;
     font-family: "Open Sans", "Arial", "sans-serif";
     font-size: 20px;
     line-height: 32px;
     background-color: #6795B2; }
-  .prices th {
-    padding: 2px 8px;
-    text-align: left; }
-  .prices th:not(:first-of-type) {
-    text-align: center; }
   .prices tr:nth-of-type(even) {
     background-color: #ffffff; }
+  .prices th {
+    padding: 16px 8px 16px 8px;
+    text-align: left;
+    white-space: nowrap; }
+  .prices th:not(:first-of-type) {
+    text-align: center; }
+  .prices th:first-child {
+    padding: 16px 8px 16px 8px;
+    position: absolute;
+    left: 0px; }
+  .prices tbody th.two-row-table-cell {
+    padding: 4px 8px 4px 8px; }
   .prices td {
-    padding: 2px 8px;
-    text-align: left; }
-  .prices td:not(:first-of-type) {
+    padding: 16px 16px;
     text-align: right; }
+
+/* ************************************************************* */
+/* *********** ab hier für mobile querformat ******************* */
+@media screen and (min-width: 440px) {
+  .scrollable-table-wrapper {
+    width: 320px;
+    margin-left: 200px; }
+  .prices th:first-child {
+    padding: 16px 8px 16px 16px;
+    position: absolute;
+    left: 0px; }
+  .prices tbody th.two-row-table-cell {
+    padding: 4px 8px 4px 16px; } }
 
 /* *************************************************** */
 /* *********** ab hier für desktop ******************* */
+@media screen and (min-width: 740px) {
+  .scrollable-table-wrapper {
+    width: 330px;
+    margin-left: 220px; }
+  .prices th:first-child {
+    padding: 16px 8px 16px 32px;
+    position: absolute;
+    left: 0px; }
+  .prices tbody th.two-row-table-cell {
+    padding: 4px 8px 4px 32px; } }
+
 .open-drawer {
   background-color: #B28B55;
   bottom: 0; }

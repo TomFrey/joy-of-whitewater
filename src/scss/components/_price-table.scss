@@ -1,6 +1,8 @@
 .scrollable-table-wrapper{
-	max-width: 350px;
-	overflow: scroll;
+	overflow-x: scroll;
+	overflow-y: visible;
+	width: 170px;
+	margin-left: 180px;
 }
 
 .prices{
@@ -11,35 +13,88 @@
 		background-color: $baseColor2;
 	}
 
+	tr:nth-of-type(even){
+		background-color: $complimentaryColor1;
+	}
+
 	th{
-		padding: 2px $basicWidth;
+		padding: 2*$basicHeight $basicWidth 2*$basicHeight $basicWidth;
 		text-align: left;
+		white-space: nowrap;
 	}
 
 	th:not(:first-of-type){
 		text-align: center;
 	}
 
-	//border: 1px solid black;
+	th:first-child {
+		padding: 2*$basicHeight $basicWidth 2*$basicHeight $basicWidth;
+		position: absolute;
+		left: 0px
+	}
 
-	tr:nth-of-type(even){
-		background-color: $complimentaryColor1;
+	/*th:nth-child(2)::after{
+		content: ' ';
+	}*/
+
+	tbody th.two-row-table-cell{
+		padding: 0.5*$basicHeight $basicWidth 0.5*$basicHeight $basicWidth;
 	}
 
 	td{
-		padding: 2px $basicWidth;
-		text-align: left;
-	}
-
-	td:not(:first-of-type){
+		padding: 2*$basicHeight 2*$basicWidth;
 		text-align: right;
 	}
 }
+
+
+
+/* ************************************************************* */
+/* *********** ab hier für mobile querformat ******************* */
+@media screen and (min-width: 440px) {
+
+	.scrollable-table-wrapper{
+		width: 320px;
+		margin-left: 200px;
+	}
+
+	.prices{
+
+		th:first-child {
+			padding: 2*$basicHeight $basicWidth 2*$basicHeight 2*$basicWidth;
+			position: absolute;
+			left: 0px
+		}
+
+		tbody th.two-row-table-cell{
+			padding: 0.5*$basicHeight $basicWidth 0.5*$basicHeight 2*$basicWidth;
+		}
+	}
+
+}
+
 
 
 /* *************************************************** */
 /* *********** ab hier für desktop ******************* */
 @media screen and (min-width: 740px) {
 
+	.scrollable-table-wrapper{
+		width:330px;
+		margin-left: 220px;
+	}
+
+	.prices{
+
+		th:first-child {
+			padding: 2*$basicHeight $basicWidth 2*$basicHeight 4*$basicWidth;
+			position: absolute;
+			left: 0px
+		}
+
+		tbody th.two-row-table-cell{
+			padding: 0.5*$basicHeight $basicWidth 0.5*$basicHeight 4*$basicWidth;
+		}
+	}
 
 }
