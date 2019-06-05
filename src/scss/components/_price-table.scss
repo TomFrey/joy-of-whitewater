@@ -5,6 +5,22 @@
 	margin-left: 180px;
 }
 
+.text-container-drawer.text-container-drawer--details{
+	.prices{
+		th:first-child {
+			position: static;
+		}
+	}
+}
+
+.text-container-drawer.text-container-drawer--details.js-show{
+	.prices{
+		th:first-child {
+			position: absolute;
+		}
+	}
+}
+
 .prices{
 	margin-top: 2*$basicHeight;
 
@@ -29,7 +45,7 @@
 
 	th:first-child {
 		padding: 2*$basicHeight $basicWidth 2*$basicHeight $basicWidth;
-		position: absolute;
+		//position: absolute;
 		left: 0px
 	}
 
@@ -62,7 +78,7 @@
 
 		th:first-child {
 			padding: 2*$basicHeight $basicWidth 2*$basicHeight 2*$basicWidth;
-			position: absolute;
+			//position: absolute;
 			left: 0px
 		}
 
@@ -79,22 +95,31 @@
 /* *********** ab hier für desktop ******************* */
 @media screen and (min-width: 740px) {
 
+	.text-container-drawer.text-container-drawer--details, .text-container-drawer.text-container-drawer--details.js-show{
+		.prices{
+			th:first-child {
+				position: static;
+			}
+		}
+	}
+
 	.scrollable-table-wrapper{
-		width:330px;
-		margin-left: 220px;
+		overflow-x: visible;
+		overflow-y: visible;
+		//width:330px;
+		margin-left: 2*$basicWidth;
 	}
 
 	.prices{
 
 		th:first-child {
 			padding: 2*$basicHeight $basicWidth 2*$basicHeight 4*$basicWidth;
-			position: absolute;
-			left: 0px
+			//position: absolute;
+			//left: 0px
 		}
 
 		tbody th.two-row-table-cell{
 			padding: 0.5*$basicHeight $basicWidth 0.5*$basicHeight 4*$basicWidth;
 		}
 	}
-
 }

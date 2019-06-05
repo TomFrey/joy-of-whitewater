@@ -125,7 +125,7 @@ Desktop
 		font-size: $smallTitleSize;
 		color: $color-textContainer-titleH4;
 		line-height: 1.5rem;
-		padding-top: 0.5rem;
+		padding-top: 1rem;
 		margin-bottom: 0.5rem;
 	}
 
@@ -147,14 +147,17 @@ Desktop
 
 .text-container-detail{
 	background-color: $color-textContainer-background;
+	padding-bottom: $basicHeight;
 }
 
+//im Mobile den Drawer schneller schliessen, da hier bei den Kanumaterial Preisen ein Teil der Tabelle
+//absolute positioniert ist. Das Umschalten der Position sieht man beim Öffnen und Schliessen.
 .text-container-drawer{
   	background-color: $color-drawer-background-drawer;
 	color: $color-drawer-text;
   	max-height: 0;
   	overflow: hidden;
-  	transition: max-height 0.5s ease-in-out 1ms;
+  	transition: max-height 0.1s ease-in-out 1ms;
 }
 
 .text-container-drawer.text-container-drawer--course-dates.js-show{
@@ -165,6 +168,13 @@ Desktop
 .text-container-drawer.text-container-drawer--paddling-trip-details.js-show{
 	max-height: 1200px;
 	transition: max-height 1s ease-in-out 1ms;
+}
+
+//allgemeiner Drawer, verwendet bis her bei den Kanumaterial Preisen
+.text-container-drawer.text-container-drawer--details.js-show{
+	max-height: 1300px;
+	padding-bottom: $basicHeight;
+	transition: max-height 0.5s ease-in-out 1ms;
 }
 
 .text-container-drawer__content-wrapper{
@@ -259,6 +269,15 @@ img.text-container-fill__bottom {
       width: 100%;
     }
   }
+
+	//auf der Desktop Version muss der Drawer nicht so schnell geschlossen werden.
+	.text-container-drawer{
+		transition: max-height 0.5s ease-in-out 1ms;
+	}
+
+	.text-container-detail{
+		padding-bottom: 0px;
+	}
 
 	.text-container-drawer__content-wrapper{
 		padding: 2*$basicHeight 0px;

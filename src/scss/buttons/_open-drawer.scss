@@ -35,14 +35,15 @@
 
 
 
-/* ab hier für desktop */
+/* *************************************************** */
+/* *********** ab hier für desktop ******************* */
 @media screen and (min-width: 740px) { //wenn Bildschirm grösser 740 px gross ist, dann...
 
 
 	.open-drawer{
 		border: 1px solid $complimentaryColor4;
 	  	border-radius: $basicHeight;
-		margin: 2*$basicWidth 2*$basicHeight;
+		margin: $basicWidth 2*$basicHeight;
 		width: 30%;
   	}
 

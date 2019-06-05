@@ -484,7 +484,7 @@ Desktop
     font-size: 1.25rem;
     color: #000000;
     line-height: 1.5rem;
-    padding-top: 0.5rem;
+    padding-top: 1rem;
     margin-bottom: 0.5rem; }
   .text-container-main .paragraph {
     color: #000000;
@@ -496,14 +496,15 @@ Desktop
     color: #ffffff; }
 
 .text-container-detail {
-  background-color: #ACDFFF; }
+  background-color: #ACDFFF;
+  padding-bottom: 8px; }
 
 .text-container-drawer {
   background-color: #6795B2;
   color: #000000;
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.5s ease-in-out 1ms; }
+  transition: max-height 0.1s ease-in-out 1ms; }
 
 .text-container-drawer.text-container-drawer--course-dates.js-show {
   max-height: 1500px;
@@ -512,6 +513,11 @@ Desktop
 .text-container-drawer.text-container-drawer--paddling-trip-details.js-show {
   max-height: 1200px;
   transition: max-height 1s ease-in-out 1ms; }
+
+.text-container-drawer.text-container-drawer--details.js-show {
+  max-height: 1300px;
+  padding-bottom: 8px;
+  transition: max-height 0.5s ease-in-out 1ms; }
 
 .text-container-drawer__content-wrapper {
   padding: 16px 16px; }
@@ -576,6 +582,10 @@ img.text-container-fill__bottom {
       background-color: #ffffff;
       height: 100%;
       width: 100%; }
+  .text-container-drawer {
+    transition: max-height 0.5s ease-in-out 1ms; }
+  .text-container-detail {
+    padding-bottom: 0px; }
   .text-container-drawer__content-wrapper {
     padding: 16px 0px; }
   .text-container-drawer__paragraph {
@@ -1357,6 +1367,12 @@ h4.course-list-detail__title {
   width: 170px;
   margin-left: 180px; }
 
+.text-container-drawer.text-container-drawer--details .prices th:first-child {
+  position: static; }
+
+.text-container-drawer.text-container-drawer--details.js-show .prices th:first-child {
+  position: absolute; }
+
 .prices {
   margin-top: 16px;
   /*th:nth-child(2)::after{
@@ -1378,7 +1394,6 @@ h4.course-list-detail__title {
     text-align: center; }
   .prices th:first-child {
     padding: 16px 8px 16px 8px;
-    position: absolute;
     left: 0px; }
   .prices tbody th.two-row-table-cell {
     padding: 4px 8px 4px 8px; }
@@ -1394,7 +1409,6 @@ h4.course-list-detail__title {
     margin-left: 200px; }
   .prices th:first-child {
     padding: 16px 8px 16px 16px;
-    position: absolute;
     left: 0px; }
   .prices tbody th.two-row-table-cell {
     padding: 4px 8px 4px 16px; } }
@@ -1402,13 +1416,14 @@ h4.course-list-detail__title {
 /* *************************************************** */
 /* *********** ab hier für desktop ******************* */
 @media screen and (min-width: 740px) {
+  .text-container-drawer.text-container-drawer--details .prices th:first-child, .text-container-drawer.text-container-drawer--details.js-show .prices th:first-child {
+    position: static; }
   .scrollable-table-wrapper {
-    width: 330px;
-    margin-left: 220px; }
+    overflow-x: visible;
+    overflow-y: visible;
+    margin-left: 16px; }
   .prices th:first-child {
-    padding: 16px 8px 16px 32px;
-    position: absolute;
-    left: 0px; }
+    padding: 16px 8px 16px 32px; }
   .prices tbody th.two-row-table-cell {
     padding: 4px 8px 4px 32px; } }
 
@@ -1442,12 +1457,13 @@ h4.course-list-detail__title {
   align-self: flex-end;
   transform: rotate(-135deg); }
 
-/* ab hier für desktop */
+/* *************************************************** */
+/* *********** ab hier für desktop ******************* */
 @media screen and (min-width: 740px) {
   .open-drawer {
     border: 1px solid #B28B55;
     border-radius: 8px;
-    margin: 16px 16px;
+    margin: 8px 16px;
     width: 30%; }
   .open-drawer:hover {
     background-color: #ffffff; }
