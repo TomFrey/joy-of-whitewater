@@ -89,8 +89,6 @@ var Navigation = (function (RenderHeader, RenderImageSlider, Configuration) {
 
 
 	function toggleCourseDetails(event) {
-		console.log('klick');
-
 		const drawer = event.parentElement.parentElement.lastElementChild;
 		// const drawerButtonIcon = event.lastElementChild;
 
