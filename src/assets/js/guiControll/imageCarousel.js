@@ -2,7 +2,7 @@
 var ImageCarousel = (function () {
 	const simpleSlider = $('.images-carousel');
 	const sliderWidth = simpleSlider.parent().width(); // width of header
-	const stageWidth = sliderWidth * 2; // space to slide away the top image
+	// const stageWidth = sliderWidth * 2; // space to slide away the top image
 
 
 	// function regroupSlider()
@@ -65,11 +65,13 @@ var ImageCarousel = (function () {
 
 	function initiate() {
 		// give every image the width of it's parent
-		simpleSlider.find('li.image').width(sliderWidth);
+		// die nächste Zeile wird nur für den Slider benötigt, nicht für crossFade
+		// simpleSlider.find('li.image').width(sliderWidth);
 
 		// let the images float over each other, hide everything out of the webside width
 		simpleSlider.css('overflow', 'hidden');
-		simpleSlider.find('ul.images').css('width', '' + stageWidth + '');
+		// die nächste Zeile wird nur für den Slider benötigt, nicht für crossFade
+		// simpleSlider.find('ul.images').css('width', '' + stageWidth + '');
 		simpleSlider.find('li.image').css('float', 'left').css('position', 'absolute');
 
 		// add class topImage to the first image in the stack

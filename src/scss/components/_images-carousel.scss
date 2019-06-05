@@ -1,15 +1,16 @@
 .images-carousel {
-  position: relative;
+  	position: relative;
 
   > .images {
-    position: relative;
-    z-index : 1;
+    	position: relative;
+    	z-index : 1;
   }
 
   > .images > .image {
-    list-style: none;
-    float: left;
-    left: 0;
-    position: absolute;
+	  list-style: none;
+	  float: left;
+	  left: 0;
+	  position: absolute;
+	  width: 100%;
   }
 }
