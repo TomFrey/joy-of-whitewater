@@ -12,7 +12,7 @@ $baseColor2Light: lighten($baseColor2, 20%);
 
 
 $color-main-background: #ffffff;
-$color-main-titleInTheBigPicture: #FFBD1E;
+$color-main-titleInTheBigPicture: #FF6305; //#FFBD1E;
 
 
 //colors _text-container
@@ -22,6 +22,7 @@ $color-textContainer-titleH4: $complimentaryColor2;
 $color-textContainer-text: $complimentaryColor2;
 $color-textContainer-text-hover: $complimentaryColor1;
 $color-textContainer-background: $baseColor1;
+$color-textContainer-link: #FF6305;
 
 
 //colors _text-container-drawer
@@ -42,7 +43,7 @@ $color-nav-mobile-text: #000000;
 
 $color-nav-desktop-background: #ffffff;
 $color-nav-desktop-text: #000000;
-$color-nav-desktop-uSlider: #FFBD1E;
+$color-nav-desktop-uSlider: #FF6305; //#FFBD1E;
 
 
 //footer
