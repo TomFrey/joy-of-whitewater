@@ -45,13 +45,8 @@
 
 	th:first-child {
 		padding: 2*$basicHeight $basicWidth 2*$basicHeight $basicWidth;
-		//position: absolute;
 		left: 0px
 	}
-
-	/*th:nth-child(2)::after{
-		content: ' ';
-	}*/
 
 	tbody th.two-row-table-cell{
 		padding: 0.5*$basicHeight $basicWidth 0.5*$basicHeight $basicWidth;
@@ -78,7 +73,6 @@
 
 		th:first-child {
 			padding: 2*$basicHeight $basicWidth 2*$basicHeight 2*$basicWidth;
-			//position: absolute;
 			left: 0px
 		}
 
@@ -106,7 +100,6 @@
 	.scrollable-table-wrapper{
 		overflow-x: visible;
 		overflow-y: visible;
-		//width:330px;
 		margin-left: 2*$basicWidth;
 	}
 
@@ -114,8 +107,6 @@
 
 		th:first-child {
 			padding: 2*$basicHeight $basicWidth 2*$basicHeight 4*$basicWidth;
-			//position: absolute;
-			//left: 0px
 		}
 
 		tbody th.two-row-table-cell{
