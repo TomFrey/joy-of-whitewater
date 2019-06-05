@@ -1374,10 +1374,7 @@ h4.course-list-detail__title {
   position: absolute; }
 
 .prices {
-  margin-top: 16px;
-  /*th:nth-child(2)::after{
-		content: ' ';
-	}*/ }
+  margin-top: 16px; }
   .prices thead {
     color: #ffffff;
     font-family: "Open Sans", "Arial", "sans-serif";

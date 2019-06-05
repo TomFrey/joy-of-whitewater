@@ -11,7 +11,7 @@ var Navigation = (function (RenderHeader, RenderImageSlider, Configuration) {
 	let fKursDrawerButton;
 	let paddelReisenDrawerButton;
 	let drawerButtons;
-	let courseList;
+	let courseLists;
 
 	function getNameOfCurrentSite() {
 		console.log('path: '+ location.pathname);
@@ -189,10 +189,12 @@ var Navigation = (function (RenderHeader, RenderImageSlider, Configuration) {
 			});
 		}
 
-		courseList = document.querySelector('.course-list');
-		if (courseList !== null) {
-			courseList.addEventListener('click', (event) => {
-				toggleCourseDetails(event.target);
+		courseLists = document.querySelectorAll('.course-list');
+		if (courseLists !== null) {
+			courseLists.forEach((courseList) => {
+				courseList.addEventListener('click', (event) => {
+					toggleCourseDetails(event.target);
+				});
 			});
 		}
 
