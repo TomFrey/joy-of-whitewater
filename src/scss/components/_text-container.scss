@@ -29,6 +29,15 @@ Desktop
 
 |---------------- text-container------------------------------------|
 |                                                                   |
+| |---------------- text-container-full-width --------------------| |
+| |                                                               | |
+| |                                                               | |
+| |                                                               | |
+| |                                                               | |
+| |---------------------------------------------------------------| |
+|                                                                   |
+|  oder                                                             |
+|                                                                   |
 | |---------------- text-container-main --------------------------| |
 | | |---------------------------------------|-------------------| | |
 | | |                                       |                   | | |
@@ -40,7 +49,9 @@ Desktop
 | | |                                       |                   | | |
 | | |---------------------------------------|-------------------| | |
 | |---------------------------------------------------------------| |
-|                                                                 | |
+|                                                                   |
+|  mit oder ohne                                                    |
+|                                                                   |
 | |---------------- text-container-detail ------------------------| |
 | | |-----------------------------------------------------------| | |
 | | |                                                           | | |
@@ -53,6 +64,8 @@ Desktop
 | | |-----------------------------------------------------------| | |
 | |---------------------------------------------------------------| |
 |-------------------------------------------------------------------|
+
+
 
 ---------------- text-container------------------------------
 |-----------------|-----------------------------------------|
@@ -67,40 +80,18 @@ Desktop
 */
 
 .text-container{
-  display: flex;
-  flex-flow: column nowrap;
+  	display: flex;
+  	flex-flow: column nowrap;
 	position: relative;
-}
 
-.text-container-main{
-  background-color: $color-textContainer-background;
-  display: flex;
-  flex-flow: column nowrap;
-  padding: $basicHeight $basicWidth;
-
-
-  	> .text-container-left{
-    	order: 0;
-    	width: 100%;
-  	}
-
-  	> .text-container-right{
-		order: 0;
-    	width: 100%;
-  	}
-
-  	> .filler{
-    	display: block;
-    	order: 1;
-
-		&.hide-on-mobile{
-			display: none;
-		}
-
-    	.filler__picture__img{
-      		width: 100%;
-    	}
-  	}
+	h1.title{
+		font-family: $textContainerTitleFont;
+		font-size: $bigTitleSize;
+		color: $color-textContainer-titleH1;
+		line-height: 2rem;
+		margin-top: 1rem;
+		margin-bottom: 2rem;
+	}
 
 	h2.title{
 		font-family: $textContainerTitleFont;
@@ -135,19 +126,58 @@ Desktop
 		margin-bottom: 0.5rem;
 	}
 
-	a{
+	a.link-in-text{
 		color: $color-textContainer-link;
 	}
 
-	a:hover{
+	a.link-in-text:hover{
 		color: $color-textContainer-text-hover;
 	}
 }
 
+.text-container-main{
+  background-color: $color-textContainer-background;
+  display: flex;
+  flex-flow: column nowrap;
+  padding: $basicHeight $basicWidth;
 
-.text-container-detail{
+  	> .text-container-left{
+    	order: 0;
+    	width: 100%;
+  	}
+
+  	> .text-container-right{
+		order: 0;
+    	width: 100%;
+  	}
+
+  	> .filler{
+    	display: block;
+    	order: 1;
+
+		&.hide-on-mobile{
+			display: none;
+		}
+
+    	.filler__picture__img{
+      		width: 100%;
+    	}
+  	}
+}
+
+
+.text-container-detail, .text-container-full-width{
 	background-color: $color-textContainer-background;
 	padding-bottom: $basicHeight;
+}
+
+.text-container-full-width{
+	padding: $basicWidth;
+}
+
+.course-list-wrapper{
+	background-color: $color-drawer-background-drawer;
+	color: $color-drawer-text;
 }
 
 //im Mobile den Drawer schneller schliessen, da hier bei den Kanumaterial Preisen ein Teil der Tabelle
@@ -269,6 +299,10 @@ img.text-container-fill__bottom {
       width: 100%;
     }
   }
+
+	.text-container-full-width{
+		padding: 2*$basicWidth;
+	}
 
 	//auf der Desktop Version muss der Drawer nicht so schnell geschlossen werden.
 	.text-container-drawer{

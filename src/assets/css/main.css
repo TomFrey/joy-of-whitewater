@@ -406,6 +406,15 @@ Desktop
 
 |---------------- text-container------------------------------------|
 |                                                                   |
+| |---------------- text-container-full-width --------------------| |
+| |                                                               | |
+| |                                                               | |
+| |                                                               | |
+| |                                                               | |
+| |---------------------------------------------------------------| |
+|                                                                   |
+|  oder                                                             |
+|                                                                   |
 | |---------------- text-container-main --------------------------| |
 | | |---------------------------------------|-------------------| | |
 | | |                                       |                   | | |
@@ -417,7 +426,9 @@ Desktop
 | | |                                       |                   | | |
 | | |---------------------------------------|-------------------| | |
 | |---------------------------------------------------------------| |
-|                                                                 | |
+|                                                                   |
+|  mit oder ohne                                                    |
+|                                                                   |
 | |---------------- text-container-detail ------------------------| |
 | | |-----------------------------------------------------------| | |
 | | |                                                           | | |
@@ -430,6 +441,8 @@ Desktop
 | | |-----------------------------------------------------------| | |
 | |---------------------------------------------------------------| |
 |-------------------------------------------------------------------|
+
+
 
 ---------------- text-container------------------------------
 |-----------------|-----------------------------------------|
@@ -446,6 +459,42 @@ Desktop
   display: flex;
   flex-flow: column nowrap;
   position: relative; }
+  .text-container h1.title {
+    font-family: "Gloria Hallelujah", "Arial", "sans-serif";
+    font-size: 3rem;
+    color: #FF6305;
+    line-height: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem; }
+  .text-container h2.title {
+    font-family: "Gloria Hallelujah", "Arial", "sans-serif";
+    font-size: 1.75rem;
+    color: #ffffff;
+    line-height: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 0.75rem; }
+  .text-container h3.title {
+    font-family: "Gloria Hallelujah", "Arial", "sans-serif";
+    font-size: 1.25rem;
+    color: #ffffff;
+    line-height: 1.5rem;
+    padding-top: 1rem;
+    margin-bottom: 0.5rem; }
+  .text-container h4.title {
+    font-family: "Open Sans", "Arial", "sans-serif";
+    font-size: 1.25rem;
+    color: #000000;
+    line-height: 1.5rem;
+    padding-top: 1rem;
+    margin-bottom: 0.5rem; }
+  .text-container .paragraph {
+    color: #000000;
+    font-size: 1rem;
+    margin-bottom: 0.5rem; }
+  .text-container a.link-in-text {
+    color: #FF6305; }
+  .text-container a.link-in-text:hover {
+    color: #ffffff; }
 
 .text-container-main {
   background-color: #ACDFFF;
@@ -465,39 +514,17 @@ Desktop
       display: none; }
     .text-container-main > .filler .filler__picture__img {
       width: 100%; }
-  .text-container-main h2.title {
-    font-family: "Gloria Hallelujah", "Arial", "sans-serif";
-    font-size: 1.75rem;
-    color: #ffffff;
-    line-height: 2rem;
-    margin-top: 1rem;
-    margin-bottom: 0.75rem; }
-  .text-container-main h3.title {
-    font-family: "Gloria Hallelujah", "Arial", "sans-serif";
-    font-size: 1.25rem;
-    color: #ffffff;
-    line-height: 1.5rem;
-    padding-top: 1rem;
-    margin-bottom: 0.5rem; }
-  .text-container-main h4.title {
-    font-family: "Open Sans", "Arial", "sans-serif";
-    font-size: 1.25rem;
-    color: #000000;
-    line-height: 1.5rem;
-    padding-top: 1rem;
-    margin-bottom: 0.5rem; }
-  .text-container-main .paragraph {
-    color: #000000;
-    font-size: 1rem;
-    margin-bottom: 0.5rem; }
-  .text-container-main a {
-    color: #FF6305; }
-  .text-container-main a:hover {
-    color: #ffffff; }
 
-.text-container-detail {
+.text-container-detail, .text-container-full-width {
   background-color: #ACDFFF;
   padding-bottom: 8px; }
+
+.text-container-full-width {
+  padding: 8px; }
+
+.course-list-wrapper {
+  background-color: #6795B2;
+  color: #000000; }
 
 .text-container-drawer {
   background-color: #6795B2;
@@ -582,6 +609,8 @@ img.text-container-fill__bottom {
       background-color: #ffffff;
       height: 100%;
       width: 100%; }
+  .text-container-full-width {
+    padding: 16px; }
   .text-container-drawer {
     transition: max-height 0.5s ease-in-out 1ms; }
   .text-container-detail {
@@ -1429,7 +1458,7 @@ h4.course-list-detail__title {
   background-color: #B28B55;
   bottom: 0; }
 
-.open-drawer-wrapper {
+a.open-drawer-wrapper {
   align-items: baseline;
   color: #ffffff;
   display: flex;
