@@ -15,6 +15,7 @@
 		"ImageCarousel": false,
 		"ImageSlider": false,
 		"CourseRegistration": false,
+		"CourseDates": false,
 		"Validator": false,
 		"RenderHeader": false,
 		"RenderImageSlider": false,

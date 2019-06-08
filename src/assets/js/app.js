@@ -6,6 +6,7 @@ const App = (function () {
 		Navigation.init();
 		ImageCarousel.init();
 		// ImageSlider.init();
+		CourseDates.init();
 		CourseRegistration.init();
 	}
 
