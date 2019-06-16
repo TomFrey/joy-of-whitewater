@@ -12,7 +12,7 @@ const babel = require('gulp-babel');
 const concat = require('gulp-concat');
 const gulpSequence = require('gulp-sequence');
 
-const replace = require('gulp-replace');
+// const replace = require('gulp-replace');
 const cleanCss = require('gulp-clean-css');
 var pump = require('pump');
 
@@ -31,15 +31,16 @@ const allJsFiles = [
 	'./node_modules/jquery/dist/jquery.js',
 	'./node_modules/slick-carousel/slick/slick.js',
 	'./node_modules/gsap/src/uncompressed/TweenMax.js',
-	// './node_modules/moment/moment.js',
 
 	'./src/assets/js/config.js',
+	'./src/assets/js/util/dates.js',
+	'./src/assets/js/util/validator.js',
+
+	'./src/assets/js/renderGui/renderCourseDates.js',
 
 	'./src/assets/js/services/ajaxService.js',
 	'./src/assets/js/services/serverCalls.js',
 	'./src/assets/js/services/courseDates.js',
-
-	'./src/assets/js/util/validator.js',
 
 	'./src/assets/js/guiControll/renderRegistrationConfirmation.js',
 	'./src/assets/js/guiControll/renderHeader.js',

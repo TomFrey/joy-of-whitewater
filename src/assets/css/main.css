@@ -780,7 +780,7 @@ h4.course-list-detail__title {
   pointer-events: none; }
 
 .course-place__city::after {
-  content: ','; }
+  content: ', '; }
 
 .course-item__duration-wrapper {
   display: none; }
@@ -797,7 +797,7 @@ h4.course-list-detail__title {
   pointer-events: none; }
 
 .course-date__from::after {
-  content: ' -'; }
+  content: ' - '; }
 
 /* *************************************************** */
 /* *********** ab hier für desktop ******************* */

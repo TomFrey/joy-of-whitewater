@@ -1,0 +1,261 @@
+// eslint-disable-next-line no-unused-vars
+const RenderCourseDates = (function (Dates) {
+	/**
+	 *
+	 * @param courseDate
+	 * @returns {HTMLElement}
+	 */
+	function createCourseListItem(courseDate) {
+		const courseListItemWrapper = document.createElement('div');
+		courseListItemWrapper.classList.add('course-list-item-wrapper');
+
+		// create courseListItem
+		const courseListItem = document.createElement('a');
+		courseListItem.classList.add('course-list-item');
+		courseListItem.setAttribute('href', 'javascript:;');
+
+		const courseItemName = document.createElement('div');
+		courseItemName.classList.add('course-item__name-wrapper');
+		const courseName = document.createElement('span');
+		courseName.classList.add('course-item__name');
+		courseName.innerText = courseDate.name;
+		courseItemName.appendChild(courseName);
+
+		const courseItemPlace = document.createElement('div');
+		courseItemPlace.classList.add('course-item__place-wrapper');
+		const coursePlace = document.createElement('div');
+		coursePlace.classList.add('course-item__place');
+		const courseCity = document.createElement('span');
+		courseCity.classList.add('course-place__city');
+		courseCity.innerText = courseDate.ort;
+		const courseCountry = document.createElement('span');
+		courseCountry.classList.add('course-place__country');
+		courseCountry.innerText = courseDate.land;
+		coursePlace.appendChild(courseCity);
+		coursePlace.appendChild(courseCountry);
+		courseItemPlace.appendChild(coursePlace);
+
+		const courseItemDuration = document.createElement('div');
+		courseItemDuration.classList.add('course-item__duration-wrapper');
+		const courseDuration = document.createElement('span');
+		courseDuration.classList.add('course-item__duration');
+		const calculatedDuration = Dates.calculateDurationBetweenTwoDates(courseDate.bisDatum, courseDate.vonDatum);
+		courseDuration.innerText = calculatedDuration.toString();
+		if (calculatedDuration > 1) {
+			courseDuration.innerText += ' Tage';
+		} else {
+			courseDuration.innerText += ' Tag';
+		}
+		courseItemDuration.appendChild(courseDuration);
+
+		const courseItemDate = document.createElement('div');
+		courseItemDate.classList.add('course-item__date-wrapper');
+		const courseD = document.createElement('div');
+		courseD.classList.add('course-item__date');
+		const courseFrom = document.createElement('span');
+		courseFrom.classList.add('course-date__from');
+		if (window.innerWidth >= 740) {
+			courseFrom.innerText = Dates.convertToMediumWithoutYearDateFormat(courseDate.vonDatum);
+		} else {
+			courseFrom.innerText = Dates.convertToShortWithoutYearDateFormat(courseDate.vonDatum);
+		}
+
+		const courseTo = document.createElement('span');
+		courseTo.classList.add('course-date__to');
+		if (window.innerWidth >= 740) {
+			courseTo.innerText = Dates.convertToMediumWithYearDateFormat(courseDate.bisDatum);
+		} else {
+			courseTo.innerText = Dates.convertToShortWithYearDateFormat(courseDate.bisDatum);
+		}
+		courseD.appendChild(courseFrom);
+		courseD.appendChild(courseTo);
+		courseItemDate.appendChild(courseD);
+
+		courseListItem.appendChild(courseItemName);
+		courseListItem.appendChild(courseItemPlace);
+		courseListItem.appendChild(courseItemDuration);
+		courseListItem.appendChild(courseItemDate);
+
+
+		// create courseListItemDetail
+		const courseListItemDetail = document.createElement('div');
+		courseListItemDetail.classList.add('course-list-item-detail');
+
+		const courseListItemDetailContentWrapper = document.createElement('div');
+		courseListItemDetailContentWrapper.classList.add('course-list-item-detail__content-wrapper');
+
+		const gridX12MeetingPoint = document.createElement('div');
+		gridX12MeetingPoint.classList.add('gridx12');
+
+		const gridX12Col1 = document.createElement('div');
+		gridX12Col1.classList.add('gridx12__width6--col1of2');
+		const titleMeetingPoint = document.createElement('h4');
+		titleMeetingPoint.classList.add('course-list-detail__title');
+		titleMeetingPoint.innerText = 'Treffpunkt:';
+		const textMeetingPoint = document.createElement('p');
+		textMeetingPoint.innerText = courseDate.treffpunkt;
+		gridX12Col1.appendChild(titleMeetingPoint);
+		gridX12Col1.appendChild(textMeetingPoint);
+
+		const gridX12Col2 = document.createElement('div');
+		gridX12Col2.classList.add('gridx12__width6--col2of2');
+
+		gridX12MeetingPoint.appendChild(gridX12Col1);
+		gridX12MeetingPoint.appendChild(gridX12Col2);
+
+
+		const gridX12Costs = document.createElement('div');
+		gridX12Costs.classList.add('gridx12');
+
+		const gridX12CostsCol1 = document.createElement('div');
+		gridX12CostsCol1.classList.add('gridx12__width6--col1of2');
+		const titleCosts = document.createElement('h4');
+		titleCosts.classList.add('course-list-detail__title');
+		titleCosts.innerText = 'Kosten:';
+
+		const costList = document.createElement('ul');
+		const textCostCourse = document.createElement('li');
+		textCostCourse.innerHTML = '<span class="course-list-detail__amount--part">' + parseFloat(courseDate.preisKurs) + '</span>';
+		textCostCourse.innerHTML += 'für den Kurs';
+		costList.appendChild(textCostCourse);
+		if (parseFloat(courseDate.preisMaterial) > 0) {
+			const textCostEquipment = document.createElement('li');
+			textCostEquipment.innerHTML = '<span class="course-list-detail__amount--part">' + parseFloat(courseDate.preisMaterial) + '</span>';
+			textCostEquipment.innerHTML += 'für die gesamte Ausrüstung';
+			costList.appendChild(textCostEquipment);
+		}
+		const textCostTotal = document.createElement('li');
+		const totalCost = parseFloat(courseDate.preisKurs) + parseFloat(courseDate.preisMaterial);
+		textCostTotal.innerHTML = '<span class="course-list-detail__amount--total">' + totalCost + '</span>';
+		textCostTotal.innerHTML += 'Total';
+		costList.appendChild(textCostTotal);
+		gridX12CostsCol1.appendChild(titleCosts);
+		gridX12CostsCol1.appendChild(costList);
+
+		const gridX12CostsCol2 = document.createElement('div');
+		gridX12CostsCol2.classList.add('gridx12__width5--col2of2');
+		gridX12CostsCol2.classList.add('content-at-the-end');
+
+		const linkButton = document.createElement('div');
+		linkButton.classList.add('link-button');
+		const linkButtonWrapper = document.createElement('a');
+		linkButtonWrapper.classList.add('link-button-wrapper');
+		linkButtonWrapper.setAttribute('href', 'javascript:;');
+		const linkButtonText = document.createElement('span');
+		linkButtonText.classList.add('link-button-wrapper__label');
+		linkButtonText.innerText = 'Zur Anmeldung';
+		const linkButtonIcon = document.createElement('div');
+		linkButtonIcon.classList.add('link-button-wrapper__icon');
+		linkButtonWrapper.appendChild(linkButtonText);
+		linkButtonWrapper.appendChild(linkButtonIcon);
+		linkButton.appendChild(linkButtonWrapper);
+		gridX12CostsCol2.appendChild(linkButton);
+		gridX12Costs.appendChild(gridX12CostsCol1);
+		gridX12Costs.appendChild(gridX12CostsCol2);
+
+		courseListItemDetailContentWrapper.appendChild(gridX12MeetingPoint);
+		courseListItemDetailContentWrapper.appendChild(gridX12Costs);
+		courseListItemDetail.appendChild(courseListItemDetailContentWrapper);
+
+		courseListItemWrapper.appendChild(courseListItem);
+		courseListItemWrapper.appendChild(courseListItemDetail);
+
+		return courseListItemWrapper;
+	}
+
+
+	/**
+	 *
+	 * */
+	function renderCourseListForLevelB(courseDates) {
+		const levelBCourseDates = courseDates.filter((courseDate) => {
+			return courseDate.kursStufe === 'B' && courseDate.typ === 'Kanukurs';
+		});
+
+		const courseListBWrapper = document.querySelector('.course-list-wrapper-bCourse');
+
+		if (courseListBWrapper !== null) {
+			const courseList = document.createElement('div');
+			courseList.classList.add('course-list');
+
+			// delete all current images
+			while (courseListBWrapper.firstChild) {
+				courseListBWrapper.removeChild(courseListBWrapper.firstChild);
+			}
+
+			// add the course dates
+			levelBCourseDates.forEach((levelBcourseDate) => {
+				const courseListItem = createCourseListItem(levelBcourseDate);
+				courseList.appendChild(courseListItem);
+			});
+
+			courseListBWrapper.appendChild(courseList);
+		}
+	}
+
+	/**
+	 *
+	 * */
+	function renderCourseListForLevelF(courseDates) {
+		const levelFCourseDates = courseDates.filter((courseDate) => {
+			return courseDate.kursStufe === 'F' && courseDate.typ === 'Kanukurs';
+		});
+
+		const courseListFWrapper = document.querySelector('.course-list-wrapper-fCourse');
+
+		if (courseListFWrapper !== null) {
+			const courseList = document.createElement('div');
+			courseList.classList.add('course-list');
+
+			// delete all current images
+			while (courseListFWrapper.firstChild) {
+				courseListFWrapper.removeChild(courseListFWrapper.firstChild);
+			}
+
+			// add the course dates
+			levelFCourseDates.forEach((levelFCourseDate) => {
+				const courseListItem = createCourseListItem(levelFCourseDate);
+				courseList.appendChild(courseListItem);
+			});
+
+			courseListFWrapper.appendChild(courseList);
+		}
+	}
+
+	/**
+	 *
+	 * */
+	function renderListForPaddleJournies(courseDates) {
+		const paddleJournies = courseDates.filter((courseDate) => {
+			return courseDate.typ === 'Paddelreise';
+		});
+
+		const courseListPaddleJourneyWrapper = document.querySelector('.course-list-wrapper-paddleJourney');
+
+		if (courseListPaddleJourneyWrapper !== null) {
+			const courseList = document.createElement('div');
+			courseList.classList.add('course-list');
+
+			// delete all current images
+			while (courseListPaddleJourneyWrapper.firstChild) {
+				courseListPaddleJourneyWrapper.removeChild(courseListPaddleJourneyWrapper.firstChild);
+			}
+
+			// add the course dates
+			paddleJournies.forEach((paddleJourney) => {
+				const courseListItem = createCourseListItem(paddleJourney);
+				courseList.appendChild(courseListItem);
+			});
+
+			courseListPaddleJourneyWrapper.appendChild(courseList);
+		}
+	}
+
+
+	// public api
+	return {
+		createCourseLevelB: renderCourseListForLevelB,
+		createCourseLevelF: renderCourseListForLevelF,
+		createPaddleJourney: renderListForPaddleJournies
+	};
+})(Dates);

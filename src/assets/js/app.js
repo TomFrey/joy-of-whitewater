@@ -3,11 +3,15 @@ const App = (function () {
 
 	/** ** wird nach dem DOM ready ausgeführt ** */
 	function init() {
-		Navigation.init();
-		ImageCarousel.init();
-		// ImageSlider.init();
-		CourseDates.init();
-		CourseRegistration.init();
+		CourseDates.loadAndRender()
+			.then(() => {
+				CourseRegistration.init();
+				Navigation.init();
+				ImageCarousel.init();
+			})
+			.catch((error) => {
+				console.log(error);
+			});
 	}
 
 	// public api

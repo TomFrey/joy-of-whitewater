@@ -1,23 +1,29 @@
 // eslint-disable-next-line no-unused-vars
-const CourseDates = (function () {
+const CourseDates = (function (RenderCourseDates) {
 	function init() {
-		// alle Kursdaten lesen
-		Service.call('GET', '/api/kurse.php')
-			.then((response) => {
-				console.log(response);
+		const promise = new Promise((resolve, reject) => {
 
-				// render Kursdaten
-			})
-			.catch((error) => {
-				console.log(error);
-				// unerlaubter Zugriff, auf die Startseite wechseln
-				window.location.href = '/index.html';
-			});
+			// alle Kursdaten lesen
+			Service.call('GET', '/api/kurse.php') // http://localhost:3000/api/kurse.php
+				.then((response) => {
+					console.log(response);
+					RenderCourseDates.createCourseLevelB(response);
+					RenderCourseDates.createCourseLevelF(response);
+					RenderCourseDates.createPaddleJourney(response);
+					resolve();
+				})
+				.catch((error) => {
+					console.log(error);
+					reject(error);
+				});
+		});
+
+		return promise;
 	}
 
 
 	// public api
 	return {
-		init
+		loadAndRender: init
 	};
-})();
+})(RenderCourseDates);

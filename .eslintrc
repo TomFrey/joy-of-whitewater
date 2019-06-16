@@ -17,9 +17,11 @@
 		"CourseRegistration": false,
 		"CourseDates": false,
 		"Validator": false,
+		"Dates": false,
 		"RenderHeader": false,
 		"RenderImageSlider": false,
 		"RenderConfirmation": false,
+		"RenderCourseDates": false,
 		"Configuration": false,
 		"Service": false,
 		"Server": false,
@@ -27,10 +29,7 @@
 		//Objekte aus TweenMax.js
 		"TweenMax": false,
 		"Quad": false,
-		"Sine": false,
-
-		//moment.js
-		"moment": false
+		"Sine": false
 	},
 	"rules": {
 		"indent": [	2,
