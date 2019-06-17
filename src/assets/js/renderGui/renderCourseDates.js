@@ -1,6 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 const RenderCourseDates = (function (Dates) {
 	/**
+	 * Erstellt eine Liste mit Kursen:
 	 *
 	 * @param courseDate
 	 * @returns {HTMLElement}
@@ -165,66 +166,82 @@ const RenderCourseDates = (function (Dates) {
 
 
 	/**
+	 * Sucht das Vorkommen aller Klassen 'course-list-wrapper-bCourse' und erstellt darin eine Liste
+	 * mit allen Kursen vom typ = 'Kanukurs' und kursStufe = 'B'.
 	 *
-	 * */
+	 * @param courseDates
+	 */
 	function renderCourseListForLevelB(courseDates) {
 		const levelBCourseDates = courseDates.filter((courseDate) => {
 			return courseDate.kursStufe === 'B' && courseDate.typ === 'Kanukurs';
 		});
 
-		const courseListBWrapper = document.querySelector('.course-list-wrapper-bCourse');
+		const courseListBWrappers = document.querySelectorAll('.course-list-wrapper-bCourse');
 
-		if (courseListBWrapper !== null) {
-			const courseList = document.createElement('div');
-			courseList.classList.add('course-list');
+		if (courseListBWrappers !== null) {
+			courseListBWrappers.forEach((courseListBWrapper) => {
+				const courseList = document.createElement('div');
+				courseList.classList.add('course-list');
 
-			// delete all current images
-			while (courseListBWrapper.firstChild) {
-				courseListBWrapper.removeChild(courseListBWrapper.firstChild);
-			}
+				// delete all current images
+				while (courseListBWrapper.firstChild) {
+					courseListBWrapper.removeChild(courseListBWrapper.firstChild);
+				}
 
-			// add the course dates
-			levelBCourseDates.forEach((levelBcourseDate) => {
-				const courseListItem = createCourseListItem(levelBcourseDate);
-				courseList.appendChild(courseListItem);
+				// add the course dates
+				levelBCourseDates.forEach((levelBCourseDate) => {
+					const courseListItem = createCourseListItem(levelBCourseDate);
+					courseList.appendChild(courseListItem);
+				});
+
+				courseListBWrapper.appendChild(courseList);
 			});
-
-			courseListBWrapper.appendChild(courseList);
 		}
 	}
 
+
 	/**
+	 * Sucht das Vorkommen aller Klassen 'course-list-wrapper-fCourse' und erstellt darin eine Liste
+	 * mit allen Kursen vom typ = 'Kanukurs' und kursStufe = 'F'.
 	 *
-	 * */
+	 * @param courseDates
+	 */
 	function renderCourseListForLevelF(courseDates) {
 		const levelFCourseDates = courseDates.filter((courseDate) => {
 			return courseDate.kursStufe === 'F' && courseDate.typ === 'Kanukurs';
 		});
 
-		const courseListFWrapper = document.querySelector('.course-list-wrapper-fCourse');
+		const courseListFWrappers = document.querySelectorAll('.course-list-wrapper-fCourse');
 
-		if (courseListFWrapper !== null) {
-			const courseList = document.createElement('div');
-			courseList.classList.add('course-list');
+		if (courseListFWrappers !== null) {
 
-			// delete all current images
-			while (courseListFWrapper.firstChild) {
-				courseListFWrapper.removeChild(courseListFWrapper.firstChild);
-			}
+			courseListFWrappers.forEach((courseListFWrapper) => {
+				const courseList = document.createElement('div');
+				courseList.classList.add('course-list');
 
-			// add the course dates
-			levelFCourseDates.forEach((levelFCourseDate) => {
-				const courseListItem = createCourseListItem(levelFCourseDate);
-				courseList.appendChild(courseListItem);
+				// delete all current images
+				while (courseListFWrapper.firstChild) {
+					courseListFWrapper.removeChild(courseListFWrapper.firstChild);
+				}
+
+				// add the course dates
+				levelFCourseDates.forEach((levelFCourseDate) => {
+					const courseListItem = createCourseListItem(levelFCourseDate);
+					courseList.appendChild(courseListItem);
+				});
+
+				courseListFWrapper.appendChild(courseList);
 			});
-
-			courseListFWrapper.appendChild(courseList);
 		}
 	}
 
+
 	/**
+	 * Sucht das Vorkommen der Klasse 'course-list-wrapper-paddleJourney' und erstellt darin eine Liste
+	 * mit allen Kursen vom typ = 'Paddelreise'.
 	 *
-	 * */
+	 * @param courseDates
+	 */
 	function renderListForPaddleJournies(courseDates) {
 		const paddleJournies = courseDates.filter((courseDate) => {
 			return courseDate.typ === 'Paddelreise';

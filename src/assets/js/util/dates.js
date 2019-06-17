@@ -3,7 +3,7 @@ const Dates = (function () {
 	const oneDayInMilliseconds = 86400000;
 
 	/**
-	 * Nimmt ein Datum von der DB und konvertiert es nach dd.mm.yy z.B. 02.6
+	 * Nimmt ein Datum von der DB und konvertiert es nach dd.m z.B. 02.6
 	 *
 	 * @param dateInDBFormat
 	 * @returns {string}
@@ -14,7 +14,7 @@ const Dates = (function () {
 	}
 
 	/**
-	 * Nimmt ein Datum von der DB und konvertiert es nach dd.mm.yy z.B. 02.6.19
+	 * Nimmt ein Datum von der DB und konvertiert es nach dd.m.yy z.B. 02.6.19
 	 *
 	 * @param dateInDBFormat
 	 * @returns {string}
@@ -25,7 +25,7 @@ const Dates = (function () {
 	}
 
 	/**
-	 * Nimmt ein Datum von der DB und konvertiert es nach dd.mm.yy z.B. 02. Juni
+	 * Nimmt ein Datum von der DB und konvertiert es nach dd.month z.B. 02. Juni
 	 *
 	 * @param dateInDBFormat
 	 * @returns {string}
@@ -36,7 +36,7 @@ const Dates = (function () {
 	}
 
 	/**
-	 * Nimmt ein Datum von der DB und konvertiert es nach dd.mm.yyyy z.B. 12. Juni 2019
+	 * Nimmt ein Datum von der DB und konvertiert es nach dd. month yyyy z.B. 12. Juni 2019
 	 *
 	 * @param dateInDBFormat
 	 * @returns {string}

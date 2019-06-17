@@ -6,7 +6,6 @@ const CourseDates = (function (RenderCourseDates) {
 			// alle Kursdaten lesen
 			Service.call('GET', '/api/kurse.php') // http://localhost:3000/api/kurse.php
 				.then((response) => {
-					console.log(response);
 					RenderCourseDates.createCourseLevelB(response);
 					RenderCourseDates.createCourseLevelF(response);
 					RenderCourseDates.createPaddleJourney(response);
@@ -17,7 +16,6 @@ const CourseDates = (function (RenderCourseDates) {
 					reject(error);
 				});
 		});
-
 		return promise;
 	}
 
