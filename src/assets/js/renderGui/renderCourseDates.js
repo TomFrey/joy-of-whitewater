@@ -1,6 +1,23 @@
 // eslint-disable-next-line no-unused-vars
 const RenderCourseDates = (function (Dates) {
 	/**
+	 * Sortiert die Kursdaten nach vonDatum aufsteigend
+	 * @param courseDates
+	 * @returns {*}
+	 */
+	function sortDatumAscending(courseDates) {
+		return courseDates.sort((a, b) => {
+			if (b.vonDatum < a.vonDatum) {
+				return 1;
+			}
+			if (b.vonDatum > a.vonDatum) {
+				return -1;
+			}
+			return 0;
+		});
+	}
+
+	/**
 	 * Kreiert den 'Zur Anmeldung' Knopf
 	 * @returns {HTMLElement}
 	 */
@@ -248,9 +265,11 @@ const RenderCourseDates = (function (Dates) {
 	 * @param courseDates
 	 */
 	function renderCourseListForLevelB(courseDates) {
-		const levelBCourseDates = courseDates.filter((courseDate) => {
+		let levelBCourseDates = courseDates.filter((courseDate) => {
 			return courseDate.kursStufe === 'B' && courseDate.typ === 'Kanukurs';
 		});
+		levelBCourseDates = sortDatumAscending(levelBCourseDates);
+
 
 		const courseListBWrappers = document.querySelectorAll('.course-list-wrapper-bCourse');
 
@@ -283,9 +302,11 @@ const RenderCourseDates = (function (Dates) {
 	 * @param courseDates
 	 */
 	function renderCourseListForLevelF(courseDates) {
-		const levelFCourseDates = courseDates.filter((courseDate) => {
+		let levelFCourseDates = courseDates.filter((courseDate) => {
 			return courseDate.kursStufe === 'F' && courseDate.typ === 'Kanukurs';
 		});
+		levelFCourseDates = sortDatumAscending(levelFCourseDates);
+
 
 		const courseListFWrappers = document.querySelectorAll('.course-list-wrapper-fCourse');
 
@@ -319,9 +340,11 @@ const RenderCourseDates = (function (Dates) {
 	 * @param courseDates
 	 */
 	function renderListForPaddleJournies(courseDates) {
-		const paddleJournies = courseDates.filter((courseDate) => {
+		let paddleJournies = courseDates.filter((courseDate) => {
 			return courseDate.typ === 'Paddelreise';
 		});
+		paddleJournies = sortDatumAscending(paddleJournies);
+
 
 		const courseListPaddleJourneyWrapper = document.querySelector('.course-list-wrapper-paddleJourney');
 
@@ -350,9 +373,10 @@ const RenderCourseDates = (function (Dates) {
 	 * @param courseDates
 	 */
 	function renderListForPaddleJourniesKorsika(courseDates) {
-		const paddleJournies = courseDates.filter((courseDate) => {
+		let paddleJournies = courseDates.filter((courseDate) => {
 			return courseDate.typ === 'Paddelreise' && courseDate.land === 'Korsika';
 		});
+		paddleJournies = sortDatumAscending(paddleJournies);
 
 		const courseListPaddleJourneyWrapper = document.querySelector('.course-list-wrapper-paddleJourneyKorsika');
 
@@ -375,7 +399,7 @@ const RenderCourseDates = (function (Dates) {
 	return {
 		createCourseLevelB: renderCourseListForLevelB,
 		createCourseLevelF: renderCourseListForLevelF,
-		createPaddleJourney: renderListForPaddleJournies,
+		createPaddleJourniesOverview: renderListForPaddleJournies,
 		createPaddleJourneyKorsika: renderListForPaddleJourniesKorsika
 	};
 })(Dates);

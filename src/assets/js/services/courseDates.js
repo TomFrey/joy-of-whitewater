@@ -8,7 +8,7 @@ const CourseDates = (function (RenderCourseDates) {
 				.then((response) => {
 					RenderCourseDates.createCourseLevelB(response);
 					RenderCourseDates.createCourseLevelF(response);
-					RenderCourseDates.createPaddleJourney(response);
+					RenderCourseDates.createPaddleJourniesOverview(response);
 					RenderCourseDates.createPaddleJourneyKorsika(response);
 					resolve();
 				})
