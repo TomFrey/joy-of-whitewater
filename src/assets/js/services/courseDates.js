@@ -9,6 +9,7 @@ const CourseDates = (function (RenderCourseDates) {
 					RenderCourseDates.createCourseLevelB(response);
 					RenderCourseDates.createCourseLevelF(response);
 					RenderCourseDates.createPaddleJourney(response);
+					RenderCourseDates.createPaddleJourneyKorsika(response);
 					resolve();
 				})
 				.catch((error) => {

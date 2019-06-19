@@ -526,6 +526,9 @@ Desktop
   background-color: #6795B2;
   color: #000000; }
 
+.course-list-wrapper .gridx12:not(:last-of-type) {
+  padding-bottom: 16px; }
+
 .text-container-drawer {
   background-color: #6795B2;
   color: #000000;
@@ -574,6 +577,9 @@ img.text-container-fill__bottom {
 
 .text-container-drawer-list__value {
   flex: 3 3 66%; }
+
+.text-container-drawer-list__value.amount-value::after {
+  content: ' CHF'; }
 
 /* *************************************************** */
 /* *********** ab hier für desktop ******************* */

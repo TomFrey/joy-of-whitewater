@@ -1,6 +1,28 @@
 // eslint-disable-next-line no-unused-vars
 const RenderCourseDates = (function (Dates) {
 	/**
+	 * Kreiert den 'Zur Anmeldung' Knopf
+	 * @returns {HTMLElement}
+	 */
+	function createLinkButton() {
+		const linkButton = document.createElement('div');
+		linkButton.classList.add('link-button');
+		const linkButtonWrapper = document.createElement('a');
+		linkButtonWrapper.classList.add('link-button-wrapper');
+		linkButtonWrapper.setAttribute('href', 'javascript:;');
+		const linkButtonText = document.createElement('span');
+		linkButtonText.classList.add('link-button-wrapper__label');
+		linkButtonText.innerText = 'Zur Anmeldung';
+		const linkButtonIcon = document.createElement('div');
+		linkButtonIcon.classList.add('link-button-wrapper__icon');
+		linkButtonWrapper.appendChild(linkButtonText);
+		linkButtonWrapper.appendChild(linkButtonIcon);
+		linkButton.appendChild(linkButtonWrapper);
+
+		return linkButton;
+	}
+
+	/**
 	 * Erstellt eine Liste mit Kursen:
 	 *
 	 * @param courseDate
@@ -136,21 +158,9 @@ const RenderCourseDates = (function (Dates) {
 		const gridX12CostsCol2 = document.createElement('div');
 		gridX12CostsCol2.classList.add('gridx12__width5--col2of2');
 		gridX12CostsCol2.classList.add('content-at-the-end');
-
-		const linkButton = document.createElement('div');
-		linkButton.classList.add('link-button');
-		const linkButtonWrapper = document.createElement('a');
-		linkButtonWrapper.classList.add('link-button-wrapper');
-		linkButtonWrapper.setAttribute('href', 'javascript:;');
-		const linkButtonText = document.createElement('span');
-		linkButtonText.classList.add('link-button-wrapper__label');
-		linkButtonText.innerText = 'Zur Anmeldung';
-		const linkButtonIcon = document.createElement('div');
-		linkButtonIcon.classList.add('link-button-wrapper__icon');
-		linkButtonWrapper.appendChild(linkButtonText);
-		linkButtonWrapper.appendChild(linkButtonIcon);
-		linkButton.appendChild(linkButtonWrapper);
+		const linkButton = createLinkButton();
 		gridX12CostsCol2.appendChild(linkButton);
+
 		gridX12Costs.appendChild(gridX12CostsCol1);
 		gridX12Costs.appendChild(gridX12CostsCol2);
 
@@ -162,6 +172,72 @@ const RenderCourseDates = (function (Dates) {
 		courseListItemWrapper.appendChild(courseListItemDetail);
 
 		return courseListItemWrapper;
+	}
+
+	/**
+	 * Kreiert ein li Element in der Liste der Paddelreisen (also nicht auf der Termin Übersicht)
+	 * @param label
+	 * @param value
+	 * @returns {HTMLElement}
+	 */
+	function createListItemForPaddleJourney(label, value) {
+		const listItem = document.createElement('li');
+		listItem.classList.add('text-container-drawer__list-item');
+
+		const listItemLabel = document.createElement('span');
+		listItemLabel.classList.add('text-container-drawer-list__label');
+		listItemLabel.innerText = label;
+
+		const listItemValue = document.createElement('span');
+		listItemValue.classList.add('text-container-drawer-list__value');
+		if (label === 'Preis') {
+			listItemValue.classList.add('amount-value');
+		}
+		listItemValue.innerText = value;
+
+		listItem.appendChild(listItemLabel);
+		listItem.appendChild(listItemValue);
+
+		return listItem;
+	}
+
+	/**
+	 * Kreiert einen Eintrag bei den Paddelreisen. Also wenn es zwei Mal nach Korsika geht, dann gibt es zwei
+	 * Einträge.
+	 * @param courseDate
+	 * @returns {HTMLElement}
+	 */
+	function createPaddleJourneyItem(courseDate) {
+		const valueDateRange = Dates.convertToMediumWithoutYearDateFormat(courseDate.vonDatum)
+			+ ' - '
+			+ Dates.convertToMediumWithYearDateFormat(courseDate.bisDatum);
+		const valueDuration = Dates.calculateDurationBetweenTwoDates(courseDate.bisDatum, courseDate.vonDatum);
+		const valueLocation = courseDate.ort + ' (' + courseDate.land + ')';
+
+		const paddelJourneyItem = document.createElement('div');
+		paddelJourneyItem.classList.add('gridx12');
+
+		const column1 = document.createElement('div');
+		column1.classList.add('gridx12__width5--col1of2');
+		const list = document.createElement('ul');
+		list.classList.add('text-container-drawer__list');
+		list.appendChild(createListItemForPaddleJourney('Datum', valueDateRange));
+		list.appendChild(createListItemForPaddleJourney('Paddeltage', valueDuration));
+		list.appendChild(createListItemForPaddleJourney('Kursort', valueLocation));
+		list.appendChild(createListItemForPaddleJourney('Stufe', courseDate.kursStufe));
+		list.appendChild(createListItemForPaddleJourney('Kursleitung', courseDate.guide));
+		list.appendChild(createListItemForPaddleJourney('Preis', courseDate.preisKurs));
+		column1.appendChild(list);
+
+		const column2 = document.createElement('div');
+		column2.classList.add('gridx12__width5--col2of2');
+		column2.classList.add('content-at-the-end');
+		const linkButton = createLinkButton();
+		column2.appendChild(linkButton);
+
+		paddelJourneyItem.appendChild(column1);
+		paddelJourneyItem.appendChild(column2);
+		return paddelJourneyItem;
 	}
 
 
@@ -268,11 +344,38 @@ const RenderCourseDates = (function (Dates) {
 		}
 	}
 
+	/**
+	 * Sucht nach dem Vorkommen von 'course-list-wrapper-paddleJourneyKorsika' und erstellt darin für
+	 * jedes Korsika Datum einen Eintrag. In der Genuss/Abenteuerreisen Abteilung.
+	 * @param courseDates
+	 */
+	function renderListForPaddleJourniesKorsika(courseDates) {
+		const paddleJournies = courseDates.filter((courseDate) => {
+			return courseDate.typ === 'Paddelreise' && courseDate.land === 'Korsika';
+		});
+
+		const courseListPaddleJourneyWrapper = document.querySelector('.course-list-wrapper-paddleJourneyKorsika');
+
+		if (courseListPaddleJourneyWrapper !== null) {
+			// delete all current children
+			while (courseListPaddleJourneyWrapper.firstChild) {
+				courseListPaddleJourneyWrapper.removeChild(courseListPaddleJourneyWrapper.firstChild);
+			}
+
+			// add the course dates
+			paddleJournies.forEach((paddleJourney) => {
+				const courseListItem = createPaddleJourneyItem(paddleJourney);
+				courseListPaddleJourneyWrapper.appendChild(courseListItem);
+			});
+		}
+	}
+
 
 	// public api
 	return {
 		createCourseLevelB: renderCourseListForLevelB,
 		createCourseLevelF: renderCourseListForLevelF,
-		createPaddleJourney: renderListForPaddleJournies
+		createPaddleJourney: renderListForPaddleJournies,
+		createPaddleJourneyKorsika: renderListForPaddleJourniesKorsika
 	};
 })(Dates);
