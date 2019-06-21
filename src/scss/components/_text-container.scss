@@ -182,7 +182,7 @@ Desktop
 
 .course-list-wrapper .gridx12:not(:last-of-type){
 	// border-bottom: 0.2*$basicHeight solid $color-textContainer-background;
-	padding-bottom: 2*$basicHeight;
+	// padding-bottom: 2*$basicHeight;
 }
 
 //im Mobile den Drawer schneller schliessen, da hier bei den Kanumaterial Preisen ein Teil der Tabelle
@@ -201,7 +201,7 @@ Desktop
 }
 
 .text-container-drawer.text-container-drawer--paddling-trip-details.js-show{
-	max-height: 1200px;
+	max-height: 1500px;
 	transition: max-height 1s ease-in-out 1ms;
 }
 

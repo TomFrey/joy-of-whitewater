@@ -175,6 +175,14 @@ const RenderCourseDates = (function (Dates) {
 		const gridX12CostsCol2 = document.createElement('div');
 		gridX12CostsCol2.classList.add('gridx12__width5--col2of2');
 		gridX12CostsCol2.classList.add('content-at-the-end');
+
+		if (courseDate.typ === 'Paddelreise'){
+			const detailsLink = document.createElement('a');
+			detailsLink.classList.add('link-in-text');
+			detailsLink.setAttribute('href', '/paddelreisen.html#paddleJoureyKorsikaAnchor');
+			detailsLink.innerText = 'weitere Details zu ' + courseDate.name;
+			gridX12CostsCol2.appendChild(detailsLink);
+		}
 		const linkButton = createLinkButton();
 		gridX12CostsCol2.appendChild(linkButton);
 
@@ -236,6 +244,11 @@ const RenderCourseDates = (function (Dates) {
 
 		const column1 = document.createElement('div');
 		column1.classList.add('gridx12__width5--col1of2');
+
+		const courseName = document.createElement('h3');
+		courseName.classList.add('title');
+		courseName.innerText = courseDate.name;
+
 		const list = document.createElement('ul');
 		list.classList.add('text-container-drawer__list');
 		list.appendChild(createListItemForPaddleJourney('Datum', valueDateRange));
@@ -244,6 +257,7 @@ const RenderCourseDates = (function (Dates) {
 		list.appendChild(createListItemForPaddleJourney('Stufe', courseDate.kursStufe));
 		list.appendChild(createListItemForPaddleJourney('Kursleitung', courseDate.guide));
 		list.appendChild(createListItemForPaddleJourney('Preis', courseDate.preisKurs));
+		column1.appendChild(courseName);
 		column1.appendChild(list);
 
 		const column2 = document.createElement('div');
