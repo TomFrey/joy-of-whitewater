@@ -275,6 +275,7 @@ table {
 
 /*** colors ***/
 /*** sizes ***/
+/*** media breakpoints ***/
 /*** fonts ***/
 nav {
   padding-top: 7px;
@@ -1324,7 +1325,7 @@ h4.course-list-detail__title {
 /* *************************************************************************************/
 /*                                ab hier nur für desktop                              */
 /* *************************************************************************************/
-@media screen and (min-width: 376px) {
+@media screen and (min-width: 740px) {
   .image-slider-wrapper {
     max-width: 1000px;
     margin: 16px auto; }
@@ -1510,6 +1511,7 @@ a.open-drawer-wrapper {
   border: 1px solid #ffffff;
   display: block;
   line-height: 48px;
+  padding: 0 24px;
   text-decoration: none; }
 
 .general-button--primary {
@@ -1519,10 +1521,9 @@ a.open-drawer-wrapper {
 /* *************************************************************************************/
 /*                                ab hier nur für desktop                              */
 /* *************************************************************************************/
-@media screen and (min-width: 376px) {
+@media screen and (min-width: 740px) {
   .general-button {
-    display: inline-block;
-    padding: 0 24px; }
+    display: inline-block; }
   .general-button--primary:hover, .general-button--primary-payment-confirmation:hover {
     background-color: #2c2c2c;
     border: 1px solid #2c2c2c;

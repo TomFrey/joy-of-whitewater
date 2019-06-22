@@ -18,6 +18,7 @@
 		"CourseDates": false,
 		"Validator": false,
 		"Dates": false,
+		"Globals": false,
 		"RenderHeader": false,
 		"RenderImageSlider": false,
 		"RenderConfirmation": false,

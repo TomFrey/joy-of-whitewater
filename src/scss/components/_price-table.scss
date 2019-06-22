@@ -62,7 +62,7 @@
 
 /* ************************************************************* */
 /* *********** ab hier für mobile querformat ******************* */
-@media screen and (min-width: 440px) {
+@media screen and (min-width: $breakpoint-medium) {
 
 	.scrollable-table-wrapper{
 		width: 320px;
@@ -87,7 +87,7 @@
 
 /* *************************************************** */
 /* *********** ab hier für desktop ******************* */
-@media screen and (min-width: 740px) {
+@media screen and (min-width: $breakpoint-large) {
 
 	.text-container-drawer.text-container-drawer--details, .text-container-drawer.text-container-drawer--details.js-show{
 		.prices{

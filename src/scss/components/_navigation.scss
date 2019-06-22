@@ -63,7 +63,7 @@ nav{
 
 /* *************************************************** */
 /* *********** ab hier für desktop ******************* */
-@media screen and (min-width: 740px) { //wenn Bildschirm grösser 740 px gross ist, dann...
+@media screen and (min-width: $breakpoint-large) { //wenn Bildschirm grösser 740 px gross ist, dann...
 
 	.nav-wrapper{
 		position: sticky;

@@ -13,7 +13,7 @@
 
 /* ******************* */
 /* ab hier für desktop */
-@media screen and (min-width: 740px) {
+@media screen and (min-width: $breakpoint-large) {
 
 
 	.parallax {

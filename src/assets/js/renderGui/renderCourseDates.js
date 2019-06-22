@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-const RenderCourseDates = (function (Dates) {
+const RenderCourseDates = (function (Dates, Globals) {
 	/**
 	 * Sortiert die Kursdaten nach vonDatum aufsteigend
 	 * @param courseDates
@@ -46,6 +46,8 @@ const RenderCourseDates = (function (Dates) {
 	 * @returns {HTMLElement}
 	 */
 	function createCourseListItem(courseDate) {
+		const breakPointLarge = Globals.get().breakpointLarge;
+
 		const courseListItemWrapper = document.createElement('div');
 		courseListItemWrapper.classList.add('course-list-item-wrapper');
 
@@ -94,7 +96,7 @@ const RenderCourseDates = (function (Dates) {
 		courseD.classList.add('course-item__date');
 		const courseFrom = document.createElement('span');
 		courseFrom.classList.add('course-date__from');
-		if (window.innerWidth >= 740) {
+		if (window.innerWidth >= breakPointLarge) {
 			courseFrom.innerText = Dates.convertToMediumWithoutYearDateFormat(courseDate.vonDatum);
 		} else {
 			courseFrom.innerText = Dates.convertToShortWithoutYearDateFormat(courseDate.vonDatum);
@@ -102,7 +104,7 @@ const RenderCourseDates = (function (Dates) {
 
 		const courseTo = document.createElement('span');
 		courseTo.classList.add('course-date__to');
-		if (window.innerWidth >= 740) {
+		if (window.innerWidth >= breakPointLarge) {
 			courseTo.innerText = Dates.convertToMediumWithYearDateFormat(courseDate.bisDatum);
 		} else {
 			courseTo.innerText = Dates.convertToShortWithYearDateFormat(courseDate.bisDatum);
@@ -416,4 +418,4 @@ const RenderCourseDates = (function (Dates) {
 		createPaddleJourniesOverview: renderListForPaddleJournies,
 		createPaddleJourneyKorsika: renderListForPaddleJourniesKorsika
 	};
-})(Dates);
+})(Dates, Globals);

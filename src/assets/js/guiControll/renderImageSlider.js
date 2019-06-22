@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-var RenderImageSlider = (function () {
+var RenderImageSlider = (function (Globals) {
 	/**
 	 * Kreiert folgenes HTML Element:
 	 * 	<div class="image-slider--item">
@@ -12,6 +12,8 @@ var RenderImageSlider = (function () {
 	 * @returns {HTMLDIVElement}
 	 */
 	function createImageSliderItem(image) {
+		const breakPointLarge = Globals.get().breakpointLarge;
+
 		const imageSliderItemElement = document.createElement('div');
 		imageSliderItemElement.classList.add('image-slider--item');
 
@@ -19,7 +21,7 @@ var RenderImageSlider = (function () {
 
 		const sourceElement = document.createElement('source');
 		sourceElement.setAttribute('srcset', '/assets/images/slider/' + image.name + '.jpg');
-		sourceElement.setAttribute('media', '(min-width: 740px)');
+		sourceElement.setAttribute('media', '(min-width: ' + breakPointLarge + 'px)');
 
 		const imgElement = document.createElement('img');
 		imgElement.setAttribute('src', '/assets/images/slider/' + image.nameMobile + '.jpg');
@@ -70,4 +72,4 @@ var RenderImageSlider = (function () {
 		createImageItemsForTheImageSlider,
 		deleteAllImagesFromSliderItems
 	};
-})();
+})(Globals);

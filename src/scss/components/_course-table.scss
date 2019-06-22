@@ -124,7 +124,7 @@ h4.course-list-detail__title{
 
 /* *************************************************** */
 /* *********** ab hier für desktop ******************* */
-@media screen and (min-width: 740px) {
+@media screen and (min-width: $breakpoint-large) {
 
   	.course-list{
     	padding: $basicHeight 2*$basicWidth;

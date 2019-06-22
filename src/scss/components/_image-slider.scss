@@ -129,7 +129,7 @@ $slide: all, 0.3s,  cubic-bezier(.55,0,.1,1);
 /* *************************************************************************************/
 /*                                ab hier nur für desktop                              */
 /* *************************************************************************************/
-@media screen and (min-width: 376px) { //wenn Bildschirm grösser 376 px gross ist, dann auf Desktop Ansicht umschalten
+@media screen and (min-width: $breakpoint-large) { //wenn Bildschirm grösser 376 px gross ist, dann auf Desktop Ansicht umschalten
 
 	.image-slider-wrapper {
 		max-width: 1000px;

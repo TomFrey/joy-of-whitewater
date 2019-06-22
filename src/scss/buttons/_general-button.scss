@@ -3,6 +3,7 @@
 	border: 1px solid #ffffff;
 	display: block;
 	line-height: 6*$basicHeight;
+	padding: 0 3*$basicWidth;
 	text-decoration: none;
 }
 
@@ -14,10 +15,9 @@
 /* *************************************************************************************/
 /*                                ab hier nur für desktop                              */
 /* *************************************************************************************/
-@media screen and (min-width: 376px) { //wenn Bildschirm grösser 376 px gross ist, dann auf Desktop Ansicht umschalten
+@media screen and (min-width: $breakpoint-large) { //wenn Bildschirm grösser ist als, dann...
 	.general-button {
 		display: inline-block;
-		padding: 0 3*$basicWidth;
 	}
 
 	.general-button--primary:hover, .general-button--primary-payment-confirmation:hover {

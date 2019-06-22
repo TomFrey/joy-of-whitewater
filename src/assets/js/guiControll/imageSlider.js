@@ -5,11 +5,12 @@
 	Baut auf dem Slick Slider von Ken Wheeler auf. Benötigt die Dateien slick.js, TweenMax.js und jquery.js.
 */
 // eslint-disable-next-line no-unused-vars
-var ImageSlider = (function () {
-	var $slider = $('.image-slider');
-	var slideDuration = 900;
+var ImageSlider = (function (Globals) {
+	const breakPointLarge = Globals.get().breakpointLarge;
+	const $slider = $('.image-slider');
+	const slideDuration = 900;
 
-	const screenIsAtDesktopSize = window.matchMedia('(min-width: 740px)');
+	const screenIsAtDesktopSize = window.matchMedia('(min-width: ' + breakPointLarge + 'px)');
 
 	function init() {
 		// RESET ANIMATIONS
@@ -161,4 +162,4 @@ var ImageSlider = (function () {
 	return {
 		init
 	};
-})();
+})(Globals);
