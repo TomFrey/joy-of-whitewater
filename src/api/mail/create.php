@@ -34,10 +34,10 @@ if ($data->courseName
 	&& $data->agb
 	&& $data->equipment
 ){
-	$to = 'info@mitlinxlernen.ch';
+	$to = 'mail@joyofwhitewater.ch';
 	$subject = "Anmeldung auf the Joy of Whitewater";
-	$headers = "From: " . $data->email . "\r\n" . "CC: joe@mitlinxlernen.ch";
-	$txt = "Eine Anmeldung über das Formular auf the joy of whitewater: " . "\r\n" . "\r\n"
+	$headers = "From: " . $data->email . "\r\n" . "CC: mail@joyofwhitewater.ch";
+	$txt = "Eine Anmeldung über das Formular auf The Joy Of Whitewater: " . "\r\n" . "\r\n"
 			. "Folgende Person hat sich angemeldet:" . "\r\n"
 			. $data->firstName . " " . $data->surName . "\r\n"
 			. $data->address . "\r\n"
