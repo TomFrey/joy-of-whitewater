@@ -33,6 +33,7 @@ const allJsFiles = [
 	'./node_modules/gsap/src/uncompressed/TweenMax.js',
 
 	'./src/assets/js/config.js',
+	'./src/assets/js/util/crypto.js',
 	'./src/assets/js/util/globalSettings.js',
 	'./src/assets/js/util/dates.js',
 	'./src/assets/js/util/validator.js',

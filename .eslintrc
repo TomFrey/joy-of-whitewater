@@ -19,6 +19,7 @@
 		"Validator": false,
 		"Dates": false,
 		"Globals": false,
+		"Crypto": false,
 		"RenderHeader": false,
 		"RenderImageSlider": false,
 		"RenderConfirmation": false,
