@@ -21,12 +21,14 @@ const RenderCourseDates = (function (Dates, Globals) {
 	 * Kreiert den 'Zur Anmeldung' Knopf
 	 * @returns {HTMLElement}
 	 */
-	function createLinkButton() {
+	function createLinkButton(courseDate) {
 		const linkButton = document.createElement('div');
 		linkButton.classList.add('link-button');
 		const linkButtonWrapper = document.createElement('a');
 		linkButtonWrapper.classList.add('link-button-wrapper');
+		linkButtonWrapper.classList.add('link-button-wrapper__courseRegistration');
 		linkButtonWrapper.setAttribute('href', 'javascript:;');
+		linkButtonWrapper.setAttribute('courseData', '?name=' + courseDate.name + '&vonDatum=' + courseDate.vonDatum);
 		const linkButtonText = document.createElement('span');
 		linkButtonText.classList.add('link-button-wrapper__label');
 		linkButtonText.innerText = 'Zur Anmeldung';
@@ -185,7 +187,7 @@ const RenderCourseDates = (function (Dates, Globals) {
 			detailsLink.innerText = 'weitere Details zu ' + courseDate.name;
 			gridX12CostsCol2.appendChild(detailsLink);
 		}
-		const linkButton = createLinkButton();
+		const linkButton = createLinkButton(courseDate);
 		gridX12CostsCol2.appendChild(linkButton);
 
 		gridX12Costs.appendChild(gridX12CostsCol1);
@@ -265,7 +267,7 @@ const RenderCourseDates = (function (Dates, Globals) {
 		const column2 = document.createElement('div');
 		column2.classList.add('gridx12__width5--col2of2');
 		column2.classList.add('content-at-the-end');
-		const linkButton = createLinkButton();
+		const linkButton = createLinkButton(courseDate);
 		column2.appendChild(linkButton);
 
 		paddelJourneyItem.appendChild(column1);

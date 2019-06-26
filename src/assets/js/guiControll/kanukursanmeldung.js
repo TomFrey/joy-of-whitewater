@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-const CourseRegistration = (function (Validator) {
+const CourseRegistration = (function (Validator, RenderConfirmation, Dates) {
 	const SHOW = 'js-show';
 
 	const registrationData = {};
@@ -145,14 +145,16 @@ const CourseRegistration = (function (Validator) {
 
 
 	function callRegistrationForm(event) {
-		console.log(event.target);
 		event.stopPropagation();
-		window.location.href = '/kanukursanmeldung.html?course=testKurs';
+		// Kursname und Datum aus dem selber erstellten Attribut courseData holen
+		const urlParameter = event.target.getAttribute('courseData');
+		window.location.href = '/kanukursanmeldung.html' + urlParameter;
 	}
 
 
 	function init() {
-		registrationButtons = document.querySelectorAll('.link-button-wrapper');
+		// Listener auf allen 'Anmelden' Knöpfen
+		registrationButtons = document.querySelectorAll('.link-button-wrapper__courseRegistration');
 		if (registrationButtons !== null) {
 			registrationButtons.forEach((registrationButton) => {
 				registrationButton.addEventListener('click', (event) => {
@@ -264,6 +266,16 @@ const CourseRegistration = (function (Validator) {
 					}
 				});
 			}
+
+
+			// Kursname und Datum aus der URL nehmen und in die Input Felder abfüllen
+			const url = new URL(window.location.href);
+			const name = url.searchParams.get('name');
+			const vonDatum = url.searchParams.get('vonDatum');
+			if (name !== null && vonDatum !== null) {
+				courseNameInputField.setAttribute('value', name);
+				courseDateInputField.setAttribute('value', Dates.convertToMediumWithYearDateFormat(vonDatum));
+			}
 		}
 	}
 
@@ -271,4 +283,4 @@ const CourseRegistration = (function (Validator) {
 	return {
 		init
 	};
-})(Validator, RenderConfirmation);
+})(Validator, RenderConfirmation, Dates);
