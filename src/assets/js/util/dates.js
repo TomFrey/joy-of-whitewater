@@ -47,6 +47,17 @@ const Dates = (function () {
 	}
 
 	/**
+	 * Nimmt ein Datum von der DB und konvertiert es nach dd.mm.yyyy z.B. 12.06.2019
+	 *
+	 * @param dateInDBFormat
+	 * @returns {string}
+	 */
+	function convertToMediumDateFormatJustDigits(dateInDBFormat) {
+		const jsDate = new Date(dateInDBFormat);
+		return jsDate.toLocaleString('de-DE', { year: 'numeric', month: '2-digit', day: '2-digit' });
+	}
+
+	/**
 	 * Berechnet die Dauer in Tagen zwischen zwei Daten.
 	 * Wobei calculateDurationBetweenTwoDates('12.6.2019', '12.6.2019') ein Tag ergibt.
 	 *
@@ -74,5 +85,6 @@ const Dates = (function () {
 		convertToShortWithYearDateFormat,
 		convertToMediumWithoutYearDateFormat,
 		convertToMediumWithYearDateFormat,
+		convertToMediumDateFormatJustDigits
 	};
 })();

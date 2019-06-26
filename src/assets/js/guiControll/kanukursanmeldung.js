@@ -274,7 +274,7 @@ const CourseRegistration = (function (Validator, RenderConfirmation, Dates) {
 			const vonDatum = url.searchParams.get('vonDatum');
 			if (name !== null && vonDatum !== null) {
 				courseNameInputField.setAttribute('value', name);
-				courseDateInputField.setAttribute('value', Dates.convertToMediumWithYearDateFormat(vonDatum));
+				courseDateInputField.setAttribute('value', Dates.convertToMediumDateFormatJustDigits(vonDatum));
 			}
 		}
 	}
