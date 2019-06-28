@@ -3,7 +3,6 @@ const gulp = require('gulp');
 const browserSync = require('browser-sync').create();
 const sass = require('gulp-sass');
 const fileinject = require('gulp-inject');
-
 const clean = require('gulp-clean');
 const sourcemaps = require('gulp-sourcemaps');
 const uglify = require('gulp-uglify');
@@ -11,10 +10,10 @@ const rename = require('gulp-rename');
 const babel = require('gulp-babel');
 const concat = require('gulp-concat');
 const gulpSequence = require('gulp-sequence');
-
-// const replace = require('gulp-replace');
+const replace = require('gulp-replace');
 const cleanCss = require('gulp-clean-css');
-var pump = require('pump');
+const pump = require('pump');
+const configFile = require('./config.js');
 
 
 /* Change your directory and settings here */
@@ -68,6 +67,7 @@ gulp.task('build', (callback) => {
 		['minifyJsForDist', 'sass'],
 		'minifyCss',
 		['copyApi', 'copyHtml', 'copyJs', 'copyImages'],
+		'replaceProductionCredentials',
 		callback
 	);
 });
@@ -269,4 +269,15 @@ gulp.task('copyImages', () => {
 gulp.task('copyApi', () => {
 	return gulp.src(['./src/api/**/*.*'])
 		.pipe(gulp.dest('dist/api'));
+});
+
+
+/**
+ * Ersetzt username und passwort der DB
+ */
+gulp.task('replaceProductionCredentials', () => {
+	return gulp.src(['./src/api/database/DB.php'])
+		.pipe(replace('rootuser', configFile.config.production.user))
+		.pipe(replace('rootpw', configFile.config.production.pass))
+		.pipe(gulp.dest('dist/api/database'));
 });
