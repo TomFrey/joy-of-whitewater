@@ -78,6 +78,19 @@ const Dates = (function () {
 		return ((toDate - fromDate) + oneDayInMilliseconds) / oneDayInMilliseconds;
 	}
 
+	/**
+	 * Datum vom Format yyyy-mm-dd ins Format yyyy/mm/dd umwandeln.
+	 * Safari & IE browsers do not support the date format “yyyy-mm-dd”
+	 * https://coderwall.com/p/gvwb9g/fix-invalid-date-on-safari-ie
+	 *
+	 * @param date
+	 * @returns {*|void|string|never}
+	 */
+	function convertToAllBrowsersReadableDate(date) {
+		return date.replace(/-/g, '/');
+	}
+
+
 	// public api
 	return {
 		calculateDurationBetweenTwoDates,
@@ -85,6 +98,7 @@ const Dates = (function () {
 		convertToShortWithYearDateFormat,
 		convertToMediumWithoutYearDateFormat,
 		convertToMediumWithYearDateFormat,
-		convertToMediumDateFormatJustDigits
+		convertToMediumDateFormatJustDigits,
+		convertToAllBrowsersReadableDate
 	};
 })();

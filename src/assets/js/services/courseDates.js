@@ -1,15 +1,19 @@
 // eslint-disable-next-line no-unused-vars
-const CourseDates = (function (RenderCourseDates) {
+const CourseDates = (function (RenderCourseDates, Dates) {
 	function init() {
 		const promise = new Promise((resolve, reject) => {
-
 			// alle Kursdaten lesen
 			Service.call('GET', '/api/kurse.php') // http://localhost:3000/api/kurse.php
-				.then((response) => {
-					RenderCourseDates.createCourseLevelB(response);
-					RenderCourseDates.createCourseLevelF(response);
-					RenderCourseDates.createPaddleJourniesOverview(response);
-					RenderCourseDates.createPaddleJourneyKorsika(response);
+				.then((courses) => {
+					// Datum vom Format yyyy-mm-dd ins Format yyyy/mm/dd konvertieren
+					courses.forEach((course) => {
+						course.vonDatum = Dates.convertToAllBrowsersReadableDate(course.vonDatum);
+						course.bisDatum = Dates.convertToAllBrowsersReadableDate(course.bisDatum);
+					});
+					RenderCourseDates.createCourseLevelB(courses);
+					RenderCourseDates.createCourseLevelF(courses);
+					RenderCourseDates.createPaddleJourniesOverview(courses);
+					RenderCourseDates.createPaddleJourneyKorsika(courses);
 					resolve();
 				})
 				.catch((error) => {
@@ -25,4 +29,4 @@ const CourseDates = (function (RenderCourseDates) {
 	return {
 		loadAndRender: init
 	};
-})(RenderCourseDates);
+})(RenderCourseDates, Dates);
