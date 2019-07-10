@@ -288,16 +288,16 @@ nav {
     display: block;
     margin-left: 5px;
     margin-bottom: 6px; }
-  nav #hamburger.js-close-nav-button .hamburger__line-2 rect {
-    x: -50px;
-    transition: x 0.5s ease-in-out 1ms; }
+    nav #hamburger .hamburger__line-1 rect, nav #hamburger .hamburger__line-2 rect, nav #hamburger .hamburger__line-3 rect {
+      transition: transform 0.3s ease-in-out 1ms; }
   nav #hamburger.js-close-nav-button .hamburger__line-1 rect {
-    width: 60px;
-    transform: translateX(9px) translateY(-4px) rotate(45deg);
+    transform: translateX(9px) translateY(-3px) rotate(45deg);
+    transition: transform 0.5s ease-in-out 1ms; }
+  nav #hamburger.js-close-nav-button .hamburger__line-2 rect {
+    transform: translateX(-50px);
     transition: transform 0.5s ease-in-out 1ms; }
   nav #hamburger.js-close-nav-button .hamburger__line-3 rect {
-    width: 60px;
-    transform: translateX(-24px) translateY(19px) rotate(-45deg);
+    transform: translateX(-24px) translateY(14px) rotate(-45deg);
     transition: transform 0.5s ease-in-out 1ms; }
   nav ul.main-navi-desktop {
     display: block;
