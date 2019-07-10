@@ -42,12 +42,12 @@ nav{
 		animation: 1.5s slideIn;
 
 		> li {
-			margin-bottom: 1px;
+			margin-bottom: 2px;
 			> a {
 				text-decoration: none;
 				color: $color-nav-mobile-text;
 				background-color: $color-nav-mobile-background-slider;
-				padding: 8px 5px;
+				padding: 12px 5px;
 				display: block;
 			}
 		}

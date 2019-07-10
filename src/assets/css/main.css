@@ -307,12 +307,12 @@ nav {
     position: absolute;
     animation: 1.5s slideIn; }
     nav ul.main-navi-desktop > li {
-      margin-bottom: 1px; }
+      margin-bottom: 2px; }
       nav ul.main-navi-desktop > li > a {
         text-decoration: none;
         color: #000000;
         background-color: #6795B2;
-        padding: 8px 5px;
+        padding: 12px 5px;
         display: block; }
     nav ul.main-navi-desktop > li:last-child {
       margin-bottom: 0px; }
