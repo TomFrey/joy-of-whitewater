@@ -286,10 +286,19 @@ img.text-container-fill__bottom {
 			display: block;
 		}
 
+		.filler__picture{
+			display: flex;
+			justify-content: center;
+		}
+
       	img{
         	max-width: 100%;
         	height: auto;
       	}
+
+		img.width-50{
+			max-width: 50%;
+		}
     }
 
     > .filler-right{

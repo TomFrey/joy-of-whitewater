@@ -600,9 +600,14 @@ img.text-container-fill__bottom {
       background-color: #ACDFFF; }
       .text-container-main > .filler.hide-on-mobile {
         display: block; }
+      .text-container-main > .filler .filler__picture {
+        display: flex;
+        justify-content: center; }
       .text-container-main > .filler img {
         max-width: 100%;
         height: auto; }
+      .text-container-main > .filler img.width-50 {
+        max-width: 50%; }
     .text-container-main > .filler-right {
       flex: 0 1 40%;
       order: 1; }
