@@ -63,7 +63,11 @@
 	<picture class="mobile-header-picture">
 		<!--
 			Das Bild in der Mobile Ansicht wird von javascript gerendert. (renderHeader.js)
+			Das source und img Element braucht es nur, damit der w3.org Validator keinen Fehler wirft
+			Das source und img Element wird gerendert.
 		-->
+		<source srcset="/" media="(min-width: 440px)">
+		<img src="/" alt="neverShown" title="neverShown">
 	</picture>
 
 	<svg class="header-fill__top" xmlns="http://www.w3.org/2000/svg"
