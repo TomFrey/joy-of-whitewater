@@ -130,16 +130,15 @@ const CourseRegistration = (function (Validator, RenderConfirmation, Dates) {
 		registrationData.equipmentDetails = equipmentTextArea.value;
 
 		Server.sendRegistrationFormData(registrationData)
-			.then((response) => {
-				console.log(response);
+			.then(() => {
+				// console.log(response);
 				// Die Formular Daten konnten vom Server entgegengenommen werden, ein EMail wurde verschickt...
 				RenderConfirmation.createRegistrationConfirmation(registrationData);
 			})
 			.catch((error) => {
-				console.log(error.message);
-				if (error.jow_message === 'email already used') {
-					alert('Die E-Mail Adresse wurde schon verwendet. Hast du dich schon registriert?');
-				}
+				console.log(error);
+				console.log('Fehlermeldung: ' + error.jow_message);
+				// TODO: Dem Benutzer einer Fehlermeldung auf's GUI rendern.
 			});
 	}
 

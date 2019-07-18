@@ -14,7 +14,7 @@ var Navigation = (function (RenderHeader, RenderImageSlider, Configuration) {
 	let courseLists;
 
 	function getNameOfCurrentSite() {
-		console.log('path: '+ location.pathname);
+		// console.log('path: '+ location.pathname);
 		return location.pathname.split('/')[1].split('.')[0];
 	}
 
