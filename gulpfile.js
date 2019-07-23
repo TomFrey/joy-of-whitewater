@@ -66,7 +66,7 @@ gulp.task('build', (callback) => {
 		'clean',
 		['minifyJsForDist', 'sass'],
 		'minifyCss',
-		['copyApi', 'copyHtml', 'copyJs', 'copyImages'],
+		['copyApi', 'copyHtml', 'copyJs', 'copyImages', 'copyXml', 'copyRobotsAndHtaccess'],
 		'replaceProductionCredentials',
 		callback
 	);
@@ -249,6 +249,21 @@ gulp.task('copyHtml', () => {
 		.pipe(gulp.dest('dist'));
 });
 
+/**
+ * Kopiert alle xml Dateien in den dist Ordner
+ */
+gulp.task('copyXml', () => {
+	return gulp.src(['./src/**/**/*.xml'])
+		.pipe(gulp.dest('dist'));
+});
+
+/**
+ * Kopiert die robots.txt und .htaccess Dateien in den dist Ordner
+ */
+gulp.task('copyRobotsAndHtaccess', () => {
+	return gulp.src(['./src/**/**/robots.txt', './src/**/**/.htaccess'])
+		.pipe(gulp.dest('dist'));
+});
 
 /**
  * Kopiert alle Bilder und Icons in den dist Ordner
