@@ -42,6 +42,18 @@
 	grid-area: 2 / 1 / 2 / 13;
 }
 
+.gridx12__width4--col1of3{
+	grid-area: 1 / 1 / 1 / 13;
+}
+
+.gridx12__width4--col2of3{
+	grid-area: 2 / 1 / 2 / 13;
+}
+
+.gridx12__width4--col3of3{
+	grid-area: 3 / 1 / 3 / 13;
+}
+
 
 
 /* *************************************************** */
@@ -107,6 +119,18 @@
 	.gridx12__width6--col2of2{
 		//background-color: yellow;
 		grid-area: 1 / 7 / 1 / 13;
+	}
+
+	.gridx12__width4--col1of3{
+		grid-area: 1 / 1 / 1 / 5;
+	}
+
+	.gridx12__width4--col2of3{
+		grid-area: 1 / 5 / 1 / 9;
+	}
+
+	.gridx12__width4--col3of3{
+		grid-area: 1 / 9 / 1 / 13;
 	}
 }
 

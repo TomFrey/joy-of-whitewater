@@ -1221,6 +1221,15 @@ h4.course-list-detail__title {
 .gridx12__width6--col2of2 {
   grid-area: 2 / 1 / 2 / 13; }
 
+.gridx12__width4--col1of3 {
+  grid-area: 1 / 1 / 1 / 13; }
+
+.gridx12__width4--col2of3 {
+  grid-area: 2 / 1 / 2 / 13; }
+
+.gridx12__width4--col3of3 {
+  grid-area: 3 / 1 / 3 / 13; }
+
 /* *************************************************** */
 /* *********** ab hier für desktop ******************* */
 @media screen and (min-width: 740px) {
@@ -1254,7 +1263,13 @@ h4.course-list-detail__title {
   .gridx12__width6--col1of2 {
     grid-area: 1 / 1 / 1 / 7; }
   .gridx12__width6--col2of2 {
-    grid-area: 1 / 7 / 1 / 13; } }
+    grid-area: 1 / 7 / 1 / 13; }
+  .gridx12__width4--col1of3 {
+    grid-area: 1 / 1 / 1 / 5; }
+  .gridx12__width4--col2of3 {
+    grid-area: 1 / 5 / 1 / 9; }
+  .gridx12__width4--col3of3 {
+    grid-area: 1 / 9 / 1 / 13; } }
 
 /*
 	Code übernommen und angepasst von Norman van der Mull
@@ -1462,6 +1477,35 @@ h4.course-list-detail__title {
     padding: 16px 8px 16px 32px; }
   .prices tbody th.two-row-table-cell {
     padding: 4px 8px 4px 32px; } }
+
+.sitemap {
+  font-family: "Open Sans", "Arial", "sans-serif";
+  margin-top: 16px; }
+  .sitemap .sitemap__title {
+    color: #ffffff;
+    display: inline-block;
+    font-family: "Gloria Hallelujah", "Arial", "sans-serif";
+    font-size: 1.25rem;
+    padding-bottom: 16px;
+    text-decoration: none; }
+  .sitemap .sitemap__list {
+    padding-left: 8px; }
+  .sitemap .sitemap__list__item {
+    padding-bottom: 8px; }
+  .sitemap .sitemap__list__item a {
+    color: #FF6305; }
+
+/* *************************************************** */
+/* *********** ab hier für desktop ******************* */
+@media screen and (min-width: 740px) {
+  .sitemap {
+    margin-left: 16px; }
+    .sitemap .sitemap__title:hover {
+      color: #FF6305; }
+    .sitemap .sitemap__list {
+      padding-left: 16px; }
+    .sitemap .sitemap__list__item a:hover {
+      color: #ffffff; } }
 
 .open-drawer {
   background-color: #B28B55;

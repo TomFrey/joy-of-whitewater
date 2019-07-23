@@ -1,0 +1,48 @@
+.sitemap{
+	font-family: $standardTextFont;
+	margin-top: 2*$basicHeight;
+
+	.sitemap__title{
+		color: $complimentaryColor1;
+		display: inline-block;
+		font-family: $textContainerTitleFont;
+		font-size: $smallTitleSize;
+		padding-bottom: 2*$basicHeight;
+		text-decoration: none;
+	}
+
+	.sitemap__list{
+		padding-left: $basicWidth;
+	}
+
+	.sitemap__list__item {
+		padding-bottom: $basicHeight;
+	}
+
+	.sitemap__list__item a{
+		color: $color-textContainer-link;
+	}
+}
+
+
+
+/* *************************************************** */
+/* *********** ab hier für desktop ******************* */
+@media screen and (min-width: $breakpoint-large) { //wenn Bildschirm grösser 740 px gross ist, dann...
+
+	.sitemap{
+		margin-left: 2*$basicWidth;
+
+		.sitemap__title:hover{
+			color: $color-textContainer-link;
+		}
+
+		.sitemap__list{
+			padding-left: 2*$basicWidth;
+		}
+
+		.sitemap__list__item a:hover{
+			color: $color-textContainer-text-hover;
+		}
+	}
+}
