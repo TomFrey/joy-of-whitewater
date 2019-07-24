@@ -261,7 +261,7 @@ gulp.task('copyXml', () => {
  * Kopiert die robots.txt und .htaccess Dateien in den dist Ordner
  */
 gulp.task('copyRobotsAndHtaccess', () => {
-	return gulp.src(['./src/**/**/robots.txt', './src/**/**/.htaccess'])
+	return gulp.src(['./src/assets/webServerConfig/robots.txt', './src/assets/webServerConfig/.htaccess'])
 		.pipe(gulp.dest('dist'));
 });
 

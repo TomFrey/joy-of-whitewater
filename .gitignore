@@ -12,3 +12,6 @@ src/assets/scripts/
 
 # alle css Dateien im src/assets/css ausschliessen
 src/assets/css/
+
+# die config.js Datei in Root Ordner ausschliessen
+config.js
