@@ -245,7 +245,7 @@ gulp.task('copyJs', () => {
  * html Dateien, die im templates Order liegen.
  */
 gulp.task('copyHtml', () => {
-	return gulp.src(['./src/**/**/*.html', '!./src/templates/**/*.html'])
+	return gulp.src(['./src/**/**/*.html', '!./src/templates/**/*.html', '!./src/assets/webServerConfig/**/*.html'])
 		.pipe(gulp.dest('dist'));
 });
 
@@ -258,10 +258,10 @@ gulp.task('copyXml', () => {
 });
 
 /**
- * Kopiert die robots.txt und .htaccess Dateien in den dist Ordner
+ * Kopiert die robots.txt und nicht die .htaccess Dateien in den dist Ordner
  */
 gulp.task('copyRobotsAndHtaccess', () => {
-	return gulp.src(['./src/assets/webServerConfig/robots.txt', './src/assets/webServerConfig/.htaccess'])
+	return gulp.src(['./src/assets/webServerConfig/robots.txt', '!./src/assets/webServerConfig/.htaccess'])
 		.pipe(gulp.dest('dist'));
 });
 
