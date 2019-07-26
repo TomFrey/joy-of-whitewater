@@ -66,7 +66,7 @@ gulp.task('build', (callback) => {
 		'clean',
 		['minifyJsForDist', 'sass'],
 		'minifyCss',
-		['copyApi', 'copyHtml', 'copyJs', 'copyImages', 'copyXml', 'copyRobotsAndHtaccess'],
+		['copyApi', 'copyHtml', 'copyJs', 'copyImages', 'copyXml', 'copyRobotsAndHtaccess', 'copyGoogleConfirmationFile'],
 		'replaceProductionCredentials',
 		callback
 	);
@@ -262,6 +262,14 @@ gulp.task('copyXml', () => {
  */
 gulp.task('copyRobotsAndHtaccess', () => {
 	return gulp.src(['./src/assets/webServerConfig/robots.txt', './src/assets/webServerConfig/.htaccess'])
+		.pipe(gulp.dest('dist'));
+});
+
+/**
+ * Kopiert die Google Datei (welche die Inhaberschaft der Webseite bestätigt) in den dist Ordner
+ */
+gulp.task('copyGoogleConfirmationFile', () => {
+	return gulp.src(['./src/assets/webServerConfig/google6d6ea9eec37d2de0.html'])
 		.pipe(gulp.dest('dist'));
 });
 

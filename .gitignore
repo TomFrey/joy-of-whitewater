@@ -13,5 +13,8 @@ src/assets/scripts/
 # alle css Dateien im src/assets/css ausschliessen
 src/assets/css/
 
+# die Datei, die bestätigt, dass man der Inhaber ist, ausschliessen
+src/assets/webServerConfig/google6d6ea9eec37d2de0.html
+
 # die config.js Datei in Root Ordner ausschliessen
 config.js
