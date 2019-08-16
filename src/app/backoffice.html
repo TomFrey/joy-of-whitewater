@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang=de ng-app="app">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+	<link rel="stylesheet" type="text/css" href="../app/assets/css/backoffice.css">
+
+	<link rel="icon" type="image/png" href="assets/images/favicon-16x16.png" sizes="16x16">
+	<link rel="icon" type="image/png" href="assets/images/favicon-32x32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="assets/images/favicon-96x96.png" sizes="96x96">
+
+	<meta name="description" content="Kanuschule - The Joy Of Whitewater - Freudvoll paddeln lernen." />
+	<meta name="keywords" content="Kanuschule Kajakkurse Kanadierkurse Paddelreisen Abenteuerpaddelreisen Genusspaddelreisen Eskimotieren" />
+	<title>Office - The Joy Of Whitewater</title>
+</head>
+<body>
+<header>
+	header
+</header>
+
+<nav>
+	nav
+	<a ui-sref="hello">Hello</a>
+	<a ui-sref="about">About</a>
+	<a ui-sref="course-overview">Kursübersicht</a>
+</nav>
+
+<main ng-view>
+
+
+		<md-list>
+			<!-- List item #1 -->
+			<md-list-item>
+				<md-button>
+					<md-icon md-svg-src="/assets/images/SpiraleMitSchrift_klein.svg" class="avatar"></md-icon>
+					Lia Luogo
+				</md-button>
+			</md-list-item>
+
+			<!-- List item #2 -->
+			<md-list-item>
+				<md-button>
+					<md-icon md-svg-src="/assets/images/SpiraleMitSchrift_klein.svg" class="avatar"></md-icon>
+					Lawrence Ray
+				</md-button>
+				hallo
+			</md-list-item>
+
+		</md-list>
+
+
+	<p>Datepicker</p>
+	<div layout-gt-xs="row">
+		<div flex-gt-xs="">
+			<h4>Opening the calendar when the input is focuseddd</h4>
+			<md-datepicker ng-model="ctrl.myDate" md-placeholder="Enter date" md-open-on-focus=""></md-datepicker>
+		</div>
+	</div>
+
+
+
+	main<br>
+	Nothingg here {{'yet' + '!'}}
+	<br><br>
+	ui-view<br>
+	<ui-view></ui-view>
+</main>
+
+
+
+
+<footer>
+	footer
+</footer>
+
+<script src="/app/assets/scripts/backApp.min.js"></script>
+
+</body>
+</html>

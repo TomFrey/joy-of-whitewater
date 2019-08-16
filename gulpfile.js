@@ -24,9 +24,29 @@ const settings = {
 	jsDir: './src/assets/js'
 };
 
+/* Alle verwendeten JS Files, damit das eine JS File zusammengesetzt werden kann. */
+const allBackofficeJsFiles = [
+	'./node_modules/angular/angular.js',
+	'./node_modules/angular-animate/angular-animate.js',
+	'./node_modules/angular-aria/angular-aria.js',
+	'./node_modules/angular-messages/angular-messages.js',
+	'./node_modules/angular-material/angular-material.js',
+	'./node_modules/angular-resource/angular-resource.js',
+	'./node_modules/angular-ui-router/release/angular-ui-router.js',
+	'./node_modules/jquery/dist/jquery.js',
+	'./node_modules/slick-carousel/slick/slick.js',
+	'./node_modules/gsap/src/uncompressed/TweenMax.js',
+
+	'./src/app/app.js',
+	'./src/app/courseoverview/courseoverview.module.js',
+	'./src/app/courseoverview/jowShowCourses.js',
+	'./src/app/services/services.module.js',
+	'./src/app/services/APIService.js'
+];
+
 
 /* Alle verwendeten JS Files, damit das eine JS File zusammengesetzt werden kann. */
-const allJsFiles = [
+const allFrontAppJsFiles = [
 	'./node_modules/jquery/dist/jquery.js',
 	'./node_modules/slick-carousel/slick/slick.js',
 	'./node_modules/gsap/src/uncompressed/TweenMax.js',
@@ -64,9 +84,10 @@ const allJsFiles = [
 gulp.task('build', (callback) => {
 	gulpSequence(
 		'clean',
-		['minifyJsForDist', 'sass'],
-		'minifyCss',
-		['copyApi', 'copyHtml', 'copyJs', 'copyImages', 'copyXml', 'copyRobotsAndHtaccess', 'copyGoogleConfirmationFile'],
+		['minifyFrontJsForDist', 'minifyBackofficeJsForDist', 'sass'],
+		['minifyCss', 'minifyBackofficeCss'],
+		['copyApi', 'copyApp', 'copyHtml', 'copyFrontJs', 'copyBackofficeJs', 'copyImages', 'copyXml',
+			'copyRobotsAndHtaccess', 'copyGoogleConfirmationFile'],
 		'replaceProductionCredentials',
 		callback
 	);
@@ -86,7 +107,7 @@ gulp.task('default', ['serve']);
  * and watch the changes for html and sass files
  * and watching if a file in the template folder is changing and then insert the changes in all html files in app
  */
-gulp.task('serve', ['sass', 'injectHeaderAndFooter', 'minifyJs'], () => {
+gulp.task('serve', ['sass', 'sassBackoffice', 'injectHeaderAndFooter', 'minifyFrontJs', 'minifyBackofficeJs'], () => {
 	/* browserSync.init({
 		server: settings.publicDir
 	}); */
@@ -100,14 +121,17 @@ gulp.task('serve', ['sass', 'injectHeaderAndFooter', 'minifyJs'], () => {
    	* watch for changes in sass files
    	*/
 	gulp.watch(settings.sassDir + '/**/*.scss', ['sass']);
+	gulp.watch('./src/app/scss/**/*.scss', ['sassBackoffice']);
 
 	/**
    	* watch for changes in html files
    	*/
-	gulp.watch(settings.publicDir + '/*.html').on('change', browserSync.reload);
+	gulp.watch([settings.publicDir + '/*.html', './src/app/**/*.html'])
+		.on('change', browserSync.reload);
 
 	// Wartet auf Änderungen in einer .js Datei
-	gulp.watch(settings.jsDir + '/**/*.js', ['minifyJs']).on('change', browserSync.reload);
+	gulp.watch([settings.jsDir + '/**/*.js', './src/app/**/*.js'], ['minifyFrontJs', 'minifyBackofficeJs'])
+		.on('change', browserSync.reload);
 });
 
 
@@ -119,6 +143,18 @@ gulp.task('sass', () => {
 	return gulp.src(settings.sassDir + '/**/*.scss')
 		.pipe(sass().on('error', sass.logError))
 		.pipe(gulp.dest(settings.cssDir))
+		.pipe(browserSync.stream());
+});
+
+
+/**
+ * sass task, will compile the .SCSS files,
+ * and handle the error through plumber and notify through system message.
+ */
+gulp.task('sassBackoffice', () => {
+	return gulp.src('./src/app/scss/**/*.scss')
+		.pipe(sass().on('error', sass.logError))
+		.pipe(gulp.dest('./src/app/assets/css'))
 		.pipe(browserSync.stream());
 });
 
@@ -170,23 +206,47 @@ gulp.task('injectHeaderAndFooter', () => {
 
 
 /**
- * Fügt die .js Files in einem File app.js zusammen. Und verkleinert die .js Files.
+ * Fügt alle .js Files aus dem Array allFrontAppJsFiles in einem File frontApp.js zusammen.
+ * Und verkleinert die .js Files.
  * - Babel (ES6 zu ES5) braucht es, weil sonst der minifyer nicht geht, der versteht nur ES5.
  * - pump ist eine Alternative zu pipe, dank pump gibt's schlaue Fehlermeldungen.
  */
-gulp.task('minifyJs', (callback) => {
+gulp.task('minifyFrontJs', (callback) => {
 	pump([
-		gulp.src(allJsFiles),
+		gulp.src(allFrontAppJsFiles),
 		sourcemaps.init(),
-		concat('app.js'),
+		concat('frontApp.js'),
 		babel({
 			compact: false, // unterdrückt die Warnung 'The code generator has deoptimised the styling ... as it exceeds the max of'
 			presets: ['@babel/env']
 		}),
 		uglify(),
-		rename('app.min.js'),
+		rename('frontApp.min.js'),
 		sourcemaps.write('./'),
 		gulp.dest('src/assets/scripts')
+	], callback);
+});
+
+
+/**
+ * Fügt alle .js Files aud dem Array allBackofficeJsFiles in einem File backApp.js zusammen.
+ * Und verkleinert die .js Files.
+ * - Babel (ES6 zu ES5) braucht es, weil sonst der minifyer nicht geht, der versteht nur ES5.
+ * - pump ist eine Alternative zu pipe, dank pump gibt's schlaue Fehlermeldungen.
+ */
+gulp.task('minifyBackofficeJs', (callback) => {
+	pump([
+		gulp.src(allBackofficeJsFiles),
+		sourcemaps.init(),
+		concat('backApp.js'),
+		babel({
+			compact: false, // unterdrückt die Warnung 'The code generator has deoptimised the styling ... as it exceeds the max of'
+			presets: ['@babel/env']
+		}),
+		uglify(),
+		rename('backApp.min.js'),
+		sourcemaps.write('./'),
+		gulp.dest('src/app/assets/scripts')
 	], callback);
 });
 
@@ -201,28 +261,51 @@ gulp.task('clean', () => {
 
 
 /**
- * Macht fast das Gleiche, wie der Task 'minifyJs' aber hier wird für den produktiven Code kein Sourcemaps hinzugfügt.
+ * Macht fast das Gleiche, wie der Task 'minifyFrontJs',
+ * aber hier wird für den produktiven Code kein Sourcemaps hinzugfügt.
  *
- * Fügt die .js Files einem File app.js zusammen. Und verkleinert die .js Files.
+ * Fügt alle .js Files aus dem Array allFrontAppJsFiles in einem File frontApp.js zusammen.
  * Babel (ES6 zu ES5) braucht es, weil sonst der minifyer nicht geht, der versteht nur ES5.
  */
-gulp.task('minifyJsForDist', (callback) => {
+gulp.task('minifyFrontJsForDist', (callback) => {
 	pump([
-		gulp.src(allJsFiles),
-		concat('app.js'),
+		gulp.src(allFrontAppJsFiles),
+		concat('frontApp.js'),
 		babel({
 			compact: false, // unterdrückt die Warnung 'The code generator has deoptimised the styling ... as it exceeds the max of'
 			presets: ['@babel/env']
 		}),
 		uglify(),
-		rename('app.min.js'),
+		rename('frontApp.min.js'),
 		gulp.dest('src/assets/scripts')
 	], callback);
 });
 
 
 /**
- * Minimiert die css Datei und schreibt sie in den 'dist' Ordner.
+ * Macht fast das Gleiche, wie der Task 'minifyBackofficeJs',
+ * aber hier wird für den produktiven Code kein Sourcemaps hinzugfügt.
+ *
+ * Fügt alle .js Files aus dem Array allFrontAppJsFiles in einem File frontApp.js zusammen.
+ * Babel (ES6 zu ES5) braucht es, weil sonst der minifyer nicht geht, der versteht nur ES5.
+ */
+gulp.task('minifyBackofficeJsForDist', (callback) => {
+	pump([
+		gulp.src(allBackofficeJsFiles),
+		concat('backApp.js'),
+		babel({
+			compact: false, // unterdrückt die Warnung 'The code generator has deoptimised the styling ... as it exceeds the max of'
+			presets: ['@babel/env']
+		}),
+		uglify(),
+		rename('backApp.min.js'),
+		gulp.dest('src/app/assets/scripts')
+	], callback);
+});
+
+
+/**
+ * Minimiert die css Datei für's Frontend und schreibt sie in den 'dist' Ordner.
  */
 gulp.task('minifyCss', () => {
 	return gulp.src('./src/assets/css/*.css')
@@ -232,11 +315,30 @@ gulp.task('minifyCss', () => {
 
 
 /**
+ * Minimiert die css Datei für's Backoffice und schreibt sie in den 'dist' Ordner.
+ */
+gulp.task('minifyBackofficeCss', () => {
+	return gulp.src('./src/app/assets/css/*.css')
+		.pipe(cleanCss())
+		.pipe(gulp.dest('dist/app/assets/css'));
+});
+
+
+/**
  * Kopiert die scripts/app.min.js Datei in den dist Ordner
  */
-gulp.task('copyJs', () => {
-	return gulp.src(['./src/assets/scripts/app.min.js'])
+gulp.task('copyFrontJs', () => {
+	return gulp.src(['./src/assets/scripts/frontApp.min.js'])
 		.pipe(gulp.dest('dist/assets/scripts'));
+});
+
+
+/**
+ * Kopiert die scripts/backApp.min.js Datei in den dist/app Ordner
+ */
+gulp.task('copyBackofficeJs', () => {
+	return gulp.src(['./src/app/assets/scripts/backApp.min.js'])
+		.pipe(gulp.dest('dist/app/assets/scripts'));
 });
 
 
@@ -292,6 +394,16 @@ gulp.task('copyImages', () => {
 gulp.task('copyApi', () => {
 	return gulp.src(['./src/api/**/*.*'])
 		.pipe(gulp.dest('dist/api'));
+});
+
+
+/**
+ * Kopiert alle Dateien aus dem app Ordner in den dist/app Ordner
+ * Das ist mein Backoffice
+ */
+gulp.task('copyApp', () => {
+	return gulp.src(['./src/app/**/*.*', '!./src/app/scss/**/*.*', '!./src/app/assets/**/*.*'])
+		.pipe(gulp.dest('dist/app'));
 });
 
 

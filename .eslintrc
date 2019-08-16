@@ -27,6 +27,8 @@
 		"Configuration": false,
 		"Service": false,
 		"Server": false,
+		//AngularJs Objekte
+		"angular": false,
 
 		//Objekte aus TweenMax.js
 		"TweenMax": false,
