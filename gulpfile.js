@@ -129,8 +129,15 @@ gulp.task('serve', ['sass', 'sassBackoffice', 'injectHeaderAndFooter', 'minifyFr
 	gulp.watch([settings.publicDir + '/*.html', './src/app/**/*.html'])
 		.on('change', browserSync.reload);
 
-	// Wartet auf Änderungen in einer .js Datei
-	gulp.watch([settings.jsDir + '/**/*.js', './src/app/**/*.js'], ['minifyFrontJs', 'minifyBackofficeJs'])
+	// Wartet auf Änderungen in einer .js Datei im Frontend Bereich
+	gulp.watch([settings.jsDir + '/**/*.js'], ['minifyFrontJs'])
+		.on('change', browserSync.reload);
+
+	// Wartet auf Änderungen in einer .js Datei im Backend Bereich
+	gulp.watch([
+		'./src/app/*.js',
+		'./src/app/services/*.js',
+		'./src/app/courseoverview/*.js'], ['minifyBackofficeJs'])
 		.on('change', browserSync.reload);
 });
 
