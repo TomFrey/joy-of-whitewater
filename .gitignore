@@ -7,8 +7,9 @@ node_modules/
 # alles im dist Ordner ausschliessen
 dist/
 
-# alles im src/assets/scripts Ordner ausschliessen
+# alles im src/assets/scripts und src/app/assets/ Ordner ausschliessen
 src/assets/scripts/
+src/app/assets/
 
 # alle css Dateien im src/assets/css ausschliessen
 src/assets/css/
