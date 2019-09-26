@@ -39,7 +39,9 @@ const allBackofficeJsFiles = [
 
 	'./src/app/app.js',
 	'./src/app/courseoverview/courseoverview.module.js',
+	'./src/app/courseoverview/jowCoursesOverview.js',
 	'./src/app/courseoverview/jowShowCourses.js',
+	'./src/app/courseoverview/jowSearchCourses.js',
 	'./src/app/services/services.module.js',
 	'./src/app/services/APIService.js'
 ];
@@ -114,7 +116,8 @@ gulp.task('serve', ['sass', 'sassBackoffice', 'injectHeaderAndFooter', 'minifyFr
 
 	// auf dem Port 8888 läuft das Backend
 	browserSync.init({
-		proxy: 'http://localhost:8888'
+		proxy: 'http://localhost:8888',
+		open: false
 	});
 
 	/**
