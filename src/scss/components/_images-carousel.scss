@@ -1,5 +1,6 @@
 .images-carousel {
   	position: relative;
+	overflow: hidden;
 
   > .images {
     	position: relative;
@@ -13,4 +14,13 @@
 	  position: absolute;
 	  width: 100%;
   }
+
+	> .topImage {
+		position: relative;
+		float: left;
+
+		img {
+			opacity: 100;
+		}
+	}
 }

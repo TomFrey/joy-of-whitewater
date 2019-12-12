@@ -4,28 +4,32 @@ var Configuration = (function () {
 	// Die Bilder müssen unter /assets/images/carousel/*.jpg liegen
 	const imageCarousel = {
 		theJoyOfWhiteWaterImages: [
-			{ name: 'joyOfWhitewater_5', title: 'Big Wave in Idaho', alt: 'The Joy Of Whitewater' },
-			{ name: 'joyOfWhitewater_4', title: 'Big Wave in Idaho', alt: 'The Joy Of Whitewater' },
-			{ name: 'joyOfWhitewater_3', title: 'Entspannung am trocknen', alt: 'The Joy Of Whitewater' },
-			{ name: 'joyOfWhitewater_2', title: 'Paddeln in Costa Rica', alt: 'The Joy Of Whitewater' },
-			{ name: 'joyOfWhitewater_1', title: 'Paddeln in Costa Rica', alt: 'The Joy Of Whitewater' }
+			{ name: 'joyOfWhitewater_2', title: 'Kanuschule', alt: 'Kanuschule - The Joy Of Whitewater' },
+			{ name: 'joyOfWhitewater_6', title: 'Kanuschule', alt: 'Kanuschule - The Joy Of Whitewater' },
+			{ name: 'joyOfWhitewater_4', title: 'Kanuschule', alt: 'Kanuschule - The Joy Of Whitewater' },
+			{ name: 'joyOfWhitewater_5', title: 'Kanuschule', alt: 'Kanuschule - The Joy Of Whitewater' },
+			{ name: 'joyOfWhitewater_1', title: 'Kanuschule', alt: 'Kanuschule - The Joy Of Whitewater' },
+			{ name: 'joyOfWhitewater_7', title: 'Kanuschule', alt: 'Kanuschule - The Joy Of Whitewater' }
 		],
 		kanukurseImages: [
-			{ name: 'kanukurse_5', title: 'Kanukurs', alt: 'Kanukurs' },
-			{ name: 'kanukurse_4', title: 'Kanukurs', alt: 'Kanukurs' },
-			{ name: 'kanukurse_3', title: 'Kanukurs', alt: 'Kanukurs' },
-			{ name: 'kanukurse_2', title: 'Kanukurs', alt: 'Kanukurs' },
-			{ name: 'kanukurse_1', title: 'Kanukurs', alt: 'Kanukurs' }
+			{ name: 'kanukurse_2', title: 'Eskimotieren', alt: 'Kanuschule' },
+			{ name: 'kanukurse_6', title: 'Kajakkurse', alt: 'Kanuschule' },
+			{ name: 'kanukurse_3', title: 'Kajakkurs', alt: 'Kanuschule' },
+			{ name: 'kanukurse_7', title: 'Kajakkurse', alt: 'Kanuschule' },
+			{ name: 'kanukurse_4', title: 'Kanukurse', alt: 'Kanuschule' },
+			{ name: 'kanukurse_1', title: 'Open Canoe Kurse', alt: 'Kanuschule' },
 		],
 		paddelreisenImages: [
-			{ name: 'paddelreisen_8', title: 'Quichos, Ecuador', alt: 'Paddelreisen' },
+			{ name: 'paddelreisen_11', title: 'Witecombe, New Zealand', alt: 'Paddelreisen' },
+			{ name: 'paddelreisen_1', title: 'Sesia, Piemont', alt: 'Paddelreisen' },
 			{ name: 'paddelreisen_2', title: 'Paddelreise in Georgien', alt: 'Paddelreisen' },
-			{ name: 'paddelreisen_9', title: 'Jungle Ecuador', alt: 'Paddelreisen' },
 			{ name: 'paddelreisen_5', title: 'Taravo, Korsika', alt: 'Paddelreisen' },
 			{ name: 'paddelreisen_4', title: 'Open Canoe in Costa Rica', alt: 'Paddelreisen' },
+			{ name: 'paddelreisen_9', title: 'Jungle Ecuador', alt: 'Paddelreisen' },
 			{ name: 'paddelreisen_3', title: 'Open Canoe in Costa Rica', alt: 'Paddelreisen' },
+			{ name: 'paddelreisen_8', title: 'Quichos, Ecuador', alt: 'Paddelreisen' },
 			{ name: 'paddelreisen_7', title: 'Transportmittel in Chile', alt: 'Paddelreisen' },
-			{ name: 'paddelreisen_1', title: 'Sesia, Piemont', alt: 'Paddelreisen' }
+			{ name: 'paddelreisen_10', title: 'Tavignano, Korsika', alt: 'Paddelreisen' }
 		]
 	};
 
@@ -102,6 +106,15 @@ var Configuration = (function () {
 		return imageCarousel.theJoyOfWhiteWaterImages;
 	}
 
+	function getAllCarouselImages() {
+		return getImagesForJoyOfWhitewater().concat(getImagesForPaddelreisen(), getImagesForKanukurse());
+	}
+
+	// Gets the first image, which is the last image in the array ;-)
+	function getTheFirstImageForJoyOfWhitewater() {
+		return imageCarousel.theJoyOfWhiteWaterImages[imageCarousel.theJoyOfWhiteWaterImages.length - 1];
+	}
+
 	function getMobileImagesForKanukurse() {
 		return mobileImages.kanukurseImages;
 	}
@@ -121,9 +134,11 @@ var Configuration = (function () {
 
 	// public api
 	return {
+		getAllCarouselImages,
 		getImagesForKanukurse,
 		getImagesForPaddelreisen,
 		getImagesForJoyOfWhitewater,
+		getTheFirstImageForJoyOfWhitewater,
 		getMobileImagesForKanukurse,
 		getMobileImagesForPaddelreisen,
 		getMobileImagesForJoyOfWhitewater,

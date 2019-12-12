@@ -6,8 +6,10 @@ const App = (function () {
 		CourseDates.loadAndRender()
 			.then(() => {
 				CourseRegistration.init();
-				Navigation.init();
-				ImageCarousel.init();
+				Navigation.init()
+					.then(() => {
+						ImageCarousel.init();
+					});
 			})
 			.catch((error) => {
 				console.log(error);

@@ -3,7 +3,8 @@ const Globals = (function () {
 	function get() {
 		return {
 			breakpointLarge: 740,
-			breakpointMedium: 440
+			breakpointMedium: 440,
+			pathForImagesInTheCarousel: '/assets/images/carousel/'
 		};
 	}
 

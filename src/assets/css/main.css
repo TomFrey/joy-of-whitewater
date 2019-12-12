@@ -648,7 +648,8 @@ img.text-container-fill__bottom {
     z-index: 2; } }
 
 .images-carousel {
-  position: relative; }
+  position: relative;
+  overflow: hidden; }
   .images-carousel > .images {
     position: relative;
     z-index: 1; }
@@ -658,6 +659,11 @@ img.text-container-fill__bottom {
     left: 0;
     position: absolute;
     width: 100%; }
+  .images-carousel > .topImage {
+    position: relative;
+    float: left; }
+    .images-carousel > .topImage img {
+      opacity: 100; }
 
 /* parallax-container
 *  That's the container which holds the background images and texts.

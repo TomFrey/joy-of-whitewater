@@ -56,6 +56,7 @@ const allFrontAppJsFiles = [
 	'./src/assets/js/util/globalSettings.js',
 	'./src/assets/js/util/dates.js',
 	'./src/assets/js/util/validator.js',
+	'./src/assets/js/util/preloader.js',
 
 	'./src/assets/js/renderGui/renderCourseDates.js',
 
