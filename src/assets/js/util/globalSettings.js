@@ -4,7 +4,8 @@ const Globals = (function () {
 		return {
 			breakpointLarge: 740,
 			breakpointMedium: 440,
-			pathForImagesInTheCarousel: '/assets/images/carousel/'
+			pathForImagesInTheCarousel: '/assets/images/carousel/',
+			pathForImagesInTheSlider: '/assets/images/slider/'
 		};
 	}
 

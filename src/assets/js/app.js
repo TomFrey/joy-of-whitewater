@@ -5,11 +5,13 @@ const App = (function () {
 	function init() {
 		CourseDates.loadAndRender()
 			.then(() => {
+				return Preloader.loadImagesForHeaderCarousel();
+			})
+			.then((values) => {
+				console.log(values);
 				CourseRegistration.init();
-				Navigation.init()
-					.then(() => {
-						ImageCarousel.init();
-					});
+				Navigation.init();
+				ImageCarousel.init();
 			})
 			.catch((error) => {
 				console.log(error);

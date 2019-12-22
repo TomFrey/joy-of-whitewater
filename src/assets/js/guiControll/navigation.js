@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-var Navigation = (function (RenderHeader, RenderImageSlider, Configuration, Preloader) {
+const Navigation = (function (RenderHeader, RenderImageSlider, Configuration, Globals, Preloader) {
 	const SHOW = 'js-show';
 	const HIDE = 'js-hide';
 	const CLOSE_NAV = 'js-close-nav-button';
@@ -76,7 +76,8 @@ var Navigation = (function (RenderHeader, RenderImageSlider, Configuration, Prel
 
 			// Abfragen, welcher Drawer (Korsika, Soca...) geöffnet wurde.
 			if (event.firstElementChild.innerHTML === 'Details zu Korsika') {
-				RenderImageSlider.createImageItemsForTheImageSlider(Configuration.getImagesForKorsika())
+				const path = Globals.get().pathForImagesInTheSlider + 'korsika/';
+				RenderImageSlider.createImageItemsForTheImageSlider(Configuration.getImagesForKorsika(), path)
 					.then(() => {
 						ImageSlider.init();
 					})
@@ -152,9 +153,7 @@ var Navigation = (function (RenderHeader, RenderImageSlider, Configuration, Prel
 			case '': // Startseite
 				RenderHeader.createPictureTagForMobileHeader(Configuration.getMobileImagesForJoyOfWhitewater());
 				setHeaderTitle('THE JOY <br>OF WHITEWATER');
-				Preloader.loadImagesForHeaderCarousel().then(() => {
-					RenderHeader.createImagesListForTheCarousel(Configuration.getImagesForJoyOfWhitewater());
-				});
+				RenderHeader.createImagesListForTheCarousel(Configuration.getImagesForJoyOfWhitewater());
 				joyOfWhitewater.classList.add(SELECTED);
 				break;
 
@@ -164,58 +163,54 @@ var Navigation = (function (RenderHeader, RenderImageSlider, Configuration, Prel
 
 
 	function initiate() {
-		const promise = new Promise((resolve) => {
-			setSettingsDependingOnUrl();
+		setSettingsDependingOnUrl();
 
-			hamburger = document.getElementById('hamburger');
-			hamburger.addEventListener('click', showHideNavigation);
-			mainNavi = document.querySelector('.main-navi-desktop');
+		hamburger = document.getElementById('hamburger');
+		hamburger.addEventListener('click', showHideNavigation);
+		mainNavi = document.querySelector('.main-navi-desktop');
 
-			bKursDrawerButton = document.querySelector('#open-close-drawer-button-bkurse');
-			if (bKursDrawerButton !== null) {
-				bKursDrawerButton.addEventListener('click', (event) => {
-					toggleTextContainerDrawer(event.target);
+		bKursDrawerButton = document.querySelector('#open-close-drawer-button-bkurse');
+		if (bKursDrawerButton !== null) {
+			bKursDrawerButton.addEventListener('click', (event) => {
+				toggleTextContainerDrawer(event.target);
+			});
+		}
+
+		fKursDrawerButton = document.querySelector('#open-close-drawer-button-fkurse');
+		if (fKursDrawerButton !== null) {
+			fKursDrawerButton.addEventListener('click', (event) => {
+				toggleTextContainerDrawer(event.target);
+			});
+		}
+
+		paddelReisenDrawerButton = document.querySelector('.open-close-drawer-button-paddelreisen');
+		if (paddelReisenDrawerButton !== null) {
+			paddelReisenDrawerButton.addEventListener('click', (event) => {
+				togglePaddelReisenDrawer(event.target);
+			});
+		}
+
+		courseLists = document.querySelectorAll('.course-list');
+		if (courseLists !== null) {
+			courseLists.forEach((courseList) => {
+				courseList.addEventListener('click', (event) => {
+					toggleCourseDetails(event.target);
 				});
-			}
+			});
+		}
 
-			fKursDrawerButton = document.querySelector('#open-close-drawer-button-fkurse');
-			if (fKursDrawerButton !== null) {
-				fKursDrawerButton.addEventListener('click', (event) => {
-					toggleTextContainerDrawer(event.target);
+		drawerButtons = document.querySelectorAll('.open-close-drawer-button');
+		if (drawerButtons !== null) {
+			drawerButtons.forEach((drawerButton) => {
+				drawerButton.addEventListener('click', (event) => {
+					toggleDrawer(event.target);
 				});
-			}
-
-			paddelReisenDrawerButton = document.querySelector('.open-close-drawer-button-paddelreisen');
-			if (paddelReisenDrawerButton !== null) {
-				paddelReisenDrawerButton.addEventListener('click', (event) => {
-					togglePaddelReisenDrawer(event.target);
-				});
-			}
-
-			courseLists = document.querySelectorAll('.course-list');
-			if (courseLists !== null) {
-				courseLists.forEach((courseList) => {
-					courseList.addEventListener('click', (event) => {
-						toggleCourseDetails(event.target);
-					});
-				});
-			}
-
-			drawerButtons = document.querySelectorAll('.open-close-drawer-button');
-			if (drawerButtons !== null) {
-				drawerButtons.forEach((drawerButton) => {
-					drawerButton.addEventListener('click', (event) => {
-						toggleDrawer(event.target);
-					});
-				});
-			}
-			resolve();
-		});
-		return promise;
+			});
+		}
 	}
 
 	// public api
 	return {
 		init: initiate
 	};
-})(RenderHeader, RenderImageSlider, Configuration, Preloader);
+})(RenderHeader, RenderImageSlider, Configuration, Globals, Preloader);

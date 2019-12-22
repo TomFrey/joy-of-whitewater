@@ -4,30 +4,28 @@ const Preloader = (function (Configuration, Globals) {
 	 * Loads all the images into the browser
 	 */
 	function preload(imagesToPreload) {
-		const images = [];
-
-		imagesToPreload.forEach((image) => {
-			let i = 0;
-			images[i] = new Image();
-			images[i].src = image;
-			i++;
-		});
+		return Promise.all(
+			imagesToPreload.map((path) => {
+				return new Promise((resolve) => {
+					const image = new Image();
+					image.onload = () => { resolve({ path }); };
+					image.src = path;
+				});
+			})
+		);
 	}
+
 
 	/**
 	 * Call preload() and load all the images into the browser
 	 * and return a promise when all images are loaded
 	 */
 	function loadImagesForHeaderCarousel() {
-		const promise = new Promise((resolve) => {
-			const imagePath = Globals.get().pathForImagesInTheCarousel;
-			const imagesToPreload = Configuration.getAllCarouselImages().map((image) => {
-				return imagePath + image.name + '.jpg';
-			});
-			preload(imagesToPreload);
-			resolve();
+		const imagePaths = Globals.get().pathForImagesInTheCarousel;
+		const imagesToPreload = Configuration.getAllCarouselImages().map((image) => {
+			return imagePaths + image.name + '.jpg';
 		});
-		return promise;
+		return preload(imagesToPreload);
 	}
 
 	// public api

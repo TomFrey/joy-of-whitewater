@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-var RenderImageSlider = (function (Globals) {
+const RenderImageSlider = (function (Globals) {
 	/**
 	 * Kreiert folgenes HTML Element:
 	 * 	<div class="image-slider--item">
@@ -11,7 +11,7 @@ var RenderImageSlider = (function (Globals) {
 	 * @param image
 	 * @returns {HTMLDIVElement}
 	 */
-	function createImageSliderItem(image) {
+	function createImageSliderItem(image, path) {
 		const breakPointLarge = Globals.get().breakpointLarge;
 
 		const imageSliderItemElement = document.createElement('div');
@@ -20,11 +20,11 @@ var RenderImageSlider = (function (Globals) {
 		const pictureElement = document.createElement('picture');
 
 		const sourceElement = document.createElement('source');
-		sourceElement.setAttribute('srcset', '/assets/images/slider/' + image.name + '.jpg');
+		sourceElement.setAttribute('srcset', path + image.name + '.jpg');
 		sourceElement.setAttribute('media', '(min-width: ' + breakPointLarge + 'px)');
 
 		const imgElement = document.createElement('img');
-		imgElement.setAttribute('src', '/assets/images/slider/' + image.nameMobile + '.jpg');
+		imgElement.setAttribute('src', path + image.nameMobile + '.jpg');
 		imgElement.setAttribute('title', image.title);
 		imgElement.setAttribute('alt', image.alt);
 
@@ -47,7 +47,7 @@ var RenderImageSlider = (function (Globals) {
 	 * @param images
 	 * @returns {Promise<any>}
 	 */
-	function createImageItemsForTheImageSlider(images) {
+	function createImageItemsForTheImageSlider(images, path) {
 		const promise = new Promise((resolve, reject) => {
 			const imageSlider = document.querySelector('.image-slider');
 			if (imageSlider !== null) {
@@ -55,7 +55,7 @@ var RenderImageSlider = (function (Globals) {
 
 				// add the new images
 				images.forEach((image) => {
-					const imageSliderItem = createImageSliderItem(image);
+					const imageSliderItem = createImageSliderItem(image, path);
 					imageSlider.appendChild(imageSliderItem);
 				});
 				resolve(imageSlider);

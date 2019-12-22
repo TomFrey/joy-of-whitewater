@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-var ImageCarousel = (function () {
+const ImageCarousel = (function () {
 	const simpleSlider = $('.images-carousel');
 	const sliderWidth = simpleSlider.parent().width(); // width of header
 	// const stageWidth = sliderWidth * 2; // space to slide away the top image

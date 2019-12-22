@@ -5,7 +5,7 @@
 	Baut auf dem Slick Slider von Ken Wheeler auf. Benötigt die Dateien slick.js, TweenMax.js und jquery.js.
 */
 // eslint-disable-next-line no-unused-vars
-var ImageSlider = (function (Globals) {
+const ImageSlider = (function (Globals) {
 	const breakPointLarge = Globals.get().breakpointLarge;
 	const $slider = $('.image-slider');
 	const slideDuration = 900;
