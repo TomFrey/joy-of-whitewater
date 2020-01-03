@@ -5,6 +5,10 @@ const App = (function () {
 	function init() {
 		CourseDates.loadAndRender()
 			.then(() => {
+				return Preloader.loadImagesForHeaderCarousel();
+			})
+			.then((values) => {
+				console.log(values);
 				CourseRegistration.init();
 				Navigation.init();
 				ImageCarousel.init();

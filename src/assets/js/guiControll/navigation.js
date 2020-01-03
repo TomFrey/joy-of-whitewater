@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-var Navigation = (function (RenderHeader, RenderImageSlider, Configuration) {
+const Navigation = (function (RenderHeader, RenderImageSlider, Configuration, Globals, Preloader) {
 	const SHOW = 'js-show';
 	const HIDE = 'js-hide';
 	const CLOSE_NAV = 'js-close-nav-button';
@@ -76,7 +76,8 @@ var Navigation = (function (RenderHeader, RenderImageSlider, Configuration) {
 
 			// Abfragen, welcher Drawer (Korsika, Soca...) geöffnet wurde.
 			if (event.firstElementChild.innerHTML === 'Details zu Korsika') {
-				RenderImageSlider.createImageItemsForTheImageSlider(Configuration.getImagesForKorsika())
+				const path = Globals.get().pathForImagesInTheSlider + 'korsika/';
+				RenderImageSlider.createImageItemsForTheImageSlider(Configuration.getImagesForKorsika(), path)
 					.then(() => {
 						ImageSlider.init();
 					})
@@ -212,4 +213,4 @@ var Navigation = (function (RenderHeader, RenderImageSlider, Configuration) {
 	return {
 		init: initiate
 	};
-})(RenderHeader, RenderImageSlider, Configuration);
+})(RenderHeader, RenderImageSlider, Configuration, Globals, Preloader);
