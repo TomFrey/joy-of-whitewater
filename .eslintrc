@@ -27,6 +27,7 @@
 		"Configuration": false,
 		"Service": false,
 		"Server": false,
+		"Preloader": false,
 		//AngularJs Objekte
 		"angular": false,
 
@@ -55,6 +56,8 @@
 		//let oder const anstelle von var benutzen
 		"no-var": 0,
 		//auch String concatination zulassen
-		"prefer-template": 0
+		"prefer-template": 0,
+		//so was wie i++ zulassen
+		"no-plusplus": 0
 	}
 }

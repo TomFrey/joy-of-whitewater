@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-var RenderHeader = (function () {
+const RenderHeader = (function (Globals) {
 	/**
 	 * Kreiert ein li Element mit einem img darin, welches das Image Carousel verwendet.
 	 * @param image
@@ -10,7 +10,7 @@ var RenderHeader = (function () {
 		listElement.classList.add('image');
 
 		const imgElement = document.createElement('img');
-		imgElement.setAttribute('src', '/assets/images/carousel/' + image.name + '.jpg');
+		imgElement.setAttribute('src', Globals.get().pathForImagesInTheCarousel + image.name + '.jpg');
 		imgElement.setAttribute('title', image.title);
 		imgElement.setAttribute('alt', image.alt);
 
@@ -72,4 +72,4 @@ var RenderHeader = (function () {
 		createImagesListForTheCarousel,
 		createPictureTagForMobileHeader
 	};
-})();
+})(Globals);
