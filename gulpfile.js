@@ -39,7 +39,7 @@ const allBackofficeJsFiles = [
 	'./src/app/app.js',
 	'./src/app/courseoverview/courseoverview.module.js',
 	'./src/app/courseoverview/jowCoursesOverview.js',
-	'./src/app/courseoverview/jowShowCourses.js',
+	//'./src/app/courseoverview/jowShowCourses.js',
 	'./src/app/courseoverview/jowSearchCourses.js',
 	'./src/app/services/services.module.js',
 	'./src/app/services/APIService.js'
