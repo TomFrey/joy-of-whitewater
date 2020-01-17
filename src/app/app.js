@@ -13,9 +13,9 @@ angular.module('app', [
 		}
 
 		const aboutState = {
-			name: 'about',
-			url: '/about',
-			template: '<h3>Its the UI-Router hello world app!</h3>'
+			name: 'login',
+			url: '/login',
+			template: '<h3>Login Seite</h3>'
 		}
 
 		const courseOverviewState = {

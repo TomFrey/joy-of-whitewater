@@ -15,67 +15,35 @@
 	<meta name="keywords" content="Kanuschule Kajakkurse Kanadierkurse Paddelreisen Abenteuerpaddelreisen Genusspaddelreisen Eskimotieren" />
 	<title>Office - The Joy Of Whitewater</title>
 </head>
-<body>
-<header>
-	header
-</header>
+	<body>
+		<div layout="column" class="overall-layout">
 
-<nav>
-	nav
-	<a ui-sref="hello">Hello</a>
-	<a ui-sref="about">About</a>
-	<a ui-sref="course-overview">Kursübersicht</a>
-</nav>
+			<div flex="33" class="nav">
 
-<main ng-view>
+				<md-nav-bar md-selected-nav-item="currentNavItem">
+					<md-nav-item md-nav-sref="hello" name="hello">
+						Hello
+					</md-nav-item>
+					<md-nav-item md-nav-sref="login" name="login">
+						Login
+					</md-nav-item>
+					<md-nav-item md-nav-sref="course-overview" name="course-overview">
+						Kursübersicht
+					</md-nav-item>
+				</md-nav-bar>
 
+			</div>
 
-		<md-list>
-			<!-- List item #1 -->
-			<md-list-item>
-				<md-button>
-					<md-icon md-svg-src="/assets/images/SpiraleMitSchrift_klein.svg" class="avatar"></md-icon>
-					Lia Luogo
-				</md-button>
-			</md-list-item>
+			<div flex="33" class="main">
+				<ui-view></ui-view>
+			</div>
 
-			<!-- List item #2 -->
-			<md-list-item>
-				<md-button>
-					<md-icon md-svg-src="/assets/images/SpiraleMitSchrift_klein.svg" class="avatar"></md-icon>
-					Lawrence Ray
-				</md-button>
-				hallo
-			</md-list-item>
+			<div flex="" class="footer">
+				footer
+			</div>
 
-		</md-list>
-
-
-	<p>Datepicker</p>
-	<div layout-gt-xs="row">
-		<div flex-gt-xs="">
-			<h4>Opening the calendar when the input is focuseddd</h4>
-			<md-datepicker ng-model="ctrl.myDate" md-placeholder="Enter date" md-open-on-focus=""></md-datepicker>
 		</div>
-	</div>
 
-
-
-	main<br>
-	Nothingg here {{'yet' + '!'}}
-	<br><br>
-	ui-view<br>
-	<ui-view></ui-view>
-</main>
-
-
-
-
-<footer>
-	footer
-</footer>
-
-<script src="/app/assets/scripts/backApp.min.js"></script>
-
-</body>
+		<script src="/app/assets/scripts/backApp.min.js"></script>
+	</body>
 </html>
