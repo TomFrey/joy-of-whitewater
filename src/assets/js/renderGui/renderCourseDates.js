@@ -137,7 +137,7 @@ const RenderCourseDates = (function (Dates, Globals) {
 		titleMeetingPoint.classList.add('course-list-detail__title');
 		titleMeetingPoint.innerText = 'Treffpunkt:';
 		const textMeetingPoint = document.createElement('p');
-		textMeetingPoint.innerText = courseDate.treffpunkt;
+		textMeetingPoint.innerHTML = courseDate.treffpunkt;
 		gridX12Col1.appendChild(titleMeetingPoint);
 		gridX12Col1.appendChild(textMeetingPoint);
 

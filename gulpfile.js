@@ -369,24 +369,19 @@ function replaceProductionCredentials(){
 function run(done){
 	// auf dem Port 8888 läuft das Backend
 	browserSync.init({
-		proxy: 'http://localhost:8888'
+		proxy: 'http://localhost:8888',
+		open: false
 	});
 
-	/**
-	 * watch for changes in sass files
-	 */
+	//watch for changes in sass files
 	gulp.watch(settings.sassDir + '/**/*.scss', gulp.series(compileScss));
 	gulp.watch('./src/app/scss/**/*.scss', gulp.series(compileScssForBackOffice));
 
-	/**
-	 * watch for changes in html files
-	 */
+	//watch for changes in html files
 	gulp.watch([settings.publicDir + '/*.html', './src/app/**/*.html'])
 		.on('change', browserSync.reload);
 
-	/**
-	 * watch for changes in html templates
-	 */
+	//watch for changes in html templates
 	gulp.watch('./src/templates/*.html', gulp.series(injectHeaderAndFooter))
 
 	// Wartet auf Änderungen in einer .js Datei im Frontend Bereich
