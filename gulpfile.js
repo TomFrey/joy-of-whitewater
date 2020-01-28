@@ -12,6 +12,9 @@ const concat = require('gulp-concat');
 const replace = require('gulp-replace');
 const cleanCss = require('gulp-clean-css');
 const pump = require('pump');
+const gUtil = require('gulp-util');
+const ftp = require('vinyl-ftp');
+
 const configFile = require('./config.js');
 
 
@@ -361,6 +364,37 @@ function replaceProductionCredentials(){
 }
 
 
+const getFtpProductionConnection = () => {
+	return ftp.create({
+		host: 'joyofwhitewater.ch',
+		port: 21,
+		user: configFile.config.ftp.user,
+		password: configFile.config.ftp.pass,
+		parallel: 5,
+		log: gUtil.log
+	})
+}
+
+const getFtpTestConnection = () => {
+	return ftp.create({
+		host: 'joyofwhitewater.mitlinxlernen.ch',
+		port: 21,
+		user: configFile.config.testFtp.user,
+		password: configFile.config.testFtp.pass,
+		parallel: 5,
+		log: gUtil.log
+	})
+}
+
+function remoteDeploy(getFtpConnection, ftpDestination){
+	const connection = getFtpConnection();
+	const localFilesToCopy = ['./dist/**/*'];
+
+	return gulp.src(localFilesToCopy, {buffer: false})
+		.pipe(connection.newer(ftpDestination))
+		.pipe(connection.dest(ftpDestination))
+}
+
 /**
  * The run task, will launch browserSync and launch index.html files,
  * and watch the changes for html, sass and js files
@@ -400,7 +434,7 @@ function run(done){
 
 /**
  * Mit 'gulp' wird der Default Task gestartet, der in diesem
- * Fall den 'run' Task startet.
+ * Fall unter anderm den 'run' Task startet.
  */
 exports.default = gulp.series(gulp.parallel(compileScss,
 											minifyFrontJs,
@@ -409,6 +443,7 @@ exports.default = gulp.series(gulp.parallel(compileScss,
 											injectHeaderAndFooter),
 								run);
 
+// Mit 'gulp build' wird das Projekte zusammengebaut und in den 'dist' Ordner gestellt.
 exports.build = gulp.series(deleteDistFolder,
 							gulp.parallel(	minifyFrontJsForDist,
 											minifyBackOfficeJsForDist,
@@ -425,3 +460,9 @@ exports.build = gulp.series(deleteDistFolder,
 											copyRobotsAndHtaccess,
 											copyGoogleConfirmationFile),
 							replaceProductionCredentials);
+
+// Mit 'gulp deployToProduction' wird das Projekt auf den joyofwhitewater.ch FTP Server gestellt
+exports.deployToProduction = gulp.series(remoteDeploy.bind(this, getFtpProductionConnection, '/httpdocs'));
+
+// Mit 'gulp deployToTest' wird das Projekt auf den joyofwhitewater.mitlinxlernen.ch FTP Server gestellt
+exports.deployToTest = gulp.series(remoteDeploy.bind(this, getFtpTestConnection, '/'));
