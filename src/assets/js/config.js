@@ -55,37 +55,37 @@ var Configuration = (function () {
 	const imageSlider = {
 		korsika: [
 			{
-				name: 'korsika_11_gr', nameMobile: 'korsika_11_kl', title: 'Herrliche Flusslandschaft am Taravo', alt: 'Herrliche Flusslandschaft am Taravo'
+				name: 'korsika_12_gr', nameMobile: 'korsika_12_kl', title: 'Kajakcamp am Asco', alt: 'Kajakcamp am Asco'
 			},
 			{
-				name: 'korsika_10_gr', nameMobile: 'korsika_10_kl', title: 'Travo im Open Canoe', alt: 'Travo im Open Canoe'
+				name: 'korsika_11_gr', nameMobile: 'korsika_11_kl', title: 'Travo auf Korsika', alt: 'Travo auf Korsika'
 			},
 			{
-				name: 'korsika_9_gr', nameMobile: 'korsika_9_kl', title: 'Fast schon Wildschweine', alt: 'Fast schon Wildschweine'
+				name: 'korsika_10_gr', nameMobile: 'korsika_10_kl', title: 'Asco im Kajak', alt: 'Asco im Kajak'
 			},
 			{
-				name: 'korsika_8_gr', nameMobile: 'korsika_8_kl', title: 'Travo im Kajak', alt: 'Travo im Kajak'
+				name: 'korsika_9_gr', nameMobile: 'korsika_9_kl', title: 'Tavignano in Korsika', alt: 'Tavignano in Korsika'
 			},
 			{
-				name: 'korsika_7_gr', nameMobile: 'korsika_7_kl', title: 'Asco im Open Canoe', alt: 'Asco im Open Canoe'
+				name: 'korsika_8_gr', nameMobile: 'korsika_8_kl', title: 'Taravo im Kajak', alt: 'Taravo im Kajak'
 			},
 			{
-				name: 'korsika_6_gr', nameMobile: 'korsika_6_kl', title: 'Travo mit dem C1', alt: 'Travo mit dem C1'
+				name: 'korsika_7_gr', nameMobile: 'korsika_7_kl', title: 'Corte Korsika', alt: 'Corte Korsika'
 			},
 			{
-				name: 'korsika_5_gr', nameMobile: 'korsika_5_kl', title: 'Rutschen am oberen Golo', alt: 'Rutschen am oberen Golo'
+				name: 'korsika_5_gr', nameMobile: 'korsika_5_kl', title: 'Streetlife in Korsika', alt: 'Streetlife in Korsika'
 			},
 			{
-				name: 'korsika_4_gr', nameMobile: 'korsika_4_kl', title: 'Oberer Golo', alt: 'Oberer Golo'
+				name: 'korsika_4_gr', nameMobile: 'korsika_4_kl', title: 'Asco in Korsika', alt: 'Asco in Korsika'
 			},
 			{
 				name: 'korsika_3_gr', nameMobile: 'korsika_3_kl', title: 'Einstieg am oberen Golo', alt: 'Einstieg am oberen Golo'
 			},
 			{
-				name: 'korsika_2_gr', nameMobile: 'korsika_2_kl', title: 'Berglandschaft in Korsika', alt: 'Berglandschaft in Korsika'
+				name: 'korsika_2_gr', nameMobile: 'korsika_2_kl', title: 'Tavignano in Korsika', alt: 'Tavignano in Korsika'
 			},
 			{
-				name: 'korsika_1_gr', nameMobile: 'korsika_1_kl', title: 'Kajakcamp am Asco', alt: 'Kajakcamp am Asco'
+				name: 'korsika_1_gr', nameMobile: 'korsika_1_kl', title: 'Herrliche Flusslandschaft am Taravo', alt: 'Herrliche Flusslandschaft am Taravo'
 			}
 
 		],
