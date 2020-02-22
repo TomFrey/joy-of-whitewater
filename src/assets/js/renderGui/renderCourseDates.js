@@ -277,78 +277,40 @@ const RenderCourseDates = (function (Dates, Globals) {
 
 
 	/**
-	 * Sucht das Vorkommen aller Klassen 'course-list-wrapper-bCourse' und erstellt darin eine Liste
-	 * mit allen Kursen vom typ = 'Kanukurs' und kursStufe = 'B'.
+	 * Sucht das Vorkommen aller Klassen z.B.: cssClass = 'course-list-wrapper-fCourse' und erstellt darin eine Liste
+	 * mit allen Kursen vom courseType z.B.: 'Kanukurs', 'Eskimotieren' und courseLevel z.B.: 'B', 'F', 'alle'.
 	 *
 	 * @param courseDates
 	 */
-	function renderCourseListForLevelB(courseDates) {
-		let levelBCourseDates = courseDates.filter((courseDate) => {
-			return courseDate.kursStufe === 'B' && courseDate.typ === 'Kanukurs';
+	function renderCourseListFor(courseDates, courseLevel, courseType, cssClass) {
+		let courseDatesForLevel = courseDates.filter((courseDate) => {
+			return courseDate.kursStufe === courseLevel && courseDate.typ === courseType;
 		});
-		levelBCourseDates = sortDatumAscending(levelBCourseDates);
+		courseDatesForLevel = sortDatumAscending(courseDatesForLevel);
 
-
-		const courseListBWrappers = document.querySelectorAll('.course-list-wrapper-bCourse');
-
-		if (courseListBWrappers !== null) {
-			courseListBWrappers.forEach((courseListBWrapper) => {
+		const courseListWrappers = document.querySelectorAll(cssClass);
+		if (courseListWrappers !== null) {
+			courseListWrappers.forEach((courseListWrapper) => {
 				const courseList = document.createElement('div');
 				courseList.classList.add('course-list');
 
 				// delete all current images
-				while (courseListBWrapper.firstChild) {
-					courseListBWrapper.removeChild(courseListBWrapper.firstChild);
+				while (courseListWrapper.firstChild) {
+					courseListWrapper.removeChild(courseListWrapper.firstChild);
 				}
 
 				// add the course dates
-				levelBCourseDates.forEach((levelBCourseDate) => {
-					const courseListItem = createCourseListItem(levelBCourseDate);
+				courseDatesForLevel.forEach((courseDate) => {
+					const courseListItem = createCourseListItem(courseDate);
 					courseList.appendChild(courseListItem);
 				});
 
-				courseListBWrapper.appendChild(courseList);
+				courseListWrapper.appendChild(courseList);
 			});
 		}
 	}
 
 
-	/**
-	 * Sucht das Vorkommen aller Klassen 'course-list-wrapper-fCourse' und erstellt darin eine Liste
-	 * mit allen Kursen vom typ = 'Kanukurs' und kursStufe = 'F'.
-	 *
-	 * @param courseDates
-	 */
-	function renderCourseListForLevelF(courseDates) {
-		let levelFCourseDates = courseDates.filter((courseDate) => {
-			return courseDate.kursStufe === 'F' && courseDate.typ === 'Kanukurs';
-		});
-		levelFCourseDates = sortDatumAscending(levelFCourseDates);
-
-
-		const courseListFWrappers = document.querySelectorAll('.course-list-wrapper-fCourse');
-
-		if (courseListFWrappers !== null) {
-
-			courseListFWrappers.forEach((courseListFWrapper) => {
-				const courseList = document.createElement('div');
-				courseList.classList.add('course-list');
-
-				// delete all current images
-				while (courseListFWrapper.firstChild) {
-					courseListFWrapper.removeChild(courseListFWrapper.firstChild);
-				}
-
-				// add the course dates
-				levelFCourseDates.forEach((levelFCourseDate) => {
-					const courseListItem = createCourseListItem(levelFCourseDate);
-					courseList.appendChild(courseListItem);
-				});
-
-				courseListFWrapper.appendChild(courseList);
-			});
-		}
-	}
 
 
 	/**
@@ -415,8 +377,7 @@ const RenderCourseDates = (function (Dates, Globals) {
 
 	// public api
 	return {
-		createCourseLevelB: renderCourseListForLevelB,
-		createCourseLevelF: renderCourseListForLevelF,
+		createCourseListFor: renderCourseListFor,
 		createPaddleJourniesOverview: renderListForPaddleJournies,
 		createPaddleJourneyKorsika: renderListForPaddleJourniesKorsika
 	};

@@ -9,6 +9,7 @@ const Navigation = (function (RenderHeader, RenderImageSlider, Configuration, Gl
 	let mainNavi;
 	let bKursDrawerButton;
 	let fKursDrawerButton;
+	let eskimotierenDrawerButton;
 	let paddelReisenDrawerButton;
 	let drawerButtons;
 	let courseLists;
@@ -179,6 +180,13 @@ const Navigation = (function (RenderHeader, RenderImageSlider, Configuration, Gl
 		fKursDrawerButton = document.querySelector('#open-close-drawer-button-fkurse');
 		if (fKursDrawerButton !== null) {
 			fKursDrawerButton.addEventListener('click', (event) => {
+				toggleTextContainerDrawer(event.target);
+			});
+		}
+
+		eskimotierenDrawerButton = document.querySelector('#open-close-drawer-button-eskimotieren');
+		if (eskimotierenDrawerButton !== null) {
+			eskimotierenDrawerButton.addEventListener('click', (event) => {
 				toggleTextContainerDrawer(event.target);
 			});
 		}

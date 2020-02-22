@@ -10,8 +10,12 @@ const CourseDates = (function (RenderCourseDates, Dates) {
 						course.vonDatum = Dates.convertToAllBrowsersReadableDate(course.vonDatum);
 						course.bisDatum = Dates.convertToAllBrowsersReadableDate(course.bisDatum);
 					});
-					RenderCourseDates.createCourseLevelB(courses);
-					RenderCourseDates.createCourseLevelF(courses);
+					RenderCourseDates.createCourseListFor(courses, 'B', 'Kanukurs', '.course-list-wrapper-bCourse');
+					RenderCourseDates.createCourseListFor(courses, 'F', 'Kanukurs', '.course-list-wrapper-fCourse')
+					RenderCourseDates.createCourseListFor(courses, 'alle', 'Eskimotieren', '.course-list-wrapper-rollCourse')
+
+					// RenderCourseDates.createCourseLevelB(courses);
+					// RenderCourseDates.createCourseLevelF(courses);
 					RenderCourseDates.createPaddleJourniesOverview(courses);
 					RenderCourseDates.createPaddleJourneyKorsika(courses);
 					resolve();
