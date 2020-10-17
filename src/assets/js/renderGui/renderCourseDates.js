@@ -41,6 +41,29 @@ const RenderCourseDates = (function (Dates, Globals) {
 		return linkButton;
 	}
 
+	function createADetailOfACourseListItem(title, text) {
+		const gridX12DetailElement = document.createElement('div');
+		gridX12DetailElement.classList.add('gridx12');
+
+		const gridX12Col1 = document.createElement('div');
+		gridX12Col1.classList.add('gridx12__width6--col1of2');
+		const titleOfDetailElement = document.createElement('h4');
+		titleOfDetailElement.classList.add('course-list-detail__title');
+		titleOfDetailElement.innerText = title;
+		const textOfDetailElement = document.createElement('p');
+		textOfDetailElement.innerHTML = text;
+		gridX12Col1.appendChild(titleOfDetailElement);
+		gridX12Col1.appendChild(textOfDetailElement);
+
+		const gridX12Col2 = document.createElement('div');
+		gridX12Col2.classList.add('gridx12__width6--col2of2');
+
+		gridX12DetailElement.appendChild(gridX12Col1);
+		gridX12DetailElement.appendChild(gridX12Col2);
+
+		return gridX12DetailElement;
+	}
+
 	/**
 	 * Erstellt eine Liste mit Kursen:
 	 *
@@ -128,26 +151,6 @@ const RenderCourseDates = (function (Dates, Globals) {
 		const courseListItemDetailContentWrapper = document.createElement('div');
 		courseListItemDetailContentWrapper.classList.add('course-list-item-detail__content-wrapper');
 
-		const gridX12MeetingPoint = document.createElement('div');
-		gridX12MeetingPoint.classList.add('gridx12');
-
-		const gridX12Col1 = document.createElement('div');
-		gridX12Col1.classList.add('gridx12__width6--col1of2');
-		const titleMeetingPoint = document.createElement('h4');
-		titleMeetingPoint.classList.add('course-list-detail__title');
-		titleMeetingPoint.innerText = 'Treffpunkt:';
-		const textMeetingPoint = document.createElement('p');
-		textMeetingPoint.innerHTML = courseDate.treffpunkt;
-		gridX12Col1.appendChild(titleMeetingPoint);
-		gridX12Col1.appendChild(textMeetingPoint);
-
-		const gridX12Col2 = document.createElement('div');
-		gridX12Col2.classList.add('gridx12__width6--col2of2');
-
-		gridX12MeetingPoint.appendChild(gridX12Col1);
-		gridX12MeetingPoint.appendChild(gridX12Col2);
-
-
 		const gridX12Costs = document.createElement('div');
 		gridX12Costs.classList.add('gridx12');
 
@@ -155,17 +158,17 @@ const RenderCourseDates = (function (Dates, Globals) {
 		gridX12CostsCol1.classList.add('gridx12__width6--col1of2');
 		const titleCosts = document.createElement('h4');
 		titleCosts.classList.add('course-list-detail__title');
-		titleCosts.innerText = 'Kosten:';
+		titleCosts.innerText = 'Kosten';
 
 		const costList = document.createElement('ul');
 		const textCostCourse = document.createElement('li');
 		textCostCourse.innerHTML = '<span class="course-list-detail__amount--part">' + parseFloat(courseDate.preisKurs) + '</span>';
-		textCostCourse.innerHTML += 'für den Kurs';
+		textCostCourse.innerHTML += 'Kurs';
 		costList.appendChild(textCostCourse);
 		if (parseFloat(courseDate.preisMaterial) > 0) {
 			const textCostEquipment = document.createElement('li');
 			textCostEquipment.innerHTML = '<span class="course-list-detail__amount--part">' + parseFloat(courseDate.preisMaterial) + '</span>';
-			textCostEquipment.innerHTML += 'für die gesamte Ausrüstung';
+			textCostEquipment.innerHTML += 'gesamte Ausrüstung (falls benötigt)';
 			costList.appendChild(textCostEquipment);
 		}
 		const textCostTotal = document.createElement('li');
@@ -193,7 +196,18 @@ const RenderCourseDates = (function (Dates, Globals) {
 		gridX12Costs.appendChild(gridX12CostsCol1);
 		gridX12Costs.appendChild(gridX12CostsCol2);
 
-		courseListItemDetailContentWrapper.appendChild(gridX12MeetingPoint);
+		if (courseDate.beschreibung !== null &&
+			courseDate.beschreibung !== undefined &&
+			courseDate.beschreibung !== '') {
+			courseListItemDetailContentWrapper.appendChild(createADetailOfACourseListItem('Detail', courseDate.beschreibung));
+		}
+
+		if (courseDate.treffpunkt !== null &&
+			courseDate.treffpunkt !== undefined &&
+			courseDate.treffpunkt !== '') {
+			courseListItemDetailContentWrapper.appendChild(createADetailOfACourseListItem('Treffpunkt', courseDate.treffpunkt));
+		}
+
 		courseListItemDetailContentWrapper.appendChild(gridX12Costs);
 		courseListItemDetail.appendChild(courseListItemDetailContentWrapper);
 

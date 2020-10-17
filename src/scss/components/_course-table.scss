@@ -28,7 +28,7 @@
 }
 
 .course-list-item-detail.js-show{
-	max-height: 350px;
+	max-height: 450px;
 	transition: max-height 300ms ease-in-out 1ms;
 }
 
@@ -43,6 +43,11 @@ h4.course-list-detail__title{
 	line-height: 1.5rem;
 	padding-top: 0.5rem;
 	margin-bottom: 0.5rem;
+}
+
+
+h4.course-list-detail__title::after{
+	content: ':';
 }
 
 .course-list-detail__amount--part, .course-list-detail__amount--total{
