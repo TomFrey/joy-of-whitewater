@@ -54,9 +54,9 @@ const allFrontAppJsFiles = [
 	'./node_modules/slick-carousel/slick/slick.js',
 	'./node_modules/gsap/src/uncompressed/TweenMax.js',
 
-	'./src/assets/js/config.js',
+	'./src/assets/js/util/imageConfig.js',
 	'./src/assets/js/util/crypto.js',
-	'./src/assets/js/util/globalSettings.js',
+	'./src/assets/js/util/globalConfig.js',
 	'./src/assets/js/util/dates.js',
 	'./src/assets/js/util/validator.js',
 	'./src/assets/js/util/preloader.js',
@@ -197,7 +197,7 @@ function minifyBackOfficeJs(cb){
  * Löscht das dist
  */
 function deleteDistFolder(){
-	return gulp.src('dist', { read: false })
+	return gulp.src('dist', { read: false, allowEmpty: true })
 		.pipe(clean());
 }
 
@@ -391,7 +391,7 @@ function remoteDeploy(getFtpConnection, ftpDestination){
 	const localFilesToCopy = ['./dist/**/*'];
 
 	return gulp.src(localFilesToCopy, {buffer: false})
-		.pipe(connection.newer(ftpDestination))
+		//.pipe(connection.newer(ftpDestination)) //nur neue Files hochladen
 		.pipe(connection.dest(ftpDestination))
 }
 

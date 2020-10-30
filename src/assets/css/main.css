@@ -657,7 +657,6 @@ img.text-container-fill__bottom {
     list-style: none;
     float: left;
     left: 0;
-    position: absolute;
     width: 100%; }
   .images-carousel > .topImage {
     position: relative;
@@ -746,7 +745,7 @@ img.text-container-fill__bottom {
   transition: max-height 300ms ease-in-out 1ms; }
 
 .course-list-item-detail.js-show {
-  max-height: 350px;
+  max-height: 460px;
   transition: max-height 300ms ease-in-out 1ms; }
 
 .course-list-item-detail__content-wrapper {
@@ -759,6 +758,9 @@ h4.course-list-detail__title {
   line-height: 1.5rem;
   padding-top: 0.5rem;
   margin-bottom: 0.5rem; }
+
+h4.course-list-detail__title::after {
+  content: ':'; }
 
 .course-list-detail__amount--part, .course-list-detail__amount--total {
   margin-right: 8px;

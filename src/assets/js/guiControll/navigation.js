@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-const Navigation = (function (RenderHeader, RenderImageSlider, Configuration, Globals, Preloader) {
+const Navigation = (function (RenderHeader, RenderImageSlider, Images, Globals, Preloader) {
 	const SHOW = 'js-show';
 	const HIDE = 'js-hide';
 	const CLOSE_NAV = 'js-close-nav-button';
@@ -13,11 +13,6 @@ const Navigation = (function (RenderHeader, RenderImageSlider, Configuration, Gl
 	let paddelReisenDrawerButton;
 	let drawerButtons;
 	let courseLists;
-
-	function getNameOfCurrentSite() {
-		// console.log('path: '+ location.pathname);
-		return location.pathname.split('/')[1].split('.')[0];
-	}
 
 
 	function setHeaderTitle(titleContent) {
@@ -78,7 +73,7 @@ const Navigation = (function (RenderHeader, RenderImageSlider, Configuration, Gl
 			// Abfragen, welcher Drawer (Korsika, Soca...) geöffnet wurde.
 			if (event.firstElementChild.innerHTML === 'Details zu Korsika') {
 				const path = Globals.get().pathForImagesInTheSlider + 'korsika/';
-				RenderImageSlider.createImageItemsForTheImageSlider(Configuration.getImagesForKorsika(), path)
+				RenderImageSlider.createImageItemsForTheImageSlider(Images.getImagesForKorsika(), path)
 					.then(() => {
 						ImageSlider.init();
 					})
@@ -92,14 +87,11 @@ const Navigation = (function (RenderHeader, RenderImageSlider, Configuration, Gl
 
 	function toggleCourseDetails(event) {
 		const drawer = event.parentElement.parentElement.lastElementChild;
-		// const drawerButtonIcon = event.lastElementChild;
 
 		if (drawer.classList.contains(SHOW)) {
 			drawer.classList.remove(SHOW);
-			// drawerButtonIcon.classList.remove(SHOW);
 		} else {
 			drawer.classList.add(SHOW);
-			// drawerButtonIcon.classList.add(SHOW);
 		}
 	}
 
@@ -113,7 +105,7 @@ const Navigation = (function (RenderHeader, RenderImageSlider, Configuration, Gl
 			drawer.classList.remove(SHOW);
 			drawerButtonIcon.classList.remove(SHOW);
 
-			// Detaildrawer öffnen
+		// Detaildrawer öffnen
 		} else {
 			drawer.classList.add(SHOW);
 			drawerButtonIcon.classList.add(SHOW);
@@ -122,7 +114,7 @@ const Navigation = (function (RenderHeader, RenderImageSlider, Configuration, Gl
 
 
 	function setSettingsDependingOnUrl() {
-		const whereAmI = getNameOfCurrentSite();
+		const whereAmI = Globals.get().nameOfCurrentSite;
 		const allLinksFromMainNavigation = [];
 
 		const kanuKurse = document.querySelector('li.main-navi-desktop__kanukurse a.u-slide-line');
@@ -138,23 +130,23 @@ const Navigation = (function (RenderHeader, RenderImageSlider, Configuration, Gl
 
 		switch (whereAmI) {
 			case 'kanukurse':
-				RenderHeader.createPictureTagForMobileHeader(Configuration.getMobileImagesForKanukurse());
+				RenderHeader.createPictureTagForMobileHeader(Images.getMobileImagesForKanukurse());
 				setHeaderTitle('Kajak- und  <br> Kanadierkurse');
-				RenderHeader.createImagesListForTheCarousel(Configuration.getImagesForKanukurse());
+				RenderHeader.createImagesListForTheCarousel(Images.getImagesForKanukurse());
 				kanuKurse.classList.add(SELECTED);
 				break;
 
 			case 'paddelreisen':
-				RenderHeader.createPictureTagForMobileHeader(Configuration.getMobileImagesForPaddelreisen());
+				RenderHeader.createPictureTagForMobileHeader(Images.getMobileImagesForPaddelreisen());
 				setHeaderTitle('Abenteuer- und <br> Genusspaddelreisen');
-				RenderHeader.createImagesListForTheCarousel(Configuration.getImagesForPaddelreisen());
+				RenderHeader.createImagesListForTheCarousel(Images.getImagesForPaddelreisen());
 				paddelReisen.classList.add(SELECTED);
 				break;
 
 			case '': // Startseite
-				RenderHeader.createPictureTagForMobileHeader(Configuration.getMobileImagesForJoyOfWhitewater());
+				RenderHeader.createPictureTagForMobileHeader(Images.getMobileImagesForJoyOfWhitewater());
 				setHeaderTitle('THE JOY <br>OF WHITEWATER');
-				RenderHeader.createImagesListForTheCarousel(Configuration.getImagesForJoyOfWhitewater());
+				RenderHeader.createImagesListForTheCarousel(Images.getImagesForJoyOfWhitewater());
 				joyOfWhitewater.classList.add(SELECTED);
 				break;
 
@@ -221,4 +213,4 @@ const Navigation = (function (RenderHeader, RenderImageSlider, Configuration, Gl
 	return {
 		init: initiate
 	};
-})(RenderHeader, RenderImageSlider, Configuration, Globals, Preloader);
+})(RenderHeader, RenderImageSlider, Images, Globals, Preloader);

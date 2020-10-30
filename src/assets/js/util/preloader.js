@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-const Preloader = (function (Configuration, Globals) {
+const Preloader = (function (Images, Globals) {
 	/**
 	 * Loads all the images into the browser
 	 */
@@ -15,21 +15,32 @@ const Preloader = (function (Configuration, Globals) {
 		);
 	}
 
-
 	/**
 	 * Call preload() and load all the images into the browser
 	 * and return a promise when all images are loaded
 	 */
 	function loadImagesForHeaderCarousel() {
 		const imagePaths = Globals.get().pathForImagesInTheCarousel;
-		const imagesToPreload = Configuration.getAllCarouselImages().map((image) => {
+		const imagesToPreload = Images.getAllCarouselImages().map((image) => {
 			return imagePaths + image.name + '.jpg';
 		});
 		return preload(imagesToPreload);
 	}
 
+	/**
+	 * Call preload() and load the first image into the browser
+	 * and return a promise when this image is loaded
+	 */
+	function loadFirstImageForHeaderCarousel() {
+		const imagePaths = Globals.get().pathForImagesInTheCarousel;
+		const imageToPreload = imagePaths + Images.getTheFirstImageForJoyOfWhitewater().name + '.jpg';
+		const imagesToPreload = [imageToPreload];
+		return preload(imagesToPreload);
+	}
+
 	// public api
 	return {
-		loadImagesForHeaderCarousel
+		loadImagesForHeaderCarousel,
+		loadFirstImageForHeaderCarousel
 	};
-})(Configuration, Globals);
+})(Images, Globals);

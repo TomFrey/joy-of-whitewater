@@ -3,19 +3,40 @@ const App = (function () {
 
 	/** ** wird nach dem DOM ready ausgeführt ** */
 	function init() {
-		CourseDates.loadAndRender()
+
+		// Jeweils das erste Bild vollständig laden und dann schon mal anzeigen,
+		// bevor alle anderen Bilder... geladen werden.
+		Preloader.loadFirstImageForHeaderCarousel()
 			.then(() => {
-				return Preloader.loadImagesForHeaderCarousel();
+				const whereAmI = Globals.get().nameOfCurrentSite;
+				switch (whereAmI) {
+					case 'kanukurse':
+						RenderHeader.addJustFirstImage(Images.getImagesForKanukurse());
+						break;
+					case 'paddelreisen':
+						RenderHeader.addJustFirstImage(Images.getImagesForPaddelreisen());
+						break;
+					case '': // Startseite
+						RenderHeader.addJustFirstImage(Images.getImagesForJoyOfWhitewater());
+						break;
+					default: // alle Seiten ohne Header, wie Anmeldung, Impressum, AGB ...
+				}
+
+				// alle Kursdaten laden
+				CourseDates.loadAndRender()
+					.then(() => {
+						// Alle Bilder vorladen, damit man den Aufbau im GUI nicht sieht.
+						return Preloader.loadImagesForHeaderCarousel();
+					})
+					.then(() => {
+						CourseRegistration.init();
+						Navigation.init();
+						ImageCarousel.init();
+					})
+					.catch((error) => {
+						console.log(error);
+					});
 			})
-			.then((values) => {
-				console.log(values);
-				CourseRegistration.init();
-				Navigation.init();
-				ImageCarousel.init();
-			})
-			.catch((error) => {
-				console.log(error);
-			});
 	}
 
 	// public api

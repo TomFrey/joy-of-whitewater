@@ -24,7 +24,7 @@
 		"RenderImageSlider": false,
 		"RenderConfirmation": false,
 		"RenderCourseDates": false,
-		"Configuration": false,
+		"Images": false,
 		"Service": false,
 		"Server": false,
 		"Preloader": false,

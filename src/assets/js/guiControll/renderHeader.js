@@ -19,7 +19,26 @@ const RenderHeader = (function (Globals) {
 	}
 
 	/**
-	 * Fügt all li Elemente in das ul Element.
+	 * Fügt das erste li Element (mit dem Image) in das ul Element.
+	 * Kein Carousel nur ein Bild, damit beim Laden der Seite das erste Bild sofort dargestellt wird.
+	 * @param images
+	 */
+	function addJustFirstImage(images) {
+		const ulElementWithImages = document.querySelector('.images-carousel ul.images');
+
+		// delete all current images
+		while (ulElementWithImages.firstChild) {
+			ulElementWithImages.removeChild(ulElementWithImages.firstChild);
+		}
+
+		// add the last image which is the first to show
+		//const liElement = createLiElementWithImageForTheCarousel(images[images.length-1]);
+		const liElement = createLiElementWithImageForTheCarousel(images[0]);
+		ulElementWithImages.appendChild(liElement);
+	}
+
+	/**
+	 * Fügt alle li Elemente mit dem Image in das ul Element.
 	 * @param images
 	 */
 	function createImagesListForTheCarousel(images) {
@@ -31,7 +50,7 @@ const RenderHeader = (function (Globals) {
 		}
 
 		// add the new images
-		images.forEach((image) => {
+		images.slice().reverse().forEach((image) => {
 			const liElement = createLiElementWithImageForTheCarousel(image);
 			ulElementWithImages.appendChild(liElement);
 		});
@@ -70,6 +89,7 @@ const RenderHeader = (function (Globals) {
 	// public api
 	return {
 		createImagesListForTheCarousel,
-		createPictureTagForMobileHeader
+		createPictureTagForMobileHeader,
+		addJustFirstImage
 	};
 })(Globals);

@@ -1,35 +1,32 @@
 // eslint-disable-next-line no-unused-vars
-var Configuration = (function () {
+var Images = (function () {
 	// Die Bilder, die im Header automatisch alle paar Sekunden wechseln.
 	// Die Bilder müssen unter /assets/images/carousel/*.jpg liegen
 	const imageCarousel = {
 		theJoyOfWhiteWaterImages: [
-			{ name: 'joyOfWhitewater_2', title: 'Kanuschule', alt: 'Kanuschule - The Joy Of Whitewater' },
 			{ name: 'joyOfWhitewater_6', title: 'Kanuschule', alt: 'Kanuschule - The Joy Of Whitewater' },
-			{ name: 'joyOfWhitewater_4', title: 'Kanuschule', alt: 'Kanuschule - The Joy Of Whitewater' },
-			{ name: 'joyOfWhitewater_5', title: 'Kanuschule', alt: 'Kanuschule - The Joy Of Whitewater' },
 			{ name: 'joyOfWhitewater_1', title: 'Kanuschule', alt: 'Kanuschule - The Joy Of Whitewater' },
-			{ name: 'joyOfWhitewater_7', title: 'Kanuschule', alt: 'Kanuschule - The Joy Of Whitewater' }
+			{ name: 'joyOfWhitewater_7', title: 'Kanuschule', alt: 'Kanuschule - The Joy Of Whitewater' },
+			{ name: 'joyOfWhitewater_2', title: 'Kanuschule', alt: 'Kanuschule - The Joy Of Whitewater' },
+			{ name: 'joyOfWhitewater_4', title: 'Kanuschule', alt: 'Kanuschule - The Joy Of Whitewater' }
 		],
 		kanukurseImages: [
+			{ name: 'kanukurse_1', title: 'Open Canoe Kurse', alt: 'Kanuschule' },
+			{ name: 'kanukurse_4', title: 'Kanukurse', alt: 'Kanuschule' },
+			{ name: 'kanukurse_7', title: 'Kajakkurse', alt: 'Kanuschule' },
 			{ name: 'kanukurse_2', title: 'Eskimotieren', alt: 'Kanuschule' },
 			{ name: 'kanukurse_6', title: 'Kajakkurse', alt: 'Kanuschule' },
-			{ name: 'kanukurse_3', title: 'Kajakkurs', alt: 'Kanuschule' },
-			{ name: 'kanukurse_7', title: 'Kajakkurse', alt: 'Kanuschule' },
-			{ name: 'kanukurse_4', title: 'Kanukurse', alt: 'Kanuschule' },
-			{ name: 'kanukurse_1', title: 'Open Canoe Kurse', alt: 'Kanuschule' },
+			{ name: 'kanukurse_3', title: 'Kajakkurs', alt: 'Kanuschule' }
 		],
 		paddelreisenImages: [
-			{ name: 'paddelreisen_11', title: 'Witecombe, New Zealand', alt: 'Paddelreisen' },
+			{ name: 'paddelreisen_10', title: 'Tavignano, Korsika', alt: 'Paddelreisen' },
+			{ name: 'paddelreisen_7', title: 'Transportmittel in Chile', alt: 'Paddelreisen' },
+			{ name: 'paddelreisen_9', title: 'Jungle Ecuador', alt: 'Paddelreisen' },
 			{ name: 'paddelreisen_1', title: 'Sesia, Piemont', alt: 'Paddelreisen' },
 			{ name: 'paddelreisen_2', title: 'Paddelreise in Georgien', alt: 'Paddelreisen' },
 			{ name: 'paddelreisen_5', title: 'Taravo, Korsika', alt: 'Paddelreisen' },
 			{ name: 'paddelreisen_4', title: 'Open Canoe in Costa Rica', alt: 'Paddelreisen' },
-			{ name: 'paddelreisen_9', title: 'Jungle Ecuador', alt: 'Paddelreisen' },
-			{ name: 'paddelreisen_3', title: 'Open Canoe in Costa Rica', alt: 'Paddelreisen' },
-			{ name: 'paddelreisen_8', title: 'Quichos, Ecuador', alt: 'Paddelreisen' },
-			{ name: 'paddelreisen_7', title: 'Transportmittel in Chile', alt: 'Paddelreisen' },
-			{ name: 'paddelreisen_10', title: 'Tavignano, Korsika', alt: 'Paddelreisen' }
+			{ name: 'paddelreisen_8', title: 'Quichos, Ecuador', alt: 'Paddelreisen' }
 		]
 	};
 

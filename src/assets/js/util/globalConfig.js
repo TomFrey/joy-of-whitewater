@@ -5,7 +5,8 @@ const Globals = (function () {
 			breakpointLarge: 740,
 			breakpointMedium: 440,
 			pathForImagesInTheCarousel: '/assets/images/carousel/',
-			pathForImagesInTheSlider: '/assets/images/slider/'
+			pathForImagesInTheSlider: '/assets/images/slider/',
+			nameOfCurrentSite: location.pathname.split('/')[1].split('.')[0]
 		};
 	}
 

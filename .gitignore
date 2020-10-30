@@ -17,5 +17,5 @@ src/assets/css/
 # die Datei, die bestätigt, dass man der Inhaber ist, ausschliessen
 src/assets/webServerConfig/google6d6ea9eec37d2de0.html
 
-# die config.js Datei in Root Ordner ausschliessen
-config.js
+# die imageConfig.js Datei in Root Ordner ausschliessen
+# imageConfig.js
