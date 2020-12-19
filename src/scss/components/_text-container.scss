@@ -293,7 +293,7 @@ img.text-container-fill__bottom {
 
       	img{
         	max-width: 100%;
-        	height: auto;
+        	height: 100%;  //set this to 100% and test if it works in FF, Chrome and Safari
       	}
 
 		img.width-50{

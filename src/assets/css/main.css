@@ -605,7 +605,7 @@ img.text-container-fill__bottom {
         justify-content: center; }
       .text-container-main > .filler img {
         max-width: 100%;
-        height: auto; }
+        height: 100%; }
       .text-container-main > .filler img.width-50 {
         max-width: 50%; }
     .text-container-main > .filler-right {
