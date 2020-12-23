@@ -349,6 +349,7 @@ nav {
           font-size: 1.5rem;
           font-weight: bold;
           background: url("/assets/images/link.svg") 0px 2px white repeat-x;
+          background-size: auto 85%;
           position: relative;
           display: inline-block;
           overflow: hidden;

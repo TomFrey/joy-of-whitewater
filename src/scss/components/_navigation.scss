@@ -98,6 +98,7 @@ nav{
 				a.u-slide-line {
 					@include navigationFontDesktop();
 					background: url("/assets/images/link.svg") 0px 2px white repeat-x;
+					background-size: auto 85%;  //Hack für MS Edge, ohne dies ist die Linie gestrichelt
 					position: relative;
 					display: inline-block;
 					overflow: hidden;
