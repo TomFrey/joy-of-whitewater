@@ -43,7 +43,7 @@
 
 .equipment-needed-input{
 	@include courseTableFont();
-	background-color: $baseColor3;
+	background-color: $baseColor1;
 	border: none;
 	width: 100%;
 }
@@ -120,7 +120,7 @@
 
 .moving-placeholder__input{
 	@include registrationFormFont();
-	background-color: $baseColor3;
+	background-color: $baseColor1;
 	border: none;
 	color: $complimentaryColor2;
 	display: block;

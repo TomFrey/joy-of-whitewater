@@ -152,7 +152,7 @@
 		flex-flow: row nowrap;
 
 		li:not(:last-of-type):after{
-			color: $baseColor3;
+			color: $baseColor1;
 			content: '|';
 			margin: 0 $basicWidth;
 		}
