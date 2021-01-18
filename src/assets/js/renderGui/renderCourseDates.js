@@ -18,6 +18,49 @@ const RenderCourseDates = (function (Dates, Globals) {
 	}
 
 	/**
+	 * Sortiert nach der Gruppe der Paddelreise z.B. 'Piemont, Korsika...'
+	 * @param courseDates
+	 * @returns {*}
+	 */
+	function sortPaddleDestination(courseDates) {
+		return courseDates.sort((a, b) => {
+			if (b.paddelreiseGruppe < a.paddelreiseGruppe) {
+				return 1;
+			}
+			if (b.paddelreiseGruppe > a.paddelreiseGruppe) {
+				return -1;
+			}
+			return 0;
+		});
+	}
+
+	function groupPaddleJournies(paddleJournies) {
+		let paddleJourneyGroupArrays = [];
+		let group = [];
+
+		paddleJournies.forEach((journey, index, allJournies) => {
+			//erster Lauf
+			if (index === 0) {
+				group.push(journey);
+			//alle anderen Läufe
+			} else {
+				if (journey.paddelreiseGruppe === allJournies[index-1].paddelreiseGruppe) {
+					group.push(journey);
+				} else {
+					paddleJourneyGroupArrays.push(group);
+					group = [];
+					group.push(journey);
+				}
+			}
+			//letzter Lauf
+			if (index === allJournies.length-1) {
+				paddleJourneyGroupArrays.push(group);
+			}
+		});
+		return paddleJourneyGroupArrays;
+	}
+
+	/**
 	 * Kreiert den 'Zur Anmeldung' Knopf
 	 * @returns {HTMLElement}
 	 */
@@ -186,7 +229,19 @@ const RenderCourseDates = (function (Dates, Globals) {
 		if (courseDate.typ === 'Paddelreise'){
 			const detailsLink = document.createElement('a');
 			detailsLink.classList.add('link-in-text');
-			detailsLink.setAttribute('href', '/paddelreisen.html#paddleJoureyKorsikaAnchor');
+
+			switch (courseDate.land) {
+				case 'Korsika':
+					detailsLink.setAttribute('href', '/paddelreisen.html#paddleJourneyKorsikaAnchor');
+					break;
+				case 'Piemont/Italien':
+					detailsLink.setAttribute('href', '/paddelreisen.html#paddleJourneyPiemontAnchor');
+					break;
+				default:
+					detailsLink.setAttribute('href', '/paddelreisen.html');
+					break;
+			}
+
 			detailsLink.innerText = 'weitere Details zu ' + courseDate.name;
 			gridX12CostsCol2.appendChild(detailsLink);
 		}
@@ -251,41 +306,106 @@ const RenderCourseDates = (function (Dates, Globals) {
 	 * @returns {HTMLElement}
 	 */
 	function createPaddleJourneyItem(courseDate) {
+		let list;
+		let column1;
+		let column2;
+
 		const valueDateRange = Dates.convertToMediumWithoutYearDateFormat(courseDate.vonDatum)
 			+ ' - '
 			+ Dates.convertToMediumWithYearDateFormat(courseDate.bisDatum);
 		const valueDuration = Dates.calculateDurationBetweenTwoDates(courseDate.bisDatum, courseDate.vonDatum);
 		const valueLocation = courseDate.ort + ' (' + courseDate.land + ')';
 
-		const paddelJourneyItem = document.createElement('div');
-		paddelJourneyItem.classList.add('gridx12');
+		//Titel der Reise
+		const paddelJourneyTitle = document.createElement('div');
+		paddelJourneyTitle.classList.add('gridx12');
 
-		const column1 = document.createElement('div');
+		column1 = document.createElement('div');
 		column1.classList.add('gridx12__width5--col1of2');
-
 		const courseName = document.createElement('h3');
 		courseName.classList.add('title');
 		courseName.innerText = courseDate.name;
+		column1.appendChild(courseName);
 
-		const list = document.createElement('ul');
+		column2 = document.createElement('div');
+		column2.classList.add('gridx12__width5--col2of2');
+
+		paddelJourneyTitle.appendChild(column1);
+		paddelJourneyTitle.appendChild(column2);
+
+
+		//Kursort, Datum und der Treffpunkt
+		const paddelJourneyTimePlace = document.createElement('div');
+		paddelJourneyTimePlace.classList.add('gridx12');
+
+		column1 = document.createElement('div');
+		column1.classList.add('gridx12__width5--col1of2');
+		list = document.createElement('ul');
 		list.classList.add('text-container-drawer__list');
+		list.appendChild(createListItemForPaddleJourney('Kursort', valueLocation));
 		list.appendChild(createListItemForPaddleJourney('Datum', valueDateRange));
 		list.appendChild(createListItemForPaddleJourney('Paddeltage', valueDuration));
-		list.appendChild(createListItemForPaddleJourney('Kursort', valueLocation));
+		column1.appendChild(list);
+
+		column2 = document.createElement('div');
+		column2.classList.add('gridx12__width5--col2of2');
+		const meetingPoint = document.createElement('div');
+		meetingPoint.classList.add('text-container-drawer__meetingPoint');
+		meetingPoint.innerText = courseDate.treffpunkt;
+		column2.appendChild(meetingPoint);
+
+		paddelJourneyTimePlace.appendChild(column1);
+		paddelJourneyTimePlace.appendChild(column2);
+
+
+		//Kurs Stufe und die Beschreibung zum Kurs
+		const paddelJourneyDescription = document.createElement('div');
+		paddelJourneyDescription.classList.add('gridx12');
+
+		column1 = document.createElement('div');
+		column1.classList.add('gridx12__width5--col1of2');
+		list = document.createElement('ul');
+		list.classList.add('text-container-drawer__list');
 		list.appendChild(createListItemForPaddleJourney('Stufe', courseDate.kursStufe));
 		list.appendChild(createListItemForPaddleJourney('Kursleitung', courseDate.guide));
 		list.appendChild(createListItemForPaddleJourney('Preis', courseDate.preisKurs));
-		column1.appendChild(courseName);
 		column1.appendChild(list);
 
-		const column2 = document.createElement('div');
+		column2 = document.createElement('div');
+		column2.classList.add('gridx12__width5--col2of2');
+		const description = document.createElement('div');
+		description.classList.add('text-container-drawer__description');
+		description.innerHTML = courseDate.beschreibung;
+		column2.appendChild(description);
+
+		paddelJourneyDescription.appendChild(column1);
+		paddelJourneyDescription.appendChild(column2);
+
+
+		//Anmelde Button ganz am Schluss
+		const paddelJourneyRegistration = document.createElement('div');
+		paddelJourneyRegistration.classList.add('gridx12');
+
+		column1 = document.createElement('div');
+		column1.classList.add('gridx12__width5--col1of2');
+
+		column2 = document.createElement('div');
 		column2.classList.add('gridx12__width5--col2of2');
 		column2.classList.add('content-at-the-end');
 		const linkButton = createLinkButton(courseDate);
 		column2.appendChild(linkButton);
 
-		paddelJourneyItem.appendChild(column1);
-		paddelJourneyItem.appendChild(column2);
+		paddelJourneyRegistration.appendChild(column1);
+		paddelJourneyRegistration.appendChild(column2);
+
+		//Item zusammensetzen
+		const paddelJourneyItem = document.createElement('div');
+		paddelJourneyItem.classList.add('paddleJourneyItem');
+		paddelJourneyItem.appendChild(paddelJourneyTitle);
+		paddelJourneyItem.appendChild(paddelJourneyTimePlace);
+		paddelJourneyItem.appendChild(paddelJourneyDescription);
+		paddelJourneyItem.appendChild(paddelJourneyRegistration);
+
 		return paddelJourneyItem;
 	}
 
@@ -323,8 +443,6 @@ const RenderCourseDates = (function (Dates, Globals) {
 			});
 		}
 	}
-
-
 
 
 	/**
@@ -366,7 +484,7 @@ const RenderCourseDates = (function (Dates, Globals) {
 	 * jedes Korsika Datum einen Eintrag. In der Genuss/Abenteuerreisen Abteilung.
 	 * @param courseDates
 	 */
-	function renderListForPaddleJourniesKorsika(courseDates) {
+/*	function renderListForPaddleJourniesKorsika(courseDates) {
 		let paddleJournies = courseDates.filter((courseDate) => {
 			return courseDate.typ === 'Paddelreise' && courseDate.land === 'Korsika';
 		});
@@ -386,13 +504,77 @@ const RenderCourseDates = (function (Dates, Globals) {
 				courseListPaddleJourneyWrapper.appendChild(courseListItem);
 			});
 		}
-	}
+	} */
 
+	/**
+	 * Sucht nach dem Vorkommen von 'course-list-wrapper-paddleJourneyPiemont' und erstellt darin für
+	 * jedes Sesia Datum einen Eintrag. In der Genuss/Abenteuerreisen Abteilung.
+	 * @param courseDates
+	 */
+	/*function renderListForPaddleJourniesPiemont(courseDates) {
+		let paddleJournies = courseDates.filter((courseDate) => {
+			return courseDate.typ === 'Paddelreise' && courseDate.land === 'Piemont/Italien';
+		});
+		paddleJournies = sortDatumAscending(paddleJournies);
+
+		const courseListPaddleJourneyWrapper = document.querySelector('.course-list-wrapper-paddleJourneyPiemont');
+
+		if (courseListPaddleJourneyWrapper !== null) {
+			// delete all current children
+			while (courseListPaddleJourneyWrapper.firstChild) {
+				courseListPaddleJourneyWrapper.removeChild(courseListPaddleJourneyWrapper.firstChild);
+			}
+
+			// add the course dates
+			paddleJournies.forEach((paddleJourney) => {
+				const courseListItem = createPaddleJourneyItem(paddleJourney);
+				courseListPaddleJourneyWrapper.appendChild(courseListItem);
+			});
+		}
+	}*/
+
+
+	/**
+	 * Sucht alle Reisen zusammen, anhand von typ='Paddelreise'. Und gruppiert diese dann nach Reiseorten
+	 * anhand von paddelreise_gruppe='...'.
+	 *
+	 * Sucht für jede gefundene Reisegruppe nach dem Vorkommen von 'course-list-wrapper-paddleJourney+Name der Gruppe' und erstellt darin für
+	 * jedes Reisedatum der Gruppe einen Eintrag. In der Genuss/Abenteuerreisen Abteilung.
+	 * @param courseDates
+	 */
+	function renderListsForAllPaddleJournies(courseDates) {
+		let paddleJournies = courseDates.filter((courseDate) => {
+			return courseDate.typ === 'Paddelreise';
+		});
+		paddleJournies = sortPaddleDestination(paddleJournies);
+		let paddleJourneyGroups = groupPaddleJournies(paddleJournies);
+
+		//Für jede Paddelreise Gruppe den entsprechenden Wrapper im html suchen
+		paddleJourneyGroups.forEach((paddleJourneyGroup) => {
+			const courseListPaddleJourneyWrapper = document.querySelector('.course-list-wrapper-paddleJourney' + paddleJourneyGroup[0].paddelreiseGruppe);
+
+			if (courseListPaddleJourneyWrapper !== null) {
+				// delete all current children
+				while (courseListPaddleJourneyWrapper.firstChild) {
+					courseListPaddleJourneyWrapper.removeChild(courseListPaddleJourneyWrapper.firstChild);
+				}
+				paddleJourneyGroup = sortDatumAscending(paddleJourneyGroup);
+				// add the course dates
+				paddleJourneyGroup.forEach((paddleJourney) => {
+					const courseListItem = createPaddleJourneyItem(paddleJourney);
+					courseListPaddleJourneyWrapper.appendChild(courseListItem);
+				});
+			}
+		});
+	}
 
 	// public api
 	return {
 		createCourseListFor: renderCourseListFor,
 		createPaddleJourniesOverview: renderListForPaddleJournies,
-		createPaddleJourneyKorsika: renderListForPaddleJourniesKorsika
+	//	createPaddleJourneyKorsika: renderListForPaddleJourniesKorsika,
+	//	createPaddleJourneyPiemont: renderListForPaddleJourniesPiemont,
+
+		createPaddleJournies: renderListsForAllPaddleJournies
 	};
 })(Dates, Globals);

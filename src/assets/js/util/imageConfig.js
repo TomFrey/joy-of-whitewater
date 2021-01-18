@@ -52,6 +52,15 @@ var Images = (function () {
 	const imageSlider = {
 		korsika: [
 			{
+				name: 'korsika_1_gr', nameMobile: 'korsika_1_kl', title: 'Herrliche Flusslandschaft am Taravo', alt: 'Herrliche Flusslandschaft am Taravo'
+			},
+			{
+				name: 'korsika_2_gr', nameMobile: 'korsika_2_kl', title: 'Tavignano in Korsika', alt: 'Tavignano in Korsika'
+			},
+			{
+				name: 'korsika_4_gr', nameMobile: 'korsika_4_kl', title: 'Asco in Korsika', alt: 'Asco in Korsika'
+			},
+			{
 				name: 'korsika_12_gr', nameMobile: 'korsika_12_kl', title: 'Kajakcamp am Asco', alt: 'Kajakcamp am Asco'
 			},
 			{
@@ -73,21 +82,19 @@ var Images = (function () {
 				name: 'korsika_5_gr', nameMobile: 'korsika_5_kl', title: 'Streetlife in Korsika', alt: 'Streetlife in Korsika'
 			},
 			{
-				name: 'korsika_4_gr', nameMobile: 'korsika_4_kl', title: 'Asco in Korsika', alt: 'Asco in Korsika'
-			},
-			{
 				name: 'korsika_3_gr', nameMobile: 'korsika_3_kl', title: 'Einstieg am oberen Golo', alt: 'Einstieg am oberen Golo'
-			},
-			{
-				name: 'korsika_2_gr', nameMobile: 'korsika_2_kl', title: 'Tavignano in Korsika', alt: 'Tavignano in Korsika'
-			},
-			{
-				name: 'korsika_1_gr', nameMobile: 'korsika_1_kl', title: 'Herrliche Flusslandschaft am Taravo', alt: 'Herrliche Flusslandschaft am Taravo'
 			}
-
 		],
 		soca: [
 			{ name: 'joyOfWhitewater_5', title: 'Big Wave in Idaho', alt: 'The Joy Of Whitewater' }
+		],
+		piemont: [
+			{ name: 'piemont_4_gr', nameMobile: 'piemont_4_kl', title: 'Wildwasser im Vale Sesia', alt: 'Wildwasser im Vale Sesia' },
+			{ name: 'piemont_7_gr', nameMobile: 'piemont_7_kl', title: 'Wildwasser im Vale Sesia', alt: 'Wildwasser im Vale Sesia' },
+			{ name: 'piemont_2_gr', nameMobile: 'piemont_2_kl', title: 'Wildwasser im Vale Sesia', alt: 'Wildwasser im Vale Sesia' },
+			{ name: 'piemont_1_gr', nameMobile: 'piemont_1_kl', title: 'Wildwasser im Vale Sesia', alt: 'Wildwasser im Vale Sesia' },
+			{ name: 'piemont_3_gr', nameMobile: 'piemont_3_kl', title: 'Wildwasser im Vale Sesia', alt: 'Wildwasser im Vale Sesia' },
+			{ name: 'piemont_6_gr', nameMobile: 'piemont_6_kl', title: 'Wildwasser im Vale Sesia', alt: 'Wildwasser im Vale Sesia' }
 		]
 	};
 
@@ -124,9 +131,8 @@ var Images = (function () {
 		return mobileImages.theJoyOfWhiteWaterImages;
 	}
 
-
-	function getImagesForKorsika() {
-		return imageSlider.korsika;
+	function getImagesForSlider(nameOfImageSlider) {
+		return imageSlider[nameOfImageSlider];
 	}
 
 	// public api
@@ -139,6 +145,6 @@ var Images = (function () {
 		getMobileImagesForKanukurse,
 		getMobileImagesForPaddelreisen,
 		getMobileImagesForJoyOfWhitewater,
-		getImagesForKorsika
+		getImagesForSlider
 	};
 })();

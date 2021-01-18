@@ -10,7 +10,7 @@ const Navigation = (function (RenderHeader, RenderImageSlider, Images, Globals, 
 	let bKursDrawerButton;
 	let fKursDrawerButton;
 	let eskimotierenDrawerButton;
-	let paddelReisenDrawerButton;
+	let paddelReisenDrawerButtons;
 	let drawerButtons;
 	let courseLists;
 
@@ -32,6 +32,32 @@ const Navigation = (function (RenderHeader, RenderImageSlider, Images, Globals, 
 	}
 
 
+	function deleteImageSlider(sliderName) {
+		// Imageslider löschen
+		const imageSlider = document.querySelector('.image-slider.' + sliderName);
+		if (imageSlider !== null) {
+			imageSlider.classList.remove('slick-initialized');
+			imageSlider.classList.remove('slick-slider');
+			imageSlider.classList.remove('slick-dotted');
+
+			RenderImageSlider.deleteAllImagesFromSliderItems(imageSlider);
+		}
+	}
+
+
+	function closeFirstAppearanceOfOpenPaddelReisenDrawer() {
+		paddelReisenDrawerButtons.forEach((paddelReisenDrawerButton) => {
+			let paddelReisenDrawer = paddelReisenDrawerButton.parentElement.parentElement.lastElementChild;
+			let paddelReisenDrawerButtonIcon = paddelReisenDrawerButton.lastElementChild;
+			if (paddelReisenDrawer.classList.contains(SHOW)) {
+				paddelReisenDrawer.classList.remove(SHOW);
+				paddelReisenDrawerButtonIcon.classList.remove(SHOW);
+				return;
+			}
+		});
+	}
+
+
 	function toggleTextContainerDrawer(event) {
 		const drawer = event.parentElement.parentElement.lastElementChild;
 		const drawerButtonIcon = event.lastElementChild;
@@ -46,41 +72,49 @@ const Navigation = (function (RenderHeader, RenderImageSlider, Images, Globals, 
 	}
 
 
+	function renderImageSlider(sliderName) {
+		RenderImageSlider.createImageItemsForTheImageSlider(sliderName)
+			.then(() => {
+				ImageSlider.init(sliderName);
+			})
+			.catch((error) => {
+				console.log(sliderName + ' slider --> ' + error);
+			});
+	}
+
+
 	function togglePaddelReisenDrawer(event) {
 		const drawer = event.parentElement.parentElement.lastElementChild;
 		const drawerButtonIcon = event.lastElementChild;
+		let sliderName;
 
-		// Detaildrawer schliessen
+		// Wenn der Detaildrawer geöffnet ist, dann schliessen
 		if (drawer.classList.contains(SHOW)) {
 			drawer.classList.remove(SHOW);
 			drawerButtonIcon.classList.remove(SHOW);
 
-			// Imageslider löschen
-			const imageSlider = document.querySelector('.image-slider');
-			if (imageSlider !== null) {
-				imageSlider.classList.remove('slick-initialized');
-				imageSlider.classList.remove('slick-slider');
-				imageSlider.classList.remove('slick-dotted');
-
-				RenderImageSlider.deleteAllImagesFromSliderItems(imageSlider);
-			}
-
-		// Deteildrawer öffnen
+		// Wenn der Detaildrawer geschlossen ist, dann öffnen
 		} else {
+			//Vor dem Öffnen, den anderen, ev. offenen Drawer schliessen
+			closeFirstAppearanceOfOpenPaddelReisenDrawer();
+
 			drawer.classList.add(SHOW);
 			drawerButtonIcon.classList.add(SHOW);
 
-			// Abfragen, welcher Drawer (Korsika, Soca...) geöffnet wurde.
-			if (event.firstElementChild.innerHTML === 'Details zu Korsika') {
-				const path = Globals.get().pathForImagesInTheSlider + 'korsika/';
-				RenderImageSlider.createImageItemsForTheImageSlider(Images.getImagesForKorsika(), path)
-					.then(() => {
-						ImageSlider.init();
-					})
-					.catch((error) => {
-						console.log(error);
-					});
+			// Abfragen, welcher Drawer (Korsika, Piemont, Soca...) geöffnet wurde.
+			switch (event.firstElementChild.innerHTML) {
+				case 'Details zu Korsika':
+					sliderName = 'korsika';
+					break;
+				case 'Details zum Valle Sesia':
+					sliderName = 'piemont';
+					break;
+				default:
+					sliderName = 'korsika';
+					break;
 			}
+			deleteImageSlider(sliderName);
+			renderImageSlider(sliderName);
 		}
 	}
 
@@ -183,11 +217,13 @@ const Navigation = (function (RenderHeader, RenderImageSlider, Images, Globals, 
 			});
 		}
 
-		paddelReisenDrawerButton = document.querySelector('.open-close-drawer-button-paddelreisen');
-		if (paddelReisenDrawerButton !== null) {
-			paddelReisenDrawerButton.addEventListener('click', (event) => {
-				togglePaddelReisenDrawer(event.target);
-			});
+		paddelReisenDrawerButtons = document.querySelectorAll('.open-close-drawer-button-paddelreisen');
+		if (paddelReisenDrawerButtons !== null) {
+			paddelReisenDrawerButtons.forEach((paddelReisenDrawerButton) => {
+				paddelReisenDrawerButton.addEventListener('click', (event) => {
+					togglePaddelReisenDrawer(event.target);
+				});
+			})
 		}
 
 		courseLists = document.querySelectorAll('.course-list');

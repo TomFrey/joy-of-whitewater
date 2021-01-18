@@ -33,7 +33,6 @@ function getAllCourses(){
 
 
 	foreach(getAllCourses() as $kurs){
-		// Für alle Tickettypen ein Ticket erzeugen
 		$row = Array();
 		$row['id'] = $kurs->getId();
 		$row['name'] = $kurs->getName();
@@ -48,7 +47,9 @@ function getAllCourses(){
 		$row['kursStufe'] = $kurs->getKursStufe();
 		$row['sportArt'] = $kurs->getSportArt();
 		$row['typ'] = $kurs->getTyp();
+		$row['isShown'] = $kurs->getIsShown();
 		$row['guide'] = $kurs->getGuide();
+		$row['paddelreiseGruppe'] = $kurs->getPaddelreiseGruppe();
 
 		array_push($responseData, $row);
 	}

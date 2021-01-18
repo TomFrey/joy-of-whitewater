@@ -27,7 +27,8 @@ html{
 
 
 body{
-	font-family: $standardTextFont;
+	@include standardTextFont();
+	//font-family: $standardTextFont;
 	line-height: 1.25rem;
 
 	.wrapper{
@@ -78,9 +79,9 @@ header {
 
 	.course-date-overview{
 		@include navigationFontDesktop();
-		background-color: #FF6305;
+		background-color: $color-course-date-overview;
 		border-radius: $basicWidth;
-		border: 1px solid #FF6305;
+		border: 1px solid $color-course-date-overview;
 		box-shadow: 0 8px 6px -6px black;
 		color: white;
 		text-decoration: none;

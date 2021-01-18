@@ -17,6 +17,8 @@ class Kurs
 	private $sportArt;
 	private $typ;
 	private $guide;
+	private $isShown;
+	private $paddelreiseGruppe;
 
 
 	public function __construct($id = false)
@@ -49,6 +51,8 @@ class Kurs
 			$this->setSportArt($kurs['sport_art']);
 			$this->setTyp($kurs['typ']);
 			$this->setGuide($kurs['guide']);
+			$this->setIsShown($kurs['wirdAngezeigt']);
+			$this->setPaddelreiseGruppe($kurs['paddelreise_gruppe']);
 		}
 	}
 
@@ -207,5 +211,25 @@ class Kurs
 	public function setGuide($guide)
 	{
 		$this->guide = $guide;
+	}
+
+	public function getIsShown()
+	{
+		return $this->isShown;
+	}
+
+	public function setIsShown($isShown)
+	{
+		$this->isShown = $isShown;
+	}
+
+	public function getPaddelreiseGruppe()
+	{
+		return $this->paddelreiseGruppe;
+	}
+
+	public function setPaddelreiseGruppe($paddelreiseGruppe)
+	{
+		$this->paddelreiseGruppe = $paddelreiseGruppe;
 	}
 }

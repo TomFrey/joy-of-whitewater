@@ -47,9 +47,13 @@ const RenderImageSlider = (function (Globals) {
 	 * @param images
 	 * @returns {Promise<any>}
 	 */
-	function createImageItemsForTheImageSlider(images, path) {
+	function createImageItemsForTheImageSlider(sliderName) {
+
+		const path = Globals.get().pathForImagesInTheSlider + sliderName + '/';
+		const images = Images.getImagesForSlider(sliderName);
+
 		const promise = new Promise((resolve, reject) => {
-			const imageSlider = document.querySelector('.image-slider');
+			const imageSlider = document.querySelector('.image-slider.' + sliderName);
 			if (imageSlider !== null) {
 				deleteAllImagesFromSliderItems(imageSlider);
 

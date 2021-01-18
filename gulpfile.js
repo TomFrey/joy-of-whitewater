@@ -130,13 +130,6 @@ function injectHeaderAndFooter(){
 			}
 		}))
 
-		.pipe(fileInject(gulp.src(['./src/templates/imageSlider.html']), {
-			starttag: '<!-- inject:htmlImageSlider -->',
-			transform(filepath, file) {
-				return file.contents.toString();
-			}
-		}))
-
 		.pipe(fileInject(gulp.src(['./src/templates/footer.html']), {
 			starttag: '<!-- inject:htmlFooter -->',
 			transform(filepath, file) {
@@ -158,7 +151,8 @@ function minifyFrontJs(cb){
 		gulp.src(allFrontAppJsFiles),
 		sourcemaps.init(),
 		concat('frontApp.js'),
-		babel({
+		// gulp.dest('src/assets/scripts'),
+		 babel({
 			compact: false, // unterdrückt die Warnung 'The code generator has deoptimised the styling ... as it exceeds the max of'
 			presets: ['@babel/env']
 		}),

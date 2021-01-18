@@ -7,12 +7,12 @@
 // eslint-disable-next-line no-unused-vars
 const ImageSlider = (function (Globals) {
 	const breakPointLarge = Globals.get().breakpointLarge;
-	const $slider = $('.image-slider');
 	const slideDuration = 900;
 
 	const screenIsAtDesktopSize = window.matchMedia('(min-width: ' + breakPointLarge + 'px)');
 
-	function init() {
+	function init(sliderName) {
+		const $slider = $('.image-slider.' + sliderName);
 		// RESET ANIMATIONS
 		// On init slide change
 		$slider.on('init', () => {
