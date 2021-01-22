@@ -90,12 +90,14 @@ const RenderCourseDates = (function (Dates, Globals) {
 
 		const gridX12Col1 = document.createElement('div');
 		gridX12Col1.classList.add('gridx12__width6--col1of2');
-		const titleOfDetailElement = document.createElement('h4');
-		titleOfDetailElement.classList.add('course-list-detail__title');
-		titleOfDetailElement.innerText = title;
+		if (title !== undefined && title !== '') {
+			const titleOfDetailElement = document.createElement('h4');
+			titleOfDetailElement.classList.add('course-list-detail__title');
+			titleOfDetailElement.innerText = title;
+			gridX12Col1.appendChild(titleOfDetailElement);
+		}
 		const textOfDetailElement = document.createElement('p');
 		textOfDetailElement.innerHTML = text;
-		gridX12Col1.appendChild(titleOfDetailElement);
 		gridX12Col1.appendChild(textOfDetailElement);
 
 		const gridX12Col2 = document.createElement('div');
@@ -254,7 +256,7 @@ const RenderCourseDates = (function (Dates, Globals) {
 		if (courseDate.beschreibung !== null &&
 			courseDate.beschreibung !== undefined &&
 			courseDate.beschreibung !== '') {
-			courseListItemDetailContentWrapper.appendChild(createADetailOfACourseListItem('Detail', courseDate.beschreibung));
+			courseListItemDetailContentWrapper.appendChild(createADetailOfACourseListItem('', courseDate.beschreibung));
 		}
 
 		if (courseDate.treffpunkt !== null &&
