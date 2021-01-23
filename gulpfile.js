@@ -151,10 +151,15 @@ function minifyFrontJs(cb){
 		gulp.src(allFrontAppJsFiles),
 		sourcemaps.init(),
 		concat('frontApp.js'),
-		// gulp.dest('src/assets/scripts'),
-		 babel({
+	 	babel({
 			compact: false, // unterdrückt die Warnung 'The code generator has deoptimised the styling ... as it exceeds the max of'
-			presets: ['@babel/env']
+			presets: 
+			[
+				[
+					'@babel/env', 
+					{debug: true}
+				]
+			]
 		}),
 		uglify(),
 		rename('frontApp.min.js'),
