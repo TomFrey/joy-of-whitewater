@@ -15,11 +15,7 @@ const CourseDates = (function (RenderCourseDates, Dates) {
 					RenderCourseDates.createCourseListFor(courses, 'alle', 'Eskimotieren', '.course-list-wrapper-rollCourse')
 
 					RenderCourseDates.createPaddleJourniesOverview(courses);
-				//	RenderCourseDates.createPaddleJourneyKorsika(courses);
-				//	RenderCourseDates.createPaddleJourneyPiemont(courses);
-
 					RenderCourseDates.createPaddleJournies(courses);
-
 					resolve();
 				})
 				.catch((error) => {

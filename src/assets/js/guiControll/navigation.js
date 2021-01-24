@@ -109,6 +109,9 @@ const Navigation = (function (RenderHeader, RenderImageSlider, Images, Globals, 
 				case 'Details zum Valle Sesia':
 					sliderName = 'piemont';
 					break;
+				case 'Details zur Soca':
+					sliderName = 'soca';
+					break;
 				default:
 					sliderName = 'korsika';
 					break;

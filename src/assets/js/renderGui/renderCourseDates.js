@@ -232,12 +232,15 @@ const RenderCourseDates = (function (Dates, Globals) {
 			const detailsLink = document.createElement('a');
 			detailsLink.classList.add('link-in-text');
 
-			switch (courseDate.land) {
+			switch (courseDate.paddelreiseGruppe) {
 				case 'Korsika':
 					detailsLink.setAttribute('href', '/paddelreisen.html#paddleJourneyKorsikaAnchor');
 					break;
-				case 'Piemont/Italien':
+				case 'Piemont':
 					detailsLink.setAttribute('href', '/paddelreisen.html#paddleJourneyPiemontAnchor');
+					break;
+				case 'Soca':
+					detailsLink.setAttribute('href', '/paddelreisen.html#paddleJourneySocaAnchor');
 					break;
 				default:
 					detailsLink.setAttribute('href', '/paddelreisen.html');
@@ -482,61 +485,6 @@ const RenderCourseDates = (function (Dates, Globals) {
 	}
 
 	/**
-	 * Sucht nach dem Vorkommen von 'course-list-wrapper-paddleJourneyKorsika' und erstellt darin für
-	 * jedes Korsika Datum einen Eintrag. In der Genuss/Abenteuerreisen Abteilung.
-	 * @param courseDates
-	 */
-/*	function renderListForPaddleJourniesKorsika(courseDates) {
-		let paddleJournies = courseDates.filter((courseDate) => {
-			return courseDate.typ === 'Paddelreise' && courseDate.land === 'Korsika';
-		});
-		paddleJournies = sortDatumAscending(paddleJournies);
-
-		const courseListPaddleJourneyWrapper = document.querySelector('.course-list-wrapper-paddleJourneyKorsika');
-
-		if (courseListPaddleJourneyWrapper !== null) {
-			// delete all current children
-			while (courseListPaddleJourneyWrapper.firstChild) {
-				courseListPaddleJourneyWrapper.removeChild(courseListPaddleJourneyWrapper.firstChild);
-			}
-
-			// add the course dates
-			paddleJournies.forEach((paddleJourney) => {
-				const courseListItem = createPaddleJourneyItem(paddleJourney);
-				courseListPaddleJourneyWrapper.appendChild(courseListItem);
-			});
-		}
-	} */
-
-	/**
-	 * Sucht nach dem Vorkommen von 'course-list-wrapper-paddleJourneyPiemont' und erstellt darin für
-	 * jedes Sesia Datum einen Eintrag. In der Genuss/Abenteuerreisen Abteilung.
-	 * @param courseDates
-	 */
-	/*function renderListForPaddleJourniesPiemont(courseDates) {
-		let paddleJournies = courseDates.filter((courseDate) => {
-			return courseDate.typ === 'Paddelreise' && courseDate.land === 'Piemont/Italien';
-		});
-		paddleJournies = sortDatumAscending(paddleJournies);
-
-		const courseListPaddleJourneyWrapper = document.querySelector('.course-list-wrapper-paddleJourneyPiemont');
-
-		if (courseListPaddleJourneyWrapper !== null) {
-			// delete all current children
-			while (courseListPaddleJourneyWrapper.firstChild) {
-				courseListPaddleJourneyWrapper.removeChild(courseListPaddleJourneyWrapper.firstChild);
-			}
-
-			// add the course dates
-			paddleJournies.forEach((paddleJourney) => {
-				const courseListItem = createPaddleJourneyItem(paddleJourney);
-				courseListPaddleJourneyWrapper.appendChild(courseListItem);
-			});
-		}
-	}*/
-
-
-	/**
 	 * Sucht alle Reisen zusammen, anhand von typ='Paddelreise'. Und gruppiert diese dann nach Reiseorten
 	 * anhand von paddelreise_gruppe='...'.
 	 *
@@ -574,9 +522,6 @@ const RenderCourseDates = (function (Dates, Globals) {
 	return {
 		createCourseListFor: renderCourseListFor,
 		createPaddleJourniesOverview: renderListForPaddleJournies,
-	//	createPaddleJourneyKorsika: renderListForPaddleJourniesKorsika,
-	//	createPaddleJourneyPiemont: renderListForPaddleJourniesPiemont,
-
 		createPaddleJournies: renderListsForAllPaddleJournies
 	};
 })(Dates, Globals);
