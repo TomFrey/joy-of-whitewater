@@ -13,7 +13,7 @@ $responseData = Array();
  */
 function getAllCourses(){
 	$stmtKurse = DB::get()->prepare(
-		"SELECT id FROM kurs"
+		"SELECT id FROM kurs where wirdAngezeigt = 1"
 	);
 	$stmtKurse->execute();
 
