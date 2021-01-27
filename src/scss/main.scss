@@ -96,6 +96,10 @@ header {
 
 
 main{
+	.text-container:first-child{
+		margin-bottom: 20px;
+	}
+
 	.text-container{
 		margin-bottom: 10px;
 	}

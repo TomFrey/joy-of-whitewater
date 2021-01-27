@@ -318,6 +318,33 @@ img.text-container-fill__bottom {
     }
   }
 
+
+  .text-container:not(:first-child) {
+
+	//text-container mit Detail
+	> .text-container-main{
+		border-radius: 16px 16px 0px 0px;
+
+		> .filler img{
+			border-radius: 8px;
+		}
+	}
+
+	//text-container ohne Detail
+	> .text-container-main:only-child{
+		border-radius: 16px;
+	}
+
+	> .text-container-detail:last-child {
+		border-radius: 0px 0px 16px 16px;
+
+		> .text-container-drawer__content-wrapper, .text-container-drawer {
+			border-radius: 0px 0px 16px 16px;
+		}
+	}
+}
+
+
 	.text-container-full-width{
 		padding: 2*$basicWidth;
 	}
