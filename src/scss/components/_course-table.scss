@@ -28,7 +28,7 @@
 }
 
 .course-list-item-detail.js-show{
-	max-height: 460px;
+	max-height: 600px;
 	transition: max-height 300ms ease-in-out 1ms;
 }
 
@@ -134,7 +134,6 @@ h4.course-list-detail__title::after{
   	.course-list{
     	padding: $basicHeight 2*$basicWidth;
   	}
-
 
 	.course-list-item:hover{
 		background-color: $color-drawer-background-dateTable-hover;
