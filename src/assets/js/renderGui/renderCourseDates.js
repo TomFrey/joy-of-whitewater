@@ -235,26 +235,35 @@ const RenderCourseDates = (function (Dates, Globals) {
 		const titleCosts = document.createElement('h4');
 		titleCosts.classList.add('course-list-detail__title');
 		titleCosts.innerText = 'Kosten';
-
 		const costList = document.createElement('ul');
 		const textCostCourse = document.createElement('li');
-		textCostCourse.innerHTML = '<span class="course-list-detail__amount--part">' + parseFloat(courseDate.preisKurs) + '</span>';
-		textCostCourse.innerHTML += 'Kurs';
-		costList.appendChild(textCostCourse);
+
+		//Es gibt mehrere Preise
 		if (parseFloat(courseDate.preisMaterial) > 0) {
+			textCostCourse.innerHTML = '<span class="course-list-detail__amount--part">' + parseFloat(courseDate.preisKurs) + '</span>';
+			textCostCourse.innerHTML += 'Kurs';
+			costList.appendChild(textCostCourse);
+			
 			const textCostEquipment = document.createElement('li');
 			textCostEquipment.innerHTML = '<span class="course-list-detail__amount--part">' + parseFloat(courseDate.preisMaterial) + '</span>';
 			textCostEquipment.innerHTML += 'gesamte Ausrüstung (falls benötigt)';
 			costList.appendChild(textCostEquipment);
+			
+			const textCostTotal = document.createElement('li');
+			const totalCost = parseFloat(courseDate.preisKurs) + parseFloat(courseDate.preisMaterial);
+			textCostTotal.innerHTML = '<span class="course-list-detail__amount--total">' + totalCost + '</span>';
+			textCostTotal.innerHTML += 'Total';
+			costList.appendChild(textCostTotal);
+		
+		//Es gibt nur einen Preis (den Preis für den Kurs)
+		} else {
+			textCostCourse.innerHTML = '<span class="course-list-detail__amount--part">' + parseFloat(courseDate.preisKurs) + '</span>';
+			costList.appendChild(textCostCourse);
 		}
-		const textCostTotal = document.createElement('li');
-		const totalCost = parseFloat(courseDate.preisKurs) + parseFloat(courseDate.preisMaterial);
-		textCostTotal.innerHTML = '<span class="course-list-detail__amount--total">' + totalCost + '</span>';
-		textCostTotal.innerHTML += 'Total';
-		costList.appendChild(textCostTotal);
 		gridX12CostsCol1.appendChild(titleCosts);
 		gridX12CostsCol1.appendChild(costList);
 
+		
 		const gridX12CostsCol2 = document.createElement('div');
 		gridX12CostsCol2.classList.add('gridx12__width5--col2of2');
 		gridX12CostsCol2.classList.add('content-at-the-end');
