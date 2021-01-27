@@ -42,6 +42,7 @@ function getAllCourses(){
 		$row['preisMaterial'] = $kurs->getPreisMaterial();
 		$row['vonDatum'] = $kurs->getVonDatum();
 		$row['bisDatum'] = $kurs->getBisDatum();
+		$row['anzahlPausentage'] = $kurs->getAnzahlPausentage();
 		$row['ort'] = $kurs->getOrt();
 		$row['land'] = $kurs->getLand();
 		$row['kursStufe'] = $kurs->getKursStufe();

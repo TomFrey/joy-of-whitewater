@@ -34,6 +34,37 @@ const RenderCourseDates = (function (Dates, Globals) {
 		});
 	}
 
+	/**
+	 * Berechnet anhand des Datum wie viele Paddel- und Pausentage der Kurs beinhaltet
+	 * und liefert einen String zurück, wie dies dargestellt werden soll.
+	 * @param courseDates
+	 * @returns a string mit der Anzahl Paddel- und Pausentagen
+	 */
+	function renderCourseDuration(courseDate){
+		const courseDuration = Dates.calculateDurationBetweenTwoDates(courseDate.bisDatum, courseDate.vonDatum) - courseDate.anzahlPausentage;
+		let courseDurationText;
+
+		if (courseDate.anzahlPausentage === '0') {
+			courseDurationText = courseDuration;
+		} else if (courseDate.anzahlPausentage === '1') {
+			courseDurationText = courseDuration + ' (plus ' + courseDate.anzahlPausentage + ' Tag Pause)'
+		} else {
+			courseDurationText = courseDuration + ' (plus ' + courseDate.anzahlPausentage + ' Tage Pause)'
+		} 
+		return courseDurationText;
+	}
+
+	/**
+	 * Gruppiert die paddleJournies. D.h. liefert ein Array zurück mit so vielen Arrays wie es Gruppen gibt z.B.
+	 *     [
+	 * 			[{journeyA}, {journeyA}],
+	 * 			[{journeyB}],
+	 * 			[{journeyC}, {journeyC}, {journeyC}]
+	 * 		]
+	 * Gruppiert wird anhand von paddelreise_gruppe='...'.
+	 * @param {*} paddleJournies 
+	 * @returns an array mit den arrays der Gruppen
+	 */
 	function groupPaddleJournies(paddleJournies) {
 		let paddleJourneyGroupArrays = [];
 		let group = [];
@@ -318,7 +349,7 @@ const RenderCourseDates = (function (Dates, Globals) {
 		const valueDateRange = Dates.convertToMediumWithoutYearDateFormat(courseDate.vonDatum)
 			+ ' - '
 			+ Dates.convertToMediumWithYearDateFormat(courseDate.bisDatum);
-		const valueDuration = Dates.calculateDurationBetweenTwoDates(courseDate.bisDatum, courseDate.vonDatum);
+		const valueDuration = renderCourseDuration(courseDate);
 		const valueLocation = courseDate.ort + ' (' + courseDate.land + ')';
 
 		//Titel der Reise

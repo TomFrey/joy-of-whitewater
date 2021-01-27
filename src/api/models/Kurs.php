@@ -11,6 +11,7 @@ class Kurs
 	private $preisMaterial;
 	private $vonDatum;
 	private $bisDatum;
+	private $anzahlPausentage;
 	private $ort;
 	private $land;
 	private $kursStufe;
@@ -53,6 +54,7 @@ class Kurs
 			$this->setGuide($kurs['guide']);
 			$this->setIsShown($kurs['wirdAngezeigt']);
 			$this->setPaddelreiseGruppe($kurs['paddelreise_gruppe']);
+			$this->setAnzahlPausentage($kurs['anzahl_pausentage']);
 		}
 	}
 
@@ -231,5 +233,15 @@ class Kurs
 	public function setPaddelreiseGruppe($paddelreiseGruppe)
 	{
 		$this->paddelreiseGruppe = $paddelreiseGruppe;
+	}
+
+	public function getAnzahlPausentage()
+	{
+		return $this->anzahlPausentage;
+	}
+
+	public function setAnzahlPausentage($anzahlPausentage)
+	{
+		$this->anzahlPausentage = $anzahlPausentage;
 	}
 }
