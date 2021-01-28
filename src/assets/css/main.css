@@ -1454,11 +1454,12 @@ h4.course-list-detail__title::after {
     line-height: 32px;
     background-color: #1FB0FF; }
   .prices tr:nth-of-type(even) {
-    background-color: #ffffff; }
+    background-color: #0597E6; }
   .prices th {
     padding: 16px 8px 16px 8px;
     text-align: left;
-    white-space: nowrap; }
+    white-space: nowrap;
+    background-color: #1FB0FF; }
   .prices th:not(:first-of-type) {
     text-align: center; }
   .prices th:first-child {
@@ -1494,7 +1495,7 @@ h4.course-list-detail__title::after {
   .prices th:first-child {
     padding: 16px 8px 16px 32px; }
   .prices tbody th.two-row-table-cell {
-    padding: 4px 8px 4px 32px; } }
+    padding: 4px 16px 4px 32px; } }
 
 .sitemap {
   font-family: "Open Sans", "Arial", "sans-serif";

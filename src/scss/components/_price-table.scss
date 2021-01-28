@@ -30,13 +30,14 @@
 	}
 
 	tr:nth-of-type(even){
-		background-color: $complimentaryColor1;
+		background-color: $baseColor1;
 	}
 
 	th{
 		padding: 2*$basicHeight $basicWidth 2*$basicHeight $basicWidth;
 		text-align: left;
 		white-space: nowrap;
+		background-color: $baseColor2;
 	}
 
 	th:not(:first-of-type){
@@ -110,7 +111,7 @@
 		}
 
 		tbody th.two-row-table-cell{
-			padding: 0.5*$basicHeight $basicWidth 0.5*$basicHeight 4*$basicWidth;
+			padding: 0.5*$basicHeight 2*$basicWidth 0.5*$basicHeight 4*$basicWidth;
 		}
 	}
 }
