@@ -35,6 +35,8 @@ function getAllCourses(){
 	foreach(getAllCourses() as $kurs){
 		$row = Array();
 		$row['id'] = $kurs->getId();
+		$row['status'] = $kurs->getStatus();
+		$row['statusText'] = $kurs->getStatusText();
 		$row['name'] = $kurs->getName();
 		$row['beschreibung'] = $kurs->getBeschreibung();
 		$row['treffpunkt'] = $kurs->getTreffpunkt();
@@ -57,6 +59,6 @@ function getAllCourses(){
 
 	header("Content-type:application/json", true, 200);
 	//TODO: delete this in production
-	header("Access-Control-Allow-Origin: *");
+	//header("Access-Control-Allow-Origin: *");
 	echo  json_encode($responseData);
 

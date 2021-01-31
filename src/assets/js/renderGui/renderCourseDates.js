@@ -214,6 +214,35 @@ const RenderCourseDates = (function (Dates, Globals) {
 		courseD.appendChild(courseTo);
 		courseItemDate.appendChild(courseD);
 
+		const courseItemStatus = document.createElement('div');
+		courseItemStatus.classList.add('course-item__status-wrapper');
+		const courseListItemDetailStatus = document.createElement('div');
+		courseListItemDetailStatus.classList.add('course-list-item-detail__status');
+		const courseListItemDetailStatusText = document.createElement('div');
+		courseListItemDetailStatusText.innerText = courseDate.statusText;
+		courseListItemDetailStatus.appendChild(courseListItemDetailStatusText);
+
+		switch (courseDate.status) {
+			case 'green':
+				courseItemStatus.classList.add('course-item__status-green');
+				courseListItemDetailStatus.classList.add('course-list-item-detail__status-green');
+				break;
+			case 'yellow':
+				courseItemStatus.classList.add('course-item__status-yellow');
+				courseListItemDetailStatus.classList.add('course-list-item-detail__status-yellow');
+				break;
+			case 'red':
+				courseItemStatus.classList.add('course-item__status-red');
+				courseListItemDetailStatus.classList.add('course-list-item-detail__status-red');
+				break;
+			default:
+				break;
+		}
+		const courseStatus = document.createElement('span');
+		courseStatus.classList.add('course-item__status');
+		courseItemStatus.appendChild(courseStatus);
+		
+		courseListItem.appendChild(courseItemStatus);
 		courseListItem.appendChild(courseItemName);
 		courseListItem.appendChild(courseItemPlace);
 		courseListItem.appendChild(courseItemDuration);
@@ -309,8 +338,12 @@ const RenderCourseDates = (function (Dates, Globals) {
 		}
 
 		courseListItemDetailContentWrapper.appendChild(gridX12Costs);
-		courseListItemDetail.appendChild(courseListItemDetailContentWrapper);
 
+		if (courseDate.status !== 'blue') {
+			courseListItemDetail.appendChild(courseListItemDetailStatus);
+		}
+
+		courseListItemDetail.appendChild(courseListItemDetailContentWrapper);
 		courseListItemWrapper.appendChild(courseListItem);
 		courseListItemWrapper.appendChild(courseListItemDetail);
 

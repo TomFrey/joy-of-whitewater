@@ -784,6 +784,38 @@ h4.course-list-detail__title::after {
 .course-list-detail__amount--part::after, .course-list-detail__amount--total::after {
   content: ' CHF'; }
 
+.course-item__status-wrapper {
+  border-right: 4px solid #1FB0FF;
+  flex: 0 0 2%;
+  padding: 8px 8px; }
+
+.course-list-item-detail__status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  max-width: 98.2%;
+  margin: 2px 0 0 2px;
+  box-shadow: 7px 11px 10px rgba(0, 0, 0, 0.6);
+  -webkit-box-shadow: 7px 11px 10px rgba(0, 0, 0, 0.6);
+  -moz-box-shadow: 7px 11px 10px rgba(0, 0, 0, 0.6); }
+
+.course-item__status-wrapper.course-item__status-green,
+.course-list-item-detail__status.course-list-item-detail__status-green {
+  background-color: #1FDE24; }
+
+.course-item__status-wrapper.course-item__status-yellow,
+.course-list-item-detail__status.course-list-item-detail__status-yellow {
+  background-color: #FFD824; }
+
+.course-item__status-wrapper.course-item__status-red,
+.course-list-item-detail__status.course-list-item-detail__status-red {
+  background-color: #FF4D1F; }
+
+.course-item__status {
+  padding: 0;
+  pointer-events: none; }
+
 .course-item__name-wrapper {
   border-right: 4px solid #1FB0FF;
   flex: 2 2 40%;
@@ -833,6 +865,12 @@ h4.course-list-detail__title::after {
     padding: 8px 16px; }
   .course-list-item:hover {
     background-color: #0487cd; }
+  .course-item__status-wrapper {
+    flex: 0 0 3%; }
+  .course-list-item-detail__status {
+    min-height: 50px;
+    max-width: 99.2%;
+    margin: 3px 0 0 3px; }
   .course-item__duration-wrapper {
     border-right: 4px solid #1FB0FF;
     display: block;

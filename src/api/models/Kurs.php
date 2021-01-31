@@ -4,6 +4,9 @@ require __DIR__ .'/../vendor/autoload.php';
 class Kurs
 {
 	private $id;
+	private $isShown;
+	private $status;
+	private $statusText;
 	private $name;
 	private $beschreibung;
 	private $treffpunkt;
@@ -18,7 +21,6 @@ class Kurs
 	private $sportArt;
 	private $typ;
 	private $guide;
-	private $isShown;
 	private $paddelreiseGruppe;
 
 
@@ -27,8 +29,9 @@ class Kurs
 		if ($id) {
 			// Das select holt den Kurs mit der entsprechenden $id
 			$statement = DB::get()->prepare(
-				"select *" .
+				"select k.*, s.text as status_text" .  
 				" from kurs k" .
+				" left join status s on s.id = k.status" .
 				" where k.id = :id"
 			);
 
@@ -55,6 +58,8 @@ class Kurs
 			$this->setIsShown($kurs['wirdAngezeigt']);
 			$this->setPaddelreiseGruppe($kurs['paddelreise_gruppe']);
 			$this->setAnzahlPausentage($kurs['anzahl_pausentage']);
+			$this->setStatus($kurs['status']);
+			$this->setStatusText($kurs['status_text']);
 		}
 	}
 
@@ -243,5 +248,25 @@ class Kurs
 	public function setAnzahlPausentage($anzahlPausentage)
 	{
 		$this->anzahlPausentage = $anzahlPausentage;
+	}
+
+	public function getStatus()
+	{
+		return $this->status;
+	}
+
+	public function setStatus($status)
+	{
+		$this->status = $status;
+	}
+
+	public function getStatusText()
+	{
+		return $this->statusText;
+	}
+
+	public function setStatusText($statusText)
+	{
+		$this->statusText = $statusText;
 	}
 }
