@@ -761,6 +761,15 @@ img.text-container-fill__bottom {
 .course-list-item-detail__content-wrapper {
   padding: 16px 16px; }
 
+.paddleJourneyItem {
+  box-shadow: 11px 12px 10px rgba(0, 0, 0, 0.6);
+  -webkit-box-shadow: 11px 12px 10px rgba(0, 0, 0, 0.6);
+  -moz-box-shadow: 11px 12px 10px rgba(0, 0, 0, 0.6);
+  margin: 0px 6px; }
+
+.paddleJourneyItem:last-of-type {
+  margin-bottom: 32px; }
+
 h4.course-list-detail__title {
   font-family: "Open Sans", "Arial", "sans-serif";
   font-size: 1.25rem;
@@ -877,7 +886,11 @@ h4.course-list-detail__title::after {
     flex: 1 1 10%;
     padding: 8px 0; }
   .course-item__duration {
-    padding: 0 8px; } }
+    padding: 0 8px; }
+  .paddleJourneyItem {
+    margin-bottom: 16px;
+    border-bottom: 1px solid #1FB0FF;
+    max-width: 98.8%; } }
 
 /*
 |------------.footer-------------------------------------------------------|

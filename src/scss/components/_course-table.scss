@@ -36,6 +36,17 @@
 	padding: 2*$basicHeight 2*$basicWidth;
 }
 
+.paddleJourneyItem{
+	box-shadow: 11px 12px 10px rgba(0, 0, 0, 0.6); 
+	-webkit-box-shadow: 11px 12px 10px rgba(0, 0, 0, 0.6); 
+	-moz-box-shadow: 11px 12px 10px rgba(0, 0, 0, 0.6); 
+	margin: 0px 6px;
+}
+
+.paddleJourneyItem:last-of-type{
+	margin-bottom: 4*$basicHeight;
+}
+
 h4.course-list-detail__title{
 	font-family: $standardTextFont;
 	font-size: $smallTitleSize;
@@ -80,9 +91,9 @@ h4.course-list-detail__title::after{
 	min-height: 40px;
 	max-width: 98.2%;
 	margin: 2px 0 0 2px;
-	box-shadow: 7px 11px 10px rgba(0, 0, 0, 0.6)  ; 
-	-webkit-box-shadow: 7px 11px 10px rgba(0, 0, 0, 0.6)  ; 
-	-moz-box-shadow: 7px 11px 10px rgba(0, 0, 0, 0.6)  ; 
+	box-shadow: 7px 11px 10px rgba(0, 0, 0, 0.6); 
+	-webkit-box-shadow: 7px 11px 10px rgba(0, 0, 0, 0.6); 
+	-moz-box-shadow: 7px 11px 10px rgba(0, 0, 0, 0.6); 
 }
 
 .course-item__status-wrapper.course-item__status-green,
@@ -197,5 +208,11 @@ h4.course-list-detail__title::after{
 
   	.course-item__duration{
     	padding: 0 $basicWidth;
-  	}
+	}
+	  
+	.paddleJourneyItem{
+		margin-bottom: 2*$basicHeight;
+		border-bottom: 1px solid $color-drawer-background-drawer;
+		max-width: 98.8%;	
+	}
 }

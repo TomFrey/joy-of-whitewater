@@ -115,6 +115,39 @@ const RenderCourseDates = (function (Dates, Globals) {
 		return linkButton;
 	}
 
+
+	/**
+	 * Kreiert die Status Meldung für einen Kurs. Also z.B. 'green', 'blue', 'red' ...
+	 * Innerhalb des Details (Also wenn der Drawer geöffnet wird.)
+	 * @returns {HTMLElement}
+	 */
+	function createCourseItemDetailStatus(courseDate){
+		const courseListItemDetailStatus = document.createElement('div');
+		courseListItemDetailStatus.classList.add('course-list-item-detail__status');
+
+		const courseListItemDetailStatusText = document.createElement('div');
+		courseListItemDetailStatusText.innerText = courseDate.statusText;
+		courseListItemDetailStatus.appendChild(courseListItemDetailStatusText);
+
+		switch (courseDate.status) {
+			case 'green':
+				courseListItemDetailStatus.classList.add('course-list-item-detail__status-green');
+				break;
+			case 'yellow':
+				courseListItemDetailStatus.classList.add('course-list-item-detail__status-yellow');
+				break;
+			case 'red':
+				courseListItemDetailStatus.classList.add('course-list-item-detail__status-red');
+				break;
+			default:
+				break;
+		}
+
+		return courseListItemDetailStatus;
+	}
+
+
+
 	function createADetailOfACourseListItem(title, text) {
 		const gridX12DetailElement = document.createElement('div');
 		gridX12DetailElement.classList.add('gridx12');
@@ -216,24 +249,16 @@ const RenderCourseDates = (function (Dates, Globals) {
 
 		const courseItemStatus = document.createElement('div');
 		courseItemStatus.classList.add('course-item__status-wrapper');
-		const courseListItemDetailStatus = document.createElement('div');
-		courseListItemDetailStatus.classList.add('course-list-item-detail__status');
-		const courseListItemDetailStatusText = document.createElement('div');
-		courseListItemDetailStatusText.innerText = courseDate.statusText;
-		courseListItemDetailStatus.appendChild(courseListItemDetailStatusText);
 
 		switch (courseDate.status) {
 			case 'green':
 				courseItemStatus.classList.add('course-item__status-green');
-				courseListItemDetailStatus.classList.add('course-list-item-detail__status-green');
 				break;
 			case 'yellow':
 				courseItemStatus.classList.add('course-item__status-yellow');
-				courseListItemDetailStatus.classList.add('course-list-item-detail__status-yellow');
 				break;
 			case 'red':
 				courseItemStatus.classList.add('course-item__status-red');
-				courseListItemDetailStatus.classList.add('course-list-item-detail__status-red');
 				break;
 			default:
 				break;
@@ -250,6 +275,7 @@ const RenderCourseDates = (function (Dates, Globals) {
 
 
 		// create courseListItemDetail
+		const courseListItemDetailStatus = createCourseItemDetailStatus(courseDate);
 		const courseListItemDetail = document.createElement('div');
 		courseListItemDetail.classList.add('course-list-item-detail');
 
@@ -319,9 +345,12 @@ const RenderCourseDates = (function (Dates, Globals) {
 			detailsLink.innerText = 'weitere Details zu ' + courseDate.name;
 			gridX12CostsCol2.appendChild(detailsLink);
 		}
-		const linkButton = createLinkButton(courseDate);
-		gridX12CostsCol2.appendChild(linkButton);
 
+		if (courseDate.status !== 'red') {
+			const linkButton = createLinkButton(courseDate);
+			gridX12CostsCol2.appendChild(linkButton);
+		}
+		
 		gridX12Costs.appendChild(gridX12CostsCol1);
 		gridX12Costs.appendChild(gridX12CostsCol2);
 
@@ -470,8 +499,10 @@ const RenderCourseDates = (function (Dates, Globals) {
 		column2 = document.createElement('div');
 		column2.classList.add('gridx12__width5--col2of2');
 		column2.classList.add('content-at-the-end');
-		const linkButton = createLinkButton(courseDate);
-		column2.appendChild(linkButton);
+		if (courseDate.status !== 'red') {
+			const linkButton = createLinkButton(courseDate);
+			column2.appendChild(linkButton);
+		}
 
 		paddelJourneyRegistration.appendChild(column1);
 		paddelJourneyRegistration.appendChild(column2);
@@ -584,6 +615,10 @@ const RenderCourseDates = (function (Dates, Globals) {
 				paddleJourneyGroup = sortDatumAscending(paddleJourneyGroup);
 				// add the course dates
 				paddleJourneyGroup.forEach((paddleJourney) => {
+					if (paddleJourney.status !== 'blue') {
+						const courseListItemDetailStatus = createCourseItemDetailStatus(paddleJourney);
+						courseListPaddleJourneyWrapper.appendChild(courseListItemDetailStatus);
+					}
 					const courseListItem = createPaddleJourneyItem(paddleJourney);
 					courseListPaddleJourneyWrapper.appendChild(courseListItem);
 				});
