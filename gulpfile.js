@@ -312,6 +312,17 @@ function copyRobotsAndHtaccess(){
 
 
 /**
+ * Kopiert die robotsForTestEnviroment.txt Datei ins dist Verzeichnis
+ * und benennt sie robots.txt um.
+ */
+function copyRobotsForTestEnviroment(){
+	return gulp.src(['./src/assets/webServerConfig/robotsForTestEnviroment.txt'])
+		.pipe(rename('robots.txt'))
+		.pipe(gulp.dest('dist'));
+}
+
+
+/**
  * Kopiert die Google Datei (welche die Inhaberschaft der Webseite bestätigt) in den dist Ordner
  */
 function copyGoogleConfirmationFile(){
@@ -443,25 +454,36 @@ exports.default = gulp.series(gulp.parallel(compileScss,
 								run);
 
 // Mit 'gulp build' wird das Projekte zusammengebaut und in den 'dist' Ordner gestellt.
-exports.build = gulp.series(deleteDistFolder,
-							gulp.parallel(	minifyFrontJsForDist,
-											minifyBackOfficeJsForDist,
-											compileScss),
-							gulp.parallel(	minifyCss,
-											minifyBackOfficeCss),
-							gulp.parallel(	copyApi,
-											copyApp,
-											copyHTML,
-											copyFrontJs,
-											copyBackOfficeJs,
-											copyImages,
-											copyXml,
-											copyRobotsAndHtaccess,
-											copyGoogleConfirmationFile),
-							replaceProductionCredentials);
+function build(enviroment) {
+	let building = gulp.series(deleteDistFolder,
+		gulp.parallel(	minifyFrontJsForDist,
+						minifyBackOfficeJsForDist,
+						compileScss),
+		gulp.parallel(	minifyCss,
+						minifyBackOfficeCss),
+		gulp.parallel(	copyApi,
+						copyApp,
+						copyHTML,
+						copyFrontJs,
+						copyBackOfficeJs,
+						copyImages,
+						copyXml,
+						copyRobotsAndHtaccess,
+						copyGoogleConfirmationFile),
+		replaceProductionCredentials);
+
+	//Überschreibt robots.txt mit src/assets/webServerConfig/robotsForTestEnviroment.txt
+	if (enviroment === 'toTestEnviroment') {
+		building = gulp.series(building, copyRobotsForTestEnviroment);
+	}
+	return building;
+};
+
+exports.build = build();
 
 // Mit 'gulp deployToProduction' wird das Projekt auf den joyofwhitewater.ch FTP Server gestellt
-exports.deployToProduction = gulp.series(remoteDeploy.bind(this, getFtpProductionConnection, '/httpdocs'));
+exports.deployToProduction = gulp.series(build(), remoteDeploy.bind(this, getFtpProductionConnection, '/httpdocs'));
 
 // Mit 'gulp deployToTest' wird das Projekt auf den joyofwhitewater.mitlinxlernen.ch FTP Server gestellt
-exports.deployToTest = gulp.series(remoteDeploy.bind(this, getFtpTestConnection, '/'));
+exports.deployToTest = gulp.series(build('toTestEnviroment'), remoteDeploy.bind(this, getFtpTestConnection, '/'));
+
