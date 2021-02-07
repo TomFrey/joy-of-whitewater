@@ -342,6 +342,17 @@ img.text-container-fill__bottom {
 			border-radius: 0px 0px 16px 16px;
 		}
 	}
+
+	//mehrere text-container-main, kein Detail
+	> .text-container-main:not(:only-child):first-of-type{
+		border-radius: 16px 16px 0px 0px;
+		padding: 3*$basicHeight 2*$basicWidth $basicHeight 2*$basicWidth;
+	}
+
+	> .text-container-main:not(:only-child):last-of-type {
+		border-radius: 0px 0px 16px 16px;
+		padding: $basicHeight 2*$basicWidth 3*$basicHeight 2*$basicWidth;
+	}
 }
 
 
