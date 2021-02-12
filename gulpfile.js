@@ -69,6 +69,7 @@ const allFrontAppJsFiles = [
 
 	'./src/assets/js/guiControll/renderRegistrationConfirmation.js',
 	'./src/assets/js/guiControll/renderHeader.js',
+	'./src/assets/js/util/responsive.js',
 	'./src/assets/js/guiControll/renderImageSlider.js',
 	'./src/assets/js/guiControll/navigation.js',
 	'./src/assets/js/guiControll/imageCarousel.js',

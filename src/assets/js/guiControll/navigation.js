@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-const Navigation = (function (RenderHeader, RenderImageSlider, Images, Globals, Preloader) {
+const Navigation = (function (RenderImageSlider, Images, Globals, Responsive) {
 	const SHOW = 'js-show';
 	const HIDE = 'js-hide';
 	const CLOSE_NAV = 'js-close-nav-button';
@@ -167,23 +167,20 @@ const Navigation = (function (RenderHeader, RenderImageSlider, Images, Globals, 
 
 		switch (whereAmI) {
 			case 'kanukurse':
-				RenderHeader.createPictureTagForMobileHeader(Images.getMobileImagesForKanukurse());
+				Responsive.renderHeaderWithImagesAccordingToBreakPoint(Images.getImagesForKanukurse(), Images.getMobileImagesForKanukurse());
 				setHeaderTitle('Kajak- und  <br> Kanadierkurse');
-				RenderHeader.createImagesListForTheCarousel(Images.getImagesForKanukurse());
 				kanuKurse.classList.add(SELECTED);
 				break;
 
 			case 'paddelreisen':
-				RenderHeader.createPictureTagForMobileHeader(Images.getMobileImagesForPaddelreisen());
+				Responsive.renderHeaderWithImagesAccordingToBreakPoint(Images.getImagesForPaddelreisen(), Images.getMobileImagesForPaddelreisen());
 				setHeaderTitle('Abenteuer- und <br> Genusspaddelreisen');
-				RenderHeader.createImagesListForTheCarousel(Images.getImagesForPaddelreisen());
 				paddelReisen.classList.add(SELECTED);
 				break;
 
 			case '': // Startseite
-				RenderHeader.createPictureTagForMobileHeader(Images.getMobileImagesForJoyOfWhitewater());
+				Responsive.renderHeaderWithImagesAccordingToBreakPoint(Images.getImagesForJoyOfWhitewater(), Images.getMobileImagesForJoyOfWhitewater());
 				setHeaderTitle('THE JOY <br>OF WHITEWATER');
-				RenderHeader.createImagesListForTheCarousel(Images.getImagesForJoyOfWhitewater());
 				joyOfWhitewater.classList.add(SELECTED);
 				break;
 
@@ -252,4 +249,4 @@ const Navigation = (function (RenderHeader, RenderImageSlider, Images, Globals, 
 	return {
 		init: initiate
 	};
-})(RenderHeader, RenderImageSlider, Images, Globals, Preloader);
+})(RenderImageSlider, Images, Globals, Responsive);
