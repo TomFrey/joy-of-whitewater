@@ -9,6 +9,7 @@ const Navigation = (function (RenderImageSlider, Images, Globals, Responsive) {
 	let mainNavi;
 	let bKursDrawerButton;
 	let fKursDrawerButton;
+	let kKursDrawerButton;
 	let eskimotierenDrawerButton;
 	let paddelReisenDrawerButtons;
 	let drawerButtons;
@@ -196,6 +197,7 @@ const Navigation = (function (RenderImageSlider, Images, Globals, Responsive) {
 		hamburger.addEventListener('click', showHideNavigation);
 		mainNavi = document.querySelector('.main-navi-desktop');
 
+		//Basiskurse anzeigen Button
 		bKursDrawerButton = document.querySelector('#open-close-drawer-button-bkurse');
 		if (bKursDrawerButton !== null) {
 			bKursDrawerButton.addEventListener('click', (event) => {
@@ -203,9 +205,18 @@ const Navigation = (function (RenderImageSlider, Images, Globals, Responsive) {
 			});
 		}
 
+		//Aufbaukurse anzeigen Button
 		fKursDrawerButton = document.querySelector('#open-close-drawer-button-fkurse');
 		if (fKursDrawerButton !== null) {
 			fKursDrawerButton.addEventListener('click', (event) => {
+				toggleTextContainerDrawer(event.target);
+			});
+		}
+
+		//Wildwasser III-IV anzeigen Button
+		kKursDrawerButton = document.querySelector('#open-close-drawer-button-kkurse');
+		if (kKursDrawerButton !== null) {
+			kKursDrawerButton.addEventListener('click', (event) => {
 				toggleTextContainerDrawer(event.target);
 			});
 		}

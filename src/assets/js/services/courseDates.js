@@ -10,8 +10,12 @@ const CourseDates = (function (RenderCourseDates, Dates) {
 						course.vonDatum = Dates.convertToAllBrowsersReadableDate(course.vonDatum);
 						course.bisDatum = Dates.convertToAllBrowsersReadableDate(course.bisDatum);
 					});
+					// Render Basis Kanukurse
 					RenderCourseDates.createCourseListFor(courses, 'B', 'Kanukurs', '.course-list-wrapper-bCourse');
+					// Render Aufbau Kanukurse
 					RenderCourseDates.createCourseListFor(courses, 'F', 'Kanukurs', '.course-list-wrapper-fCourse')
+					// Render WW III-IV Kanukurse
+					RenderCourseDates.createCourseListFor(courses, 'K', 'Kanukurs', '.course-list-wrapper-kCourse')
 					RenderCourseDates.createCourseListFor(courses, 'alle', 'Eskimotieren', '.course-list-wrapper-rollCourse')
 
 					RenderCourseDates.createPaddleJourniesOverview(courses);
