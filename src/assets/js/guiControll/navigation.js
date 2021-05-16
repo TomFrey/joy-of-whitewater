@@ -12,6 +12,7 @@ const Navigation = (function (RenderImageSlider, Images, Globals, Responsive) {
 	let kKursDrawerButton;
 	let eskimotierenDrawerButton;
 	let paddelReisenDrawerButtons;
+	let packraftKursDrawerButton;
 	let drawerButtons;
 	let courseLists;
 
@@ -161,6 +162,8 @@ const Navigation = (function (RenderImageSlider, Images, Globals, Responsive) {
 		allLinksFromMainNavigation.push(paddelReisen);
 		const joyOfWhitewater = document.querySelector('li.main-navi-desktop__joyOfWhitewater a.u-slide-line');
 		allLinksFromMainNavigation.push(joyOfWhitewater);
+		const packraft = document.querySelector('li.main-navi-desktop__packraft a.u-slide-line');
+		allLinksFromMainNavigation.push(packraft);
 
 		allLinksFromMainNavigation.forEach((url) => {
 			url.classList.remove(SELECTED);
@@ -177,6 +180,12 @@ const Navigation = (function (RenderImageSlider, Images, Globals, Responsive) {
 				Responsive.renderHeaderWithImagesAccordingToBreakPoint(Images.getImagesForPaddelreisen(), Images.getMobileImagesForPaddelreisen());
 				setHeaderTitle('Paddelreisen');
 				paddelReisen.classList.add(SELECTED);
+				break;
+
+			case 'packraft':
+				Responsive.renderHeaderWithImagesAccordingToBreakPoint(Images.getImagesForPackraft(), Images.getMobileImagesForPackraft());
+				setHeaderTitle('Packraft');
+				packraft.classList.add(SELECTED);
 				break;
 
 			case '': // Startseite
@@ -237,6 +246,13 @@ const Navigation = (function (RenderImageSlider, Images, Globals, Responsive) {
 			})
 		}
 
+		packraftKursDrawerButton = document.querySelector('#open-close-drawer-button-packraftkurse');
+		if (packraftKursDrawerButton !== null) {
+			packraftKursDrawerButton.addEventListener('click', (event) => {
+				toggleTextContainerDrawer(event.target);
+			});
+		}
+		
 		courseLists = document.querySelectorAll('.course-list');
 		if (courseLists !== null) {
 			courseLists.forEach((courseList) => {

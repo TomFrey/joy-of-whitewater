@@ -27,6 +27,10 @@ var Images = (function () {
 			{ name: 'paddelreisen_5', title: 'Taravo, Korsika', alt: 'Paddelreisen' },
 			{ name: 'paddelreisen_4', title: 'Open Canoe in Costa Rica', alt: 'Paddelreisen' },
 			{ name: 'paddelreisen_8', title: 'Quichos, Ecuador', alt: 'Paddelreisen' }
+		],
+		packraftImages: [
+			{ name: 'packraft_1', title: 'Packraft', alt: 'Packraft' },
+			{ name: 'packraft_2', title: 'Packraft', alt: 'Packraft' }
 		]
 	};
 
@@ -45,6 +49,10 @@ var Images = (function () {
 		paddelreisenImages: [
 			{ name: 'mobile_quer_paddelreisen_costarica', title: 'Paddelreisen', alt: 'Paddelreisen' },
 			{ name: 'mobile_paddelreisen_costarica', title: 'Paddelreisen', alt: 'Paddelreisen' }
+		],
+		packraftImages: [
+			{ name: 'mobile_quer_packraft', title: 'Packraft', alt: 'Packraft' },
+			{ name: 'mobile_packraft', title: 'Packraft', alt: 'Packraft' }
 		]
 	};
 
@@ -86,6 +94,10 @@ var Images = (function () {
 		return imageCarousel.kanukurseImages;
 	}
 
+	function getImagesForPackraft() {
+		return imageCarousel.packraftImages;
+	}
+
 	function getImagesForPaddelreisen() {
 		return imageCarousel.paddelreisenImages;
 	}
@@ -107,6 +119,10 @@ var Images = (function () {
 		return mobileImages.kanukurseImages;
 	}
 
+	function getMobileImagesForPackraft() {
+		return mobileImages.packraftImages;
+	}
+
 	function getMobileImagesForPaddelreisen() {
 		return mobileImages.paddelreisenImages;
 	}
@@ -124,10 +140,12 @@ var Images = (function () {
 		getAllCarouselImages,
 		getImagesForKanukurse,
 		getImagesForPaddelreisen,
+		getImagesForPackraft,
 		getImagesForJoyOfWhitewater,
 		getTheFirstImageForJoyOfWhitewater,
 		getMobileImagesForKanukurse,
 		getMobileImagesForPaddelreisen,
+		getMobileImagesForPackraft,
 		getMobileImagesForJoyOfWhitewater,
 		getImagesForSlider
 	};

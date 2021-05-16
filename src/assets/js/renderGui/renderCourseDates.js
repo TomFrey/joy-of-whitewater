@@ -521,13 +521,16 @@ const RenderCourseDates = (function (Dates, Globals) {
 
 	/**
 	 * Sucht das Vorkommen aller Klassen z.B.: cssClass = 'course-list-wrapper-fCourse' und erstellt darin eine Liste
-	 * mit allen Kursen vom courseType z.B.: 'Kanukurs', 'Eskimotieren' und courseLevel z.B.: 'B', 'F', 'alle'.
+	 * mit allen Kursen vom courseType z.B.: 'Kanukurs', 'Eskimotieren' und courseLevels z.B.: ['B'], ['B','F'], ['alle'].
 	 *
-	 * @param courseDates
+	 * @param courseDates  -> array (Eingang), mit allen Kursen, die gefiltert werden
+	 * @param courseLevels  -> array (Filterwert), mit allen Leveln, die ausgefiltert werden sollen 
+	 * @param courseType   -> (Filterwert), Kurstype, der ausgefiltert werden soll
+	 * @param cssClass     -> css Klasse, wo die Liste gerendert wird
 	 */
-	function renderCourseListFor(courseDates, courseLevel, courseType, cssClass) {
+	function renderCourseListFor(courseDates, courseLevels, courseType, cssClass) {
 		let courseDatesForLevel = courseDates.filter((courseDate) => {
-			return courseDate.kursStufe === courseLevel && courseDate.typ === courseType;
+			return courseDate.typ === courseType && courseLevels.indexOf(courseDate.kursStufe) != -1;
 		});
 		courseDatesForLevel = sortDatumAscending(courseDatesForLevel);
 
@@ -537,7 +540,7 @@ const RenderCourseDates = (function (Dates, Globals) {
 				const courseList = document.createElement('div');
 				courseList.classList.add('course-list');
 
-				// delete all current images
+				// delete all current course dates
 				while (courseListWrapper.firstChild) {
 					courseListWrapper.removeChild(courseListWrapper.firstChild);
 				}
