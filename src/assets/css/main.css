@@ -1663,19 +1663,25 @@ a.open-drawer-wrapper {
   .general-link:hover {
     color: #ffffff; } }
 
-.link-button {
+.link-button, .link-button--mail {
   background-color: #E68305;
   bottom: 0;
   margin-top: 4px; }
 
-.link-button-wrapper {
-  align-items: baseline;
+.link-button--mail {
+  margin: 16px 0; }
+
+.link-button-wrapper, .link-button-wrapper--mail {
   color: #ffffff;
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
   padding: 8px 0px;
-  text-decoration: none; }
+  text-decoration: none;
+  align-items: baseline; }
+
+.link-button-wrapper--mail {
+  align-items: center; }
 
 .link-button-wrapper__label {
   pointer-events: none; }
@@ -1689,18 +1695,37 @@ a.open-drawer-wrapper {
   transform: rotate(-45deg);
   width: 12px; }
 
+.link-button-wrapper__icon--mail {
+  background-image: url("/assets/images/icon/mail.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-left: 12px;
+  height: 20px;
+  width: 30px; }
+
 /* ab hier für desktop */
 @media screen and (min-width: 740px) {
-  .link-button {
+  .link-button, .link-button--mail {
     border: 1px solid #E68305;
     border-radius: 8px; }
-  .link-button:hover {
+  .link-button--mail {
+    margin: 16px 0 0 0; }
+  .link-button:hover, .link-button--mail:hover {
     background-color: #ffffff; }
-    .link-button:hover .link-button-wrapper {
+    .link-button:hover .link-button-wrapper, .link-button--mail:hover .link-button-wrapper, .link-button:hover .link-button-wrapper--mail, .link-button--mail:hover .link-button-wrapper--mail {
       color: #995600; }
-      .link-button:hover .link-button-wrapper .link-button-wrapper__icon {
+      .link-button:hover .link-button-wrapper .link-button-wrapper__icon, .link-button--mail:hover .link-button-wrapper .link-button-wrapper__icon, .link-button:hover .link-button-wrapper--mail .link-button-wrapper__icon, .link-button--mail:hover .link-button-wrapper--mail .link-button-wrapper__icon {
         border-bottom: 2px solid #995600;
-        border-right: 2px solid #995600; } }
+        border-right: 2px solid #995600; }
+    .link-button:hover .link-button-wrapper--mail, .link-button--mail:hover .link-button-wrapper--mail {
+      color: #995600; }
+      .link-button:hover .link-button-wrapper--mail .link-button-wrapper__icon--mail, .link-button--mail:hover .link-button-wrapper--mail .link-button-wrapper__icon--mail {
+        background-image: url("/assets/images/icon/mail_hover.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        margin-left: 12px;
+        height: 20px;
+        width: 30px; } }
 
 /* Border Box Trick */
 /* padding ist in der Box Breite miteingerechnet*/

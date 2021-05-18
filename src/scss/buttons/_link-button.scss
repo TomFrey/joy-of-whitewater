@@ -4,14 +4,24 @@
 	margin-top: 0.5*$basicHeight;
 }
 
+.link-button--mail{
+	@extend .link-button;
+	margin: 2*$basicHeight 0;
+}
+
 .link-button-wrapper{
-	align-items: baseline;
 	color: $color-drawer-buttonToOpenDrawerText;
 	display: flex;
 	flex-flow: row nowrap;
 	justify-content: center;
 	padding: $basicHeight 0px;
 	text-decoration: none;
+	align-items: baseline;
+}
+
+.link-button-wrapper--mail{
+	@extend .link-button-wrapper;
+	align-items: center;
 }
 
 .link-button-wrapper__label{
@@ -28,14 +38,26 @@
 	width: 12px;
 }
 
+.link-button-wrapper__icon--mail{
+	background-image: url("/assets/images/icon/mail.svg");
+	background-repeat: no-repeat;
+	background-position: center;
+	margin-left: 12px;
+	height: 20px;
+	width: 30px;
+}
+
 
 /* ab hier für desktop */
 @media screen and (min-width: $breakpoint-large) { //wenn Bildschirm grösser ist als, dann...
 
-
 	.link-button{
 		border: 1px solid $complimentaryColor4;
 		border-radius: $basicHeight;
+	}
+
+	.link-button--mail{
+		margin: 2*$basicHeight 0 0 0;
 	}
 
 	.link-button:hover{
@@ -47,6 +69,19 @@
 			.link-button-wrapper__icon{
 				border-bottom: 2px solid $color-drawer-buttonToOpenDrawerText-hover;
 				border-right: 2px solid $color-drawer-buttonToOpenDrawerText-hover;
+			}
+		}
+
+		.link-button-wrapper--mail{
+			color: $color-drawer-buttonToOpenDrawerText-hover;
+
+			.link-button-wrapper__icon--mail{
+				background-image: url("/assets/images/icon/mail_hover.svg");
+				background-repeat: no-repeat;
+				background-position: center;
+				margin-left: 12px;
+				height: 20px;
+				width: 30px;		
 			}
 		}
 	}
