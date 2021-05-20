@@ -29,10 +29,9 @@ var Images = (function () {
 			{ name: 'paddelreisen_8', title: 'Quichos, Ecuador', alt: 'Paddelreisen' }
 		],
 		packraftImages: [
-			{ name: 'packraft_1', title: 'Packraft', alt: 'Packraft' },
-			{ name: 'packraft_2', title: 'Packraft Ausflüge', alt: 'Packraft' },
-			{ name: 'packraft_3', title: 'Packraft Kurse', alt: 'Packraft' },
-			{ name: 'packraft_4', title: 'Packraft', alt: 'Packraft' }
+			{ name: 'packraft_3', title: 'Packraft', alt: 'Packraft' },
+			{ name: 'packraft_4', title: 'Packraft Ausflüge', alt: 'Packraft' },
+			{ name: 'packraft_1', title: 'Packraft Kurse', alt: 'Packraft' }
 		]
 	};
 
