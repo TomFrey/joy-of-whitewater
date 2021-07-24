@@ -337,6 +337,9 @@ const RenderCourseDates = (function (Dates, Globals) {
 				case 'Soca':
 					detailsLink.setAttribute('href', '/paddelreisen.html#paddleJourneySocaAnchor');
 					break;
+				case 'Georgien':
+					detailsLink.setAttribute('href', '/paddelreisen.html#paddleJourneyGeorgienAnchor');
+					break;
 				default:
 					detailsLink.setAttribute('href', '/paddelreisen.html');
 					break;

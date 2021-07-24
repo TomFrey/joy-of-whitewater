@@ -114,6 +114,9 @@ const Navigation = (function (RenderImageSlider, Images, Globals, Responsive) {
 				case 'Details zur Soca':
 					sliderName = 'soca';
 					break;
+				case 'Details zur Georgien Reise':
+					sliderName = 'georgien';
+					break;
 				default:
 					sliderName = 'korsika';
 					break;

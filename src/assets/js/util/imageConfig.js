@@ -88,6 +88,14 @@ var Images = (function () {
 			{ name: 'piemont_1_gr', nameMobile: 'piemont_1_kl', title: 'Sesia (Alpin Sprint)', alt: 'Sesia (Alpin Sprint)' },
 			{ name: 'piemont_3_gr', nameMobile: 'piemont_3_kl', title: 'Sesia (Balmuccia)', alt: 'Sesia (Balmuccia)' },
 			{ name: 'piemont_6_gr', nameMobile: 'piemont_6_kl', title: 'Campingplatz in Campertogno', alt: 'Campingplatz in Campertogno' }
+		],
+		georgien: [
+			{ name: 'georgien_1_gr', nameMobile: 'georgien_1_kl', title: 'Paddeln in Georgien', alt: 'Paddeln in Georgien' },
+			{ name: 'georgien_2_gr', nameMobile: 'georgien_2_kl', title: 'Wehrtürme in Georgien', alt: 'Wehrtürme in Georgien' },
+			{ name: 'georgien_3_gr', nameMobile: 'georgien_3_kl', title: 'Kajak Transport in Georgien', alt: 'Kajak Transport in Georgien' },
+			{ name: 'georgien_4_gr', nameMobile: 'georgien_4_kl', title: 'Paddeln in Georgien', alt: 'Paddeln in Georgien' },
+			{ name: 'georgien_5_gr', nameMobile: 'georgien_5_kl', title: 'Paddeln in Georgien', alt: 'Paddeln in Georgien' },
+			{ name: 'georgien_6_gr', nameMobile: 'georgien_6_kl', title: 'Georgische orthodoxe Kirche', alt: 'Georgische orthodoxe Kirche' }
 		]
 	};
 
