@@ -181,7 +181,7 @@ const Navigation = (function (RenderImageSlider, Images, Globals, Responsive) {
 
 			case 'paddelreisen':
 				Responsive.renderHeaderWithImagesAccordingToBreakPoint(Images.getImagesForPaddelreisen(), Images.getMobileImagesForPaddelreisen());
-				setHeaderTitle('Paddelreisen');
+				setHeaderTitle('Wildwasser Reisen');
 				paddelReisen.classList.add(SELECTED);
 				break;
 
@@ -193,7 +193,7 @@ const Navigation = (function (RenderImageSlider, Images, Globals, Responsive) {
 
 			case '': // Startseite
 				Responsive.renderHeaderWithImagesAccordingToBreakPoint(Images.getImagesForJoyOfWhitewater(), Images.getMobileImagesForJoyOfWhitewater());
-				setHeaderTitle('<strong>Kanuschule</strong><br> JOY OF WHITEWATER');
+				setHeaderTitle('<strong>Kanuschule</strong><br>THE JOY OF WHITEWATER');
 				joyOfWhitewater.classList.add(SELECTED);
 				break;
 

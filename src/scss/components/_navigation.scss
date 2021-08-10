@@ -73,14 +73,21 @@ nav{
 		z-index: 10;
 	}
 
+	.nav-flex-wrapper{
+		display: flex;
+		justify-content: flex-end;
+		height: 8*$basicHeight;
+		background-color: $color-main-background;
+	}
+
 	nav {
 		background-color: $color-nav-desktop-background;
 		padding-bottom: $basicHeight;
 		padding-top: 16px;
-		padding-left: 470px;
 		position: fixed;
 		top: 0;
 		z-index: 10;
+		width: unset;
 
 		#hamburger {
 			display: none;
