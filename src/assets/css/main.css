@@ -1791,11 +1791,11 @@ body {
 header {
   position: relative; }
   header .mobile-header-logo {
-    left: 33%;
+    left: 49%;
     pointer-events: none;
     position: absolute;
-    top: -50px;
-    width: 65%;
+    top: -26px;
+    width: 50%;
     z-index: 15; }
   header img {
     width: 100%; }
@@ -1804,13 +1804,18 @@ header {
   header .images-carousel {
     display: none; }
   header svg.header-fill__bottom {
-    display: none; }
+    display: block;
+    position: absolute;
+    bottom: 5px;
+    width: 100%;
+    height: 100px;
+    z-index: 2; }
   header svg.header-fill__top {
     display: block;
     position: absolute;
-    top: 0;
+    top: 5px;
     width: 100%;
-    height: 100px;
+    height: 120px;
     z-index: 2; }
   header .course-date-overview {
     color: #000000;
@@ -1840,11 +1845,19 @@ main .text-container {
 /* *********** ab hier für mobile querformat ******************* */
 @media screen and (min-width: 440px) {
   header .mobile-header-logo {
-    left: 50%;
+    left: 67%;
     position: absolute;
-    top: -56px;
-    width: 45%;
-    z-index: 15; } }
+    top: clamp(-39px, -3vw, -10px);
+    width: 30%;
+    z-index: 15; }
+  header svg.header-fill__bottom {
+    bottom: 5px;
+    height: 200px;
+    z-index: 2; }
+  header svg.header-fill__top {
+    top: 5px;
+    height: 200px;
+    z-index: 2; } }
 
 /* *************************************************** */
 /* *********** ab hier für desktop ******************* */
@@ -1856,17 +1869,11 @@ main .text-container {
     header .mobile-header-logo {
       display: none; }
     header svg.header-fill__bottom {
-      display: block;
-      position: absolute;
       bottom: 0px;
-      width: 100%;
       height: 200px;
       z-index: 2; }
     header svg.header-fill__top {
-      display: block;
-      position: absolute;
       top: 0px;
-      width: 100%;
       height: 350px;
       z-index: 2; }
     header .course-date-overview {
@@ -1898,4 +1905,6 @@ main .text-container {
         font-size: 3rem;
         color: #FF6305;
         line-height: 3rem;
-        text-align: center; } }
+        text-align: center; }
+  .logo_desktop {
+    margin-top: 32px; } }
