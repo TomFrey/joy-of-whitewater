@@ -24,7 +24,7 @@ const App = (function (Globals, Responsive) {
 							RenderHeader.addJustFirstImage(Images.getImagesForPaddelreisen());
 							break;
 						case 'packraft':
-							RenderHeader.addJustFirstImage(Images.getImagesForPaddelreisen());
+							RenderHeader.addJustFirstImage(Images.getImagesForPackraft());
 							break;
 						case '': // Startseite
 							RenderHeader.addJustFirstImage(Images.getImagesForJoyOfWhitewater());
