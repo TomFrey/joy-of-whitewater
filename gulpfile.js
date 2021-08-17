@@ -376,6 +376,16 @@ function replaceProductionCredentials(){
 }
 
 
+/**
+ * Ersetzt googleMapApiKey mit dem eigentlichen Key
+ */
+ function replaceGoogleMapApiKey(){
+	return gulp.src(['./src/*.html'])
+		.pipe(replace('googleMapApiKey', configFile.config.googleMap.apiKey))
+		.pipe(gulp.dest('dist'));
+}
+
+
 const getFtpProductionConnection = () => {
 	return ftp.create({
 		host: 'joyofwhitewater.ch',
@@ -472,7 +482,8 @@ function build(enviroment) {
 						copyXml,
 						copyRobotsAndHtaccess,
 						copyGoogleConfirmationFile),
-		replaceProductionCredentials);
+		replaceProductionCredentials,
+		replaceGoogleMapApiKey);
 
 	//Überschreibt robots.txt mit src/assets/webServerConfig/robotsForTestEnviroment.txt
 	if (enviroment === 'toTestEnviroment') {
