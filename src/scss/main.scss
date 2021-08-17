@@ -1,10 +1,11 @@
 @import "reset";
+@import "specifications";
 
 @import "utils/slick";
 @import "utils/slick-theme";
+@import "utils/googleMaps";
 
 @import "animations";
-@import "specifications";
 @import "components/components";
 @import "buttons/buttons";
 

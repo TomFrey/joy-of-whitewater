@@ -45,6 +45,10 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
+/*** colors ***/
+/*** sizes ***/
+/*** media breakpoints ***/
+/*** fonts ***/
 /*
 	Slick Slider von Ken Wheeler
 	https://github.com/kenwheeler/slick/tree/master/slick
@@ -262,6 +266,17 @@ table {
       color: black;
       opacity: 0.75; }
 
+#map {
+  height: 400px; }
+
+/* ************************************************************* */
+/* *********** ab hier für mobile querformat ******************* */
+@media screen and (min-width: 440px) {
+  #map {
+    border-radius: 8px; } }
+
+/* *************************************************** */
+/* *********** ab hier für desktop ******************* */
 /*
  Slide in a container (for example: the navigation) from the left to the right.
 
@@ -272,10 +287,6 @@ table {
   to {
     left: 0%; } }
 
-/*** colors ***/
-/*** sizes ***/
-/*** media breakpoints ***/
-/*** fonts ***/
 nav {
   padding-top: 7px;
   background-color: #ffffff;
@@ -585,19 +596,19 @@ img.text-container-fill__bottom {
   content: ' CHF'; }
 
 /* *************************************************** */
-/* *********** ab hier für desktop ******************* */
-@media screen and (min-width: 1050px) {
+/* *********** ab hier für tablet ******************* */
+@media screen and (min-width: 440px) {
   .text-container-main {
     display: flex;
     flex-flow: row nowrap;
     background-color: #0597E6;
     padding: 24px 16px; }
     .text-container-main > .text-container-left {
-      flex: 0 1 60%;
+      flex: 0 1 50%;
       order: 0;
       padding-right: 16px; }
     .text-container-main > .text-container-right {
-      flex: 0 1 40%;
+      flex: 0 1 50%;
       order: 1;
       padding-left: 16px; }
     .text-container-main > .filler {
@@ -614,10 +625,10 @@ img.text-container-fill__bottom {
       .text-container-main > .filler img.width-50 {
         max-width: 50%; }
     .text-container-main > .filler-right {
-      flex: 0 1 40%;
+      flex: 0 1 50%;
       order: 1; }
     .text-container-main > .filler-left {
-      flex: 0 1 60%;
+      flex: 0 1 50%;
       order: 0; }
     .text-container-main .filler__fillarea {
       background-color: #ffffff;
@@ -652,21 +663,24 @@ img.text-container-fill__bottom {
   .text-container-drawer-list__label {
     flex: 1 1 25%; }
   .text-container-drawer-list__value {
-    flex: 3 3 75%; }
-  img.text-container-fill__top {
-    display: block;
-    position: absolute;
-    top: 0px;
-    width: 100%;
-    height: 100px;
-    z-index: 2; }
-  img.text-container-fill__bottom {
-    display: block;
-    position: absolute;
-    bottom: 0px;
-    width: 100%;
-    height: 200px;
-    z-index: 2; } }
+    flex: 3 3 75%; } }
+
+/* *************************************************** */
+/* *********** ab hier für desktop ******************* */
+@media screen and (min-width: 1050px) {
+  .text-container-main {
+    display: flex;
+    flex-flow: row nowrap;
+    background-color: #0597E6;
+    padding: 24px 16px; }
+    .text-container-main > .text-container-left {
+      flex: 0 1 60%; }
+    .text-container-main > .text-container-right {
+      flex: 0 1 40%; }
+    .text-container-main > .filler-right {
+      flex: 0 1 40%; }
+    .text-container-main > .filler-left {
+      flex: 0 1 60%; } }
 
 .images-carousel {
   position: relative;
@@ -1763,6 +1777,13 @@ a.open-drawer-wrapper {
         margin-left: 12px;
         height: 20px;
         width: 30px; } }
+
+.information-icon {
+  z-index: 3;
+  width: 12%;
+  position: absolute;
+  top: -335px;
+  right: 61px; }
 
 /* Border Box Trick */
 /* padding ist in der Box Breite miteingerechnet*/

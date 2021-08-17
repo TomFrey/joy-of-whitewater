@@ -1,0 +1,19 @@
+#map {
+	height: 400px;
+}
+
+
+/* ************************************************************* */
+/* *********** ab hier für mobile querformat ******************* */
+@media screen and (min-width: $breakpoint-medium) {    // > 440px
+    #map {
+        border-radius: 8px;
+    }
+}
+
+
+/* *************************************************** */
+/* *********** ab hier für desktop ******************* */
+@media screen and (min-width: $breakpoint-large) {   // > 1050px
+
+}
