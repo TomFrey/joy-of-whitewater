@@ -647,6 +647,9 @@ img.text-container-fill__bottom {
   .text-container:not(:first-child) > .text-container-main:not(:only-child):first-of-type {
     border-radius: 16px 16px 0px 0px;
     padding: 24px 16px 8px 16px; }
+  .text-container:not(:first-child) > .text-container-main:not(:only-child) {
+    border-radius: 0px 0px;
+    padding: 16px 16px 8px 16px; }
   .text-container:not(:first-child) > .text-container-main:not(:only-child):last-of-type {
     border-radius: 0px 0px 16px 16px;
     padding: 8px 16px 24px 16px; }
