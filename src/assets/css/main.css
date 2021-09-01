@@ -1783,10 +1783,11 @@ a.open-drawer-wrapper {
 
 .information-icon {
   z-index: 3;
-  width: 12%;
+  width: 10%;
+  height: 25%;
   position: absolute;
-  top: -335px;
-  right: 61px; }
+  top: 110px;
+  right: 60px; }
 
 /* Border Box Trick */
 /* padding ist in der Box Breite miteingerechnet*/
