@@ -21,17 +21,17 @@ var Images = (function () {
 		paddelreisenImages: [
 			{ name: 'paddelreisen_10', title: 'Tavignano, Korsika', alt: 'Paddelreisen' },
 			{ name: 'paddelreisen_7', title: 'Transportmittel in Chile', alt: 'Paddelreisen' },
-			{ name: 'paddelreisen_9', title: 'Jungle Ecuador', alt: 'Paddelreisen' },
+			{ name: 'paddelreisen_4', title: 'Open Canoe in Costa Rica', alt: 'Paddelreisen' },
 			{ name: 'paddelreisen_1', title: 'Sesia, Piemont', alt: 'Paddelreisen' },
 			{ name: 'paddelreisen_2', title: 'Paddelreise in Georgien', alt: 'Paddelreisen' },
-			{ name: 'paddelreisen_5', title: 'Taravo, Korsika', alt: 'Paddelreisen' },
-			{ name: 'paddelreisen_4', title: 'Open Canoe in Costa Rica', alt: 'Paddelreisen' },
-			{ name: 'paddelreisen_8', title: 'Quichos, Ecuador', alt: 'Paddelreisen' }
+			{ name: 'paddelreisen_5', title: 'Taravo, Korsika', alt: 'Paddelreisen' }
+			
 		],
 		packraftImages: [
+			{ name: 'packraft_6', title: 'Packraft Kurse', alt: 'Packraft Kurse' },
+			{ name: 'packraft_7', title: 'Packraft Kurse', alt: 'Packraft Kurse' },
 			{ name: 'packraft_3', title: 'Packraft', alt: 'Packraft' },
-			{ name: 'packraft_4', title: 'Packraft Ausflüge', alt: 'Packraft' },
-			{ name: 'packraft_1', title: 'Packraft Kurse', alt: 'Packraft' }
+			{ name: 'packraft_4', title: 'Packraft Ausflüge', alt: 'Packraft Ausflüge' }
 		]
 	};
 
