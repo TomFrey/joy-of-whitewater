@@ -1,6 +1,7 @@
 const App = (function (Globals, Responsive) {
 	/** ** wird vor dem DOM ready ausgeführt ** */
 	const breakPointLarge = Globals.get().breakpointLarge;
+	const whereAmI = Globals.get().nameOfCurrentSite;
 
 
 	/** ** wird nach dem DOM ready ausgeführt ** */
@@ -15,32 +16,40 @@ const App = (function (Globals, Responsive) {
 			// bevor alle anderen Bilder... geladen werden.
 			Preloader.loadFirstImageForHeaderCarousel()
 				.then(() => {
-					const whereAmI = Globals.get().nameOfCurrentSite;
 					switch (whereAmI) {
 						case 'kanukurse':
 							RenderHeader.addJustFirstImage(Images.getImagesForKanukurse());
+							Navigation.setHeaderTitle('Kanukurse');
 							break;
 						case 'paddelreisen':
 							RenderHeader.addJustFirstImage(Images.getImagesForPaddelreisen());
+							Navigation.setHeaderTitle('Wildwasser Reisen');
 							break;
 						case 'packraft':
 							RenderHeader.addJustFirstImage(Images.getImagesForPackraft());
+							Navigation.setHeaderTitle('Packraft');
 							break;
 						case '': // Startseite
 							RenderHeader.addJustFirstImage(Images.getImagesForJoyOfWhitewater());
+							Navigation.setHeaderTitle('<strong>Kanuschule</strong><br>THE JOY OF WHITEWATER');
 							break;
 						default: // alle Seiten ohne Header, wie Anmeldung, Impressum, AGB ...
 					}
-
+					Navigation.setSelectedNavigation(whereAmI);
+					
 					// alle Kursdaten laden
 					CourseDates.loadAndRender()
 						.then(() => {
+							CourseRegistration.init();
+							Navigation.init();
 							// Alle Bilder vorladen, damit man den Aufbau im GUI nicht sieht.
 							return Preloader.loadImagesForHeaderCarousel();
 						})
 						.then(() => {
-							CourseRegistration.init();
-							Navigation.init();
+							//Alle Bilder der entsprechenden Seite (Reisen, Kurse, Packraft...) in die Carousel Liste rendern.
+							Navigation.renderHeaderWithImagesAccordingToSite(whereAmI);
+							
+							//Das Carousel starten
 							ImageCarousel.init();
 						})
 						.catch((error) => {
@@ -52,6 +61,9 @@ const App = (function (Globals, Responsive) {
 		} else {
 			CourseDates.loadAndRender()
 				.then(() => {
+					//Das Bild der entsprechenden Seite (Reisen, Kurse, Packraft...) in den Header rendern.
+					Navigation.renderHeaderWithImagesAccordingToSite(whereAmI);
+
 					CourseRegistration.init();
 					Navigation.init();
 				})

@@ -40,20 +40,20 @@ var Images = (function () {
 	// Die Bilder müssen unter /assets/images/mobileHeader/*.jpg liegen
 	const mobileImages = {
 		theJoyOfWhiteWaterImages: [
-			{ name: 'mobile_quer_karoline_costarica', title: 'The Joy Of Whitewater', alt: 'The Joy Of Whitewater' },
-			{ name: 'mobile_karoline_costarica', title: 'The Joy Of Whitewater', alt: 'The Joy Of Whitewater' }
+			{ name: 'mobile_quer_joyofwhitewater', title: 'Kanuschule - The Joy Of Whitewater', alt: 'Kanuschule - The Joy Of Whitewater' },
+			{ name: 'mobile_joyofwhitewater', title: 'Kanuschule - The Joy Of Whitewater', alt: 'Kanuschule - The Joy Of Whitewater' }
 		],
 		kanukurseImages: [
-			{ name: 'mobile_quer_kanukurse_costarica', title: 'Kanukurs', alt: 'Kanukurs' },
-			{ name: 'mobile_kanukurse_costarica', title: 'Kanukurs', alt: 'Kanukurs' }
+			{ name: 'mobile_quer_kanukurse', title: 'Kanukurs', alt: 'Kanukurs' },
+			{ name: 'mobile_kanukurse', title: 'Kanukurs', alt: 'Kanukurs' }
 		],
 		paddelreisenImages: [
-			{ name: 'mobile_quer_paddelreisen_costarica', title: 'Paddelreisen', alt: 'Paddelreisen' },
-			{ name: 'mobile_paddelreisen_costarica', title: 'Paddelreisen', alt: 'Paddelreisen' }
+			{ name: 'mobile_quer_paddelreisen', title: 'Wildwasser Reisen', alt: 'Wildwasser Reisen' },
+			{ name: 'mobile_paddelreisen', title: 'Wildwasser Reisen', alt: 'Wildwasser Reisen' }
 		],
 		packraftImages: [
-			{ name: 'mobile_quer_packraft', title: 'Packraft', alt: 'Packraft' },
-			{ name: 'mobile_packraft', title: 'Packraft', alt: 'Packraft' }
+			{ name: 'mobile_quer_packraft', title: 'Packraft Kurse', alt: 'Packraft Kurse' },
+			{ name: 'mobile_packraft', title: 'Packraft Kurse', alt: 'Packraft Kurse' }
 		]
 	};
 
@@ -116,12 +116,24 @@ var Images = (function () {
 	}
 
 	function getAllCarouselImages() {
-		return getImagesForJoyOfWhitewater().concat(getImagesForPaddelreisen(), getImagesForKanukurse());
+		return getImagesForJoyOfWhitewater().concat(getImagesForPaddelreisen(), getImagesForKanukurse(), getImagesForPackraft());
 	}
 
-	// Gets the first image, which is the last image in the array ;-)
+	// Gets the first image, which is the first image in the array ;-)
 	function getTheFirstImageForJoyOfWhitewater() {
-		return imageCarousel.theJoyOfWhiteWaterImages[imageCarousel.theJoyOfWhiteWaterImages.length - 1];
+		return imageCarousel.theJoyOfWhiteWaterImages[0];
+	}
+
+	function getTheFirstImageForPackraft() {
+		return imageCarousel.packraftImages[0];
+	}
+
+	function getTheFirstImageForPaddelreisen() {
+		return imageCarousel.paddelreisenImages[0];
+	}
+
+	function getTheFirstImageForKanukurse() {
+		return imageCarousel.kanukurseImages[0];
 	}
 
 	function getMobileImagesForKanukurse() {
@@ -152,6 +164,9 @@ var Images = (function () {
 		getImagesForPackraft,
 		getImagesForJoyOfWhitewater,
 		getTheFirstImageForJoyOfWhitewater,
+		getTheFirstImageForPackraft,
+		getTheFirstImageForPaddelreisen,
+		getTheFirstImageForKanukurse,
 		getMobileImagesForKanukurse,
 		getMobileImagesForPaddelreisen,
 		getMobileImagesForPackraft,

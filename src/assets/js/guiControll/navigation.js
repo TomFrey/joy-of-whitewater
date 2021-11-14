@@ -23,6 +23,40 @@ const Navigation = (function (RenderImageSlider, Images, Globals, Responsive) {
 	}
 
 
+	function setSelectedNavigation(whereAmI) {
+		const allLinksFromMainNavigation = [];
+
+		const kanuKurse = document.querySelector('li.main-navi-desktop__kanukurse a.u-slide-line');
+		allLinksFromMainNavigation.push(kanuKurse);
+		const paddelReisen = document.querySelector('li.main-navi-desktop__paddelreisen a.u-slide-line');
+		allLinksFromMainNavigation.push(paddelReisen);
+		const joyOfWhitewater = document.querySelector('li.main-navi-desktop__joyOfWhitewater a.u-slide-line');
+		allLinksFromMainNavigation.push(joyOfWhitewater);
+		const packraft = document.querySelector('li.main-navi-desktop__packraft a.u-slide-line');
+		allLinksFromMainNavigation.push(packraft);
+
+		allLinksFromMainNavigation.forEach((url) => {
+			url.classList.remove(SELECTED);
+		});
+
+		switch (whereAmI) {
+			case 'kanukurse':
+				kanuKurse.classList.add(SELECTED);
+				break;
+			case 'paddelreisen':
+				paddelReisen.classList.add(SELECTED);
+				break;
+			case 'packraft':
+				packraft.classList.add(SELECTED);
+				break;
+			case '': // Startseite
+				joyOfWhitewater.classList.add(SELECTED);
+				break;
+			default: // alle Seiten ohne Header, wie Anmeldung, Impressum, AGB ...
+		}
+	}
+
+
 	function showHideNavigation() {
 		if (mainNavi.classList.contains(HIDE)) {
 			mainNavi.classList.remove(HIDE);
@@ -154,57 +188,28 @@ const Navigation = (function (RenderImageSlider, Images, Globals, Responsive) {
 		}
 	}
 
-
-	function setSettingsDependingOnUrl() {
-		const whereAmI = Globals.get().nameOfCurrentSite;
-		const allLinksFromMainNavigation = [];
-
-		const kanuKurse = document.querySelector('li.main-navi-desktop__kanukurse a.u-slide-line');
-		allLinksFromMainNavigation.push(kanuKurse);
-		const paddelReisen = document.querySelector('li.main-navi-desktop__paddelreisen a.u-slide-line');
-		allLinksFromMainNavigation.push(paddelReisen);
-		const joyOfWhitewater = document.querySelector('li.main-navi-desktop__joyOfWhitewater a.u-slide-line');
-		allLinksFromMainNavigation.push(joyOfWhitewater);
-		const packraft = document.querySelector('li.main-navi-desktop__packraft a.u-slide-line');
-		allLinksFromMainNavigation.push(packraft);
-
-		allLinksFromMainNavigation.forEach((url) => {
-			url.classList.remove(SELECTED);
-		});
-
+	/**
+	 * Alle Bilder der entsprechenden Seite in die Carousel Liste rendern.
+	 */
+	function renderHeaderWithImagesAccordingToSite(whereAmI) {
 		switch (whereAmI) {
 			case 'kanukurse':
 				Responsive.renderHeaderWithImagesAccordingToBreakPoint(Images.getImagesForKanukurse(), Images.getMobileImagesForKanukurse());
-				setHeaderTitle('Kanukurse');
-				kanuKurse.classList.add(SELECTED);
 				break;
-
 			case 'paddelreisen':
 				Responsive.renderHeaderWithImagesAccordingToBreakPoint(Images.getImagesForPaddelreisen(), Images.getMobileImagesForPaddelreisen());
-				setHeaderTitle('Wildwasser Reisen');
-				paddelReisen.classList.add(SELECTED);
 				break;
-
 			case 'packraft':
 				Responsive.renderHeaderWithImagesAccordingToBreakPoint(Images.getImagesForPackraft(), Images.getMobileImagesForPackraft());
-				setHeaderTitle('Packraft');
-				packraft.classList.add(SELECTED);
 				break;
-
 			case '': // Startseite
 				Responsive.renderHeaderWithImagesAccordingToBreakPoint(Images.getImagesForJoyOfWhitewater(), Images.getMobileImagesForJoyOfWhitewater());
-				setHeaderTitle('<strong>Kanuschule</strong><br>THE JOY OF WHITEWATER');
-				joyOfWhitewater.classList.add(SELECTED);
 				break;
-
 			default: // alle Seiten ohne Header, wie Anmeldung, Impressum, AGB ...
 		}
 	}
 
-
-	function initiate() {
-		setSettingsDependingOnUrl();
-
+	function initiate() {	
 		hamburger = document.getElementById('hamburger');
 		hamburger.addEventListener('click', showHideNavigation);
 		mainNavi = document.querySelector('.main-navi-desktop');
@@ -277,6 +282,9 @@ const Navigation = (function (RenderImageSlider, Images, Globals, Responsive) {
 
 	// public api
 	return {
-		init: initiate
+		init: initiate,
+		setHeaderTitle,
+		setSelectedNavigation,
+		renderHeaderWithImagesAccordingToSite
 	};
 })(RenderImageSlider, Images, Globals, Responsive);
