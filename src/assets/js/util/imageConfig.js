@@ -96,6 +96,11 @@ var Images = (function () {
 			{ name: 'georgien_4_gr', nameMobile: 'georgien_4_kl', title: 'Paddeln in Georgien', alt: 'Paddeln in Georgien' },
 			{ name: 'georgien_5_gr', nameMobile: 'georgien_5_kl', title: 'Paddeln in Georgien', alt: 'Paddeln in Georgien' },
 			{ name: 'georgien_6_gr', nameMobile: 'georgien_6_kl', title: 'Georgische orthodoxe Kirche', alt: 'Georgische orthodoxe Kirche' }
+		],
+		albanien: [
+			{ name: 'albanien_1_gr', nameMobile: 'albanien_1_kl', title: 'Paddeln in Albanien', alt: 'Paddeln in Albanien' },
+			{ name: 'albanien_2_gr', nameMobile: 'albanien_2_kl', title: 'Paddeln in Albanien', alt: 'Paddeln in Albanien' },
+			{ name: 'albanien_3_gr', nameMobile: 'albanien_3_kl', title: 'Paddeln in Albanien', alt: 'Paddeln in Albanien' }
 		]
 	};
 
