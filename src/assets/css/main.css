@@ -271,7 +271,7 @@ table {
 
 /* ************************************************************* */
 /* *********** ab hier für mobile querformat ******************* */
-@media screen and (min-width: 440px) {
+@media screen and (min-width: 688px) {
   #map {
     border-radius: 8px; } }
 
@@ -331,7 +331,7 @@ nav {
 
 /* *************************************************** */
 /* *********** ab hier für desktop ******************* */
-@media screen and (min-width: 1050px) {
+@media screen and (min-width: 992px) {
   .nav-wrapper {
     position: sticky;
     top: 0;
@@ -419,7 +419,7 @@ Mobile
 -------------------------------------------------------------
 
 
-Desktop
+Tablet / Desktop
 
 |---------------- text-container------------------------------------|
 |                                                                   |
@@ -435,13 +435,25 @@ Desktop
 | |---------------- text-container-main --------------------------| |
 | | |---------------------------------------|-------------------| | |
 | | |                                       |                   | | |
-| | |      text-container-left  62%         |   filler-right    | | |
-| | |                                       |       38%         | | |
+| | |      text-container-left  60%         |   filler-right    | | |
+| | |                                       |       40%         | | |
 | | |      title                            |                   | | |
 | | |                                       |                   | | |
 | | |      paragraph                        |                   | | |
 | | |                                       |                   | | |
 | | |---------------------------------------|-------------------| | |
+| |---------------------------------------------------------------| |
+|                                                                   |
+| |---------------- text-container-main---------------------------| |
+| | |-----------------|-----------------------------------------| | |
+| | |                                      |                    | | |
+| | |      filler-left 60%                 |text-container-right| | |
+| | |                                      |                    | | |
+| | |                                      |        40%         | | |
+| | |                                      |                    | | |
+| | |                                      |                    | | |
+| | |                                      |                    | | |
+| |----------------------------------------|--------------------| | |
 | |---------------------------------------------------------------| |
 |                                                                   |
 |  mit oder ohne                                                    |
@@ -460,77 +472,72 @@ Desktop
 |-------------------------------------------------------------------|
 
 
-
----------------- text-container------------------------------
-|-----------------|-----------------------------------------|
-|                 |                                         |
-|   filler-left   |            text-container-right         |
-|                 |      title                              |
-|                 |                                         |
-|                 |      paragraph                          |
-|                 |                                         |
-|-----------------|-----------------------------------------|
 -------------------------------------------------------------
 */
-.text-container {
+.text-container, .text-container__home {
   display: flex;
   flex-flow: column nowrap;
   position: relative; }
-  .text-container h1.title {
+  .text-container h1.title, .text-container__home h1.title {
     font-family: "Gloria Hallelujah", "Arial", "sans-serif";
     font-size: 3rem;
     color: #E68305;
     line-height: 2rem;
     margin-top: 1rem;
     margin-bottom: 2rem; }
-  .text-container h2.title {
+  .text-container h2.title, .text-container__home h2.title {
     font-family: "Gloria Hallelujah", "Arial", "sans-serif";
     font-size: 1.75rem;
     color: #ffffff;
     line-height: 2rem;
     margin-top: 1rem;
     margin-bottom: 0.75rem; }
-  .text-container h3.title {
+  .text-container h3.title, .text-container__home h3.title {
     font-family: "Gloria Hallelujah", "Arial", "sans-serif";
     font-size: 1.25rem;
     color: #ffffff;
     line-height: 1.5rem;
     padding-top: 1rem;
     margin-bottom: 0.5rem; }
-  .text-container h4.title {
+  .text-container h4.title, .text-container__home h4.title {
     font-family: "Open Sans", "Arial", "sans-serif";
     font-size: 1.25rem;
     color: #000000;
     line-height: 1.5rem;
     padding-top: 1rem;
     margin-bottom: 0.5rem; }
-  .text-container .paragraph {
+  .text-container .paragraph, .text-container__home .paragraph {
     color: #000000;
     font-size: 1rem;
     margin-bottom: 0.5rem; }
-  .text-container a.link-in-text {
+  .text-container a.link-in-text, .text-container__home a.link-in-text {
     color: #E6E01C; }
-  .text-container a.link-in-text:hover {
+  .text-container a.link-in-text:hover, .text-container__home a.link-in-text:hover {
     color: #ffffff; }
 
-.text-container-main {
+.text-container-main, .text-container-main__home {
   background-color: #0597E6;
   display: flex;
   flex-flow: column nowrap;
   padding: 8px 8px; }
-  .text-container-main > .text-container-left {
+  .text-container-main > .text-container-left, .text-container-main .text-container-left__home, .text-container-main__home > .text-container-left, .text-container-main__home .text-container-left__home {
     order: 0;
     width: 100%; }
-  .text-container-main > .text-container-right {
+  .text-container-main > .text-container-right, .text-container-main .text-container-right__home, .text-container-main__home > .text-container-right, .text-container-main__home .text-container-right__home {
     order: 0;
     width: 100%; }
-  .text-container-main > .filler {
+  .text-container-main > .filler, .text-container-main .filler__home, .text-container-main__home > .filler, .text-container-main__home .filler__home {
     display: block;
     order: 1; }
-    .text-container-main > .filler.hide-on-mobile {
+    .text-container-main > .filler.hide-on-mobile, .text-container-main .filler__home.hide-on-mobile, .text-container-main__home > .filler.hide-on-mobile, .text-container-main__home .filler__home.hide-on-mobile {
       display: none; }
-    .text-container-main > .filler .filler__picture__img {
+    .text-container-main > .filler .filler__picture, .text-container-main .filler__home .filler__picture, .text-container-main__home > .filler .filler__picture, .text-container-main__home .filler__home .filler__picture {
       width: 100%; }
+      .text-container-main > .filler .filler__picture.hide-on-mobile, .text-container-main .filler__home .filler__picture.hide-on-mobile, .text-container-main__home > .filler .filler__picture.hide-on-mobile, .text-container-main__home .filler__home .filler__picture.hide-on-mobile {
+        display: none; }
+      .text-container-main > .filler .filler__picture img, .text-container-main .filler__home .filler__picture img, .text-container-main__home > .filler .filler__picture img, .text-container-main__home .filler__home .filler__picture img {
+        max-width: 100%;
+        height: auto; }
 
 .text-container-detail, .text-container-full-width {
   background-color: #0597E6;
@@ -597,18 +604,54 @@ img.text-container-fill__bottom {
 
 /* *************************************************** */
 /* *********** ab hier für tablet ******************* */
-@media screen and (min-width: 440px) {
+@media screen and (min-width: 688px) {
+  .text-container__home {
+    display: flex;
+    flex-flow: column nowrap;
+    position: relative; }
+  .text-container-main__home {
+    background-color: #0597E6;
+    display: flex;
+    flex-flow: column nowrap;
+    padding: 8px 8px; }
+    .text-container-main__home .empty-space {
+      display: none; }
+    .text-container-main__home iframe.philosophieMovie {
+      width: 100%;
+      height: 350px; }
+    .text-container-main__home > .text-container-left__home {
+      order: 0;
+      width: 100%; }
+    .text-container-main__home > .text-container-right__home {
+      order: 0;
+      width: 100%; }
+    .text-container-main__home > .filler__home {
+      display: block;
+      order: 1; }
+      .text-container-main__home > .filler__home.hide-on-mobile {
+        display: block; }
+      .text-container-main__home > .filler__home.hide-on-tablet {
+        display: none; }
+      .text-container-main__home > .filler__home .filler__picture {
+        width: 100%; }
+        .text-container-main__home > .filler__home .filler__picture.hide-on-mobile {
+          display: block; }
+        .text-container-main__home > .filler__home .filler__picture.hide-on-tablet {
+          display: none; }
+        .text-container-main__home > .filler__home .filler__picture img {
+          max-width: 100%;
+          height: auto; }
   .text-container-main {
     display: flex;
     flex-flow: row nowrap;
     background-color: #0597E6;
     padding: 24px 16px; }
     .text-container-main > .text-container-left {
-      flex: 0 1 50%;
+      flex: 0 1 60%;
       order: 0;
       padding-right: 16px; }
     .text-container-main > .text-container-right {
-      flex: 0 1 50%;
+      flex: 0 1 40%;
       order: 1;
       padding-left: 16px; }
     .text-container-main > .filler {
@@ -616,19 +659,25 @@ img.text-container-fill__bottom {
       background-color: #0597E6; }
       .text-container-main > .filler.hide-on-mobile {
         display: block; }
+      .text-container-main > .filler.hide-on-tablet {
+        display: none; }
       .text-container-main > .filler .filler__picture {
         display: flex;
         justify-content: center; }
+        .text-container-main > .filler .filler__picture.hide-on-mobile {
+          display: block; }
+        .text-container-main > .filler .filler__picture.hide-on-tablet {
+          display: none; }
       .text-container-main > .filler img {
         max-width: 100%;
-        height: 100%; }
+        height: auto; }
       .text-container-main > .filler img.width-50 {
         max-width: 50%; }
     .text-container-main > .filler-right {
-      flex: 0 1 50%;
+      flex: 0 1 40%;
       order: 1; }
     .text-container-main > .filler-left {
-      flex: 0 1 50%;
+      flex: 0 1 60%;
       order: 0; }
     .text-container-main .filler__fillarea {
       background-color: #ffffff;
@@ -654,6 +703,8 @@ img.text-container-fill__bottom {
     border-radius: 0px 0px 16px 16px;
     padding: 8px 16px 24px 16px; }
   .text-container-full-width {
+    padding: 0 16px; }
+  .text-container-full-width:first-of-type {
     padding: 16px; }
   .text-container-drawer {
     transition: max-height 0.5s ease-in-out 1ms; }
@@ -670,7 +721,39 @@ img.text-container-fill__bottom {
 
 /* *************************************************** */
 /* *********** ab hier für desktop ******************* */
-@media screen and (min-width: 1050px) {
+@media screen and (min-width: 992px) {
+  .text-container-main__home {
+    display: flex;
+    flex-flow: row nowrap;
+    background-color: #0597E6;
+    padding: 24px 16px; }
+    .text-container-main__home iframe.philosophieMovie {
+      width: 100%;
+      height: 100%; }
+    .text-container-main__home .empty-space {
+      display: block;
+      height: 150px; }
+    .text-container-main__home > .text-container-left__home {
+      flex: 0 1 60%;
+      order: 0;
+      padding-right: 16px; }
+    .text-container-main__home > .text-container-right__home {
+      flex: 0 1 40%;
+      order: 1;
+      padding-left: 16px; }
+    .text-container-main__home > .filler__home .filler__picture.hide-on-mobile {
+      display: block; }
+    .text-container-main__home > .filler__home .filler__picture.hide-on-tablet {
+      display: block; }
+    .text-container-main__home > .filler__home .filler__picture.logo_desktop img {
+      max-width: 80%;
+      height: auto; }
+    .text-container-main__home > .filler-left__home {
+      flex: 0 1 60%;
+      order: 0; }
+    .text-container-main__home > .filler-right__home {
+      flex: 0 1 40%;
+      order: 1; }
   .text-container-main {
     display: flex;
     flex-flow: row nowrap;
@@ -680,6 +763,14 @@ img.text-container-fill__bottom {
       flex: 0 1 60%; }
     .text-container-main > .text-container-right {
       flex: 0 1 40%; }
+    .text-container-main > .filler.hide-on-mobile {
+      display: block; }
+    .text-container-main > .filler.hide-on-tablet {
+      display: block; }
+    .text-container-main > .filler .filler__picture.hide-on-mobile {
+      display: block; }
+    .text-container-main > .filler .filler__picture.hide-on-tablet {
+      display: block; }
     .text-container-main > .filler-right {
       flex: 0 1 40%; }
     .text-container-main > .filler-left {
@@ -713,7 +804,7 @@ img.text-container-fill__bottom {
 
 /* ******************* */
 /* ab hier für desktop */
-@media screen and (min-width: 1050px) {
+@media screen and (min-width: 992px) {
   .parallax {
     perspective: 1px;
     height: 100vh;
@@ -897,7 +988,7 @@ h4.course-list-detail__title::after {
 
 /* *************************************************** */
 /* *********** ab hier für desktop ******************* */
-@media screen and (min-width: 1050px) {
+@media screen and (min-width: 992px) {
   .course-list {
     padding: 8px 16px; }
   .course-list-item:hover {
@@ -1033,7 +1124,7 @@ h4.course-list-detail__title::after {
 
 /* *************************************************** */
 /* *********** ab hier für desktop ******************* */
-@media screen and (min-width: 1050px) {
+@media screen and (min-width: 992px) {
   .footer {
     background-color: #ffffff;
     padding: 8px 16px; }
@@ -1276,7 +1367,7 @@ h4.course-list-detail__title::after {
 
 /* *************************************************** */
 /* *********** ab hier für desktop ******************* */
-@media screen and (min-width: 1050px) {
+@media screen and (min-width: 992px) {
   .anmeldung {
     margin: 16px 16px;
     padding: 16px 16px; }
@@ -1341,7 +1432,7 @@ h4.course-list-detail__title::after {
 
 /* *************************************************** */
 /* *********** ab hier für tablet ******************* */
-@media screen and (min-width: 440px) {
+@media screen and (min-width: 688px) {
   .gridx12__width3--col1of4 {
     grid-area: 1 / 1 / 1 / 7; }
   .gridx12__width3--col2of4 {
@@ -1353,7 +1444,7 @@ h4.course-list-detail__title::after {
 
 /* *************************************************** */
 /* *********** ab hier für desktop ******************* */
-@media screen and (min-width: 1050px) {
+@media screen and (min-width: 992px) {
   .gridx3 {
     display: grid;
     grid-template: [Zeile1] "row1 row1 row1" auto [Zeile1Ende]/auto minmax(auto, 1200px) auto; }
@@ -1474,7 +1565,7 @@ h4.course-list-detail__title::after {
 /* *************************************************************************************/
 /*                                ab hier nur für desktop                              */
 /* *************************************************************************************/
-@media screen and (min-width: 1050px) {
+@media screen and (min-width: 992px) {
   .image-slider-wrapper {
     max-width: 1000px;
     margin: 16px auto; }
@@ -1584,7 +1675,7 @@ h4.course-list-detail__title::after {
 
 /* ************************************************************* */
 /* *********** ab hier für mobile querformat ******************* */
-@media screen and (min-width: 440px) {
+@media screen and (min-width: 688px) {
   .scrollable-table-wrapper {
     width: 320px;
     margin-left: 200px; }
@@ -1596,7 +1687,7 @@ h4.course-list-detail__title::after {
 
 /* *************************************************** */
 /* *********** ab hier für desktop ******************* */
-@media screen and (min-width: 1050px) {
+@media screen and (min-width: 992px) {
   .text-container-drawer.text-container-drawer--details .prices th:first-child, .text-container-drawer.text-container-drawer--details.js-show .prices th:first-child {
     position: static; }
   .scrollable-table-wrapper {
@@ -1627,7 +1718,7 @@ h4.course-list-detail__title::after {
 
 /* *************************************************** */
 /* *********** ab hier für desktop ******************* */
-@media screen and (min-width: 1050px) {
+@media screen and (min-width: 992px) {
   .sitemap {
     margin-left: 16px; }
     .sitemap .sitemap__title:hover {
@@ -1668,12 +1759,18 @@ a.open-drawer-wrapper {
   transform: rotate(-135deg); }
 
 /* *************************************************** */
-/* *********** ab hier für desktop ******************* */
-@media screen and (min-width: 1050px) {
+/* *********** ab hier für tablet ******************* */
+@media screen and (min-width: 688px) {
   .open-drawer {
     border: 1px solid #E68305;
     border-radius: 8px;
     margin: 8px 16px;
+    width: 55%; } }
+
+/* *************************************************** */
+/* *********** ab hier für desktop ******************* */
+@media screen and (min-width: 992px) {
+  .open-drawer {
     width: 30%; }
   .open-drawer:hover {
     background-color: #ffffff; }
@@ -1700,7 +1797,7 @@ a.open-drawer-wrapper {
 /* *************************************************************************************/
 /*                                ab hier nur für desktop                              */
 /* *************************************************************************************/
-@media screen and (min-width: 1050px) {
+@media screen and (min-width: 992px) {
   .general-button {
     display: inline-block; }
   .general-button--primary:hover, .general-button--primary-payment-confirmation:hover {
@@ -1713,7 +1810,7 @@ a.open-drawer-wrapper {
 
 /* *************************************************** */
 /* *********** ab hier für desktop ******************* */
-@media screen and (min-width: 1050px) {
+@media screen and (min-width: 992px) {
   .general-link:hover {
     color: #ffffff; } }
 
@@ -1757,13 +1854,18 @@ a.open-drawer-wrapper {
   height: 20px;
   width: 30px; }
 
-/* ab hier für desktop */
-@media screen and (min-width: 1050px) {
+/* *************************************************** */
+/* *********** ab hier für tablet ******************* */
+@media screen and (min-width: 688px) {
   .link-button, .link-button--mail {
     border: 1px solid #E68305;
     border-radius: 8px; }
   .link-button--mail {
-    margin: 16px 0 0 0; }
+    margin: 16px 0 0 0; } }
+
+/* *************************************************** */
+/* *********** ab hier für desktop ******************* */
+@media screen and (min-width: 992px) {
   .link-button:hover, .link-button--mail:hover {
     background-color: #ffffff; }
     .link-button:hover .link-button-wrapper, .link-button--mail:hover .link-button-wrapper, .link-button:hover .link-button-wrapper--mail, .link-button--mail:hover .link-button-wrapper--mail {
@@ -1855,20 +1957,20 @@ header {
     text-decoration: none;
     display: block;
     position: absolute;
-    left: 12%;
-    bottom: -2%;
+    left: 20%;
+    bottom: 2%;
     z-index: 3;
     padding: 12px 32px; }
 
-main .text-container:first-child {
+main .text-container:first-child, main .text-container__home:first-child {
   margin-bottom: 20px; }
 
-main .text-container {
+main .text-container, main .text-container__home {
   margin-bottom: 10px; }
 
 /* ************************************************************* */
-/* *********** ab hier für mobile querformat ******************* */
-@media screen and (min-width: 440px) {
+/* *********** ab hier für tablet ******************* */
+@media screen and (min-width: 688px) {
   header .mobile-header-logo {
     left: 67%;
     position: absolute;
@@ -1882,11 +1984,14 @@ main .text-container {
   header svg.header-fill__top {
     top: 5px;
     height: 200px;
-    z-index: 2; } }
+    z-index: 2; }
+  header .course-date-overview {
+    left: 60%;
+    bottom: 10%; } }
 
 /* *************************************************** */
 /* *********** ab hier für desktop ******************* */
-@media screen and (min-width: 1050px) {
+@media screen and (min-width: 992px) {
   header {
     position: relative;
     margin-top: 0px;

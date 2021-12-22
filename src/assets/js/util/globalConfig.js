@@ -2,8 +2,8 @@
 const Globals = (function () {
 	function get() {
 		return {
-			breakpointLarge: 1050, //740,
-			breakpointMedium: 440,
+			breakpointLarge: 992, //740,
+			breakpointMedium: 688,
 			pathForImagesInTheCarousel: '/assets/images/carousel/',
 			pathForImagesInTheSlider: '/assets/images/slider/',
 			nameOfCurrentSite: location.pathname.split('/')[1].split('.')[0]

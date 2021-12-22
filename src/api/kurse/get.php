@@ -59,6 +59,6 @@ function getAllCourses(){
 
 	header("Content-type:application/json", true, 200);
 	//TODO: delete this in production
-	//header("Access-Control-Allow-Origin: *");
+	header("Access-Control-Allow-Origin: *");
 	echo  json_encode($responseData);
 

@@ -25,7 +25,7 @@ Mobile
 -------------------------------------------------------------
 
 
-Desktop
+Tablet / Desktop
 
 |---------------- text-container------------------------------------|
 |                                                                   |
@@ -41,13 +41,25 @@ Desktop
 | |---------------- text-container-main --------------------------| |
 | | |---------------------------------------|-------------------| | |
 | | |                                       |                   | | |
-| | |      text-container-left  62%         |   filler-right    | | |
-| | |                                       |       38%         | | |
+| | |      text-container-left  60%         |   filler-right    | | |
+| | |                                       |       40%         | | |
 | | |      title                            |                   | | |
 | | |                                       |                   | | |
 | | |      paragraph                        |                   | | |
 | | |                                       |                   | | |
 | | |---------------------------------------|-------------------| | |
+| |---------------------------------------------------------------| |
+|                                                                   |
+| |---------------- text-container-main---------------------------| |
+| | |-----------------|-----------------------------------------| | |
+| | |                                      |                    | | |
+| | |      filler-left 60%                 |text-container-right| | |
+| | |                                      |                    | | |
+| | |                                      |        40%         | | |
+| | |                                      |                    | | |
+| | |                                      |                    | | |
+| | |                                      |                    | | |
+| |----------------------------------------|--------------------| | |
 | |---------------------------------------------------------------| |
 |                                                                   |
 |  mit oder ohne                                                    |
@@ -66,20 +78,10 @@ Desktop
 |-------------------------------------------------------------------|
 
 
-
----------------- text-container------------------------------
-|-----------------|-----------------------------------------|
-|                 |                                         |
-|   filler-left   |            text-container-right         |
-|                 |      title                              |
-|                 |                                         |
-|                 |      paragraph                          |
-|                 |                                         |
-|-----------------|-----------------------------------------|
 -------------------------------------------------------------
 */
 
-.text-container{
+.text-container, .text-container__home{
   	display: flex;
   	flex-flow: column nowrap;
 	position: relative;
@@ -135,23 +137,23 @@ Desktop
 	}
 }
 
-.text-container-main{
+.text-container-main, .text-container-main__home {
   background-color: $color-textContainer-background;
   display: flex;
   flex-flow: column nowrap;
   padding: $basicHeight $basicWidth;
 
-  	> .text-container-left{
+  	> .text-container-left, .text-container-left__home{
     	order: 0;
     	width: 100%;
   	}
 
-  	> .text-container-right{
+  	> .text-container-right, .text-container-right__home{
 		order: 0;
     	width: 100%;
   	}
 
-  	> .filler{
+  	> .filler, .filler__home{
     	display: block;
     	order: 1;
 
@@ -159,8 +161,17 @@ Desktop
 			display: none;
 		}
 
-    	.filler__picture__img{
-      		width: 100%;
+    	.filler__picture{
+			width: 100%;
+
+			&.hide-on-mobile{
+				display: none;
+			}
+
+			img {
+				max-width: 100%;
+				height: auto;
+			}
     	}
   	}
 }
@@ -259,43 +270,118 @@ img.text-container-fill__bottom {
 
 /* *************************************************** */
 /* *********** ab hier für tablet ******************* */
-@media screen and (min-width: $breakpoint-medium) {   // > 440px
+@media screen and (min-width: $breakpoint-medium) {   // > 688px
+
+	.text-container__home{
+		display: flex;
+		flex-flow: column nowrap;
+		position: relative;
+	}
+
+	.text-container-main__home{
+		background-color: $color-textContainer-background;
+		display: flex;
+		flex-flow: column nowrap;
+		padding: $basicHeight $basicWidth;
+
+		.empty-space{
+			display: none;
+		}
+
+		iframe.philosophieMovie{
+			width: 100%;
+			height: 350px; 
+		}
+
+		> .text-container-left__home{
+			order: 0;
+			width: 100%;
+		}
+
+		> .text-container-right__home{
+			order: 0;
+			width: 100%;
+		}
+
+		> .filler__home{
+			display: block;
+			order: 1;
+
+			&.hide-on-mobile{
+				display: block;
+			}
+
+			&.hide-on-tablet{
+				display: none;
+			}
+
+			.filler__picture{
+				width: 100%;
+
+				&.hide-on-mobile{
+					display: block;
+				}
+
+				&.hide-on-tablet{
+					display: none;
+				}
+
+				img {
+					max-width: 100%;
+					height: auto;
+				}
+			}
+		}
+	}
+
 
 	.text-container-main{
 		display: flex;
 		flex-flow: row nowrap;
 		background-color: $color-textContainer-background;
 		padding: 3*$basicHeight 2*$basicWidth;
-	
+
 		> .text-container-left{
-		  flex: 0 1 50%;
+		  flex: 0 1 60%;
 		  order: 0;
 		  padding-right: 2*$basicWidth;
 		}
 	
 		> .text-container-right{
-		  flex: 0 1 50%;
+		  flex: 0 1 40%;
 		  order: 1;
 		  padding-left: 2*$basicWidth;
 		}
-	
+
 		> .filler{
-			  display: block;
-			  background-color: $color-textContainer-background;
-	
+			display: block;
+			background-color: $color-textContainer-background;
+
 			&.hide-on-mobile{
 				display: block;
+			}
+	
+			&.hide-on-tablet{
+				display: none;
 			}
 	
 			.filler__picture{
 				display: flex;
 				justify-content: center;
+
+				&.hide-on-mobile{
+					display: block;
+				}
+		
+				&.hide-on-tablet{
+					display: none;
+				}
 			}
 	
-			  img{
-				max-width: 100%;
-				height: 100%;  //auto hat für Safari nicht funktioniert
-			  }
+			img{
+			max-width: 100%;
+			height: auto; //100%;  //auto hat für Safari nicht funktioniert
+			}
 	
 			img.width-50{
 				max-width: 50%;
@@ -303,12 +389,12 @@ img.text-container-fill__bottom {
 		}
 	
 		> .filler-right{
-		  flex: 0 1 50%;
+		  flex: 0 1 40%;
 		  order:1;
 		}
 	
 		> .filler-left{
-		  flex: 0 1 50%;
+		  flex: 0 1 60%;
 		  order: 0;
 		}
 	
@@ -362,41 +448,106 @@ img.text-container-fill__bottom {
 	}
 	
 	
-		.text-container-full-width{
-			padding: 2*$basicWidth;
+	.text-container-full-width{
+		padding: 0 2*$basicWidth;
+	}
+
+	.text-container-full-width:first-of-type{  //z.B. in Sitemap der Fall
+		padding: 2*$basicWidth;
+	}
+
+	//auf der Desktop Version muss der Drawer nicht so schnell geschlossen werden.
+	.text-container-drawer{
+		transition: max-height 0.5s ease-in-out 1ms;
+	}
+
+	.text-container-detail{
+		padding-bottom: 0px;
+	}
+
+	.text-container-drawer__content-wrapper{
+		padding: 2*$basicHeight 0px;
+	}
+
+		.text-container-drawer__paragraph{
+		padding: $basicHeight 2*$basicWidth;
 		}
-	
-		//auf der Desktop Version muss der Drawer nicht so schnell geschlossen werden.
-		.text-container-drawer{
-			transition: max-height 0.5s ease-in-out 1ms;
-		}
-	
-		.text-container-detail{
-			padding-bottom: 0px;
-		}
-	
-		.text-container-drawer__content-wrapper{
-			padding: 2*$basicHeight 0px;
-		}
-	
-		  .text-container-drawer__paragraph{
-			padding: $basicHeight 2*$basicWidth;
-		  }
-	
-	
-		.text-container-drawer-list__label{
-			flex: 1 1 25%;
-		}
-	
-		.text-container-drawer-list__value{
-			flex: 3 3 75%;
-		}
+
+
+	.text-container-drawer-list__label{
+		flex: 1 1 25%;
+	}
+
+	.text-container-drawer-list__value{
+		flex: 3 3 75%;
+	}
 }
 
 
 /* *************************************************** */
 /* *********** ab hier für desktop ******************* */
-@media screen and (min-width: $breakpoint-large) {   // > 1050px
+@media screen and (min-width: $breakpoint-large) {   // > 992px
+
+
+	.text-container-main__home{
+		display: flex;
+		flex-flow: row nowrap;
+		background-color: $color-textContainer-background;
+		padding: 3*$basicHeight 2*$basicWidth;
+
+		iframe.philosophieMovie{
+			width: 100%;
+			height: 100%; 
+		}
+
+		.empty-space{
+			display: block;
+			height: 150px;
+		}
+
+		> .text-container-left__home{
+			flex: 0 1 60%;
+			order: 0;
+			padding-right: 2*$basicWidth;
+		}
+
+		> .text-container-right__home{
+			flex: 0 1 40%;
+			order: 1;
+			padding-left: 2*$basicWidth;
+		}
+
+		> .filler__home{
+		
+			.filler__picture{
+				&.hide-on-mobile{
+					display: block;
+				}
+		
+				&.hide-on-tablet{
+					display: block;
+				}
+			}
+
+			.filler__picture.logo_desktop{
+				img {
+					max-width: 80%;
+					height: auto;
+				}
+			}
+		}
+
+		> .filler-left__home{
+			flex: 0 1 60%;
+			order: 0;
+		  }
+	
+		> .filler-right__home{
+		  flex: 0 1 40%;
+		  order: 1;
+		}
+	}
+
 
   .text-container-main{
     display: flex;
@@ -411,6 +562,26 @@ img.text-container-fill__bottom {
     > .text-container-right{
       flex: 0 1 40%;
     }
+	
+	> .filler{
+		&.hide-on-mobile{
+			display: block;
+		}
+
+		&.hide-on-tablet{
+			display: block;
+		}
+		
+		.filler__picture{
+			&.hide-on-mobile{
+				display: block;
+			}
+	
+			&.hide-on-tablet{
+				display: block;
+			}
+		}
+	}
 
     > .filler-right{
       flex: 0 1 40%;
@@ -419,5 +590,6 @@ img.text-container-fill__bottom {
     > .filler-left{
       flex: 0 1 60%;
     }
-  }
+}
+
 }

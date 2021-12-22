@@ -36,14 +36,24 @@ a.open-drawer-wrapper{
 
 
 /* *************************************************** */
-/* *********** ab hier für desktop ******************* */
-@media screen and (min-width: $breakpoint-large) { //wenn Bildschirm grösser ist als, dann...
-
+/* *********** ab hier für tablet ******************* */
+@media screen and (min-width: $breakpoint-medium) {   // > 688px
 
 	.open-drawer{
 		border: 1px solid $complimentaryColor4;
 	  	border-radius: $basicHeight;
 		margin: $basicWidth 2*$basicHeight;
+		width: 55%;
+  	}
+
+}
+
+/* *************************************************** */
+/* *********** ab hier für desktop ******************* */
+@media screen and (min-width: $breakpoint-large) { // > 992px
+
+
+	.open-drawer{
 		width: 30%;
   	}
 

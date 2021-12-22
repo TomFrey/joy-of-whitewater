@@ -48,8 +48,10 @@
 }
 
 
-/* ab hier für desktop */
-@media screen and (min-width: $breakpoint-large) { //wenn Bildschirm grösser ist als, dann...
+
+/* *************************************************** */
+/* *********** ab hier für tablet ******************* */
+@media screen and (min-width: $breakpoint-medium) {   // > 688px
 
 	.link-button{
 		border: 1px solid $complimentaryColor4;
@@ -59,6 +61,14 @@
 	.link-button--mail{
 		margin: 2*$basicHeight 0 0 0;
 	}
+
+}
+
+
+
+/* *************************************************** */
+/* *********** ab hier für desktop ******************* */
+@media screen and (min-width: $breakpoint-large) {   // > 992px
 
 	.link-button:hover{
 		background-color: $color-drawer-buttonToOpenDrawer-hover;
