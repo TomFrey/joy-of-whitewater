@@ -531,13 +531,11 @@ Tablet / Desktop
     order: 1; }
     .text-container-main > .filler.hide-on-mobile, .text-container-main .filler__home.hide-on-mobile, .text-container-main__home > .filler.hide-on-mobile, .text-container-main__home .filler__home.hide-on-mobile {
       display: none; }
-    .text-container-main > .filler .filler__picture, .text-container-main .filler__home .filler__picture, .text-container-main__home > .filler .filler__picture, .text-container-main__home .filler__home .filler__picture {
-      width: 100%; }
-      .text-container-main > .filler .filler__picture.hide-on-mobile, .text-container-main .filler__home .filler__picture.hide-on-mobile, .text-container-main__home > .filler .filler__picture.hide-on-mobile, .text-container-main__home .filler__home .filler__picture.hide-on-mobile {
-        display: none; }
-      .text-container-main > .filler .filler__picture img, .text-container-main .filler__home .filler__picture img, .text-container-main__home > .filler .filler__picture img, .text-container-main__home .filler__home .filler__picture img {
-        max-width: 100%;
-        height: auto; }
+    .text-container-main > .filler .filler__picture.hide-on-mobile, .text-container-main .filler__home .filler__picture.hide-on-mobile, .text-container-main__home > .filler .filler__picture.hide-on-mobile, .text-container-main__home .filler__home .filler__picture.hide-on-mobile {
+      display: none; }
+    .text-container-main > .filler .filler__picture img, .text-container-main .filler__home .filler__picture img, .text-container-main__home > .filler .filler__picture img, .text-container-main__home .filler__home .filler__picture img {
+      max-width: 100%;
+      height: auto; }
 
 .text-container-detail, .text-container-full-width {
   background-color: #0597E6;
@@ -661,13 +659,10 @@ img.text-container-fill__bottom {
         display: block; }
       .text-container-main > .filler.hide-on-tablet {
         display: none; }
-      .text-container-main > .filler .filler__picture {
-        display: flex;
-        justify-content: center; }
-        .text-container-main > .filler .filler__picture.hide-on-mobile {
-          display: block; }
-        .text-container-main > .filler .filler__picture.hide-on-tablet {
-          display: none; }
+      .text-container-main > .filler .filler__picture.hide-on-mobile {
+        display: block; }
+      .text-container-main > .filler .filler__picture.hide-on-tablet {
+        display: none; }
       .text-container-main > .filler img {
         max-width: 100%;
         height: auto; }
