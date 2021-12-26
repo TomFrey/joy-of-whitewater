@@ -13,22 +13,28 @@ const RenderImageSlider = (function (Globals) {
 	 */
 	function createImageSliderItem(image, path) {
 		const breakPointLarge = Globals.get().breakpointLarge;
+		const breakPointMedium = Globals.get().breakpointMedium;
 
 		const imageSliderItemElement = document.createElement('div');
 		imageSliderItemElement.classList.add('image-slider--item');
 
 		const pictureElement = document.createElement('picture');
 
-		const sourceElement = document.createElement('source');
-		sourceElement.setAttribute('srcset', path + image.name + '.jpg');
-		sourceElement.setAttribute('media', '(min-width: ' + breakPointLarge + 'px)');
+		const sourceElementLargeImg = document.createElement('source');
+		sourceElementLargeImg.setAttribute('srcset', path + image.name + '.jpg');
+		sourceElementLargeImg.setAttribute('media', '(min-width: ' + breakPointLarge + 'px)');
 
+		const sourceElementMediumImg = document.createElement('source');
+		sourceElementMediumImg.setAttribute('srcset', path + image.nameTablet + '.jpg');
+		sourceElementMediumImg.setAttribute('media', '(min-width: ' + breakPointMedium + 'px)');
+		
 		const imgElement = document.createElement('img');
 		imgElement.setAttribute('src', path + image.nameMobile + '.jpg');
 		imgElement.setAttribute('title', image.title);
 		imgElement.setAttribute('alt', image.alt);
 
-		pictureElement.appendChild(sourceElement);
+		pictureElement.appendChild(sourceElementLargeImg);
+		pictureElement.appendChild(sourceElementMediumImg);
 		pictureElement.appendChild(imgElement);
 		imageSliderItemElement.appendChild(pictureElement);
 		return imageSliderItemElement;

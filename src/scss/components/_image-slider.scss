@@ -41,12 +41,12 @@ $slide: all, 0.3s,  cubic-bezier(.55,0,.1,1);
 
 //SLIDER STUFF
 .image-slider-wrapper {
-	max-width: 343px;
+	max-width: 100%;
 	margin: 2*$basicHeight auto;
 }
 
 .image-slider--item {
-	height: 29*$basicHeight;
+	//height: 29*$basicHeight;
 	background-repeat: no-repeat;
 	background-size: cover;
 }
@@ -63,7 +63,7 @@ $slide: all, 0.3s,  cubic-bezier(.55,0,.1,1);
 
 .slick-arrow {
 	position: absolute;
-	width: 150px;
+	width: 75px;
 	height: 100%;
 	border: none;
 	outline: none;
@@ -124,20 +124,77 @@ $slide: all, 0.3s,  cubic-bezier(.55,0,.1,1);
 }
 
 
+/* ************************************************************* */
+/* *********** ab hier für tablet ******************* */
+@media screen and (min-width: $breakpoint-medium) {    // > 688px
+
+
+	.image-slider-wrapper {
+		max-width: 80%;
+		margin: 2*$basicHeight auto;
+	}
+
+	.slider--item__img:hover {
+		cursor: pointer;
+	}
+
+	.slick-arrow {
+		width: 100px;
+
+		&:after {
+			content: "";
+			position: absolute;
+			display: block;
+			top: 50%;
+			margin-top: -8px;
+			@include transition($slide);
+			width: 4*$basicWidth;
+			height: 4*$basicHeight;
+		}
+
+		&.slick-prev {
+			left: -9*$basicWidth;
+
+			&:after {
+				border-top: 4px solid black;
+				border-left: 4px solid black;
+				left: 23px;
+				@include transform(rotate(-45 + deg));
+			}
+		}
+
+		&.slick-next {
+			right: -9*$basicWidth;
+
+			&:before {
+				right: 0px;
+			}
+
+			&:after {
+				border-bottom: 4px solid black;
+				border-right: 4px solid black;
+				left: 45px;
+				@include transform(rotate(-45 + deg));
+			}
+		}
+	}
+
+		.slick-dots {
+			bottom: -30px;
+		}
+
+
+}
 
 
 /* *************************************************************************************/
 /*                                ab hier nur für desktop                              */
 /* *************************************************************************************/
-@media screen and (min-width: $breakpoint-large) { //wenn Bildschirm grösser 376 px gross ist, dann auf Desktop Ansicht umschalten
+@media screen and (min-width: $breakpoint-large) { // > 992px
 
 	.image-slider-wrapper {
-		max-width: 1000px;
+		max-width: 100%;
 		margin: 2*$basicHeight auto;
-	}
-
-	.image-slider--item {
-		height: 598px;
 	}
 
 	.slider--item__img.fullscreen {
@@ -150,6 +207,8 @@ $slide: all, 0.3s,  cubic-bezier(.55,0,.1,1);
 	}
 
 	.slick-arrow {
+		width: 150px;
+
 		&:before {
 			content: "";
 			position: absolute;
@@ -176,10 +235,16 @@ $slide: all, 0.3s,  cubic-bezier(.55,0,.1,1);
 			@include transition($slide);
 			width: 3*$basicWidth;
 			height: 3*$basicHeight;
+			border: none;
 		}
 
 		&.slick-prev {
 			left: -9*$basicWidth;
+
+			&:after {
+				border: none;
+				@include transform(rotate(0 + deg));
+			}
 
 			&:hover {
 				&:after {
@@ -198,12 +263,17 @@ $slide: all, 0.3s,  cubic-bezier(.55,0,.1,1);
 				right: 0px;
 			}
 
+			&:after {
+				border: none;
+				left: 112px;
+				@include transform(rotate(0 + deg));
+			}
+
 			&:hover {
 
 				&:after {
 					border-bottom: 2px solid black;
 					border-right: 2px solid black;
-					left: 112px;
 					@include transform(rotate(-45 + deg));
 				}
 			}

@@ -7,6 +7,7 @@
 // eslint-disable-next-line no-unused-vars
 const ImageSlider = (function (Globals) {
 	const breakPointLarge = Globals.get().breakpointLarge;
+	const breakPointMedium = Globals.get().breakPointMedium;
 	const slideDuration = 900;
 
 	const screenIsAtDesktopSize = window.matchMedia('(min-width: ' + breakPointLarge + 'px)');
@@ -56,9 +57,9 @@ const ImageSlider = (function (Globals) {
 			cssEase: 'cubic-bezier(0.455, 0.030, 0.130, 1.000)',
 
 			responsive: [{
-				breakpoint: 740,
+				breakpoint: breakPointMedium,
 				settings: {
-					// arrows: false
+					arrows: false
 				}
 			}]
 		});

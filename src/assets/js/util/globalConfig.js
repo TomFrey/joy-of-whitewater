@@ -2,7 +2,7 @@
 const Globals = (function () {
 	function get() {
 		return {
-			breakpointLarge: 992, //740,
+			breakpointLarge: 992,
 			breakpointMedium: 688,
 			pathForImagesInTheCarousel: '/assets/images/carousel/',
 			pathForImagesInTheSlider: '/assets/images/slider/',

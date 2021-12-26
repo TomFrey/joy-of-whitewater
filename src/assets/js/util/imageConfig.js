@@ -60,47 +60,217 @@ var Images = (function () {
 	// Die Bilder, die der Benutzer wechseln kann. Z.B. bei den verschiedenen Paddelreisen unter den Details.
 	const imageSlider = {
 		korsika: [
-			{ name: 'korsika_1_gr', nameMobile: 'korsika_1_kl', title: 'Herrliche Flusslandschaft am Taravo', alt: 'Herrliche Flusslandschaft am Taravo'},
-			{ name: 'korsika_2_gr', nameMobile: 'korsika_2_kl', title: 'Tavignano in Korsika', alt: 'Tavignano in Korsika'},
-			{ name: 'korsika_4_gr', nameMobile: 'korsika_4_kl', title: 'Asco in Korsika', alt: 'Asco in Korsika'},
-			{ name: 'korsika_12_gr', nameMobile: 'korsika_12_kl', title: 'Kajakcamp am Asco', alt: 'Kajakcamp am Asco'},
-			{ name: 'korsika_11_gr', nameMobile: 'korsika_11_kl', title: 'Travo auf Korsika', alt: 'Travo auf Korsika'},
-			{ name: 'korsika_10_gr', nameMobile: 'korsika_10_kl', title: 'Asco im Kajak', alt: 'Asco im Kajak'},
-			{ name: 'korsika_9_gr', nameMobile: 'korsika_9_kl', title: 'Tavignano in Korsika', alt: 'Tavignano in Korsika'},
-			{ name: 'korsika_8_gr', nameMobile: 'korsika_8_kl', title: 'Taravo im Kajak', alt: 'Taravo im Kajak'},
-			{ name: 'korsika_7_gr', nameMobile: 'korsika_7_kl', title: 'Corte Korsika', alt: 'Corte Korsika'},
-			{ name: 'korsika_5_gr', nameMobile: 'korsika_5_kl', title: 'Streetlife in Korsika', alt: 'Streetlife in Korsika'},
-			{ name: 'korsika_3_gr', nameMobile: 'korsika_3_kl', title: 'Einstieg am oberen Golo', alt: 'Einstieg am oberen Golo'}
+			{ name: 'korsika_1_gr', 
+			  nameTablet: 'korsika_1_mi',
+			  nameMobile: 'korsika_1_kl', 
+			  title: 'Herrliche Flusslandschaft am Taravo', 
+			  alt: 'Herrliche Flusslandschaft am Taravo'
+			},
+			{ name: 'korsika_2_gr',
+			  nameTablet: 'korsika_2_mi',
+			  nameMobile: 'korsika_2_kl', 
+			  title: 'Tavignano in Korsika', 
+			  alt: 'Tavignano in Korsika'
+			},
+			{ name: 'korsika_4_gr',
+			  nameTablet: 'korsika_4_mi',
+			  nameMobile: 'korsika_4_kl', 
+			  title: 'Asco in Korsika', 
+			  alt: 'Asco in Korsika'
+			},
+			{ name: 'korsika_12_gr',
+			  nameTablet: 'korsika_12_mi',
+			  nameMobile: 'korsika_12_kl', 
+			  title: 'Kajakcamp am Asco', 
+			  alt: 'Kajakcamp am Asco'
+			},
+			{ name: 'korsika_11_gr', 
+			  nameTablet: 'korsika_11_mi',
+			  nameMobile: 'korsika_11_kl', 
+			  title: 'Travo auf Korsika', 
+			  alt: 'Travo auf Korsika'
+			},
+			{ name: 'korsika_10_gr',
+			  nameTablet: 'korsika_10_mi', 
+			  nameMobile: 'korsika_10_kl', 
+			  title: 'Asco im Kajak', 
+			  alt: 'Asco im Kajak'
+			},
+			{ name: 'korsika_9_gr', 
+			  nameTablet: 'korsika_9_mi',
+			  nameMobile: 'korsika_9_kl', 
+			  title: 'Tavignano in Korsika', 
+			  alt: 'Tavignano in Korsika'
+			},
+			{ name: 'korsika_8_gr',
+			  nameTablet: 'korsika_8_mi',
+			  nameMobile: 'korsika_8_kl', 
+			  title: 'Taravo im Kajak', 
+			  alt: 'Taravo im Kajak'
+			},
+			{ name: 'korsika_7_gr',
+			  nameTablet: 'korsika_7_mi',
+			  nameMobile: 'korsika_7_kl', 
+			  title: 'Corte Korsika', 
+			  alt: 'Corte Korsika'
+			},
+			{ name: 'korsika_5_gr',
+			  nameTablet: 'korsika_5_mi',
+			  nameMobile: 'korsika_5_kl', 
+			  title: 'Streetlife in Korsika', 
+			  alt: 'Streetlife in Korsika'
+			},
+			{ name: 'korsika_3_gr',
+			  nameTablet: 'korsika_3_mi',
+			  nameMobile: 'korsika_3_kl', 
+			  title: 'Einstieg am oberen Golo', 
+			  alt: 'Einstieg am oberen Golo'}
 		],
 		soca: [
-			{ name: 'soca_1_gr', nameMobile: 'soca_1_kl', title: 'Wildwasser paddeln auf der Soca (Abseilstrecke)', alt: 'Wildwasser paddeln auf der Soca (Abseilstrecke)' },
-			{ name: 'soca_2_gr', nameMobile: 'soca_2_kl', title: 'Wildwasser paddeln auf der Koritnica', alt: 'Wildwasser paddeln auf der Koritnica' },
-			{ name: 'soca_4_gr', nameMobile: 'soca_4_kl', title: 'Die Julischen Alpen von Bovec aus gesehen', alt: 'Die Julischen Alpen von Bovec aus gesehen' },
-			{ name: 'soca_3_gr', nameMobile: 'soca_3_kl', title: 'Soca (Friedhofsstrecke)', alt: 'Soca (Friedhofsstrecke)' },
-			{ name: 'soca_5_gr', nameMobile: 'soca_5_kl', title: 'Soca (Slalomstrecke)', alt: 'Soca (Slalomstrecke)' },
-			{ name: 'soca_6_gr', nameMobile: 'soca_6_kl', title: 'Soca Slalomstrecke im Kanadier Einer', alt: 'Soca Slalomstrecke im Kanadier Einer' },
-			{ name: 'soca_7_gr', nameMobile: 'soca_7_kl', title: 'Downtown Bovec', alt: 'Downtown Bovec' },
+			{ name: 'soca_1_gr',
+			  nameTablet: 'soca_1_mi',
+			  nameMobile: 'soca_1_kl', 
+			  title: 'Wildwasser paddeln auf der Soca (Abseilstrecke)', 
+			  alt: 'Wildwasser paddeln auf der Soca (Abseilstrecke)' 
+			},
+			{ name: 'soca_2_gr', 
+			  nameTablet: 'soca_2_mi',
+			  nameMobile: 'soca_2_kl', 
+			  title: 'Wildwasser paddeln auf der Koritnica', 
+			  alt: 'Wildwasser paddeln auf der Koritnica' 
+			},
+			{ name: 'soca_4_gr', 
+			  nameTablet: 'soca_4_mi',
+			  nameMobile: 'soca_4_kl', 
+			  title: 'Die Julischen Alpen von Bovec aus gesehen', 
+			  alt: 'Die Julischen Alpen von Bovec aus gesehen' 
+			},
+			{ name: 'soca_3_gr',
+			  nameTablet: 'soca_3_mi',
+			  nameMobile: 'soca_3_kl', 
+			  title: 'Soca (Friedhofsstrecke)', 
+			  alt: 'Soca (Friedhofsstrecke)' 
+			},
+			{ name: 'soca_5_gr', 
+			  nameTablet: 'soca_5_mi',
+			  nameMobile: 'soca_5_kl', 
+			  title: 'Soca (Slalomstrecke)', 
+			  alt: 'Soca (Slalomstrecke)' 
+			},
+			{ name: 'soca_6_gr',
+			  nameTablet: 'soca_6_mi',
+			  nameMobile: 'soca_6_kl', 
+			  title: 'Soca Slalomstrecke im Kanadier Einer', 
+			  alt: 'Soca Slalomstrecke im Kanadier Einer' 
+			},
+			{ name: 'soca_7_gr', 
+			  nameTablet: 'soca_7_mi',
+			  nameMobile: 'soca_7_kl', 
+			  title: 'Downtown Bovec', 
+			  alt: 'Downtown Bovec' 
+			},
 		],
 		piemont: [
-			{ name: 'piemont_4_gr', nameMobile: 'piemont_4_kl', title: 'Sesia im Kanadier Einer', alt: 'Sesia im Kanadier Einer' },
-			{ name: 'piemont_7_gr', nameMobile: 'piemont_7_kl', title: 'Die Gronda im Vale Sesia', alt: 'Die Gronda im Vale Sesia' },
-			{ name: 'piemont_2_gr', nameMobile: 'piemont_2_kl', title: 'Typisches Dorf im Vale Sesia', alt: 'Typisches Dorf im Vale Sesia' },
-			{ name: 'piemont_1_gr', nameMobile: 'piemont_1_kl', title: 'Sesia (Alpin Sprint)', alt: 'Sesia (Alpin Sprint)' },
-			{ name: 'piemont_3_gr', nameMobile: 'piemont_3_kl', title: 'Sesia (Balmuccia)', alt: 'Sesia (Balmuccia)' },
-			{ name: 'piemont_6_gr', nameMobile: 'piemont_6_kl', title: 'Campingplatz in Campertogno', alt: 'Campingplatz in Campertogno' }
+			{ name: 'piemont_4_gr',
+			  nameTablet: 'piemont_4_mi', 
+			  nameMobile: 'piemont_4_kl', 
+			  title: 'Sesia im Kanadier Einer', 
+			  alt: 'Sesia im Kanadier Einer' 
+			},
+			{ name: 'piemont_7_gr',
+			  nameTablet: 'piemont_7_mi', 
+			  nameMobile: 'piemont_7_kl', 
+			  title: 'Die Gronda im Vale Sesia', 
+			  alt: 'Die Gronda im Vale Sesia' 
+			},
+			{ name: 'piemont_2_gr',
+			  nameTablet: 'piemont_2_mi', 
+			  nameMobile: 'piemont_2_kl', 
+			  title: 'Typisches Dorf im Vale Sesia', 
+			  alt: 'Typisches Dorf im Vale Sesia' 
+			},
+			{ name: 'piemont_1_gr',
+			  nameTablet: 'piemont_1_mi', 
+			  nameMobile: 'piemont_1_kl', 
+			  title: 'Sesia (Alpin Sprint)', 
+			  alt: 'Sesia (Alpin Sprint)' 
+			},
+			{ name: 'piemont_3_gr', 
+			  nameTablet: 'piemont_3_mi',
+			  nameMobile: 'piemont_3_kl', 
+			  title: 'Sesia (Balmuccia)', 
+			  alt: 'Sesia (Balmuccia)' 
+			},
+			{ name: 'piemont_6_gr', 
+			  nameTablet: 'piemont_6_mi',
+			  nameMobile: 'piemont_6_kl', 
+			  title: 'Campingplatz in Campertogno', 
+			  alt: 'Campingplatz in Campertogno' 
+			}
 		],
 		georgien: [
-			{ name: 'georgien_1_gr', nameMobile: 'georgien_1_kl', title: 'Paddeln in Georgien', alt: 'Paddeln in Georgien' },
-			{ name: 'georgien_2_gr', nameMobile: 'georgien_2_kl', title: 'Wehrtürme in Georgien', alt: 'Wehrtürme in Georgien' },
-			{ name: 'georgien_3_gr', nameMobile: 'georgien_3_kl', title: 'Kajak Transport in Georgien', alt: 'Kajak Transport in Georgien' },
-			{ name: 'georgien_4_gr', nameMobile: 'georgien_4_kl', title: 'Paddeln in Georgien', alt: 'Paddeln in Georgien' },
-			{ name: 'georgien_5_gr', nameMobile: 'georgien_5_kl', title: 'Paddeln in Georgien', alt: 'Paddeln in Georgien' },
-			{ name: 'georgien_6_gr', nameMobile: 'georgien_6_kl', title: 'Georgische orthodoxe Kirche', alt: 'Georgische orthodoxe Kirche' }
+			{ name: 'georgien_1_gr',
+			  nameTablet: 'georgien_1_mi',
+			  nameMobile: 'georgien_1_kl', 
+			  title: 'Paddeln in Georgien', 
+			  alt: 'Paddeln in Georgien' 
+			},
+			{ name: 'georgien_2_gr', 
+			  nameTablet: 'georgien_2_mi',
+			  nameMobile: 'georgien_2_kl', 
+			  title: 'Wehrtürme in Georgien', 
+			  alt: 'Wehrtürme in Georgien' 
+			},
+			{ name: 'georgien_3_gr', 
+			  nameTablet: 'georgien_3_mi',
+			  nameMobile: 'georgien_3_kl', 
+			  title: 'Kajak Transport in Georgien', 
+			  alt: 'Kajak Transport in Georgien' 
+			},
+			{ name: 'georgien_4_gr', 
+			  nameTablet: 'georgien_4_mi',
+			  nameMobile: 'georgien_4_kl', 
+			  title: 'Paddeln in Georgien', 
+			  alt: 'Paddeln in Georgien' 
+			},
+			{ name: 'georgien_5_gr', 
+			  nameTablet: 'georgien_5_mi',
+			  nameMobile: 'georgien_5_kl', 
+			  title: 'Paddeln in Georgien', 
+			  alt: 'Paddeln in Georgien' 
+			},
+			{ name: 'georgien_6_gr', 
+			  nameTablet: 'georgien_6_mi',
+			  nameMobile: 'georgien_6_kl', 
+			  title: 'Georgische orthodoxe Kirche', 
+			  alt: 'Georgische orthodoxe Kirche' 
+			},
+			{ name: 'georgien_7_gr', 
+			  nameTablet: 'georgien_7_mi',
+			  nameMobile: 'georgien_7_kl', 
+			  title: 'Der grosse Kaukasus', 
+			  alt: 'Der grosse Kaukasus' 
+			}
 		],
 		albanien: [
-			{ name: 'albanien_1_gr', nameMobile: 'albanien_1_kl', title: 'Paddeln in Albanien', alt: 'Paddeln in Albanien' },
-			{ name: 'albanien_2_gr', nameMobile: 'albanien_2_kl', title: 'Paddeln in Albanien', alt: 'Paddeln in Albanien' },
-			{ name: 'albanien_3_gr', nameMobile: 'albanien_3_kl', title: 'Paddeln in Albanien', alt: 'Paddeln in Albanien' }
+			{ name: 'albanien_1_gr', 
+			  nameTablet: 'albanien_1_mi',
+			  nameMobile: 'albanien_1_kl', 
+			  title: 'Paddeln in Albanien', 
+			  alt: 'Paddeln in Albanien' 
+			},
+			{ name: 'albanien_2_gr', 
+			  nameTablet: 'albanien_2_mi',
+			  nameMobile: 'albanien_2_kl', 
+			  title: 'Paddeln in Albanien', 
+			  alt: 'Paddeln in Albanien' 
+			},
+			{ name: 'albanien_3_gr',
+			  nameTablet: 'albanien_3_mi',
+			  nameMobile: 'albanien_3_kl', 
+			  title: 'Paddeln in Albanien', 
+			  alt: 'Paddeln in Albanien' 
+			}
 		]
 	};
 
