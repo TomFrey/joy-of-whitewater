@@ -558,11 +558,11 @@ Tablet / Desktop
   transition: max-height 0.1s ease-in-out 1ms; }
 
 .text-container-drawer.text-container-drawer--course-dates.js-show {
-  max-height: 1500px;
+  max-height: 2500px;
   transition: max-height 1s ease-in-out 1ms; }
 
 .text-container-drawer.text-container-drawer--paddling-trip-details.js-show {
-  max-height: 2000px;
+  max-height: 3500px;
   transition: max-height 1s ease-in-out 1ms; }
 
 .text-container-drawer.text-container-drawer--details.js-show {
@@ -603,7 +603,7 @@ img.text-container-fill__bottom {
   content: ' CHF'; }
 
 /* *************************************************** */
-/* *********** ab hier für tablet ******************* */
+/* *********** ab hier für tablet *******************  */
 @media screen and (min-width: 688px) {
   .text-container__home {
     display: flex;
