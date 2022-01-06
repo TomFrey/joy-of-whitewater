@@ -461,14 +461,9 @@ img.text-container-fill__bottom {
 		padding-bottom: 0px;
 	}
 
-	.text-container-drawer__content-wrapper{
-		padding: 2*$basicHeight 0px;
-	}
-
-		.text-container-drawer__paragraph{
+	.text-container-drawer__paragraph{
 		padding: $basicHeight 2*$basicWidth;
-		}
-
+	}
 
 	.text-container-drawer-list__label{
 		flex: 1 1 25%;
@@ -477,6 +472,15 @@ img.text-container-fill__bottom {
 	.text-container-drawer-list__value{
 		flex: 3 3 75%;
 	}
+
+	//alle gridx12 Klassen in den Paddelreisen Details, aber nicht die, die im paddleJourneyItem sind (also aus der DB kommen).
+	.text-container-drawer--paddling-trip-details {
+		.text-container-drawer__content-wrapper  {
+			> .gridx12 {
+				margin: 2*$basicWidth 2*$basicWidth;
+			}
+		}
+	} 
 }
 
 
@@ -545,47 +549,55 @@ img.text-container-fill__bottom {
 	}
 
 
-  .text-container-main{
-    display: flex;
-    flex-flow: row nowrap;
-    background-color: $color-textContainer-background;
-    padding: 3*$basicHeight 2*$basicWidth;
+  	.text-container-main{
+		display: flex;
+		flex-flow: row nowrap;
+		background-color: $color-textContainer-background;
+		padding: 3*$basicHeight 2*$basicWidth;
 
-    > .text-container-left{
-      flex: 0 1 60%;
-    }
-
-    > .text-container-right{
-      flex: 0 1 40%;
-    }
-	
-	> .filler{
-		&.hide-on-mobile{
-			display: block;
+		> .text-container-left{
+		flex: 0 1 60%;
 		}
 
-		&.hide-on-tablet{
-			display: block;
+		> .text-container-right{
+		flex: 0 1 40%;
 		}
 		
-		.filler__picture{
+		> .filler{
 			&.hide-on-mobile{
 				display: block;
 			}
-	
+
 			&.hide-on-tablet{
 				display: block;
 			}
+			
+			.filler__picture{
+				&.hide-on-mobile{
+					display: block;
+				}
+		
+				&.hide-on-tablet{
+					display: block;
+				}
+			}
+		}
+
+		> .filler-right{
+		flex: 0 1 40%;
+		}
+
+		> .filler-left{
+		flex: 0 1 60%;
 		}
 	}
 
-    > .filler-right{
-      flex: 0 1 40%;
-    }
-
-    > .filler-left{
-      flex: 0 1 60%;
-    }
-}
-
+	//alle gridx12 Klassen in den Paddelreisen Details, aber nicht die, die im paddleJourneyItem sind (also aus der DB kommen).
+	.text-container-drawer--paddling-trip-details {
+		.text-container-drawer__content-wrapper  {
+			> .gridx12 {
+				margin: 2*$basicWidth 0;
+			}
+		}
+	}
 }

@@ -707,14 +707,14 @@ img.text-container-fill__bottom {
     transition: max-height 0.5s ease-in-out 1ms; }
   .text-container-detail {
     padding-bottom: 0px; }
-  .text-container-drawer__content-wrapper {
-    padding: 16px 0px; }
   .text-container-drawer__paragraph {
     padding: 8px 16px; }
   .text-container-drawer-list__label {
     flex: 1 1 25%; }
   .text-container-drawer-list__value {
-    flex: 3 3 75%; } }
+    flex: 3 3 75%; }
+  .text-container-drawer--paddling-trip-details .text-container-drawer__content-wrapper > .gridx12 {
+    margin: 16px 16px; } }
 
 /* *************************************************** */
 /* *********** ab hier für desktop ******************* */
@@ -771,7 +771,9 @@ img.text-container-fill__bottom {
     .text-container-main > .filler-right {
       flex: 0 1 40%; }
     .text-container-main > .filler-left {
-      flex: 0 1 60%; } }
+      flex: 0 1 60%; }
+  .text-container-drawer--paddling-trip-details .text-container-drawer__content-wrapper > .gridx12 {
+    margin: 16px 0; } }
 
 .images-carousel {
   position: relative;
@@ -1394,8 +1396,18 @@ h4.course-list-detail__title::after {
 .gridx12__width5--col1of2 {
   grid-area: 1 / 1 / 1 / 13; }
 
+.gridx12__width5--col1of2.separator {
+  grid-area: 1 / 1 / 1 / 13; }
+  .gridx12__width5--col1of2.separator hr.separator--left {
+    border: 0;
+    height: 2px;
+    background-image: linear-gradient(to right, transparent, #000000, transparent); }
+
 .gridx12__width5--col2of2 {
   grid-area: 2 / 1 / 2 / 13; }
+
+.gridx12__width5--col2of2.separator {
+  display: none; }
 
 .gridx12__width10--col1of1 {
   grid-area: 1 / 1 / 1 / 13; }
@@ -1465,6 +1477,19 @@ h4.course-list-detail__title::after {
     grid-area: 1 / 2 / 1 / 7; }
   .gridx12__width5--col2of2 {
     grid-area: 1 / 7 / 1 / 12; }
+  .gridx12__width5--col1of2.separator {
+    grid-area: 1 / 2 / 1 / 7; }
+    .gridx12__width5--col1of2.separator hr.separator--left {
+      border: 0;
+      height: 2px;
+      background-image: linear-gradient(to left, #000000, transparent); }
+  .gridx12__width5--col2of2.separator {
+    display: block;
+    grid-area: 1 / 7 / 1 / 12; }
+    .gridx12__width5--col2of2.separator hr.separator--right {
+      border: 0;
+      height: 2px;
+      background-image: linear-gradient(to right, #000000, transparent); }
   .content-at-the-end {
     align-self: end; }
   .gridx12__width10--col1of1 {
