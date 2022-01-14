@@ -7,7 +7,6 @@
 }
 
 .anmeldung__item{
-	//border: 1px solid red;
 	display: flex;
 	flex-flow: column nowrap;
 }
@@ -50,6 +49,30 @@
 
 .equipment-needed-input[disabled]{
 	background-color: lighten($baseColor2, 15%);
+}
+
+.comment-wrapper{
+	margin-bottom: 11px;
+}
+
+.comment-input{
+	@include courseTableFont();
+	line-height: 27px;
+	background-color: $baseColor1;
+	border: none;
+	width: 100%;
+}
+
+.comment-input::placeholder{
+	@include courseTableFont();
+	color: lighten($complimentaryColor2, 40%);
+}
+  
+.comment-label{
+	color: lighten($complimentaryColor1, 10%);
+	line-height: 32px;
+	display: block;
+	margin-bottom: -5px;
 }
 
 .agb-wrapper{
@@ -206,6 +229,12 @@
 }
 
 
+/* ************************************************************* */
+/* *********** ab hier für tablet ******************* */
+@media screen and (min-width: $breakpoint-medium) {    // > 688px
+
+}
+
 
 /* *************************************************** */
 /* *********** ab hier für desktop ******************* */
@@ -218,23 +247,21 @@
 
 	.anmeldung__item{
 		flex-flow: row nowrap;
-		//margin: 0*$basicHeight 2*$basicWidth;
 	}
 
 	.anmeldung__links{
 		margin-right: 3*$basicWidth;
 	}
 
-	.anmeldung__rechts{
-
+	.equipment-needed-input{
+		width: 100%;
 	}
 
-	.equipment-needed-input{
-		width: 50%;
+	.comment-wrapper{
+		margin-bottom: 0;
 	}
 
 	.anmeldung__send-button{
 		width: unset;
 	}
-
 }

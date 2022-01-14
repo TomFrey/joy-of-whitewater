@@ -110,7 +110,6 @@
 
 						<div class="anmeldung__item">
 							<div class="anmeldung__links">
-
 								<div class="equipment-wrapper">
 									<div class="equipment__all">
 										<input type="radio" id="all" name="equipment" value="all"
@@ -136,9 +135,6 @@
 										<label for="nothing">Ich bringe alles selber mit</label>
 									</div>
 								</div>
-							</div>
-
-							<div class="anmeldung__rechts">
 								<div class="anmeldung__number-of-participants">
 									<div class="form-field-moving-placeholder">
 										<input class="moving-placeholder__input"
@@ -147,8 +143,25 @@
 											   value="1"
 											   required>
 										<span class="moving-placeholder__highlight"></span>
-										<label class="moving-placeholder__label">Anzahl Teilnehmer</label>
+										<label class="moving-placeholder__label">Anzahl Teilnehmer:innen</label>
 									</div>
+								</div>
+							</div>
+
+							<div class="anmeldung__rechts">
+								<div class="comment-wrapper">
+									<label 
+										for="comment"
+										class="comment-label">
+										Was ich noch schreiben wollte...
+									</label>
+									<textarea
+										id="comment"
+										class="comment-input"
+										name="comment"
+										rows="8"
+										placeholder="z.B.: Ich habe Schuhgrösse 52. Und ich muss ein bestimmtes Medikament immer bei mir haben."
+									></textarea>
 								</div>
 							</div>
 						</div>

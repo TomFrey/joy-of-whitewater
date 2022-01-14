@@ -39,8 +39,8 @@ var RenderConfirmation = (function () {
 
 		const adresse = document.createElement('p');
 		adresse.classList.add('registration-confirmation__paragraph');
-		adresse.innerHTML = '------------------- <br>'
-							+ 'The Joy Of Whitewater <br>'
+		adresse.innerHTML = '---------------------------------- <br>'
+							+ 'Kanuschule - The Joy Of Whitewater <br>'
 							+ 'mitLinXlernen AG <br>'
 							+ 'Station Versam 7 <br>'
 							+ 'CH - 7104 Versam <br><br>'
@@ -57,7 +57,8 @@ var RenderConfirmation = (function () {
 							+ 'Kurs: ' + registrationData.courseName + '<br>'
 							+ 'Datum: ' + registrationData.courseDate + '<br>'
 							+ 'Anzahl Personen: ' + registrationData.numberOfParticipants + '<br>'
-							+ 'Ausrüstung: ' + getEquipmentString(registrationData);
+							+ 'Ausrüstung: ' + getEquipmentString(registrationData) + '<br>'
+							+ 'Kommentare: ' + registrationData.comment;
 
 		confirmationText.appendChild(anrede);
 		confirmationText.appendChild(text);

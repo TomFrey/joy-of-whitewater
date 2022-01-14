@@ -10,14 +10,22 @@ const Validator = (function () {
 	 *
 	 * @param regex       -> ein Regex Objekt
 	 * @param inputField  -> DOM Inputfeld
+	 * @param markParent  -> Wenn true, wird das Parent Objekt "markiert", sonst das Input Feld
 	 * @returns {boolean}
 	 */
-	function validate(regex, inputField) {
+	function validate(regex, inputField, markParent=true) {
 		if (regex.test(inputField.value)) {
-			inputField.parentElement.classList.remove('js-invalid');
+			markParent?inputField.parentElement.classList.remove('js-invalid'):inputField.classList.remove('js-invalid');
 			return true;
 		}
-		inputField.parentElement.classList.add('js-invalid');
+
+		//Test
+		// Alle korrekten Zeichen ersetzen mit '', damit nur die falschen übrig bleiben.
+		// let wrongCharacter = inputField.value.replace(regex, '');
+		// console.log('inputField :' + inputField.value);
+		// console.log('Falsch ist :' + wrongCharacter);
+		
+		markParent?inputField.parentElement.classList.add('js-invalid'):inputField.classList.add('js-invalid');
 		return false;
 	}
 
@@ -90,25 +98,50 @@ const Validator = (function () {
 
 
 	/**
+	 * Prüft, ob der Text im korrekten Format eingegeben wurde.
+	 * Buchstaben, Leerzeichen, Umlaute, Zahlen und einige Sonderzeichen sind erlaubt.
+	 * String darf leer sein.
+	 *
+	 * @returns {boolean}
+	 */
+	 function isTextFieldValid(textInputField) {
+		const isValidTextField = new RegExp(/^[\w\s\.\'\"\?\-)(,;:!öäüÖÄÜéàèçœøæåêÉÈÀÇÅËÊ]*$/);
+		return validate(isValidTextField, textInputField, false);
+	}
+
+
+	/**
+	 * Prüft, ob die Kursbezeichnung im korrekten Format eingegeben wurde.
+	 * Buchstaben, Leerzeichen, Umlaute, Zahlen und einige Sonderzeichen sind erlaubt.
+	 *
+	 * @returns {boolean}
+	 */
+	 function isCourseNameValid(courseNameInputField) {
+		const isValidCourseName = new RegExp(/^[a-zA-Z\s0-9öüäéàèçœøæåêÖÜÄÉÈÀÇÅËÊ(),\-]+$/);
+		return validate(isValidCourseName, courseNameInputField);
+	}
+
+
+	/**
 	 * Prüft, ob der Name (z.B. Vorname, Stadt...) im korrekten Format eingegeben wurde.
-	 * Nur Buchstaben, Leerzeichen und Umlaute sind erlaubt.
+	 * Buchstaben, Leerzeichen, Umlaute und einige Sonderzeichen sind erlaubt.
 	 *
 	 * @returns {boolean}
 	 */
 	function isNameValid(nameInputField) {
-		const isValidName = new RegExp(/^[a-zA-Z\söüäéàèçœøæåêÖÜÄÉÈÀÇÅËÊ(),-]+$/);
+		const isValidName = new RegExp(/^[a-zA-Z\söüäéàèçœøæåêÖÜÄÉÈÀÇÅËÊ,\-]+$/);
 		return validate(isValidName, nameInputField);
 	}
 
 
 	/**
 	 * Prüft, ob die Adress (z.B. Stadtgartenstr. 12) im korrekten Format eingegeben wurde.
-	 * Nur Buchstaben, Leerzeichen und '.' sind erlaubt.
+	 * Buchstaben, Leerzeichen, Umlaute und einige Sonderzeichen sind erlaubt.
 	 *
 	 * @returns {boolean}
 	 */
 	function isAddressValid(addressInputField) {
-		const isValidAddress = new RegExp(/^[a-zA-Z\s0-9.öüäéàèçœøæåêÖÜÄÉÈÀÇÅËÊ]+$/);
+		const isValidAddress = new RegExp(/^[a-zA-Z\s0-9öüäéàèçœøæåêÖÜÄÉÈÀÇÅËÊ,\-\.]+$/);
 		return validate(isValidAddress, addressInputField);
 	}
 
@@ -139,13 +172,13 @@ const Validator = (function () {
 
 
 	/**
-	 * Prüft, ob die Anzahl Teilnehmer (z.B. 1 oder 11) im korrekten Format eingegeben wurde.
-	 * Eine oder zwei stellige Nummern sind erlaubt.
+	 * Prüft, ob die Anzahl Teilnehmer im korrekten Format eingegeben wurde.
+	 * Erlaubt sind Zahlen von 1 bis 99.
 	 *
 	 * @returns {boolean}
 	 */
 	function isNumberOfParticipantsValid(dateInputField) {
-		const isValidNumberOfParticipants = new RegExp(/^[0-9]{1,2}$/);
+		const isValidNumberOfParticipants = new RegExp(/^[1-9]{1,1}[0-9]{0,1}$/);
 		return validate(isValidNumberOfParticipants, dateInputField);
 	}
 
@@ -155,6 +188,8 @@ const Validator = (function () {
 		onlyNumbers,
 		isEMailValid,
 		isPasswordValid,
+		isTextFieldValid,
+		isCourseNameValid,
 		isNameValid,
 		isAddressValid,
 		isDateValid,

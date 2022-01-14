@@ -22,6 +22,7 @@ const CourseRegistration = (function (Validator, RenderConfirmation, Dates) {
 	let equipmentAll;
 	let equipmentSome;
 	let equipmentNothing;
+	let commentTextArea;
 
 	let sendRegistraitionFormButtonOkIcon;
 	let sendRegistraitionFormButtonNokIcon;
@@ -30,7 +31,11 @@ const CourseRegistration = (function (Validator, RenderConfirmation, Dates) {
 
 
 	function isCourseNameValid() {
-		return Validator.isNameValid(courseNameInputField);
+		return Validator.isCourseNameValid(courseNameInputField);
+	}
+
+	function isCommentValid() {
+		return Validator.isTextFieldValid(commentTextArea);
 	}
 
 	function isFirstNameValid() {
@@ -85,6 +90,7 @@ const CourseRegistration = (function (Validator, RenderConfirmation, Dates) {
 		if (isCourseNameValid()
 			&& isCourseDateValid()
 			&& isNumberOfParticipantsValid()
+			&& isCommentValid()
 			&& isFirstNameValid()
 			&& isSurNameValid()
 			&& isAddressValid()
@@ -128,6 +134,7 @@ const CourseRegistration = (function (Validator, RenderConfirmation, Dates) {
 		registrationData.agb = agbCheckbox.checked ? 'angenommen' : 'nicht angenommen';
 		registrationData.equipment = equipmentSelectedRadioButton;
 		registrationData.equipmentDetails = equipmentTextArea.value;
+		registrationData.comment = commentTextArea.value;
 
 		Server.sendRegistrationFormData(registrationData)
 			.then(() => {
@@ -221,6 +228,11 @@ const CourseRegistration = (function (Validator, RenderConfirmation, Dates) {
 				}
 			});
 
+			commentTextArea = document.querySelector('.comment-input');
+			commentTextArea.addEventListener('blur', () => {
+				setRegistrationFormValidity(isCommentValid);
+			});
+
 
 			equipment = document.querySelector('.equipment-wrapper');
 			if (equipment !== null) {
@@ -275,6 +287,13 @@ const CourseRegistration = (function (Validator, RenderConfirmation, Dates) {
 				courseNameInputField.setAttribute('value', name);
 				courseDateInputField.setAttribute('value', Dates.convertToMediumDateFormatJustDigits(vonDatum));
 			}
+
+			
+			// Das Feld mit dem Focus ist nie invalid.
+			registrationForm.addEventListener('focus', (event) => {
+				event.target.classList.remove('js-invalid');
+				event.target.parentElement.classList.remove('js-invalid');
+			}, true);
 		}
 	}
 

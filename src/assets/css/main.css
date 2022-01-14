@@ -1223,6 +1223,32 @@ h4.course-list-detail__title::after {
 .equipment-needed-input[disabled] {
   background-color: #6ccbff; }
 
+.comment-wrapper {
+  margin-bottom: 11px; }
+
+.comment-input {
+  color: #000000;
+  font-family: "Open Sans", "Arial", "sans-serif";
+  font-size: 16px;
+  line-height: 32px;
+  line-height: 27px;
+  background-color: #0597E6;
+  border: none;
+  width: 100%; }
+
+.comment-input::placeholder {
+  color: #000000;
+  font-family: "Open Sans", "Arial", "sans-serif";
+  font-size: 16px;
+  line-height: 32px;
+  color: #666666; }
+
+.comment-label {
+  color: white;
+  line-height: 32px;
+  display: block;
+  margin-bottom: -5px; }
+
 .agb-wrapper {
   color: white;
   font-family: "Open Sans", "Arial", "sans-serif";
@@ -1364,6 +1390,8 @@ h4.course-list-detail__title::after {
   color: #ffffff;
   margin: 16px 16px; }
 
+/* ************************************************************* */
+/* *********** ab hier für tablet ******************* */
 /* *************************************************** */
 /* *********** ab hier für desktop ******************* */
 @media screen and (min-width: 992px) {
@@ -1375,7 +1403,9 @@ h4.course-list-detail__title::after {
   .anmeldung__links {
     margin-right: 24px; }
   .equipment-needed-input {
-    width: 50%; }
+    width: 100%; }
+  .comment-wrapper {
+    margin-bottom: 0; }
   .anmeldung__send-button {
     width: unset; } }
 

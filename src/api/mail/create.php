@@ -21,6 +21,7 @@ $data->equipmentDetails = filter_var($data->equipmentDetails, FILTER_SANITIZE_ST
 $data->agb = filter_var($data->agb, FILTER_SANITIZE_STRING);
 $data->address = filter_var($data->address, FILTER_SANITIZE_STRING);
 $data->email = filter_var($data->email, FILTER_SANITIZE_EMAIL);
+$data->comment = filter_var($data->comment, FILTER_SANITIZE_STRING);
 
 if ($data->courseName
 	&& $data->courseDate
@@ -50,7 +51,8 @@ if ($data->courseName
 			. "Kurs: " . $data->courseName . "\r\n"
 			. "Datum: " .  $data->courseDate . "\r\n"
 			. "Anzahl Personen: " . $data->numberOfParticipants . "\r\n"
-			. "Ausrüstung: " . $data->equipment . "\r\n";
+			. "Ausrüstung: " . $data->equipment . "\r\n"
+			. "Kommentare: " . $data->comment . "\r\n";
 
 	if (!empty($data->equipmentDetails)) {
 		$txt = $txt . "Benötigte Ausrüstung: " .  $data->equipmentDetails;
