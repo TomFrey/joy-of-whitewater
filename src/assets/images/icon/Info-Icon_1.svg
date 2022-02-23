@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg492"
+   inkscape:version="1.1 (c4e8f9e, 2021-05-24)"
+   sodipodi:docname="Info-Icon_1.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview494"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:lockguides="false"
+     inkscape:zoom="2.8937883"
+     inkscape:cx="289.41301"
+     inkscape:cy="254.33788"
+     inkscape:window-width="1459"
+     inkscape:window-height="926"
+     inkscape:window-x="2374"
+     inkscape:window-y="1465"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="Info-Icon" />
+  <defs
+     id="defs489">
+    <filter
+       x="-2.5425736"
+       y="-1.1040203"
+       width="4.0968542"
+       height="2.3729512"
+       filterUnits="objectBoundingBox"
+       id="filter-1">
+      <feOffset
+         dx="0"
+         dy="2"
+         in="SourceAlpha"
+         result="shadowOffsetOuter1"
+         id="feOffset629" />
+      <feGaussianBlur
+         stdDeviation="2"
+         in="shadowOffsetOuter1"
+         result="shadowBlurOuter1"
+         id="feGaussianBlur631" />
+      <feColorMatrix
+         values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0"
+         type="matrix"
+         in="shadowBlurOuter1"
+         result="shadowMatrixOuter1"
+         id="feColorMatrix633" />
+      <feMerge
+         id="feMerge639">
+        <feMergeNode
+           in="shadowMatrixOuter1"
+           id="feMergeNode635" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode637" />
+      </feMerge>
+    </filter>
+    <ellipse
+       id="path-2"
+       cx="44.3786925"
+       cy="20.8184936"
+       rx="4.375"
+       ry="4.32291667" />
+    <filter
+       x="-0.13714286"
+       y="-0.13879519"
+       width="1.2742857"
+       height="1.2775904"
+       filterUnits="objectBoundingBox"
+       id="filter-3">
+      <feMorphology
+         radius="0.5"
+         operator="dilate"
+         in="SourceAlpha"
+         result="shadowSpreadOuter1"
+         id="feMorphology643" />
+      <feOffset
+         dx="0"
+         dy="0"
+         in="shadowSpreadOuter1"
+         result="shadowOffsetOuter1"
+         id="feOffset645" />
+      <feGaussianBlur
+         stdDeviation="0.5"
+         in="shadowOffsetOuter1"
+         result="shadowBlurOuter1"
+         id="feGaussianBlur647" />
+      <feComposite
+         in="shadowBlurOuter1"
+         in2="SourceAlpha"
+         operator="out"
+         result="shadowBlurOuter1"
+         id="feComposite649" />
+      <feColorMatrix
+         values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.599646081 0"
+         type="matrix"
+         in="shadowBlurOuter1"
+         id="feColorMatrix651" />
+    </filter>
+    <path
+       d="M34.4507466,34.5678716 L34.4507466,33.1305223 C37.4665585,30.8185427 41.3546346,29.9656545 44.1930766,30.8208382 C45.1895621,31.1210656 46.3105405,31.945602 47.0267685,32.4728654 C47.6992427,32.9679188 48.1242625,33.6953083 48.3610031,34.1445054 C52.5792212,41.4640953 40.3266411,55.3352509 46.1188893,58.4057092 C47.1692225,58.9624885 48.8767758,59.5171298 50.9317517,59.9876318 L50.9317517,61.1101473 C48.7533677,62.4248904 44.8428896,63.6840588 42.9894333,63.8153429 C41.9819673,63.8867038 41.2843222,63.6649703 40.4056621,63.4754019 C39.7752705,63.3393967 37.8992802,61.9738421 37.6490531,61.6392104 C31.7953938,55.5759218 43.66425,44.2883198 39.7034372,36.7617511 C39.0504922,35.5209868 36.6669986,35.1544342 34.4507466,34.5678716 Z"
+       id="path-4" />
+    <filter
+       x="-0.072811093"
+       y="-0.036"
+       width="1.1456222"
+       height="1.072"
+       filterUnits="objectBoundingBox"
+       id="filter-5">
+      <feMorphology
+         radius="0.5"
+         operator="dilate"
+         in="SourceAlpha"
+         result="shadowSpreadOuter1"
+         id="feMorphology655" />
+      <feOffset
+         dx="0"
+         dy="0"
+         in="shadowSpreadOuter1"
+         result="shadowOffsetOuter1"
+         id="feOffset657" />
+      <feGaussianBlur
+         stdDeviation="0.5"
+         in="shadowOffsetOuter1"
+         result="shadowBlurOuter1"
+         id="feGaussianBlur659" />
+      <feComposite
+         in="shadowBlurOuter1"
+         in2="SourceAlpha"
+         operator="out"
+         result="shadowBlurOuter1"
+         id="feComposite661" />
+      <feColorMatrix
+         values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.597945633 0"
+         type="matrix"
+         in="shadowBlurOuter1"
+         id="feColorMatrix663" />
+    </filter>
+  </defs>
+  <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="Info-Icon"
+       filter="url(#filter-1)"
+       transform="matrix(0.26458333,0,0,0.26458333,82.708975,60.391415)"
+       style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1">
+      <ellipse
+         id="Oval"
+         stroke="#979797"
+         stroke-width="0.5"
+         fill="#00b1e5"
+         cx="-43.421925"
+         cy="-2.9729807"
+         rx="42.969448"
+         ry="42.96875" />
+      <circle
+         id="Oval-0"
+         stroke="#979797"
+         stroke-width="0.5"
+         fill="#00b1e5"
+         cx="-40.639011"
+         cy="19.521078"
+         r="42.96875"
+         style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1" />
+      <circle
+         id="Oval-7"
+         stroke="#979797"
+         stroke-width="0.5"
+         fill="#00b1e5"
+         cx="-52.388317"
+         cy="19.521078"
+         r="42.96875"
+         style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1" />
+      <g
+         id="Group-3"
+         transform="rotate(174,-56.32418,-6.1225056)"
+         fill="#ffffff"
+         font-family="HelveticaNeue, 'Helvetica Neue'"
+         font-size="10.4167px"
+         font-weight="normal">
+        <text
+           id="Information"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.4167px;font-family:HelveticaNeue, 'Helvetica Neue';-inkscape-font-specification:'HelveticaNeue, Helvetica Neue, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke:none;stroke-opacity:1"
+           transform="translate(-35.960977,-14.898731)"><textPath
+             xlink:href="#path1284"
+             id="textPath2356"><tspan
+               id="tspan669"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.4167px;font-family:HelveticaNeue, 'Helvetica Neue';-inkscape-font-specification:'HelveticaNeue, Helvetica Neue, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke:none;stroke-opacity:1">Information</tspan></textPath></text>
+      </g>
+      <g
+         id="g677"
+         transform="rotate(2,1199.3177,-2452.8837)">
+        <use
+           fill="#000000"
+           fill-opacity="1"
+           filter="url(#filter-3)"
+           xlink:href="#path-2"
+           id="use673"
+           x="0"
+           y="0"
+           width="100%"
+           height="100%" />
+        <use
+           fill="#ffffff"
+           fill-rule="evenodd"
+           xlink:href="#path-2"
+           id="use675"
+           x="0"
+           y="0"
+           width="100%"
+           height="100%" />
+      </g>
+      <g
+         id="Combined-Shape"
+         transform="rotate(6,398.80402,-790.67857)">
+        <use
+           fill="#000000"
+           fill-opacity="1"
+           filter="url(#filter-5)"
+           xlink:href="#path-4"
+           id="use679"
+           x="0"
+           y="0"
+           width="100%"
+           height="100%" />
+        <path
+           d="m 34.450747,34.567872 v -1.43735 c 3.015811,-2.311979 6.903888,-3.164868 9.74233,-2.309684 0.996485,0.300228 2.117464,1.124764 2.833692,1.652027 0.672474,0.495054 1.097493,1.222443 1.334234,1.67164 4.218218,7.31959 -8.034362,21.190746 -2.242114,24.261204 1.050333,0.556779 2.757887,1.111421 4.812863,1.581923 v 1.122515 c -2.178384,1.314743 -6.088862,2.573912 -7.942319,2.705196 -1.007466,0.07136 -1.705111,-0.150373 -2.583771,-0.339941 -0.630392,-0.136005 -2.506382,-1.50156 -2.756609,-1.836192 -5.853659,-6.063288 6.015197,-17.35089 2.054384,-24.877459 -0.652945,-1.240764 -3.036438,-1.607317 -5.25269,-2.193879 z"
+           stroke-linejoin="square"
+           fill="#ffffff"
+           fill-rule="evenodd"
+           id="path681" />
+      </g>
+      <circle
+         id="path1284"
+         cx="-43.380634"
+         cy="-2.5723548"
+         style="fill:none;stroke:none;stroke-width:0.377953;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         r="43.218899" />
+    </g>
+  </g>
+</svg>
