@@ -673,6 +673,10 @@ img.text-container-fill__bottom {
     .text-container-main > .filler-right {
       flex: 0 1 40%;
       order: 1; }
+    .text-container-main > .filler-right.center-filler-right {
+      display: flex;
+      justify-content: center;
+      align-items: center; }
     .text-container-main > .filler-left {
       flex: 0 1 60%;
       order: 0; }
@@ -770,6 +774,10 @@ img.text-container-fill__bottom {
       display: block; }
     .text-container-main > .filler-right {
       flex: 0 1 40%; }
+    .text-container-main > .filler-right.center-filler-right {
+      display: flex;
+      justify-content: center;
+      align-items: center; }
     .text-container-main > .filler-left {
       flex: 0 1 60%; }
   .text-container-drawer--paddling-trip-details .text-container-drawer__content-wrapper > .gridx12 {
