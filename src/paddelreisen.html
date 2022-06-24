@@ -18,7 +18,6 @@
 </head>
 
 <body>
-
     <!-- inject:htmlNavigation -->
 	<div class="nav-wrapper">
 	<div class="gridx3">
@@ -263,16 +262,19 @@
 					</div>
 
 					<div class="filler filler-right">
-						<picture class="filler__picture">
-							<source srcset="assets/images/paddelreisen/georgien_gr.jpg" media="(min-width: 992px)">
-							<source srcset="assets/images/paddelreisen/georgien_mi.jpg" media="(min-width: 688px)">
-							<img 
-								class="filler__picture__img"
-								loading="lazy"
-								src="assets/images/paddelreisen/georgien_kl.jpg"  
-								alt="Wildwasser paddeln in Georgien" 
-								title="Wildwasser paddeln in Georgien">
-						</picture>
+						<a href="javascript:;" class="open-yt-modal-to-play-movie" data-youtubevVideoId="1V9d_-2XGAo">
+							<picture class="filler__picture">
+								<source srcset="assets/images/paddelreisen/georgien_film_gr.jpg" media="(min-width: 992px)">
+								<source srcset="assets/images/paddelreisen/georgien_film_mi.jpg" media="(min-width: 688px)">
+								<img 
+									class="filler__picture__img"
+									loading="lazy"
+									src="assets/images/paddelreisen/georgien_film_kl.jpg"  
+									alt="Wildwasser paddeln in Georgien" 
+									title="Wildwasser paddeln in Georgien">
+								<span>▶</span>	
+							</picture>
+						</a>
 					</div>
 				</div>
 
@@ -702,8 +704,18 @@
 <script src="/assets/scripts/frontApp.min.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=googleMapApiKey&callback=initMap"
 async defer></script>
+<script src="https://www.youtube.com/iframe_api"></script>
 
 <!-- endinject -->
-
+	
+	<div class="yt-modal-overlay js-hide">
+	</div>
+	<div class="yt-modal js-hide">
+		<button class="yt-modal__close-button">X</button>
+		<div class="yt-modal-inside">
+			<div id="wildwasserReisenVideoPlayer"></div>
+		</div>
+	</div>
+	
 </body>
 </html>

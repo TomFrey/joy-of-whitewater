@@ -1,6 +1,10 @@
 // eslint-disable-next-line no-unused-vars
 const Responsive = (function (Globals, RenderHeader) {
     const breakPointLarge = Globals.get().breakpointLarge;
+	const breakPointMedium = Globals.get().breakpointMedium;
+	const LARGE = 'large';
+	const MEDIUM = 'medium';
+	const SMALL = 'small';
 
 	function reloadWhenBrowserWidthCrossesBreakpoint (windowInnerWidthOld) {
 		const isBreakPointLargeCrossedGettingBigger = windowInnerWidthOld < breakPointLarge && window.innerWidth >= breakPointLarge;
@@ -28,9 +32,21 @@ const Responsive = (function (Globals, RenderHeader) {
 	}
 
 
+	function getBrowserBreakpointArea() {
+		if (window.innerWidth >= breakPointLarge) {
+			return LARGE;
+		} else if (window.innerWidth < breakPointLarge && window.innerWidth >= breakPointMedium) {
+			return MEDIUM;
+		} else {
+			return SMALL;
+		}
+	}
+
+
 	// public api
 	return {
         renderHeaderWithImagesAccordingToBreakPoint,
-		reloadWhenBrowserWidthCrossesBreakpoint
+		reloadWhenBrowserWidthCrossesBreakpoint,
+		getBrowserBreakpointArea
 	};
 })(Globals, RenderHeader);

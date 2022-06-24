@@ -42,6 +42,7 @@ const App = (function (Globals, Responsive) {
 						.then(() => {
 							CourseRegistration.init();
 							Navigation.init();
+							YoutubeVideoControl.init();
 							// Alle Bilder vorladen, damit man den Aufbau im GUI nicht sieht.
 							return Preloader.loadImagesForHeaderCarousel();
 						})
@@ -66,6 +67,7 @@ const App = (function (Globals, Responsive) {
 
 					CourseRegistration.init();
 					Navigation.init();
+					YoutubeVideoControl.init();
 				})
 				.catch((error) => {
 					console.log(error);
