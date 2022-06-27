@@ -558,7 +558,7 @@ Tablet / Desktop
   transition: max-height 0.1s ease-in-out 1ms; }
 
 .text-container-drawer.text-container-drawer--course-dates.js-show {
-  max-height: 2500px;
+  max-height: 4500px;
   transition: max-height 1s ease-in-out 1ms; }
 
 .text-container-drawer.text-container-drawer--paddling-trip-details.js-show {
@@ -881,7 +881,7 @@ img.text-container-fill__bottom {
   transition: max-height 300ms ease-in-out 1ms; }
 
 .course-list-item-detail.js-show {
-  max-height: 600px;
+  max-height: 2000px;
   transition: max-height 300ms ease-in-out 1ms; }
 
 .course-list-item-detail__content-wrapper {
