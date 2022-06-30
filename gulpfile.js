@@ -367,6 +367,15 @@ function copyApp(){
 
 
 /**
+ * Kopiert alle pdf die im Ordner 'kanukurse' liegen
+ */
+ function copyKanukursePdf(){
+	return gulp.src(['./src/kanukurse/*.pdf'])
+		.pipe(gulp.dest('dist/kanukurse'));
+}
+
+
+/**
  * Ersetzt username und passwort der DB
  */
 function replaceProductionCredentials(){
@@ -482,7 +491,8 @@ function build(enviroment) {
 						copyImages,
 						copyXml,
 						copyRobotsAndHtaccess,
-						copyGoogleConfirmationFile),
+						copyGoogleConfirmationFile,
+						copyKanukursePdf),
 		replaceProductionCredentials,
 		replaceGoogleMapApiKey);
 
