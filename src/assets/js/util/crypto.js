@@ -1,3 +1,4 @@
+// https://jumk.de/nospam/stopspam.html
 // eslint-disable-next-line no-unused-vars
 const Crypto = (function () {
 	function UnCryptMailto(s) {
@@ -12,7 +13,8 @@ const Crypto = (function () {
 	}
 
 	function linkToUnCryptMailto(s)	{
-		location.href = UnCryptMailto(s);
+		//location.href = UnCryptMailto(s);
+		window.open(UnCryptMailto(s), '_blank');
 	}
 
 	// public api
