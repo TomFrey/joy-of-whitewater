@@ -17,7 +17,7 @@ const Service = (function () {
 
 			request.onreadystatechange = function () {
 				if (request.readyState === DONE) {
-					// console.warn(request.responseText)
+					//console.warn(request.responseText)
 					jsonResponseData = JSON.parse(request.responseText);
 					if (request.status >= 200 && request.status < 400) {
 						resolve(jsonResponseData);

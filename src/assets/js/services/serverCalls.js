@@ -13,6 +13,6 @@ const Server = (function (Service) {
 
 	// Public api
 	return {
-		sendRegistrationFormData: sendDataToServer
+		sendFormDataWithMail: sendDataToServer
 	};
 })(Service);

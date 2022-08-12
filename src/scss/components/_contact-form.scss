@@ -1,0 +1,72 @@
+.contact-form{
+	background-color: $baseColor2;
+	padding: 2*$basicHeight 2*$basicWidth;
+	width: 100%;
+}
+
+
+.message-wrapper{
+	margin-bottom: 11px;
+}
+
+.message-input{
+	@include courseTableFont();
+	line-height: 27px;
+	background-color: $baseColor1;
+	border: none;
+	width: 100%;
+}
+
+.message-input::placeholder{
+	@include courseTableFont();
+	color: lighten($complimentaryColor2, 40%);
+}
+  
+.message-label{
+	color: lighten($complimentaryColor1, 10%);
+	line-height: 32px;
+	display: block;
+	margin-bottom: -5px;
+}
+
+
+.js-invalid{
+	@include fieldInvalidStyles();
+}
+
+
+.contact-form__info-box {
+    margin-top: 2 * $basicHeight;
+}
+
+.contact-form__info-box__text {
+    display: inline-block;
+    font-family: $standardTextFont;
+	font-size: $smallTitleSize;
+    animation: tilt-shaking 0.2s 3;
+}
+
+
+
+/* ************************************************************* */
+/* *********** ab hier für tablet ******************* */
+@media screen and (min-width: $breakpoint-medium) {   
+
+}
+
+
+/* *************************************************** */
+/* *********** ab hier für desktop ******************* */
+@media screen and (min-width: $breakpoint-large) {
+
+    .contact-form__send {
+        display: flex;
+        align-items: center;
+    }
+
+    .contact-form__info-box {
+        margin-top: 0;
+        margin-left: 2 * $basicWidth;
+    }
+
+}

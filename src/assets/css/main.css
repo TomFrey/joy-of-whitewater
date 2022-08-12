@@ -289,6 +289,21 @@ table {
   to {
     left: 0%; } }
 
+/*
+
+*/
+@keyframes tilt-shaking {
+  0% {
+    transform: rotate(0deg); }
+  25% {
+    transform: rotate(4deg); }
+  50% {
+    transform: rotate(0deg); }
+  75% {
+    transform: rotate(-4deg); }
+  100% {
+    transform: rotate(0deg); } }
+
 nav {
   padding-top: 7px;
   background-color: #ffffff;
@@ -1939,6 +1954,62 @@ h4.course-list-detail__title::after {
     max-height: 100%; }
   .yt-modal__close-button:hover {
     border: 1px solid #FFFFFF; } }
+
+.contact-form {
+  background-color: #1FB0FF;
+  padding: 16px 16px;
+  width: 100%; }
+
+.message-wrapper {
+  margin-bottom: 11px; }
+
+.message-input {
+  color: #000000;
+  font-family: "Open Sans", "Arial", "sans-serif";
+  font-size: 16px;
+  line-height: 32px;
+  line-height: 27px;
+  background-color: #0597E6;
+  border: none;
+  width: 100%; }
+
+.message-input::placeholder {
+  color: #000000;
+  font-family: "Open Sans", "Arial", "sans-serif";
+  font-size: 16px;
+  line-height: 32px;
+  color: #666666; }
+
+.message-label {
+  color: white;
+  line-height: 32px;
+  display: block;
+  margin-bottom: -5px; }
+
+.js-invalid {
+  border: 1px solid #FA4B57;
+  box-shadow: 1px 1px 15px 0px #fdc7cb; }
+
+.contact-form__info-box {
+  margin-top: 16px; }
+
+.contact-form__info-box__text {
+  display: inline-block;
+  font-family: "Open Sans", "Arial", "sans-serif";
+  font-size: 1.25rem;
+  animation: tilt-shaking 0.2s 3; }
+
+/* ************************************************************* */
+/* *********** ab hier für tablet ******************* */
+/* *************************************************** */
+/* *********** ab hier für desktop ******************* */
+@media screen and (min-width: 992px) {
+  .contact-form__send {
+    display: flex;
+    align-items: center; }
+  .contact-form__info-box {
+    margin-top: 0;
+    margin-left: 16px; } }
 
 .open-drawer {
   background-color: #E68305;
