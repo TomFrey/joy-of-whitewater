@@ -25,6 +25,12 @@
 }
 
 
+.send-whatsapp__wrapper{
+    display: flex;
+    justify-content: center;
+}
+
+
 .contact-form{
 	background-color: $baseColor2;
 	padding: 2*$basicHeight 2*$basicWidth;

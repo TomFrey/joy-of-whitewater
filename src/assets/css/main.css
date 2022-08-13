@@ -1989,6 +1989,10 @@ h4.course-list-detail__title::after {
 .copy-email__action-message.js-fadeaway {
   animation: fadeOut 1.2s 1; }
 
+.send-whatsapp__wrapper {
+  display: flex;
+  justify-content: center; }
+
 .contact-form {
   background-color: #1FB0FF;
   padding: 16px 16px;
