@@ -19,6 +19,7 @@ const Crypto = (function () {
 
 	// public api
 	return {
-		linkToUnCryptMailto
+		linkToUnCryptMailto,
+		UnCryptMailto
 	};
 })();

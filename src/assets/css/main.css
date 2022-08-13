@@ -281,7 +281,6 @@ table {
 /* *********** ab hier für desktop ******************* */
 /*
  Slide in a container (for example: the navigation) from the left to the right.
-
  */
 @keyframes slideIn {
   from {
@@ -290,7 +289,7 @@ table {
     left: 0%; } }
 
 /*
-
+ Let's shake something. For example the response text after a form was sent.
 */
 @keyframes tilt-shaking {
   0% {
@@ -303,6 +302,15 @@ table {
     transform: rotate(-4deg); }
   100% {
     transform: rotate(0deg); } }
+
+/*
+  Etwas ausblenden, von 100% sichtbar zu nicht sichtbar.
+*/
+@keyframes fadeOut {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
 
 nav {
   padding-top: 7px;
@@ -527,9 +535,11 @@ Tablet / Desktop
     color: #000000;
     font-size: 1rem;
     margin-bottom: 0.5rem; }
-  .text-container a.link-in-text, .text-container__home a.link-in-text {
+  .text-container a.link-in-text, .text-container a.link-in-text--big, .text-container__home a.link-in-text, .text-container__home a.link-in-text--big {
     color: #E6E01C; }
-  .text-container a.link-in-text:hover, .text-container__home a.link-in-text:hover {
+  .text-container a.link-in-text--big, .text-container__home a.link-in-text--big {
+    font-size: 1.25rem; }
+  .text-container a.link-in-text:hover, .text-container a.link-in-text--big:hover, .text-container__home a.link-in-text:hover, .text-container__home a.link-in-text--big:hover {
     color: #ffffff; }
 
 .text-container-main, .text-container-main__home {
@@ -1955,6 +1965,30 @@ h4.course-list-detail__title::after {
   .yt-modal__close-button:hover {
     border: 1px solid #FFFFFF; } }
 
+.copy-email__wrapper {
+  display: flex;
+  flex-flow: column;
+  align-items: center; }
+
+.copy-email__link {
+  margin-bottom: 8px; }
+
+.copy-email__button {
+  color: #000000;
+  font-family: "Open Sans", "Arial", "sans-serif";
+  font-size: 1rem;
+  font-weight: normal;
+  margin-bottom: 8px; }
+
+.copy-email__action-message {
+  font-weight: bold;
+  color: #ffffff;
+  opacity: 0;
+  margin-bottom: 8px; }
+
+.copy-email__action-message.js-fadeaway {
+  animation: fadeOut 1.2s 1; }
+
 .contact-form {
   background-color: #1FB0FF;
   padding: 16px 16px;
@@ -2001,9 +2035,20 @@ h4.course-list-detail__title::after {
 
 /* ************************************************************* */
 /* *********** ab hier für tablet ******************* */
-/* *************************************************** */
-/* *********** ab hier für desktop ******************* */
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 688px) {
+  .copy-email__wrapper {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    margin: 8px 0; }
+  .copy-email__link {
+    margin-bottom: 0; }
+  .copy-email__button {
+    margin-left: 16px;
+    margin-bottom: 0; }
+  .copy-email__action-message {
+    margin-left: 8px;
+    margin-bottom: 0; }
   .contact-form__send {
     display: flex;
     align-items: center; }
@@ -2011,6 +2056,8 @@ h4.course-list-detail__title::after {
     margin-top: 0;
     margin-left: 16px; } }
 
+/* *************************************************** */
+/* *********** ab hier für desktop ******************* */
 .open-drawer {
   background-color: #E68305;
   bottom: 0; }
@@ -2073,6 +2120,23 @@ a.open-drawer-wrapper {
   padding: 0 24px;
   text-decoration: none; }
 
+.general-button--small {
+  font-family: "Open Sans", "Arial", "sans-serif";
+  font-size: 16px;
+  line-height: 32px;
+  border: none;
+  border-radius: 4px;
+  line-height: 24px;
+  padding: 0 12px;
+  text-decoration: none;
+  box-shadow: 6px 5px 14px 1px rgba(0, 0, 0, 0.24); }
+
+.general-button--small:active {
+  /* Scaling button to 0.99 to its original size */
+  transform: scale(0.99);
+  /* Lowering the shadow */
+  box-shadow: 2px 1px 11px 1px rgba(0, 0, 0, 0.24); }
+
 .general-button--primary {
   background-color: #ffffff;
   color: #000000; }
@@ -2083,9 +2147,13 @@ a.open-drawer-wrapper {
 @media screen and (min-width: 992px) {
   .general-button {
     display: inline-block; }
-  .general-button--primary:hover, .general-button--primary-payment-confirmation:hover {
+  .general-button--primary:hover {
     background-color: #2c2c2c;
     border: 1px solid #2c2c2c;
+    color: #ffffff; }
+  .general-button--small:hover {
+    background-color: #2c2c2c;
+    border: none;
     color: #ffffff; } }
 
 .general-link {

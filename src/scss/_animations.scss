@@ -1,6 +1,5 @@
 /*
  Slide in a container (for example: the navigation) from the left to the right.
-
  */
 @keyframes slideIn {
   from {
@@ -11,9 +10,8 @@
   }
 }
 
-
 /*
-
+ Let's shake something. For example the response text after a form was sent.
 */
 @keyframes tilt-shaking {
   0% { transform: rotate(0deg); }
@@ -21,4 +19,12 @@
   50% { transform: rotate(0deg); }
   75% { transform: rotate(-4deg); }
   100% { transform: rotate(0deg); }
+}
+
+/*
+  Etwas ausblenden, von 100% sichtbar zu nicht sichtbar.
+*/
+@keyframes fadeOut {
+  0% {opacity: 1;}
+  100% {opacity: 0;}
 }

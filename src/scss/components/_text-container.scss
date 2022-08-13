@@ -128,11 +128,15 @@ Tablet / Desktop
 		margin-bottom: 0.5rem;
 	}
 
-	a.link-in-text{
+	a.link-in-text, a.link-in-text--big{
 		color: $color-textContainer-link;
 	}
 
-	a.link-in-text:hover{
+	a.link-in-text--big{
+		font-size: $smallTitleSize;
+	}
+
+	a.link-in-text:hover, a.link-in-text--big:hover{
 		color: $color-textContainer-text-hover;
 	}
 }

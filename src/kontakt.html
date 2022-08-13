@@ -75,10 +75,10 @@
 
         <div class="wrapper">
             <main>
-                <div class="text-container">
-                    <div class="text-container-main">
+                <div class="text-container__home">
+                    <div class="text-container-main__home">
 
-                        <div class="text-container-left">
+                        <div class="text-container-left__home">
                             <h2 class="title">
                                 Kontakt
                             </h2>
@@ -95,15 +95,23 @@
                                 E-Mail
                             </h3>
                             <p class="paragraph">
-                                Wenn du keinen standard E-Mail Client definiert hast, wird nicht viel passieren, wenn du auf E-Mail klickst. 
-                                Drum kopieren anklicken und die Mail Adresse von Hand in deiner Mail einsetzen.
-                                <span>
-                                    <a  class="link-in-text" 
-                                        title="E-Mail an die Kanuschule"
-                                        href="javascript:Crypto.linkToUnCryptMailto('nbjmup;nbjmAkpzpgxijufxbufs/di');">
-	                                    E-Mail
-                                    </a>
-				                </span>
+                                Wenn du keinen standard E-Mail Client definiert hast, wird nicht viel passieren, wenn du auf 'E-Mail schicken' klickst. 
+                                Dann 'E-Mail Adresse kopieren' klicken und die Adresse in deine Mail einsetzen.<br>
+                                <div class="copy-email__wrapper">
+                                    <span class="copy-email__link">
+                                        <a  class="link-in-text--big" 
+                                            title="E-Mail an die Kanuschule"
+                                            href="javascript:Crypto.linkToUnCryptMailto('nbjmup;nbjmAkpzpgxijufxbufs/di');">
+                                            E-Mail schicken
+                                        </a>
+                                    </span>
+                                    <button class="copy-email__button general-button--small general-button--primary">
+                                        E-Mail Adresse kopieren
+                                    </button>
+                                    <span class="copy-email__action-message">
+                                        kopiert
+                                    </span>
+                                </div>
                             </p>
 
                             <h3 class="title">
@@ -192,7 +200,7 @@
                             </div>
                         </div>
 
-                        <div class="filler filler-right">
+                        <div class="filler__home filler-right__home">
                             <picture class="logo_desktop filler__picture hide-on-tablet hide-on-mobile">
                                 <source srcset="assets/images/Logo_JoyOfWhitewaterMitWelle_sz.svg" media="(min-width: 992px)">
                                 <img class="filler__picture__img" src="assets/images/Logo_JoyOfWhitewaterMitWelle_sz.svg"  alt="Freude am Wildwasser" title="Freude am Wildwasser">

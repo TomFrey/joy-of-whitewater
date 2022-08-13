@@ -1,6 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 const ContactForm = (function (Validator, RenderConfirmation, Dates) {
     const SHOW = 'js-show';
+    const SHOWANDFADE = 'js-fadeaway';
     const contactFormData = {};
 
 	let contactForm;
@@ -13,6 +14,26 @@ const ContactForm = (function (Validator, RenderConfirmation, Dates) {
     let sendContactFormButtonOkIcon;
     let sendContactFormButtonNokIcon;
     let contactFormInfoBox;
+
+    let copyEMailButton;
+    let copyEMailActionMessage;
+
+
+    function copyEMailAddressToClipboard() {
+        let eMailAddressWithMailto = Crypto.UnCryptMailto('nbjmup;nbjmAkpzpgxijufxbufs/di');
+        let eMailAddress = eMailAddressWithMailto.slice(7, eMailAddressWithMailto.lenght);
+        navigator.clipboard.writeText(eMailAddress).then(() => {
+            showCopyEMailActionMessage();
+        });
+    }
+
+    function showCopyEMailActionMessage() {
+        copyEMailActionMessage = document.querySelector('.copy-email__action-message');
+        copyEMailActionMessage.classList.add(SHOWANDFADE);
+        setTimeout(function() {
+            copyEMailActionMessage.classList.remove(SHOWANDFADE);
+          }, 1200);
+    }
 
 
 	function isMessageValid() {
@@ -118,6 +139,13 @@ const ContactForm = (function (Validator, RenderConfirmation, Dates) {
 
 
 	function init() {
+        copyEMailButton = document.querySelector('.copy-email__button');
+		if (copyEMailButton !== null) {
+			copyEMailButton.addEventListener('click', () => {
+				copyEMailAddressToClipboard();
+			});
+		}
+
 		contactForm = document.querySelector('.contact-form');
 		
         if (contactForm !== null) {
