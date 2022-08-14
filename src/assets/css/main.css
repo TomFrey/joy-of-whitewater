@@ -1989,7 +1989,7 @@ h4.course-list-detail__title::after {
 .copy-email__action-message.js-fadeaway {
   animation: fadeOut 1.2s 1; }
 
-.send-whatsapp__wrapper {
+.send-whatsapp__wrapper, .send-signal__wrapper {
   display: flex;
   justify-content: center; }
 

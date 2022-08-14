@@ -10,8 +10,8 @@ const Crypto = (function () {
 	// 	const textToChars = (text) => text.split("").map((c) => c.charCodeAt(0));
 	// 	const byteHex = (n) => ("0" + Number(n).toString(16)).substr(-2);
 	// 	const applySaltToChar = (code) => textToChars(salt).reduce((a, b) => a ^ b, code);
-	  
-	// 	return text
+	
+	// 	return text 
 	// 	  .split("")
 	// 	  .map(textToChars)
 	// 	  .map(applySaltToChar)
@@ -31,7 +31,7 @@ const Crypto = (function () {
 			.join("");
 	};
 
-	function decryptLinkToWhatsApp(salt, key) {
+	function decryptLinkToMessenger(salt, key) {
 		const linkToWhatsApp = decrypt(salt, key);
 		window.open(linkToWhatsApp, '_blank');
 	}
@@ -57,6 +57,6 @@ const Crypto = (function () {
 	return {
 		linkToUnCryptMailto,
 		UnCryptMailto,
-		decryptLinkToWhatsApp
+		decryptLinkToMessenger
 	};
 })();

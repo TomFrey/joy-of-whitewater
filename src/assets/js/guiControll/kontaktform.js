@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-const ContactForm = (function (Validator, RenderConfirmation, Dates) {
+const ContactForm = (function (Validator) {
     const SHOW = 'js-show';
     const SHOWANDFADE = 'js-fadeaway';
     const contactFormData = {};
@@ -195,4 +195,4 @@ const ContactForm = (function (Validator, RenderConfirmation, Dates) {
 	return {
 		init
 	};
-})(Validator, RenderConfirmation, Dates);
+})(Validator);
