@@ -536,7 +536,8 @@ Tablet / Desktop
     font-size: 1rem;
     margin-bottom: 0.5rem; }
   .text-container a.link-in-text, .text-container a.link-in-text--big, .text-container__home a.link-in-text, .text-container__home a.link-in-text--big {
-    color: #E6E01C; }
+    color: #E6E01C;
+    padding: 0 2px; }
   .text-container a.link-in-text--big, .text-container__home a.link-in-text--big {
     font-size: 1.25rem; }
   .text-container a.link-in-text:hover, .text-container a.link-in-text--big:hover, .text-container__home a.link-in-text:hover, .text-container__home a.link-in-text--big:hover {
