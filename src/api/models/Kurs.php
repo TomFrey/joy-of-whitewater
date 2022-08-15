@@ -22,6 +22,7 @@ class Kurs
 	private $typ;
 	private $guide;
 	private $paddelreiseGruppe;
+	private $anmeldeSchluss;
 
 
 	public function __construct($id = false)
@@ -60,6 +61,7 @@ class Kurs
 			$this->setAnzahlPausentage($kurs['anzahl_pausentage']);
 			$this->setStatus($kurs['status']);
 			$this->setStatusText($kurs['status_text']);
+			$this->setAnmeldeSchluss($kurs['anmelde_schluss']);
 		}
 	}
 
@@ -268,5 +270,15 @@ class Kurs
 	public function setStatusText($statusText)
 	{
 		$this->statusText = $statusText;
+	}
+
+	public function getAnmeldeSchluss()
+	{
+		return $this->anmeldeSchluss;
+	}
+
+	public function setAnmeldeSchluss($anmeldeSchluss)
+	{
+		$this->anmeldeSchluss = $anmeldeSchluss;
 	}
 }

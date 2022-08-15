@@ -40,8 +40,10 @@ const App = (function (Globals, Responsive) {
 					// alle Kursdaten laden
 					CourseDates.loadAndRender()
 						.then(() => {
+							ContactForm.init();
 							CourseRegistration.init();
 							Navigation.init();
+							YoutubeVideoControl.init();
 							// Alle Bilder vorladen, damit man den Aufbau im GUI nicht sieht.
 							return Preloader.loadImagesForHeaderCarousel();
 						})
@@ -64,8 +66,10 @@ const App = (function (Globals, Responsive) {
 					//Das Bild der entsprechenden Seite (Reisen, Kurse, Packraft...) in den Header rendern.
 					Navigation.renderHeaderWithImagesAccordingToSite(whereAmI);
 
+					ContactForm.init();
 					CourseRegistration.init();
 					Navigation.init();
+					YoutubeVideoControl.init();
 				})
 				.catch((error) => {
 					console.log(error);

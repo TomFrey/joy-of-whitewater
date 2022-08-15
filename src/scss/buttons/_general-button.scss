@@ -7,6 +7,23 @@
 	text-decoration: none;
 }
 
+.general-button--small{
+	@include primaryButtonFont();
+	border: none;
+	border-radius: 4px;
+	line-height: 3*$basicHeight;
+	padding: 0 1.5*$basicWidth;
+	text-decoration: none;
+	box-shadow: 6px 5px 14px 1px rgba(0, 0, 0, 0.24);
+}
+
+.general-button--small:active{
+	/* Scaling button to 0.99 to its original size */
+	transform: scale(0.99);
+	/* Lowering the shadow */
+	box-shadow: 2px 1px 11px 1px rgba(0, 0, 0, 0.24);
+}
+
 .general-button--primary{
 	background-color: #ffffff;
 	color: #000000;
@@ -20,9 +37,15 @@
 		display: inline-block;
 	}
 
-	.general-button--primary:hover, .general-button--primary-payment-confirmation:hover {
+	.general-button--primary:hover {
 		background-color: #2c2c2c;
 		border: 1px solid #2c2c2c;
+		color: #ffffff;
+	}
+
+	.general-button--small:hover{
+		background-color: #2c2c2c;
+		border: none;
 		color: #ffffff;
 	}
 }

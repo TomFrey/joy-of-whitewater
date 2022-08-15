@@ -1,0 +1,118 @@
+//Bild mit dem Filmrand und dem Play Knopf
+.open-yt-modal-to-play-movie{
+    text-decoration: none;
+
+    picture{
+        display: grid;
+        grid-template: "imgAndStartButton";
+        place-items: center;
+        place-content: center;
+    }
+
+    img{
+        grid-area: imgAndStartButton;
+        width: 100%;
+        height: auto;
+    }
+   
+    span{
+        grid-area: imgAndStartButton;
+        font:64px/1.5 sans-serif;
+        color:white;
+    }
+}
+
+//Das eigentliche Modal mit dem Overlay
+.yt-modal.js-hide{
+    display: none;
+}
+
+.yt-modal{
+    display: block;
+    background-color: rgba($color: #000000, $alpha: 1);
+    color:rgba($color: #FFFFFF, $alpha: 1);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 350px;
+    max-width: 100%;
+    height: 233px;
+    max-height: 100%;
+    z-index: 110;
+
+    .yt-modal-inside{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+.yt-modal__close-button{
+    position: absolute;
+    z-index: 1;
+    top: 10px;
+    right: 10px;
+    
+    border: 0;
+    background: black;
+    color: white;
+    padding: 5px 10px;
+    font-size: 1.3rem;
+}
+
+
+.yt-modal-overlay.js-hide{
+    display: none;
+}
+
+.yt-modal-overlay{
+    z-index: 100;
+    background-color: rgba($color: #000000, $alpha: 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+/* *************************************************** */
+/* *********** ab hier für tablet ******************* */
+@media screen and (min-width: $breakpoint-medium) { 
+
+     //Das eigentliche Modal mit dem Overlay
+     .yt-modal{
+        width: 660px;
+        max-width: 100%;
+        height: 440px;
+        max-height: 100%;
+    }
+
+}
+
+
+/* *************************************************** */
+/* *********** ab hier für desktop ******************* */
+@media screen and (min-width: $breakpoint-large) {
+
+    //Bild mit dem Filmrand und dem Play Knopf
+    .open-yt-modal-to-play-movie:hover{
+        span{
+            color:red;
+        }
+    }
+
+    //Das eigentliche Modal mit dem Overlay
+    .yt-modal{
+        width: 900px;
+        max-width: 100%;
+        height: 600px;
+        max-height: 100%;
+    }
+
+    .yt-modal__close-button:hover{
+        border: 1px solid #FFFFFF;
+    }
+}

@@ -53,6 +53,7 @@ function getAllCourses(){
 		$row['isShown'] = $kurs->getIsShown();
 		$row['guide'] = $kurs->getGuide();
 		$row['paddelreiseGruppe'] = $kurs->getPaddelreiseGruppe();
+		$row['anmeldeSchluss'] = $kurs->getAnmeldeSchluss();
 
 		array_push($responseData, $row);
 	}

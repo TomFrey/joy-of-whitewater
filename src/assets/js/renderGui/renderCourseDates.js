@@ -363,6 +363,15 @@ const RenderCourseDates = (function (Dates, Globals) {
 			courseListItemDetailContentWrapper.appendChild(createADetailOfACourseListItem('', courseDate.beschreibung));
 		}
 
+		if (courseDate.anmeldeSchluss !== null &&
+			courseDate.anmeldeSchluss !== undefined &&
+			courseDate.anmeldeSchluss !== '') {
+			courseListItemDetailContentWrapper.appendChild(createADetailOfACourseListItem(
+				'', 
+				'Anmeldeschluss ist bis am ' + Dates.convertToMediumWithYearDateFormat(courseDate.anmeldeSchluss) + '.'
+			));
+		}
+
 		if (courseDate.treffpunkt !== null &&
 			courseDate.treffpunkt !== undefined &&
 			courseDate.treffpunkt !== '') {
@@ -454,6 +463,12 @@ const RenderCourseDates = (function (Dates, Globals) {
 		list.classList.add('text-container-drawer__list');
 		list.appendChild(createListItemForPaddleJourney('Kursort', valueLocation));
 		list.appendChild(createListItemForPaddleJourney('Datum', valueDateRange));
+
+		if (courseDate.anmeldeSchluss !== null &&
+			courseDate.anmeldeSchluss !== undefined &&
+			courseDate.anmeldeSchluss !== '') {
+				list.appendChild(createListItemForPaddleJourney('Anmelden bis', Dates.convertToMediumWithYearDateFormat(courseDate.anmeldeSchluss)));
+		}
 		list.appendChild(createListItemForPaddleJourney('Paddeltage', valueDuration));
 		column1.appendChild(list);
 

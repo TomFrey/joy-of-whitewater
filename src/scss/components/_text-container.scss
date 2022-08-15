@@ -128,11 +128,16 @@ Tablet / Desktop
 		margin-bottom: 0.5rem;
 	}
 
-	a.link-in-text{
+	a.link-in-text, a.link-in-text--big{
 		color: $color-textContainer-link;
+		padding: 0 2px;
 	}
 
-	a.link-in-text:hover{
+	a.link-in-text--big{
+		font-size: $smallTitleSize;
+	}
+
+	a.link-in-text:hover, a.link-in-text--big:hover{
 		color: $color-textContainer-text-hover;
 	}
 }
@@ -190,10 +195,7 @@ Tablet / Desktop
 	color: $color-drawer-text;
 }
 
-.course-list-wrapper .gridx12:not(:last-of-type){
-	// border-bottom: 0.2*$basicHeight solid $color-textContainer-background;
-	// padding-bottom: 2*$basicHeight;
-}
+
 
 //im Mobile den Drawer schneller schliessen, da hier bei den Kanumaterial Preisen ein Teil der Tabelle
 //absolute positioniert ist. Das Umschalten der Position sieht man beim Öffnen und Schliessen.
@@ -206,7 +208,7 @@ Tablet / Desktop
 }
 
 .text-container-drawer.text-container-drawer--course-dates.js-show{
-  max-height: 2500px;
+  max-height: 4500px;
   transition: max-height 1s ease-in-out 1ms;
 }
 
@@ -387,6 +389,12 @@ img.text-container-fill__bottom {
 		> .filler-right{
 		  flex: 0 1 40%;
 		  order:1;
+		}
+
+		> .filler-right.center-filler-right{
+			display: flex;
+			justify-content: center;
+			align-items: center;
 		}
 	
 		> .filler-left{
@@ -585,6 +593,12 @@ img.text-container-fill__bottom {
 
 		> .filler-right{
 		flex: 0 1 40%;
+		}
+
+		> .filler-right.center-filler-right{
+			display: flex;
+			justify-content: center;
+			align-items: center;
 		}
 
 		> .filler-left{

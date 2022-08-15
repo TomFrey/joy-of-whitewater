@@ -122,6 +122,7 @@ const CourseRegistration = (function (Validator, RenderConfirmation, Dates) {
 	 *
 	 */
 	function sendFormData() {
+		registrationData.subject = 'Anmeldung über TheJoyOfWhitewater';
 		registrationData.courseName = courseNameInputField.value;
 		registrationData.courseDate = courseDateInputField.value;
 		registrationData.numberOfParticipants = numberOfParticipantsInputField.value;
@@ -136,7 +137,7 @@ const CourseRegistration = (function (Validator, RenderConfirmation, Dates) {
 		registrationData.equipmentDetails = equipmentTextArea.value;
 		registrationData.comment = commentTextArea.value;
 
-		Server.sendRegistrationFormData(registrationData)
+		Server.sendFormDataWithMail(registrationData)
 			.then(() => {
 				// console.log(response);
 				// Die Formular Daten konnten vom Server entgegengenommen werden, ein EMail wurde verschickt...

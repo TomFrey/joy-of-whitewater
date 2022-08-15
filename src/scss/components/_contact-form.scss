@@ -1,0 +1,125 @@
+.copy-email__wrapper{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+.copy-email__link{
+    margin-bottom: $basicHeight;
+}
+
+.copy-email__button{
+    @include standardTextFont();
+    margin-bottom: $basicHeight;
+}
+
+.copy-email__action-message{
+    font-weight: bold;
+    color: $complimentaryColor1;
+    opacity: 0;
+    margin-bottom: $basicHeight;
+}
+
+.copy-email__action-message.js-fadeaway{
+    animation: fadeOut 1.2s 1;
+}
+
+
+.send-whatsapp__wrapper, .send-signal__wrapper{
+    display: flex;
+    justify-content: center;
+}
+
+
+.contact-form{
+	background-color: $baseColor2;
+	padding: 2*$basicHeight 2*$basicWidth;
+	width: 100%;
+}
+
+.message-wrapper{
+	margin-bottom: 11px;
+}
+
+.message-input{
+	@include courseTableFont();
+	line-height: 27px;
+	background-color: $baseColor1;
+	border: none;
+	width: 100%;
+}
+
+.message-input::placeholder{
+	@include courseTableFont();
+	color: lighten($complimentaryColor2, 40%);
+}
+  
+.message-label{
+	color: lighten($complimentaryColor1, 10%);
+	line-height: 32px;
+	display: block;
+	margin-bottom: -5px;
+}
+
+
+.js-invalid{
+	@include fieldInvalidStyles();
+}
+
+
+.contact-form__info-box {
+    margin-top: 2 * $basicHeight;
+}
+
+.contact-form__info-box__text {
+    display: inline-block;
+    font-family: $standardTextFont;
+	font-size: $smallTitleSize;
+    animation: tilt-shaking 0.2s 3;
+}
+
+
+
+/* ************************************************************* */
+/* *********** ab hier für tablet ******************* */
+@media screen and (min-width: $breakpoint-medium) {   
+    .copy-email__wrapper{
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        margin: $basicHeight 0;
+    }
+    
+    .copy-email__link{
+        margin-bottom: 0;
+    }
+    
+    .copy-email__button{
+        margin-left: 2*$basicWidth;
+        margin-bottom: 0;
+    }
+    
+    .copy-email__action-message{
+        margin-left: $basicWidth;
+        margin-bottom: 0;
+    }
+
+    .contact-form__send {
+        display: flex;
+        align-items: center;
+    }
+
+    .contact-form__info-box {
+        margin-top: 0;
+        margin-left: 2 * $basicWidth;
+    }
+}
+
+
+/* *************************************************** */
+/* *********** ab hier für desktop ******************* */
+@media screen and (min-width: $breakpoint-large) {
+
+   
+
+}

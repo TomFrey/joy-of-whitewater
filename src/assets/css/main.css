@@ -281,13 +281,36 @@ table {
 /* *********** ab hier für desktop ******************* */
 /*
  Slide in a container (for example: the navigation) from the left to the right.
-
  */
 @keyframes slideIn {
   from {
     left: -100%; }
   to {
     left: 0%; } }
+
+/*
+ Let's shake something. For example the response text after a form was sent.
+*/
+@keyframes tilt-shaking {
+  0% {
+    transform: rotate(0deg); }
+  25% {
+    transform: rotate(4deg); }
+  50% {
+    transform: rotate(0deg); }
+  75% {
+    transform: rotate(-4deg); }
+  100% {
+    transform: rotate(0deg); } }
+
+/*
+  Etwas ausblenden, von 100% sichtbar zu nicht sichtbar.
+*/
+@keyframes fadeOut {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
 
 nav {
   padding-top: 7px;
@@ -512,9 +535,12 @@ Tablet / Desktop
     color: #000000;
     font-size: 1rem;
     margin-bottom: 0.5rem; }
-  .text-container a.link-in-text, .text-container__home a.link-in-text {
-    color: #E6E01C; }
-  .text-container a.link-in-text:hover, .text-container__home a.link-in-text:hover {
+  .text-container a.link-in-text, .text-container a.link-in-text--big, .text-container__home a.link-in-text, .text-container__home a.link-in-text--big {
+    color: #E6E01C;
+    padding: 0 2px; }
+  .text-container a.link-in-text--big, .text-container__home a.link-in-text--big {
+    font-size: 1.25rem; }
+  .text-container a.link-in-text:hover, .text-container a.link-in-text--big:hover, .text-container__home a.link-in-text:hover, .text-container__home a.link-in-text--big:hover {
     color: #ffffff; }
 
 .text-container-main, .text-container-main__home {
@@ -558,7 +584,7 @@ Tablet / Desktop
   transition: max-height 0.1s ease-in-out 1ms; }
 
 .text-container-drawer.text-container-drawer--course-dates.js-show {
-  max-height: 2500px;
+  max-height: 4500px;
   transition: max-height 1s ease-in-out 1ms; }
 
 .text-container-drawer.text-container-drawer--paddling-trip-details.js-show {
@@ -673,6 +699,10 @@ img.text-container-fill__bottom {
     .text-container-main > .filler-right {
       flex: 0 1 40%;
       order: 1; }
+    .text-container-main > .filler-right.center-filler-right {
+      display: flex;
+      justify-content: center;
+      align-items: center; }
     .text-container-main > .filler-left {
       flex: 0 1 60%;
       order: 0; }
@@ -770,6 +800,10 @@ img.text-container-fill__bottom {
       display: block; }
     .text-container-main > .filler-right {
       flex: 0 1 40%; }
+    .text-container-main > .filler-right.center-filler-right {
+      display: flex;
+      justify-content: center;
+      align-items: center; }
     .text-container-main > .filler-left {
       flex: 0 1 60%; }
   .text-container-drawer--paddling-trip-details .text-container-drawer__content-wrapper > .gridx12 {
@@ -873,7 +907,7 @@ img.text-container-fill__bottom {
   transition: max-height 300ms ease-in-out 1ms; }
 
 .course-list-item-detail.js-show {
-  max-height: 600px;
+  max-height: 2000px;
   transition: max-height 300ms ease-in-out 1ms; }
 
 .course-list-item-detail__content-wrapper {
@@ -1849,6 +1883,186 @@ h4.course-list-detail__title::after {
     .sitemap .sitemap__list__item a:hover {
       color: #ffffff; } }
 
+.open-yt-modal-to-play-movie {
+  text-decoration: none; }
+  .open-yt-modal-to-play-movie picture {
+    display: grid;
+    grid-template: "imgAndStartButton";
+    place-items: center;
+    place-content: center; }
+  .open-yt-modal-to-play-movie img {
+    grid-area: imgAndStartButton;
+    width: 100%;
+    height: auto; }
+  .open-yt-modal-to-play-movie span {
+    grid-area: imgAndStartButton;
+    font: 64px/1.5 sans-serif;
+    color: white; }
+
+.yt-modal.js-hide {
+  display: none; }
+
+.yt-modal {
+  display: block;
+  background-color: black;
+  color: white;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 350px;
+  max-width: 100%;
+  height: 233px;
+  max-height: 100%;
+  z-index: 110; }
+  .yt-modal .yt-modal-inside {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); }
+
+.yt-modal__close-button {
+  position: absolute;
+  z-index: 1;
+  top: 10px;
+  right: 10px;
+  border: 0;
+  background: black;
+  color: white;
+  padding: 5px 10px;
+  font-size: 1.3rem; }
+
+.yt-modal-overlay.js-hide {
+  display: none; }
+
+.yt-modal-overlay {
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; }
+
+/* *************************************************** */
+/* *********** ab hier für tablet ******************* */
+@media screen and (min-width: 688px) {
+  .yt-modal {
+    width: 660px;
+    max-width: 100%;
+    height: 440px;
+    max-height: 100%; } }
+
+/* *************************************************** */
+/* *********** ab hier für desktop ******************* */
+@media screen and (min-width: 992px) {
+  .open-yt-modal-to-play-movie:hover span {
+    color: red; }
+  .yt-modal {
+    width: 900px;
+    max-width: 100%;
+    height: 600px;
+    max-height: 100%; }
+  .yt-modal__close-button:hover {
+    border: 1px solid #FFFFFF; } }
+
+.copy-email__wrapper {
+  display: flex;
+  flex-flow: column;
+  align-items: center; }
+
+.copy-email__link {
+  margin-bottom: 8px; }
+
+.copy-email__button {
+  color: #000000;
+  font-family: "Open Sans", "Arial", "sans-serif";
+  font-size: 1rem;
+  font-weight: normal;
+  margin-bottom: 8px; }
+
+.copy-email__action-message {
+  font-weight: bold;
+  color: #ffffff;
+  opacity: 0;
+  margin-bottom: 8px; }
+
+.copy-email__action-message.js-fadeaway {
+  animation: fadeOut 1.2s 1; }
+
+.send-whatsapp__wrapper, .send-signal__wrapper {
+  display: flex;
+  justify-content: center; }
+
+.contact-form {
+  background-color: #1FB0FF;
+  padding: 16px 16px;
+  width: 100%; }
+
+.message-wrapper {
+  margin-bottom: 11px; }
+
+.message-input {
+  color: #000000;
+  font-family: "Open Sans", "Arial", "sans-serif";
+  font-size: 16px;
+  line-height: 32px;
+  line-height: 27px;
+  background-color: #0597E6;
+  border: none;
+  width: 100%; }
+
+.message-input::placeholder {
+  color: #000000;
+  font-family: "Open Sans", "Arial", "sans-serif";
+  font-size: 16px;
+  line-height: 32px;
+  color: #666666; }
+
+.message-label {
+  color: white;
+  line-height: 32px;
+  display: block;
+  margin-bottom: -5px; }
+
+.js-invalid {
+  border: 1px solid #FA4B57;
+  box-shadow: 1px 1px 15px 0px #fdc7cb; }
+
+.contact-form__info-box {
+  margin-top: 16px; }
+
+.contact-form__info-box__text {
+  display: inline-block;
+  font-family: "Open Sans", "Arial", "sans-serif";
+  font-size: 1.25rem;
+  animation: tilt-shaking 0.2s 3; }
+
+/* ************************************************************* */
+/* *********** ab hier für tablet ******************* */
+@media screen and (min-width: 688px) {
+  .copy-email__wrapper {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    margin: 8px 0; }
+  .copy-email__link {
+    margin-bottom: 0; }
+  .copy-email__button {
+    margin-left: 16px;
+    margin-bottom: 0; }
+  .copy-email__action-message {
+    margin-left: 8px;
+    margin-bottom: 0; }
+  .contact-form__send {
+    display: flex;
+    align-items: center; }
+  .contact-form__info-box {
+    margin-top: 0;
+    margin-left: 16px; } }
+
+/* *************************************************** */
+/* *********** ab hier für desktop ******************* */
 .open-drawer {
   background-color: #E68305;
   bottom: 0; }
@@ -1911,6 +2125,23 @@ a.open-drawer-wrapper {
   padding: 0 24px;
   text-decoration: none; }
 
+.general-button--small {
+  font-family: "Open Sans", "Arial", "sans-serif";
+  font-size: 16px;
+  line-height: 32px;
+  border: none;
+  border-radius: 4px;
+  line-height: 24px;
+  padding: 0 12px;
+  text-decoration: none;
+  box-shadow: 6px 5px 14px 1px rgba(0, 0, 0, 0.24); }
+
+.general-button--small:active {
+  /* Scaling button to 0.99 to its original size */
+  transform: scale(0.99);
+  /* Lowering the shadow */
+  box-shadow: 2px 1px 11px 1px rgba(0, 0, 0, 0.24); }
+
 .general-button--primary {
   background-color: #ffffff;
   color: #000000; }
@@ -1921,9 +2152,13 @@ a.open-drawer-wrapper {
 @media screen and (min-width: 992px) {
   .general-button {
     display: inline-block; }
-  .general-button--primary:hover, .general-button--primary-payment-confirmation:hover {
+  .general-button--primary:hover {
     background-color: #2c2c2c;
     border: 1px solid #2c2c2c;
+    color: #ffffff; }
+  .general-button--small:hover {
+    background-color: #2c2c2c;
+    border: none;
     color: #ffffff; } }
 
 .general-link {

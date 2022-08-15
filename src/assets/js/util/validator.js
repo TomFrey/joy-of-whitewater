@@ -111,6 +111,19 @@ const Validator = (function () {
 
 
 	/**
+	 * Prüft, ob der Text im korrekten Format eingegeben wurde.
+	 * Buchstaben, Leerzeichen, Umlaute, Zahlen und einige Sonderzeichen sind erlaubt.
+	 * String darf nicht leer sein.
+	 *
+	 * @returns {boolean}
+	 */
+	 function isTextFieldNotEmptyValid(textInputField) {
+		const isValidTextField = new RegExp(/^[\w\s\.\'\"\?\-)(,;:!öäüÖÄÜéàèçœøæåêÉÈÀÇÅËÊ]+$/);
+		return validate(isValidTextField, textInputField, false);
+	}
+
+
+	/**
 	 * Prüft, ob die Kursbezeichnung im korrekten Format eingegeben wurde.
 	 * Buchstaben, Leerzeichen, Umlaute, Zahlen und einige Sonderzeichen sind erlaubt.
 	 *
@@ -189,6 +202,7 @@ const Validator = (function () {
 		isEMailValid,
 		isPasswordValid,
 		isTextFieldValid,
+		isTextFieldNotEmptyValid,
 		isCourseNameValid,
 		isNameValid,
 		isAddressValid,
