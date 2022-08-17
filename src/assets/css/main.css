@@ -2065,49 +2065,43 @@ h4.course-list-detail__title::after {
 /* *********** ab hier für desktop ******************* */
 .info-nav {
   position: absolute;
-  top: -5%;
-  right: 0%;
-  width: 27em;
-  height: 27em; }
+  top: 0%;
+  right: 7%;
+  width: 20em;
+  height: 20em; }
 
 .info-nav .info-nav-button {
   color: #000000;
   font-family: "Open Sans", "Arial", "sans-serif";
   font-size: 1.5rem;
   font-weight: bold;
-  position: relative;
-  top: 169px;
-  right: -148px;
-  height: 4.5em;
-  width: 4.5em;
+  font-size: 1.1rem;
+  position: absolute;
+  top: 38%;
+  right: 40%;
+  height: 3.5em;
+  width: 3.5em;
   color: white;
   background-color: #FF6305;
   border: 1px solid #FF6305;
   box-shadow: 0 8px 6px -6px black;
   border-radius: 50%;
-  cursor: pointer;
-  z-index: 11; }
-
-.info-nav .info-nav-button:hover {
-  background-color: #ffffff;
-  color: #FF6305;
-  transform: scale(1.02); }
+  z-index: 20; }
 
 .info-nav .info-nav-button:active {
   transform: scale(0.98); }
 
 .info-nav .info-nav-wrapper {
-  position: relative;
-  top: 115px;
-  right: -200px;
-  z-index: 10;
-  margin-top: -13em;
-  margin-left: -13.5em;
-  width: 27em;
-  height: 27em;
+  position: absolute;
+  top: 0%;
+  right: 0%;
+  z-index: 19;
+  margin-top: 0em;
+  margin-left: 0em;
+  width: 20em;
+  height: 20em;
   border-radius: 50%;
   background: transparent;
-  opacity: 0;
   transition: all 1s ease 0.3s;
   transform: scale(0.1);
   pointer-events: none;
@@ -2115,19 +2109,19 @@ h4.course-list-detail__title::after {
 
 /* Damit man das innere des Kreises nicht anklicken kann*/
 .info-nav .info-nav-wrapper:after {
+  position: absolute;
+  left: 50%;
+  top: 50%;
   color: transparent;
   content: ".";
   display: block;
   font-size: 2em;
-  width: 6.2em;
-  height: 6.2em;
-  position: absolute;
-  left: 50%;
-  margin-left: -3.1em;
-  top: 50%;
-  margin-top: -3.1em;
+  width: 5em;
+  height: 5em;
+  margin-left: -2.5em;
+  margin-top: -2.7em;
   border-radius: 50%;
-  z-index: 10; }
+  z-index: 19; }
 
 .info-nav .info-nav-wrapper li {
   position: absolute;
@@ -2137,7 +2131,7 @@ h4.course-list-detail__title::after {
   margin-left: -10em;
   width: 10em;
   height: 10em;
-  font-size: 1.5em;
+  font-size: 1.1em;
   transition: all 1s ease;
   transform: rotate(76deg) skew(60deg);
   transform-origin: 100% 100%;
@@ -2171,14 +2165,6 @@ h4.course-list-detail__title::after {
   font-weight: 700;
   text-transform: uppercase; }
 
-.info-nav .info-nav-wrapper:hover {
-  opacity: 1; }
-
-.info-nav .info-nav-wrapper li a:hover,
-.info-nav .info-nav-wrapper li a:active,
-.info-nav .info-nav-wrapper li a:focus {
-  background: radial-gradient(transparent 35%, #1FB0FF 35%); }
-
 /* 
   for a central angle x, the list items must be skewed by 90-x degrees
   in our case x=40deg so skew angle is 50deg
@@ -2192,7 +2178,7 @@ h4.course-list-detail__title::after {
 */
 .info-nav .opened-nav {
   border-radius: 50%;
-  opacity: 0.8;
+  opacity: 1;
   transition: all 1s ease;
   transform: scale(1);
   pointer-events: auto; }
@@ -2264,6 +2250,48 @@ h4.course-list-detail__title::after {
 /* *********** ab hier für tablet ******************* */
 /* *************************************************** */
 /* *********** ab hier für desktop ******************* */
+@media screen and (min-width: 992px) {
+  .info-nav {
+    top: 0%;
+    right: 0%;
+    width: 27em;
+    height: 27em; }
+  .info-nav .info-nav-button {
+    top: 39%;
+    right: 40%;
+    height: 4.5em;
+    width: 4.5em;
+    cursor: pointer; }
+  .info-nav .info-nav-button:hover {
+    background-color: #ffffff;
+    color: #FF6305;
+    transform: scale(1.02); }
+  .info-nav .info-nav-button:active {
+    transform: scale(0.98); }
+  .info-nav .info-nav-wrapper {
+    top: 0%;
+    right: 0%;
+    margin-top: 0em;
+    margin-left: 0em;
+    width: 27em;
+    height: 27em; }
+  .info-nav .info-nav-wrapper li {
+    font-size: 1.5em; }
+  /* Damit man das innere des Kreises nicht anklicken kann*/
+  .info-nav .info-nav-wrapper:after {
+    width: 6.4em;
+    height: 6.4em;
+    margin-left: -3.2em;
+    margin-top: -3.4em; }
+  .info-nav .info-nav-wrapper:hover {
+    opacity: 1; }
+  .info-nav .info-nav-wrapper li a:hover,
+  .info-nav .info-nav-wrapper li a:active,
+  .info-nav .info-nav-wrapper li a:focus {
+    background: radial-gradient(transparent 35%, #1FB0FF 35%); }
+  .info-nav .opened-nav {
+    opacity: 0.8; } }
+
 .open-drawer {
   background-color: #E68305;
   bottom: 0; }
