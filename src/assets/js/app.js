@@ -43,6 +43,7 @@ const App = (function (Globals, Responsive) {
 							ContactForm.init();
 							CourseRegistration.init();
 							Navigation.init();
+							InfoNavigation.init();
 							YoutubeVideoControl.init();
 							// Alle Bilder vorladen, damit man den Aufbau im GUI nicht sieht.
 							return Preloader.loadImagesForHeaderCarousel();
@@ -69,6 +70,7 @@ const App = (function (Globals, Responsive) {
 					ContactForm.init();
 					CourseRegistration.init();
 					Navigation.init();
+					InfoNavigation.init();
 					YoutubeVideoControl.init();
 				})
 				.catch((error) => {

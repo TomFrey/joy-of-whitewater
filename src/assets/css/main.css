@@ -2063,6 +2063,207 @@ h4.course-list-detail__title::after {
 
 /* *************************************************** */
 /* *********** ab hier für desktop ******************* */
+.info-nav {
+  position: absolute;
+  top: -5%;
+  right: 0%;
+  width: 27em;
+  height: 27em; }
+
+.info-nav .info-nav-button {
+  color: #000000;
+  font-family: "Open Sans", "Arial", "sans-serif";
+  font-size: 1.5rem;
+  font-weight: bold;
+  position: relative;
+  top: 169px;
+  right: -148px;
+  height: 4.5em;
+  width: 4.5em;
+  color: white;
+  background-color: #FF6305;
+  border: 1px solid #FF6305;
+  box-shadow: 0 8px 6px -6px black;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 11; }
+
+.info-nav .info-nav-button:hover {
+  background-color: #ffffff;
+  color: #FF6305;
+  transform: scale(1.02); }
+
+.info-nav .info-nav-button:active {
+  transform: scale(0.98); }
+
+.info-nav .info-nav-wrapper {
+  position: relative;
+  top: 115px;
+  right: -200px;
+  z-index: 10;
+  margin-top: -13em;
+  margin-left: -13.5em;
+  width: 27em;
+  height: 27em;
+  border-radius: 50%;
+  background: transparent;
+  opacity: 0;
+  transition: all 1s ease 0.3s;
+  transform: scale(0.1);
+  pointer-events: none;
+  overflow: hidden; }
+
+/* Damit man das innere des Kreises nicht anklicken kann*/
+.info-nav .info-nav-wrapper:after {
+  color: transparent;
+  content: ".";
+  display: block;
+  font-size: 2em;
+  width: 6.2em;
+  height: 6.2em;
+  position: absolute;
+  left: 50%;
+  margin-left: -3.1em;
+  top: 50%;
+  margin-top: -3.1em;
+  border-radius: 50%;
+  z-index: 10; }
+
+.info-nav .info-nav-wrapper li {
+  position: absolute;
+  left: 50%;
+  overflow: hidden;
+  margin-top: -1.3em;
+  margin-left: -10em;
+  width: 10em;
+  height: 10em;
+  font-size: 1.5em;
+  transition: all 1s ease;
+  transform: rotate(76deg) skew(60deg);
+  transform-origin: 100% 100%;
+  pointer-events: none; }
+
+.info-nav .info-nav-wrapper li a {
+  position: absolute;
+  position: fixed;
+  /* fix the "displacement" bug in webkit browsers when using tab key */
+  right: -7.25em;
+  bottom: -7.25em;
+  display: block;
+  width: 14.5em;
+  height: 14.5em;
+  border-radius: 50%;
+  background: radial-gradient(transparent 35%, #0597E6 35%);
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1.2em;
+  line-height: 2;
+  transition: all 1s ease;
+  transform: skew(-50deg) rotate(-70deg) scale(1);
+  pointer-events: auto; }
+
+.info-nav .info-nav-wrapper li a span {
+  position: relative;
+  top: 1.8em;
+  display: block;
+  font-size: .5em;
+  font-weight: 700;
+  text-transform: uppercase; }
+
+.info-nav .info-nav-wrapper:hover {
+  opacity: 1; }
+
+.info-nav .info-nav-wrapper li a:hover,
+.info-nav .info-nav-wrapper li a:active,
+.info-nav .info-nav-wrapper li a:focus {
+  background: radial-gradient(transparent 35%, #1FB0FF 35%); }
+
+/* for a central angle x, the list items must be skewed by 90-x degrees
+  in our case x=40deg so skew angle is 50deg
+  items should be rotated by x, minus (sum of angles - 180)2s (for this demo) */
+/* 
+    In meinem Fall 360 Grad Kreis mit 9 Elementen -> central angle = 40.
+    x = 360/9 = 40deg -> 90-40 = skew angle ist 50deg
+   
+    rotation = 40 - (9*40 - 180) = -140
+    Von -140deg ausgehend immer plus 40deg
+  
+  */
+.info-nav .opened-nav {
+  border-radius: 50%;
+  opacity: 0.8;
+  transition: all 1s ease;
+  transform: scale(1);
+  pointer-events: auto; }
+
+.info-nav .opened-nav li {
+  transition: all 1s ease .3s; }
+
+.info-nav .opened-nav li:first-child {
+  transform: rotate(-100deg) skew(50deg); }
+
+.info-nav .opened-nav li:first-child a span {
+  transform: rotate(170deg); }
+
+.info-nav .opened-nav li:nth-child(2) {
+  transform: rotate(-60deg) skew(50deg); }
+
+.info-nav .opened-nav li:nth-child(2) a span {
+  transform: rotate(129deg); }
+
+.info-nav .opened-nav li:nth-child(3) {
+  transform: rotate(-20deg) skew(50deg); }
+
+.info-nav .opened-nav li:nth-child(3) a span {
+  transform: rotate(90deg); }
+
+.info-nav .opened-nav li:nth-child(4) {
+  transform: rotate(20deg) skew(50deg); }
+
+.info-nav .opened-nav li:nth-child(4) a span {
+  transform: rotate(47deg); }
+
+.info-nav .opened-nav li:nth-child(5) {
+  transform: rotate(60deg) skew(50deg); }
+
+.info-nav .opened-nav li:nth-child(5) a span {
+  transform: rotate(8deg); }
+
+.info-nav .opened-nav li:nth-child(6) {
+  transform: rotate(100deg) skew(50deg); }
+
+.info-nav .opened-nav li:nth-child(6) a span {
+  transform: rotate(-29deg); }
+
+.info-nav .opened-nav li:nth-child(7) {
+  transform: rotate(140deg) skew(50deg); }
+
+.info-nav .opened-nav li:nth-child(7) a {
+  background: radial-gradient(transparent 35%, #FF6305 35%); }
+
+.info-nav .opened-nav li:nth-child(7) a:hover {
+  background: radial-gradient(transparent 35%, #ff8338 35%); }
+
+.info-nav .opened-nav li:nth-child(7) a span {
+  transform: rotate(-70deg); }
+
+.info-nav .opened-nav li:nth-child(8) {
+  transform: rotate(180deg) skew(50deg); }
+
+.info-nav .opened-nav li:nth-child(8) a span {
+  transform: rotate(250deg); }
+
+.info-nav .opened-nav li:nth-child(9) {
+  transform: rotate(220deg) skew(50deg); }
+
+.info-nav .opened-nav li:nth-child(9) a span {
+  transform: rotate(207deg); }
+
+/* *************************************************** */
+/* *********** ab hier für tablet ******************* */
+/* *************************************************** */
+/* *********** ab hier für desktop ******************* */
 .open-drawer {
   background-color: #E68305;
   bottom: 0; }
@@ -2238,14 +2439,6 @@ a.open-drawer-wrapper {
         margin-left: 12px;
         height: 20px;
         width: 30px; } }
-
-.information-icon {
-  z-index: 3;
-  width: 10%;
-  height: 25%;
-  position: absolute;
-  top: 110px;
-  right: 60px; }
 
 /* Border Box Trick */
 /* padding ist in der Box Breite miteingerechnet*/

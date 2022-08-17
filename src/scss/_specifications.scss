@@ -46,6 +46,7 @@ $color-nav-desktop-background: #ffffff;
 $color-nav-desktop-text: #000000;
 $color-nav-desktop-uSlider: #FF6305; //#FFBD1E;
 $color-course-date-overview: #FF6305;
+$color-course-date-overview-light: lighten(#FF6305, 10%);
 
 //footer
 $color-footer-mobile-text: $baseColor2;
