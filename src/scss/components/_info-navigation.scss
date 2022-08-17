@@ -81,7 +81,7 @@
   
 .info-nav .info-nav-wrapper li a {
   position: absolute;
-  position: fixed; /* fix the "displacement" bug in webkit browsers when using tab key */
+  //position: fixed; /* fix the "displacement" bug in webkit browsers when using tab key */
   right: -7.25em;
   bottom: -7.25em;
   display: block;
@@ -108,10 +108,10 @@
   text-transform: uppercase;
 }
 
-// .info-nav .info-nav-wrapper li a:active,
-// .info-nav .info-nav-wrapper li a:focus {
-//   background: radial-gradient(transparent 35%, $baseColor2 35%);
-// }
+.info-nav .info-nav-wrapper li a:active,
+.info-nav .info-nav-wrapper li a:focus {
+  background: radial-gradient(transparent 35%, $baseColor2 35%);
+}
 
 
 /* 

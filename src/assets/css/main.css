@@ -2139,8 +2139,6 @@ h4.course-list-detail__title::after {
 
 .info-nav .info-nav-wrapper li a {
   position: absolute;
-  position: fixed;
-  /* fix the "displacement" bug in webkit browsers when using tab key */
   right: -7.25em;
   bottom: -7.25em;
   display: block;
@@ -2164,6 +2162,10 @@ h4.course-list-detail__title::after {
   font-size: .5em;
   font-weight: 700;
   text-transform: uppercase; }
+
+.info-nav .info-nav-wrapper li a:active,
+.info-nav .info-nav-wrapper li a:focus {
+  background: radial-gradient(transparent 35%, #1FB0FF 35%); }
 
 /* 
   for a central angle x, the list items must be skewed by 90-x degrees
