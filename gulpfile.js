@@ -78,7 +78,6 @@ const allFrontAppJsFiles = [
 	'./src/assets/js/guiControll/imageSlider.js',
 	'./src/assets/js/guiControll/kontaktform.js',
 	'./src/assets/js/guiControll/kanukursanmeldung.js',
-	'./src/assets/js/guiControll/infoNavigation.js',
 
 	'./src/assets/js/app.js',
 	'./src/assets/js/ready.js'

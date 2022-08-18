@@ -2065,10 +2065,19 @@ h4.course-list-detail__title::after {
 /* *********** ab hier für desktop ******************* */
 .info-nav {
   position: absolute;
+  top: -45%;
+  right: 32%;
+  width: 20em;
+  height: 20em;
+  transition: all 1s ease; }
+
+.info-nav.opened-nav {
+  position: absolute;
   top: 0%;
   right: 7%;
   width: 20em;
-  height: 20em; }
+  height: 20em;
+  transition: all 1s ease; }
 
 .info-nav .info-nav-button {
   color: #000000;

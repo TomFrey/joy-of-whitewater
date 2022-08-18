@@ -7,6 +7,9 @@ const Navigation = (function (RenderImageSlider, Images, Globals, Responsive) {
 
 	let hamburger;
 	let mainNavi;
+	let infoNavButton;
+	let infoNavWrapper;
+	let infoNav;
 	let bKursDrawerButton;
 	let fKursDrawerButton;
 	let kKursDrawerButton;
@@ -57,13 +60,56 @@ const Navigation = (function (RenderImageSlider, Images, Globals, Responsive) {
 	}
 
 
+	function isHamburgerOpen(){
+		if(hamburger.classList.contains(CLOSE_NAV)){
+		 return true;
+		}
+		return false;
+	}
+
+
 	function showHideNavigation() {
+		//Hamburger öffnen
 		if (mainNavi.classList.contains(HIDE)) {
 			mainNavi.classList.remove(HIDE);
 			hamburger.classList.add(CLOSE_NAV);
+			//Info Navigation schliessen wenn offen
+			if (isInfoNavigationOpen()) {
+				toggleInfoNavigation();
+			}
+		//Hamburger schliessen
 		} else {
 			mainNavi.classList.add(HIDE);
 			hamburger.classList.remove(CLOSE_NAV);
+		}
+	}
+
+
+	function isInfoNavigationOpen(){
+		if(infoNavWrapper.classList.contains('opened-nav')){
+		 return true;
+		}
+		return false;
+	}
+
+
+	//Das ist der runde 'Info' Button, wo dann die Info-Navigation aufgeht.
+	function toggleInfoNavigation(){
+		//Info Navigation schliessen
+		if(infoNavWrapper.classList.contains('opened-nav')){
+			infoNavButton.innerHTML = "Info";
+			infoNavWrapper.classList.remove('opened-nav');
+			infoNav.classList.remove('opened-nav');
+		}
+		//Info Navigation öffnen
+		else{
+			infoNavButton.innerHTML = "X";
+			infoNavWrapper.classList.add('opened-nav');
+			infoNav.classList.add('opened-nav');
+			//Hamburger schliessen, wenn offen
+			if (isHamburgerOpen()) {
+				showHideNavigation();
+			}
 		}
 	}
 
@@ -216,6 +262,17 @@ const Navigation = (function (RenderImageSlider, Images, Globals, Responsive) {
 		hamburger = document.getElementById('hamburger');
 		hamburger.addEventListener('click', showHideNavigation);
 		mainNavi = document.querySelector('.main-navi-desktop');
+
+		infoNav = document.querySelector('.info-nav'),
+		infoNavButton = document.querySelector('.info-nav-button'),
+		infoNavWrapper = document.querySelector('.info-nav-wrapper');
+	
+		//Listener auf dem 'Info' Button
+		if (infoNavButton !== null) {
+		  infoNavButton.addEventListener('click', () => {
+			toggleInfoNavigation();
+		  });
+		}
 
 		//Basiskurse anzeigen Button
 		bKursDrawerButton = document.querySelector('#open-close-drawer-button-bkurse');
