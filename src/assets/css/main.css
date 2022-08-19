@@ -1451,6 +1451,10 @@ h4.course-list-detail__title::after {
   grid-area: 1 / 1 / 1 / 1;
   height: 56px; }
 
+.gridx3__width1-height0--col2of3 {
+  grid-area: 1 / 1 / 1 / 1;
+  height: 0px; }
+
 .gridx12 {
   display: grid;
   grid-template: [Zeile1] "row1 row1 row1 row1 row1 row1 row1 row1 row1 row1 row1 row1" auto [Zeile1Ende]/1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -1532,6 +1536,17 @@ h4.course-list-detail__title::after {
     background-color: white;
     grid-area: 1 / 3 / 1 / 4;
     height: 64px; }
+  .gridx3__width1-height0--col1of3 {
+    background-color: white;
+    grid-area: 1 / 1 / 1 / 2;
+    height: 0px; }
+  .gridx3__width1-height0--col2of3 {
+    grid-area: 1 / 2 / 1 / 3;
+    height: 0px; }
+  .gridx3__width1-height0--col3of3 {
+    background-color: white;
+    grid-area: 1 / 3 / 1 / 4;
+    height: 0px; }
   .gridx12 {
     display: grid;
     grid-template: [Zeile1] "row1 row1 row1 row1 row1 row1 row1 row1 row1 row1 row1 row1" auto [Zeile1Ende]/1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -2063,20 +2078,22 @@ h4.course-list-detail__title::after {
 
 /* *************************************************** */
 /* *********** ab hier für desktop ******************* */
+.info-nav-parent {
+  position: fixed;
+  z-index: 3; }
+
 .info-nav {
   position: absolute;
-  top: -45%;
-  right: 32%;
+  border: 2px solid blue;
+  top: -115px;
+  left: -40px;
   width: 20em;
   height: 20em;
   transition: all 1s ease; }
 
 .info-nav.opened-nav {
-  position: absolute;
-  top: 0%;
-  right: 7%;
-  width: 20em;
-  height: 20em;
+  top: 20px;
+  left: 28px;
   transition: all 1s ease; }
 
 .info-nav .info-nav-button {
@@ -2095,7 +2112,7 @@ h4.course-list-detail__title::after {
   border: 1px solid #FF6305;
   box-shadow: 0 8px 6px -6px black;
   border-radius: 50%;
-  z-index: 20; }
+  z-index: 2; }
 
 .info-nav .info-nav-button:active {
   transform: scale(0.98); }
@@ -2104,7 +2121,7 @@ h4.course-list-detail__title::after {
   position: absolute;
   top: 0%;
   right: 0%;
-  z-index: 19;
+  z-index: 1;
   margin-top: 0em;
   margin-left: 0em;
   width: 20em;
@@ -2130,7 +2147,7 @@ h4.course-list-detail__title::after {
   margin-left: -2.5em;
   margin-top: -2.7em;
   border-radius: 50%;
-  z-index: 19; }
+  z-index: 1; }
 
 .info-nav .info-nav-wrapper li {
   position: absolute;
@@ -2262,11 +2279,21 @@ h4.course-list-detail__title::after {
 /* *************************************************** */
 /* *********** ab hier für desktop ******************* */
 @media screen and (min-width: 992px) {
+  .info-nav-parent {
+    position: relative;
+    z-index: 1; }
   .info-nav {
-    top: 0%;
-    right: 0%;
+    top: -160px;
+    right: -80px;
+    left: unset;
     width: 27em;
-    height: 27em; }
+    height: 27em;
+    transition: all 1s ease; }
+  .info-nav.opened-nav {
+    top: 60px;
+    right: 60px;
+    left: unset;
+    transition: all 1s ease; }
   .info-nav .info-nav-button {
     top: 39%;
     right: 40%;

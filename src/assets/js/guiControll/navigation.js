@@ -69,6 +69,7 @@ const Navigation = (function (RenderImageSlider, Images, Globals, Responsive) {
 
 
 	function showHideNavigation() {
+		console.log('Hamburger');
 		//Hamburger öffnen
 		if (mainNavi.classList.contains(HIDE)) {
 			mainNavi.classList.remove(HIDE);
