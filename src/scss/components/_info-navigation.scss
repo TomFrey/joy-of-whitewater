@@ -7,7 +7,6 @@
 
 .info-nav{
   position: absolute;
-  border: 2px solid blue;
   top: -155px;
   left: -40px;
   width: 20em;
@@ -22,7 +21,6 @@
 }
 
 
-
 .info-nav .info-nav-button {
   @include navigationFontDesktop();
   font-size: 1.1rem;
@@ -32,8 +30,8 @@
   height: 3.5em;
   width: 3.5em;
   color: white;
-  background-color: $color-course-date-overview;
-  border: 1px solid $color-course-date-overview;
+  background-color: $infoNavButtonColor;
+  border: 1px solid $infoNavButtonColor;
   box-shadow: 0 8px 6px -6px black;
   border-radius: 50%;
   z-index: 2
@@ -101,7 +99,7 @@
   width: 14.5em;
   height: 14.5em;
   border-radius: 50%;
-  background: radial-gradient(transparent 35%, $baseColor1 35%);
+  background: radial-gradient(transparent 35%, $hamburgerColor 35%);
   color: #fff;
   text-align: center;
   text-decoration: none;
@@ -123,7 +121,7 @@
 
 .info-nav .info-nav-wrapper li a:active,
 .info-nav .info-nav-wrapper li a:focus {
-  background: radial-gradient(transparent 35%, $baseColor2 35%);
+  background: radial-gradient(transparent 35%, $hamburgerColor-light 35%);
 }
 
 
@@ -204,10 +202,10 @@
   transform: rotate(140deg) skew(50deg);
 }
 .info-nav .opened-nav li:nth-child(7) a{
-  background: radial-gradient(transparent 35%, $color-course-date-overview 35%);
+  background: radial-gradient(transparent 35%, $infoNavButtonColor 35%);
 }
 .info-nav .opened-nav li:nth-child(7) a:hover{
-  background: radial-gradient(transparent 35%, $color-course-date-overview-light 35%);
+  background: radial-gradient(transparent 35%, $infoNavButtonColor-light 35%);
 }
 .info-nav .opened-nav li:nth-child(7) a span{
   transform: rotate(-70deg);
@@ -273,7 +271,7 @@
   }
   .info-nav .info-nav-button:hover{
     background-color: $complimentaryColor1;
-    color: $color-course-date-overview;
+    color: $infoNavButtonColor;
     transform: scale(1.02);
   }
   .info-nav .info-nav-button:active{
@@ -310,7 +308,7 @@
   .info-nav .info-nav-wrapper li a:hover,
   .info-nav .info-nav-wrapper li a:active,
   .info-nav .info-nav-wrapper li a:focus {
-    background: radial-gradient(transparent 35%, $baseColor2 35%);
+    background: radial-gradient(transparent 35%, $hamburgerColor-light 35%);
   }
 
 

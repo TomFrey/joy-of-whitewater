@@ -357,7 +357,7 @@ nav {
       nav ul.main-navi-desktop > li > a {
         text-decoration: none;
         color: #000000;
-        background-color: #1FB0FF;
+        background-color: #0B3CB2;
         padding: 12px 5px;
         display: block; }
     nav ul.main-navi-desktop > li:last-child {
@@ -2095,7 +2095,6 @@ h4.course-list-detail__title::after {
 
 .info-nav {
   position: absolute;
-  border: 2px solid blue;
   top: -155px;
   left: -40px;
   width: 20em;
@@ -2182,7 +2181,7 @@ h4.course-list-detail__title::after {
   width: 14.5em;
   height: 14.5em;
   border-radius: 50%;
-  background: radial-gradient(transparent 35%, #0597E6 35%);
+  background: radial-gradient(transparent 35%, #0B3CB2 35%);
   color: #fff;
   text-align: center;
   text-decoration: none;
@@ -2202,7 +2201,7 @@ h4.course-list-detail__title::after {
 
 .info-nav .info-nav-wrapper li a:active,
 .info-nav .info-nav-wrapper li a:focus {
-  background: radial-gradient(transparent 35%, #1FB0FF 35%); }
+  background: radial-gradient(transparent 35%, #0e4ce2 35%); }
 
 /* 
   for a central angle x, the list items must be skewed by 90-x degrees
@@ -2337,7 +2336,7 @@ h4.course-list-detail__title::after {
   .info-nav .info-nav-wrapper li a:hover,
   .info-nav .info-nav-wrapper li a:active,
   .info-nav .info-nav-wrapper li a:focus {
-    background: radial-gradient(transparent 35%, #1FB0FF 35%); }
+    background: radial-gradient(transparent 35%, #0e4ce2 35%); }
   .info-nav .opened-nav {
     opacity: 0.8; } }
 
