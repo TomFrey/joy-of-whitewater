@@ -2095,15 +2095,16 @@ h4.course-list-detail__title::after {
 
 .info-nav {
   position: absolute;
-  top: -155px;
-  left: -40px;
-  width: 20em;
-  height: 20em;
-  transition: all 1s ease; }
+  top: -40px;
+  left: 85px;
+  width: 3.5em;
+  height: 3.5em;
+  transition: all 1s ease;
+  border: 1px solid red; }
 
 .info-nav.opened-nav {
-  top: 20px;
-  left: 28px;
+  top: 140px;
+  left: 158px;
   transition: all 1s ease; }
 
 .info-nav .info-nav-button {
@@ -2113,8 +2114,8 @@ h4.course-list-detail__title::after {
   font-weight: bold;
   font-size: 1.1rem;
   position: absolute;
-  top: 38%;
-  right: 40%;
+  top: -8%;
+  right: -6%;
   height: 3.5em;
   width: 3.5em;
   color: white;
@@ -2134,8 +2135,8 @@ h4.course-list-detail__title::after {
   z-index: 1;
   margin-top: 0em;
   margin-left: 0em;
-  width: 20em;
-  height: 20em;
+  width: 3.5em;
+  height: 3.5em;
   border-radius: 50%;
   background: transparent;
   transition: all 1s ease 0.3s;
@@ -2157,7 +2158,8 @@ h4.course-list-detail__title::after {
   margin-left: -2.5em;
   margin-top: -2.7em;
   border-radius: 50%;
-  z-index: 1; }
+  z-index: 1;
+  border: 1px solid violet; }
 
 .info-nav .info-nav-wrapper li {
   position: absolute;
@@ -2214,7 +2216,11 @@ h4.course-list-detail__title::after {
   rotation = 40 - (9*40 - 180) = -140
   Von -140deg ausgehend immer plus 40deg
 */
-.info-nav .opened-nav {
+.info-nav .info-nav-wrapper.opened-nav {
+  top: -225%;
+  right: -248%;
+  width: 20em;
+  height: 20em;
   border-radius: 50%;
   opacity: 1;
   transition: all 1s ease;
@@ -2293,23 +2299,22 @@ h4.course-list-detail__title::after {
     position: relative;
     z-index: 1; }
   .info-nav {
-    top: -160px;
-    right: -80px;
+    top: 35px;
+    right: 80px;
     left: unset;
-    width: 27em;
-    height: 27em;
-    transition: all 1s ease; }
+    width: 4.5em;
+    height: 4.5em; }
   .info-nav.opened-nav {
-    top: 60px;
-    right: 60px;
-    left: unset;
-    transition: all 1s ease; }
+    top: 180px;
+    right: 180px;
+    left: unset; }
   .info-nav .info-nav-button {
-    top: 39%;
-    right: 40%;
+    top: -7%;
+    right: -6%;
     height: 4.5em;
     width: 4.5em;
-    cursor: pointer; }
+    cursor: pointer;
+    transition: all 1s ease; }
   .info-nav .info-nav-button:hover {
     background-color: #ffffff;
     color: #FF6305;
@@ -2321,6 +2326,11 @@ h4.course-list-detail__title::after {
     right: 0%;
     margin-top: 0em;
     margin-left: 0em;
+    width: 4.5em;
+    height: 4.5em; }
+  .info-nav .info-nav-wrapper.opened-nav {
+    top: -246%;
+    right: -255%;
     width: 27em;
     height: 27em; }
   .info-nav .info-nav-wrapper li {
