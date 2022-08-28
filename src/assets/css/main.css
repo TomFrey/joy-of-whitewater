@@ -2099,8 +2099,7 @@ h4.course-list-detail__title::after {
   left: 85px;
   width: 3.5em;
   height: 3.5em;
-  transition: all 1s ease;
-  border: 1px solid red; }
+  transition: all 1s ease; }
 
 .info-nav.opened-nav {
   top: 140px;
@@ -2158,8 +2157,7 @@ h4.course-list-detail__title::after {
   margin-left: -2.5em;
   margin-top: -2.7em;
   border-radius: 50%;
-  z-index: 1;
-  border: 1px solid violet; }
+  z-index: 1; }
 
 .info-nav .info-nav-wrapper li {
   position: absolute;
@@ -2313,8 +2311,7 @@ h4.course-list-detail__title::after {
     right: -6%;
     height: 4.5em;
     width: 4.5em;
-    cursor: pointer;
-    transition: all 1s ease; }
+    cursor: pointer; }
   .info-nav .info-nav-button:hover {
     background-color: #ffffff;
     color: #FF6305;

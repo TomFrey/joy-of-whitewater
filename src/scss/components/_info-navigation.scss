@@ -12,7 +12,6 @@
   width: 3.5em;
   height: 3.5em;
   transition: all 1s ease;
-  border: 1px solid red;
 }
 
 .info-nav.opened-nav{
@@ -74,7 +73,6 @@
   margin-top: -2.7em;
   border-radius: 50%;
   z-index: 1;
-  border: 1px solid violet;
 }
 
 .info-nav .info-nav-wrapper li {
@@ -257,14 +255,12 @@
     left: unset;
     width: 4.5em;
     height: 4.5em;
-   // transition: all 1s ease;
   }
   
   .info-nav.opened-nav{
     top: 180px;
     right: 180px;
     left: unset;
-    //transition: all 1s ease;
   }
 
 
@@ -274,7 +270,6 @@
     height: 4.5em;
     width: 4.5em;
     cursor: pointer;
-    transition: all 1s ease;
   }
   .info-nav .info-nav-button:hover{
     background-color: $complimentaryColor1;
