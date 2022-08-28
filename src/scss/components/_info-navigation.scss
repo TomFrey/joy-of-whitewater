@@ -322,4 +322,11 @@
   .info-nav .opened-nav {
     opacity: 0.8;
   }
+
+  .info-nav .opened-nav li:nth-child(7) a{
+    background: radial-gradient(transparent 35%, $hamburgerColor 35%);
+  }
+  .info-nav .opened-nav li:nth-child(7) a:hover{
+    background: radial-gradient(transparent 35%, $hamburgerColor-light 35%);
+  }
 }
