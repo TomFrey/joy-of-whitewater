@@ -4,6 +4,10 @@
 	margin-top: 0.5*$basicHeight;
 }
 
+.link-button:active{
+    transform: scale(0.98);
+}
+
 .link-button--mail{
 	@extend .link-button;
 	margin: 2*$basicHeight 0;
@@ -11,6 +15,7 @@
 
 .link-button-wrapper{
 	color: $color-drawer-buttonToOpenDrawerText;
+	box-shadow: 0 11px 10px -8px black;
 	display: flex;
 	flex-flow: row nowrap;
 	justify-content: center;
@@ -54,7 +59,7 @@
 @media screen and (min-width: $breakpoint-medium) {   // > 688px
 
 	.link-button{
-		border: 1px solid $complimentaryColor4;
+		border: 1px solid $complimentaryColor1;
 		border-radius: $basicHeight;
 	}
 
@@ -72,6 +77,7 @@
 
 	.link-button:hover{
 		background-color: $color-drawer-buttonToOpenDrawer-hover;
+		border: 1px solid $color-drawer-buttonToOpenDrawer;
 
 		.link-button-wrapper{
 			color: $color-drawer-buttonToOpenDrawerText-hover;

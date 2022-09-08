@@ -3,6 +3,10 @@
   	bottom: 0;
 }
 
+.open-drawer:active{
+    transform: scale(0.98);
+}
+
 a.open-drawer-wrapper{
   	align-items: baseline;
   	color: $color-drawer-buttonToOpenDrawerText;
@@ -40,7 +44,7 @@ a.open-drawer-wrapper{
 @media screen and (min-width: $breakpoint-medium) {   // > 688px
 
 	.open-drawer{
-		border: 1px solid $complimentaryColor4;
+		border: 1px solid $complimentaryColor1;
 	  	border-radius: $basicHeight;
 		margin: $basicWidth 2*$basicHeight;
 		width: 55%;
@@ -59,6 +63,7 @@ a.open-drawer-wrapper{
 
 	.open-drawer:hover{
 		background-color: $color-drawer-buttonToOpenDrawer-hover;
+		border: 1px solid $complimentaryColor2;
 
 		.open-drawer-wrapper{
 			color: $color-drawer-buttonToOpenDrawerText-hover;

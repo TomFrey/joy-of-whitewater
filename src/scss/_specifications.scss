@@ -1,36 +1,36 @@
 /*** colors ***/
 
-$baseColor1: #0597E6;  //#2CA1DE;  //ACDFFF;
-$baseColor2: #1FB0FF; //#4DC1FF;  //6795B2;
+$baseColor1: #E6E6E6;
+$baseColor2: #BADDFF;
 $complimentaryColor1: #ffffff;
-$complimentaryColor2: #000000;
-$complimentaryColor3: #995600;    //FFDCAC;
-$complimentaryColor4: #E68305;    //B28B55;
+$complimentaryColor2: #004570;
+$complimentaryColor3: #000000; 
+$complimentaryColor4: #941216; 
 
 $errorColor: #FA4B57;
 $color-main-background: #ffffff;
-$color-main-titleInTheBigPicture: #FF6305;
+$color-main-titleInTheBigPicture: $complimentaryColor4;
 
 $colorStatusRed: #FF4D1F;
 $colorStatusYellow: #FFD824;
 $colorStatusGreen: #1FDE24;
 
 //colors _text-container
-$color-textContainer-titleH1: $complimentaryColor4;
-$color-textContainer-titleH2: $complimentaryColor1;
-$color-textContainer-titleH3: $complimentaryColor1;
-$color-textContainer-titleH4: $complimentaryColor2;
-$color-textContainer-text: $complimentaryColor2;
-$color-textContainer-text-hover: $complimentaryColor1;
+$color-textContainer-titleH1: $complimentaryColor2;
+$color-textContainer-titleH2: $complimentaryColor2;
+$color-textContainer-titleH3: $complimentaryColor2;
+$color-textContainer-titleH4: $complimentaryColor3;
+$color-textContainer-text: #000000;
+$color-textContainer-text-hover: $complimentaryColor2;
 $color-textContainer-background: $baseColor1;
-$color-textContainer-link: #E6E01C; //#FAF419; //#FF6305;
+$color-textContainer-link: #941216;
 
 
 //colors _text-container-drawer
-$color-drawer-buttonToOpenDrawer: $complimentaryColor4;
+$color-drawer-buttonToOpenDrawer: $complimentaryColor2;
 $color-drawer-buttonToOpenDrawer-hover: $complimentaryColor1;
 $color-drawer-buttonToOpenDrawerText: $complimentaryColor1;
-$color-drawer-buttonToOpenDrawerText-hover: $complimentaryColor3;
+$color-drawer-buttonToOpenDrawerText-hover: $complimentaryColor2;
 $color-drawer-text: #000000;
 $color-drawer-background-drawer: $baseColor2;
 $color-drawer-background-dateTable: $baseColor1;
@@ -38,8 +38,8 @@ $color-drawer-background-dateTable-hover: darken($baseColor1, 5%);
 
 
 //colors navigation
-$hamburgerColor: #0B3CB2;
-$hamburgerColor-light: lighten(#0B3CB2, 10%);
+$hamburgerColor: $complimentaryColor2;
+$hamburgerColor-light: lighten($complimentaryColor2, 10%);
 $infoNavButtonColor: $color-main-titleInTheBigPicture;
 $color-course-date-overview: $color-main-titleInTheBigPicture;
 $infoNavButtonColor-light: lighten(#FF6305, 10%);
@@ -54,12 +54,13 @@ $color-nav-mobile-background-slider: $hamburgerColor;
 
 
 //footer
-$color-footer-mobile-text: $baseColor2;
+$color-footer-mobile-text: $complimentaryColor2;
 $color-footer-mobile-background: $complimentaryColor1;
 
 $color-footer-desktop-text: $complimentaryColor2;
 $color-footer-desktop-background: $complimentaryColor1;
-$color-footer-link-hover: $baseColor1;
+$color-footer-link: $complimentaryColor4;
+$color-footer-link-hover: $complimentaryColor2;
 
 
 
@@ -80,8 +81,8 @@ $navTextSize: 1.5rem;
 
 
 /*** media breakpoints ***/
-$breakpoint-large: 992px; //1050px; //740px;
-$breakpoint-medium: 688px;  //740px;  //440px;
+$breakpoint-large: 992px;
+$breakpoint-medium: 688px;
 //$breakpoint-small: 376px;
 
 
@@ -134,14 +135,14 @@ $textContainerTitleFont: "Gloria Hallelujah", "Arial", "sans-serif";
 }
 
 @mixin courseTableFont(){
-  color: $complimentaryColor2;
+  color: $complimentaryColor3;
   font-family: $standardTextFont;
   font-size: $standardFontSize;
   line-height: 32px;
 }
 
 @mixin courseTableTitelFont(){
-  color: $complimentaryColor1;
+  color: $complimentaryColor2;
   font-family: $standardTextFont;
   font-size: 20px;
   line-height: 32px;
@@ -155,7 +156,7 @@ $textContainerTitleFont: "Gloria Hallelujah", "Arial", "sans-serif";
 }
 
 @mixin registrationFormFont(){
-	color: lighten($complimentaryColor1, 10%);
+	color: $complimentaryColor2;
 	font-family: $standardTextFont;
 	font-size: $standardFontSize;
 	line-height: 32px;
@@ -168,7 +169,7 @@ $textContainerTitleFont: "Gloria Hallelujah", "Arial", "sans-serif";
 }
 
 @mixin fieldInvalidStyles(){
-	border: 1px solid $errorColor; //rgb(255,0,0);
+	border: 1px solid $errorColor;
 	box-shadow: 1px 1px 15px 0px lighten($errorColor, 25%);
 }
 

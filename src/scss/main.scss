@@ -190,9 +190,9 @@ main{
 			@include navigationFontDesktop();
 			background-color: $color-course-date-overview;
 			border-radius: $basicWidth;
-			border: 1px solid $color-course-date-overview;
+			border: 1px solid $complimentaryColor1;
 			box-shadow: 0 8px 6px -6px black;
-			color: white;
+			color: $complimentaryColor1;
 			text-decoration: none;
 			display: block;
 			position: absolute;
@@ -200,6 +200,16 @@ main{
 			bottom: 7%;
 			z-index: 3;
 			padding: 1.5*$basicHeight 4*$basicWidth;
+		}
+
+		.course-date-overview:hover{
+			background-color: $complimentaryColor1;
+			border: 1px solid $color-course-date-overview;
+			color: $infoNavButtonColor;
+			transform: scale(1.02);
+		}
+		.course-date-overview:active{
+			transform: scale(0.98);
 		}
 	}
 

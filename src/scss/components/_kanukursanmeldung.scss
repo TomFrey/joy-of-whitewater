@@ -65,11 +65,11 @@
 
 .comment-input::placeholder{
 	@include courseTableFont();
-	color: lighten($complimentaryColor2, 40%);
+	color: lighten($complimentaryColor2, 10%);
 }
   
 .comment-label{
-	color: lighten($complimentaryColor1, 10%);
+	color: $complimentaryColor2;
 	line-height: 32px;
 	display: block;
 	margin-bottom: -5px;
@@ -156,7 +156,7 @@
 }
 
 .moving-placeholder__label{
-	color: lighten($complimentaryColor1, 10%);
+	color: lighten($complimentaryColor2, 10%);
 	left: 0px;
 	padding: $basicWidth 0 0 2*$basicWidth;
 	position: absolute;
