@@ -1,7 +1,7 @@
 /* global require */
 const gulp = require('gulp');
 const browserSync = require('browser-sync').create();
-const sass = require('gulp-sass');
+const sass = require('gulp-sass')(require('sass'));
 const fileInject = require('gulp-inject');
 const clean = require('gulp-clean');
 const sourcemaps = require('gulp-sourcemaps');
@@ -25,28 +25,6 @@ const settings = {
 	cssDir: './src/assets/css',
 	jsDir: './src/assets/js'
 };
-
-/* Alle verwendeten JS Files, damit das eine JS File zusammengesetzt werden kann. */
-const allBackofficeJsFiles = [
-	'./node_modules/angular/angular.js',
-	'./node_modules/angular-animate/angular-animate.js',
-	'./node_modules/angular-aria/angular-aria.js',
-	'./node_modules/angular-messages/angular-messages.js',
-	'./node_modules/angular-material/angular-material.js',
-	'./node_modules/angular-resource/angular-resource.js',
-	'./node_modules/angular-ui-router/release/angular-ui-router.js',
-	'./node_modules/jquery/dist/jquery.js',
-	'./node_modules/slick-carousel/slick/slick.js',
-	'./node_modules/gsap/src/uncompressed/TweenMax.js',
-
-	'./src/app/app.js',
-	'./src/app/courseoverview/courseoverview.module.js',
-	'./src/app/courseoverview/jowCoursesOverview.js',
-	//'./src/app/courseoverview/jowShowCourses.js',
-	'./src/app/courseoverview/jowSearchCourses.js',
-	'./src/app/services/services.module.js',
-	'./src/app/services/APIService.js'
-];
 
 /* Alle verwendeten JS Files, damit das eine JS File zusammengesetzt werden kann. */
 const allFrontAppJsFiles = [
@@ -91,18 +69,6 @@ function compileScss(){
 	return gulp.src(settings.sassDir + '/**/*.scss')
 		.pipe(sass().on('error', sass.logError))
 		.pipe(gulp.dest(settings.cssDir))
-		.pipe(browserSync.stream());
-}
-
-
-/**
- * sass task, will compile the .SCSS files,
- * and handle the error through plumber and notify through system message.
- */
-function compileScssForBackOffice(){
-	return gulp.src('./src/app/scss/**/*.scss')
-		.pipe(sass().on('error', sass.logError))
-		.pipe(gulp.dest('./src/app/assets/css'))
 		.pipe(browserSync.stream());
 }
 
@@ -174,29 +140,6 @@ function minifyFrontJs(cb){
 
 
 /**
- * Fügt alle .js Files aud dem Array allBackofficeJsFiles in einem File backApp.js zusammen.
- * Und verkleinert die .js Files.
- * - Babel (ES6 zu ES5) braucht es, weil sonst der minifyer nicht geht, der versteht nur ES5.
- * - pump ist eine Alternative zu pipe, dank pump gibt's schlaue Fehlermeldungen.
- */
-function minifyBackOfficeJs(cb){
-	pump([
-		gulp.src(allBackofficeJsFiles),
-		sourcemaps.init(),
-		concat('backApp.js'),
-		babel({
-			compact: false, // unterdrückt die Warnung 'The code generator has deoptimised the styling ... as it exceeds the max of'
-			presets: ['@babel/env']
-		}),
-		uglify(),
-		rename('backApp.min.js'),
-		sourcemaps.write('./'),
-		gulp.dest('src/app/assets/scripts')
-	], cb);
-}
-
-
-/**
  * Löscht das dist
  */
 function deleteDistFolder(){
@@ -228,28 +171,6 @@ function minifyFrontJsForDist(cb){
 
 
 /**
- * Macht fast das Gleiche, wie der Task 'minifyBackofficeJs',
- * aber hier wird für den produktiven Code kein Sourcemaps hinzugfügt.
- *
- * Fügt alle .js Files aus dem Array allFrontAppJsFiles in einem File frontApp.js zusammen.
- * Babel (ES6 zu ES5) braucht es, weil sonst der minifyer nicht geht, der versteht nur ES5.
- */
-function minifyBackOfficeJsForDist(cb){
-	pump([
-		gulp.src(allBackofficeJsFiles),
-		concat('backApp.js'),
-		babel({
-			compact: false, // unterdrückt die Warnung 'The code generator has deoptimised the styling ... as it exceeds the max of'
-			presets: ['@babel/env']
-		}),
-		uglify(),
-		rename('backApp.min.js'),
-		gulp.dest('src/app/assets/scripts')
-	], cb());
-}
-
-
-/**
  * Minimiert die css Datei für's Frontend und schreibt sie in den 'dist' Ordner.
  */
 function minifyCss(){
@@ -260,30 +181,11 @@ function minifyCss(){
 
 
 /**
- * Minimiert die css Datei für's Backoffice und schreibt sie in den 'dist' Ordner.
- */
-function minifyBackOfficeCss(){
-	return gulp.src('./src/app/assets/css/*.css')
-		.pipe(cleanCss())
-		.pipe(gulp.dest('dist/app/assets/css'));
-}
-
-
-/**
  * Kopiert die scripts/app.min.js Datei in den dist Ordner
  */
 function copyFrontJs(){
 	return gulp.src(['./src/assets/scripts/frontApp.min.js'])
 		.pipe(gulp.dest('dist/assets/scripts'));
-}
-
-
-/**
- * Kopiert die scripts/backApp.min.js Datei in den dist/app Ordner
- */
-function copyBackOfficeJs(){
-	return gulp.src(['./src/app/assets/scripts/backApp.min.js'])
-		.pipe(gulp.dest('dist/app/assets/scripts'));
 }
 
 
@@ -354,16 +256,6 @@ function copyImages(){
 function copyApi(){
 	return gulp.src(['./src/api/**/*.*'])
 		.pipe(gulp.dest('dist/api'));
-}
-
-
-/**
- * Kopiert alle Dateien aus dem app Ordner in den dist/app Ordner
- * Das ist mein Backoffice
- */
-function copyApp(){
-	return gulp.src(['./src/app/**/*.*', '!./src/app/scss/**/*.*', '!./src/app/assets/**/*.*'])
-		.pipe(gulp.dest('dist/app'));
 }
 
 
@@ -442,7 +334,6 @@ function run(done){
 
 	//watch for changes in sass files
 	gulp.watch(settings.sassDir + '/**/*.scss', gulp.series(compileScss));
-	gulp.watch('./src/app/scss/**/*.scss', gulp.series(compileScssForBackOffice));
 
 	//watch for changes in html files
 	gulp.watch([settings.publicDir + '/*.html', './src/app/**/*.html'])
@@ -454,14 +345,6 @@ function run(done){
 	// Wartet auf Änderungen in einer .js Datei im Frontend Bereich
 	gulp.watch([settings.jsDir + '/**/*.js'], gulp.series(minifyFrontJs))
 		.on('change', browserSync.reload);
-
-	// Wartet auf Änderungen in einer .js Datei im Backend Bereich
-	gulp.watch([
-		'./src/app/*.js',
-		'./src/app/services/*.js',
-		'./src/app/courseoverview/*.js'], gulp.series(minifyBackOfficeJs))
-		.on('change', browserSync.reload);
-
 	done();
 }
 
@@ -471,8 +354,6 @@ function run(done){
  */
 exports.default = gulp.series(gulp.parallel(compileScss,
 											minifyFrontJs,
-											compileScssForBackOffice,
-											minifyBackOfficeJs,
 											injectHeaderAndFooter),
 								run);
 
@@ -480,15 +361,11 @@ exports.default = gulp.series(gulp.parallel(compileScss,
 function build(enviroment) {
 	let building = gulp.series(deleteDistFolder,
 		gulp.parallel(	minifyFrontJsForDist,
-						minifyBackOfficeJsForDist,
 						compileScss),
-		gulp.parallel(	minifyCss,
-						minifyBackOfficeCss),
+		gulp.parallel(	minifyCss),
 		gulp.parallel(	copyApi,
-						copyApp,
 						copyHTML,
 						copyFrontJs,
-						copyBackOfficeJs,
 						copyImages,
 						copyXml,
 						copyRobotsAndHtaccess,

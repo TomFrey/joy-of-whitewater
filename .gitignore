@@ -19,3 +19,11 @@ src/assets/webServerConfig/google6d6ea9eec37d2de0.html
 
 # die config.js Datei in Root Ordner ausschliessen
 config.js
+
+# ist durch die Migration zu yarn 2 nötig geworden
+.yarn/*
+!.yarn/patches
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
