@@ -1,0 +1,124 @@
+
+.course-level-container{
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-areas: 
+        "item1"
+        "item2"
+        "item3"
+        "item4"
+        "item5";
+    row-gap: $basicHeight;
+    background-color: $baseColor2;
+    padding: 2*$basicHeight $basicWidth;
+}
+
+.course-level-container-header{
+    .course-level-item{
+        @include courseTableTitelFont();
+        background-color: $complimentaryColor1;
+    }
+}
+
+.course-level-item{
+    background-color: $baseColor1;
+    padding: $basicHeight $basicWidth;
+}
+
+.course-level-item-1{
+    grid-area: item1;
+    @include courseTableTitelFont();
+}
+
+.course-level-item-2{
+    grid-area: item2;
+}
+
+.course-level-item-3{
+    grid-area: item3;
+}
+
+.course-level-item-4{
+    grid-area: item4;
+}
+
+.course-level-item-5{
+    grid-area: item5;
+}
+
+
+/* *************************************************** */
+/* *********** ab hier für tablet *******************  */
+@media screen and (min-width: $breakpoint-medium) {   // > 688px
+    .course-level-container{
+        grid-template-columns: 1fr 1fr 2fr 1fr;
+        grid-auto-rows: minmax(100px, auto);
+        grid-template-areas: 
+        "item1 item2 item3 item4"
+        "item5 item5 item5 item5";
+       column-gap: $basicWidth;
+    }
+
+    .course-level-container-header{
+        grid-auto-rows: auto;
+       
+        .course-level-item{
+           text-align: center;
+        }
+    }
+
+    .course-level-item-1{
+        grid-area: item1;
+    }
+
+    .course-level-item-2{
+        grid-area: item2;
+    }
+
+    .course-level-item-3{
+        grid-area: item3;
+    }
+
+    .course-level-item-4{
+        grid-area: item5;
+    }
+
+    .course-level-item-5{
+        grid-area: item4;
+    }
+}
+
+/* *************************************************** */
+/* *********** ab hier für desktop ******************* */
+@media screen and (min-width: $breakpoint-large) { //wenn Bildschirm grösser 740 px gross ist, dann...
+
+    .course-level-container{
+        grid-template-columns: 1fr 1fr 2fr 4fr 1fr;
+        grid-template-areas: 
+        "item1 item2 item3 item4 item5";
+    }
+
+    .course-level-item{
+        background-color: $baseColor1;
+    }
+
+    .course-level-item-1{
+        grid-area: item1;
+    }
+
+    .course-level-item-2{
+        grid-area: item2;
+    }
+
+    .course-level-item-3{
+        grid-area: item3;
+    }
+
+    .course-level-item-4{
+        grid-area: item4;
+    }
+
+    .course-level-item-5{
+        grid-area: item5;
+    }
+}
