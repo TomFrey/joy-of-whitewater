@@ -4,5 +4,10 @@
 	},
 	"autoload": {
 		"classmap": ["./"]
+	},
+	"config": {
+		"allow-plugins": {
+			"kylekatarnls/update-helper": true
+		}
 	}
 }
