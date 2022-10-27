@@ -18,6 +18,23 @@ const RenderCourseDates = (function (Dates, Globals) {
 	}
 
 	/**
+	 * Liefert nur Kurse die jünger sind wie 'numberOfDaysBack'
+	 * @param courses
+	 * @param numberOfDaysBack
+	 * @returns {courses younger than a number of days back}
+	 */
+	 function showCoursesNotOlderThen(courses, numberOfDaysBack) {
+
+		const today = new Date();
+		let xDaysInThePast = new Date();
+		xDaysInThePast.setDate(today.getDate()-numberOfDaysBack);
+		
+		return courses.filter((course) => {
+			return new Date(course.vonDatum) > xDaysInThePast
+		});
+	}
+
+	/**
 	 * Sortiert nach der Gruppe der Paddelreise z.B. 'Piemont, Korsika...'
 	 * @param courseDates
 	 * @returns {*}
@@ -550,7 +567,9 @@ const RenderCourseDates = (function (Dates, Globals) {
 		let courseDatesForLevel = courseDates.filter((courseDate) => {
 			return courseDate.typ === courseType && courseLevels.indexOf(courseDate.kursStufe) != -1;
 		});
+		courseDatesForLevel = showCoursesNotOlderThen(courseDatesForLevel, 60);
 		courseDatesForLevel = sortDatumAscending(courseDatesForLevel);
+		
 
 		const courseListWrappers = document.querySelectorAll(cssClass);
 		if (courseListWrappers !== null) {
