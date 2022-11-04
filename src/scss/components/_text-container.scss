@@ -100,7 +100,7 @@ Tablet / Desktop
 		font-size: $titleSize;
 		color: $color-textContainer-titleH2;
 		line-height: 2rem;
-		margin-top: 1rem;
+		margin-top: 1.25rem;
 		margin-bottom: 0.75rem;
 	}
 
@@ -109,23 +109,27 @@ Tablet / Desktop
 		font-size: $smallTitleSize;
 		color: $color-textContainer-titleH3;
 		line-height: 1.5rem;
-		padding-top: 1rem;
+		margin-top: 1.25rem;
 		margin-bottom: 0.5rem;
 	}
 
 	h4.title{
 		font-family: $standardTextFont;
-		font-size: $smallTitleSize;
+		font-size: $textSize;
 		color: $color-textContainer-titleH4;
 		line-height: 1.5rem;
-		padding-top: 1rem;
+		margin-top: 0.75rem;
 		margin-bottom: 0.5rem;
 	}
 
 	.paragraph{
 		color: $color-textContainer-text;
 		font-size: $textSize;
-		margin-bottom: 0.5rem;
+		//margin-bottom: 0.5rem;
+	}
+
+	.paragraph + .paragraph{
+		margin-top: 0.5rem;
 	}
 
 	a.link-in-text, a.link-in-text--big{

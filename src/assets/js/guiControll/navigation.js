@@ -10,9 +10,11 @@ const Navigation = (function (RenderImageSlider, Images, Globals, Responsive) {
 	let infoNavButton;
 	let infoNavWrapper;
 	let infoNav;
-	let bKursDrawerButton;
-	let fKursDrawerButton;
-	let kKursDrawerButton;
+	let level1KursDrawerButton;
+	let level2KursDrawerButton;
+	let level3KursDrawerButton;
+	let level4KursDrawerButton;
+	let level5KursDrawerButton;
 	let eskimotierenDrawerButton;
 	let paddelReisenDrawerButtons;
 	let packraftKursDrawerButton;
@@ -275,26 +277,42 @@ const Navigation = (function (RenderImageSlider, Images, Globals, Responsive) {
 		  });
 		}
 
-		//Basiskurse anzeigen Button
-		bKursDrawerButton = document.querySelector('#open-close-drawer-button-bkurse');
-		if (bKursDrawerButton !== null) {
-			bKursDrawerButton.addEventListener('click', (event) => {
+		//'Level1 Kurse' anzeigen Button
+		level1KursDrawerButton = document.querySelector('#open-close-drawer-button-level1kurse');
+		if (level1KursDrawerButton !== null) {
+			level1KursDrawerButton.addEventListener('click', (event) => {
 				toggleTextContainerDrawer(event.target);
 			});
 		}
 
-		//Aufbaukurse anzeigen Button
-		fKursDrawerButton = document.querySelector('#open-close-drawer-button-fkurse');
-		if (fKursDrawerButton !== null) {
-			fKursDrawerButton.addEventListener('click', (event) => {
+		//'Level2 Kurse' anzeigen Button
+		level2KursDrawerButton = document.querySelector('#open-close-drawer-button-level2kurse');
+		if (level2KursDrawerButton !== null) {
+			level2KursDrawerButton.addEventListener('click', (event) => {
 				toggleTextContainerDrawer(event.target);
 			});
 		}
 
-		//Wildwasser III-IV anzeigen Button
-		kKursDrawerButton = document.querySelector('#open-close-drawer-button-kkurse');
-		if (kKursDrawerButton !== null) {
-			kKursDrawerButton.addEventListener('click', (event) => {
+		//'Level3 Kurse' anzeigen Button
+		level3KursDrawerButton = document.querySelector('#open-close-drawer-button-level3kurse');
+		if (level3KursDrawerButton !== null) {
+			level3KursDrawerButton.addEventListener('click', (event) => {
+				toggleTextContainerDrawer(event.target);
+			});
+		}
+
+		//'Level4 Kurse' anzeigen Button
+		level4KursDrawerButton = document.querySelector('#open-close-drawer-button-level4kurse');
+		if (level4KursDrawerButton !== null) {
+			level4KursDrawerButton.addEventListener('click', (event) => {
+				toggleTextContainerDrawer(event.target);
+			});
+		}
+
+		//'Level5 Kurse' anzeigen Button
+		level5KursDrawerButton = document.querySelector('#open-close-drawer-button-level5kurse');
+		if (level5KursDrawerButton !== null) {
+			level5KursDrawerButton.addEventListener('click', (event) => {
 				toggleTextContainerDrawer(event.target);
 			});
 		}

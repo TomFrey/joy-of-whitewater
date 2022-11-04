@@ -10,12 +10,17 @@ const CourseDates = (function (RenderCourseDates, Dates) {
 						course.vonDatum = Dates.convertToAllBrowsersReadableDate(course.vonDatum);
 						course.bisDatum = Dates.convertToAllBrowsersReadableDate(course.bisDatum);
 					});
-					// Render Basis Kanukurse
-					RenderCourseDates.createCourseListFor(courses, ['B'], 'Kanukurs', '.course-list-wrapper-bCourse');
-					// Render Aufbau Kanukurse
-					RenderCourseDates.createCourseListFor(courses, ['F'], 'Kanukurs', '.course-list-wrapper-fCourse');
-					// Render WW III-IV Kanukurse
-					RenderCourseDates.createCourseListFor(courses, ['K'], 'Kanukurs', '.course-list-wrapper-kCourse');
+					// Render Level1 Basis Kanukurse
+					RenderCourseDates.createCourseListFor(courses, ['Level1'], 'Kanukurs', '.course-list-wrapper-level1Course');
+					// Render Level2 Basis Kanukurse
+					RenderCourseDates.createCourseListFor(courses, ['Level2'], 'Kanukurs', '.course-list-wrapper-level2Course');
+					// Render Level3 Aufbau Kanukurse
+					RenderCourseDates.createCourseListFor(courses, ['Level3'], 'Kanukurs', '.course-list-wrapper-level3Course');
+					// Render Level4 Aufbau Kanukurse
+					RenderCourseDates.createCourseListFor(courses, ['Level4'], 'Kanukurs', '.course-list-wrapper-level4Course');
+					// Render Level5 WW IV Kanukurse
+					RenderCourseDates.createCourseListFor(courses, ['Level5'], 'Kanukurs', '.course-list-wrapper-level5Course');
+
 					RenderCourseDates.createCourseListFor(courses, ['alle'], 'Eskimotieren', '.course-list-wrapper-rollCourse');
 
 					RenderCourseDates.createCourseListFor(courses, ['B','F'], 'Packraft Kurs', '.course-list-wrapper-packraftCourse');
