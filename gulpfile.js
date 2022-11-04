@@ -307,6 +307,7 @@ const getFtpTestConnection = () => {
 		user: configFile.config.testFtp.user,
 		password: configFile.config.testFtp.pass,
 		parallel: 5,
+		reload: true,
 		log: gUtil.log
 	})
 }
