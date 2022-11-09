@@ -47,6 +47,7 @@ function getAllCourses(){
 		$row['anzahlPausentage'] = $kurs->getAnzahlPausentage();
 		$row['ort'] = $kurs->getOrt();
 		$row['land'] = $kurs->getLand();
+		$row['fluss'] = $kurs->getFluss();
 		$row['kursStufe'] = $kurs->getKursStufe();
 		$row['sportArt'] = $kurs->getSportArt();
 		$row['typ'] = $kurs->getTyp();

@@ -17,6 +17,7 @@ class Kurs
 	private $anzahlPausentage;
 	private $ort;
 	private $land;
+	private $fluss;
 	private $kursStufe;
 	private $sportArt;
 	private $typ;
@@ -52,6 +53,7 @@ class Kurs
 			$this->setBisDatum($kurs['bis_datum']);
 			$this->setOrt($kurs['ort']);
 			$this->setLand($kurs['land']);
+			$this->setFluss($kurs['fluss']);
 			$this->setKursStufe($kurs['kurs_stufe']);
 			$this->setSportArt($kurs['sport_art']);
 			$this->setTyp($kurs['typ']);
@@ -173,6 +175,17 @@ class Kurs
 	public function setLand($land)
 	{
 		$this->land = $land;
+	}
+
+
+	public function getFluss()
+	{
+		return $this->fluss;
+	}
+
+	public function setFluss($fluss)
+	{
+		$this->fluss = $fluss;
 	}
 
 

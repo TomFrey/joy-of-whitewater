@@ -58,12 +58,13 @@ const RenderCourseDates = (function (Dates, Globals) {
 	 * @returns a string mit der Anzahl Paddel- und Pausentagen
 	 */
 	function renderCourseDuration(courseDate){
-		const courseDuration = Dates.calculateDurationBetweenTwoDates(courseDate.bisDatum, courseDate.vonDatum) - courseDate.anzahlPausentage;
+		const numberOfBreakDays = parseInt(courseDate.anzahlPausentage, 10);
+		const courseDuration = Dates.calculateDurationBetweenTwoDates(courseDate.bisDatum, courseDate.vonDatum) - numberOfBreakDays;
 		let courseDurationText;
 
-		if (courseDate.anzahlPausentage === '0') {
+		if (numberOfBreakDays === 0) {
 			courseDurationText = courseDuration;
-		} else if (courseDate.anzahlPausentage === '1') {
+		} else if (numberOfBreakDays === 1) {
 			courseDurationText = courseDuration + ' (plus ' + courseDate.anzahlPausentage + ' Tag Pause)'
 		} else {
 			courseDurationText = courseDuration + ' (plus ' + courseDate.anzahlPausentage + ' Tage Pause)'
@@ -221,11 +222,18 @@ const RenderCourseDates = (function (Dates, Globals) {
 		const courseCity = document.createElement('span');
 		courseCity.classList.add('course-place__city');
 		courseCity.innerText = courseDate.ort;
-		const courseCountry = document.createElement('span');
-		courseCountry.classList.add('course-place__country');
-		courseCountry.innerText = courseDate.land;
 		coursePlace.appendChild(courseCity);
-		coursePlace.appendChild(courseCountry);
+		if (courseDate.typ === 'Paddelreise'){
+			const courseCountry = document.createElement('span');
+			courseCountry.classList.add('course-place__country');
+			courseCountry.innerText = courseDate.land;
+			coursePlace.appendChild(courseCountry);
+		} else {
+			const courseRiver = document.createElement('span');
+			courseRiver.classList.add('course-place__river');
+			courseRiver.innerText = courseDate.fluss;
+			coursePlace.appendChild(courseRiver);
+		}
 		courseItemPlace.appendChild(coursePlace);
 
 		const courseItemDuration = document.createElement('div');
