@@ -271,6 +271,44 @@ var Images = (function () {
 			  title: 'Paddeln in Albanien', 
 			  alt: 'Paddeln in Albanien' 
 			}
+		],
+		griechenland: [
+			{ name: 'griechenland_1_gr', 
+			  nameTablet: 'griechenland_1_mi',
+			  nameMobile: 'griechenland_1_kl', 
+			  title: 'Paddeln in Griechenland', 
+			  alt: 'Paddeln in Griechenland' 
+			},
+			{ name: 'griechenland_2_gr', 
+			  nameTablet: 'griechenland_2_mi',
+			  nameMobile: 'griechenland_2_kl', 
+			  title: 'Paddeln auf dem Mileapotamos in Griechenland', 
+			  alt: 'Paddeln auf dem Mileapotamos in Griechenland' 
+			},
+			{ name: 'griechenland_3_gr',
+			  nameTablet: 'griechenland_3_mi',
+			  nameMobile: 'griechenland_3_kl', 
+			  title: 'Paddeln auf dem Voidomatis in Griechenland', 
+			  alt: 'Paddeln auf dem Voidomatis in Griechenland' 
+			},
+			{ name: 'griechenland_4_gr',
+			  nameTablet: 'griechenland_4_mi',
+			  nameMobile: 'griechenland_4_kl', 
+			  title: 'Im Vikostal in Griechenland', 
+			  alt: 'Im Vikostal in Griechenland' 
+			},
+			{ name: 'griechenland_5_gr',
+			  nameTablet: 'griechenland_5_mi',
+			  nameMobile: 'griechenland_5_kl', 
+			  title: 'Paddeln in Griechenland', 
+			  alt: 'Paddeln in Griechenland' 
+			},
+			{ name: 'griechenland_6_gr',
+			  nameTablet: 'griechenland_6_mi',
+			  nameMobile: 'griechenland_6_kl', 
+			  title: 'Paddeln auf dem Aoos in Griechenland', 
+			  alt: 'Paddeln auf dem Aoos in Griechenland' 
+			}
 		]
 	};
 

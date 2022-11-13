@@ -203,6 +203,9 @@ const Navigation = (function (RenderImageSlider, Images, Globals, Responsive) {
 				case 'Details zur Albanien Reise':
 					sliderName = 'albanien';
 				break;
+				case 'Details zur Griechenland Reise':
+					sliderName = 'griechenland';
+				break;
 				default:
 					sliderName = 'korsika';
 					break;

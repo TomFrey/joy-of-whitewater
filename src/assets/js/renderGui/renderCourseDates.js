@@ -365,6 +365,12 @@ const RenderCourseDates = (function (Dates, Globals) {
 				case 'Georgien':
 					detailsLink.setAttribute('href', '/paddelreisen.html#paddleJourneyGeorgienAnchor');
 					break;
+				case 'Griechenland':
+					detailsLink.setAttribute('href', '/paddelreisen.html#paddleJourneyGriechenlandAnchor');
+					break;
+				case 'Albanien':
+					detailsLink.setAttribute('href', '/paddelreisen.html#paddleJourneyAlbanienAnchor');
+					break;
 				default:
 					detailsLink.setAttribute('href', '/paddelreisen.html');
 					break;
