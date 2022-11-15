@@ -270,6 +270,18 @@ var Images = (function () {
 			  nameMobile: 'albanien_3_kl', 
 			  title: 'Paddeln in Albanien', 
 			  alt: 'Paddeln in Albanien' 
+			},
+			{ name: 'albanien_4_gr',
+			  nameTablet: 'albanien_4_mi',
+			  nameMobile: 'albanien_4_kl', 
+			  title: 'Paddeln in Albanien', 
+			  alt: 'Paddeln in Albanien' 
+			},
+			{ name: 'albanien_5_gr',
+			  nameTablet: 'albanien_5_mi',
+			  nameMobile: 'albanien_5_kl', 
+			  title: 'Paddeln in Albanien', 
+			  alt: 'Paddeln in Albanien' 
 			}
 		],
 		griechenland: [
