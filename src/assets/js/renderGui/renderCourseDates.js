@@ -52,6 +52,28 @@ const RenderCourseDates = (function (Dates, Globals) {
 	}
 
 	/**
+	 * Ersetzt die Level1 - Level5 durch einen sprechenden Text
+	 * @param paddleLevel
+	 * @returns a string mit der Beschreibung der Paddelstufe
+	 */
+	 function replacePaddleLevelWithDescription(paddleLevel) {
+		switch (paddleLevel) {
+			case 'Level1':
+			 	return 'Level 1 (See bis WW I)';
+			case 'Level2':
+				return 'Level 2 (WW I - II)';
+			case 'Level3':
+				return 'Level 3 (WW II - III)';
+			case 'Level4':
+				return 'Level 4 (WW III)';
+			case 'Level5':
+				return 'Level 5 (WW IV)';
+			default:
+			  return '';
+		  }		
+	}
+
+	/**
 	 * Berechnet anhand des Datum wie viele Paddel- und Pausentage der Kurs beinhaltet
 	 * und liefert einen String zurück, wie dies dargestellt werden soll.
 	 * @param courseDates
@@ -522,7 +544,7 @@ const RenderCourseDates = (function (Dates, Globals) {
 		column1.classList.add('gridx12__width5--col1of2');
 		list = document.createElement('ul');
 		list.classList.add('text-container-drawer__list');
-		list.appendChild(createListItemForPaddleJourney('Stufe', courseDate.kursStufe));
+		list.appendChild(createListItemForPaddleJourney('Stufe', replacePaddleLevelWithDescription(courseDate.kursStufe)));
 		list.appendChild(createListItemForPaddleJourney('Kursleitung', courseDate.guide));
 		list.appendChild(createListItemForPaddleJourney('Preis', courseDate.preisKurs));
 		column1.appendChild(list);
