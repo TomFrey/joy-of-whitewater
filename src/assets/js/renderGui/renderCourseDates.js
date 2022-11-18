@@ -393,6 +393,9 @@ const RenderCourseDates = (function (Dates, Globals) {
 				case 'Albanien':
 					detailsLink.setAttribute('href', '/paddelreisen.html#paddleJourneyAlbanienAnchor');
 					break;
+				case 'Durance':
+					detailsLink.setAttribute('href', '/paddelreisen.html#paddleJourneyDuranceAnchor');
+					break;
 				default:
 					detailsLink.setAttribute('href', '/paddelreisen.html');
 					break;
