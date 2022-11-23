@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-const Navigation = (function (RenderImageSlider, Images, Globals, Responsive) {
+const Navigation = (function (RenderImageSlider, Images, Globals, Responsive, CourseSearch) {
 	const SHOW = 'js-show';
 	const HIDE = 'js-hide';
 	const CLOSE_NAV = 'js-close-nav-button';
@@ -18,6 +18,7 @@ const Navigation = (function (RenderImageSlider, Images, Globals, Responsive) {
 	let eskimotierenDrawerButton;
 	let paddelReisenDrawerButtons;
 	let packraftKursDrawerButton;
+	let courseSearchDrawerButton;
 	let drawerButtons;
 	let courseLists;
 
@@ -206,6 +207,9 @@ const Navigation = (function (RenderImageSlider, Images, Globals, Responsive) {
 				case 'Details zur Griechenland Reise':
 					sliderName = 'griechenland';
 				break;
+				case 'Details zur Durance':
+					sliderName = 'durance';
+				break;
 				default:
 					sliderName = 'korsika';
 					break;
@@ -342,6 +346,14 @@ const Navigation = (function (RenderImageSlider, Images, Globals, Responsive) {
 				toggleTextContainerDrawer(event.target);
 			});
 		}
+
+		courseSearchDrawerButton = document.querySelector('#open-close-drawer-button-course-search');
+		if (courseSearchDrawerButton !== null) {
+			courseSearchDrawerButton.addEventListener('click', (event) => {
+				CourseSearch.init();
+				toggleTextContainerDrawer(event.target);
+			});
+		}
 		
 		courseLists = document.querySelectorAll('.course-list');
 		if (courseLists !== null) {
@@ -369,4 +381,4 @@ const Navigation = (function (RenderImageSlider, Images, Globals, Responsive) {
 		setSelectedNavigation,
 		renderHeaderWithImagesAccordingToSite
 	};
-})(RenderImageSlider, Images, Globals, Responsive);
+})(RenderImageSlider, Images, Globals, Responsive, CourseSearch);

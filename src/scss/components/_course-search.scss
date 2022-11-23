@@ -1,0 +1,55 @@
+.course-search-container{
+    display: flex;
+    flex-flow: column;
+    padding: $basicHeight $basicWidth;
+    background-color: $color-drawer-background-drawer;
+}
+
+
+
+.course-search-container-criteria{
+    display: flex;
+    flex-flow: column;
+    order: 1;
+}
+
+.course-search-container-actions{
+    display: flex;
+    flex-flow: row nowrap;
+    order: 0;
+}
+
+
+
+/* *************************************************** */
+/* *********** ab hier für tablet *******************  */
+@media screen and (min-width: $breakpoint-medium) {   // > 688px
+   
+}
+
+/* *************************************************** */
+/* *********** ab hier für desktop ******************* */
+@media screen and (min-width: $breakpoint-large) { //wenn Bildschirm grösser 740 px gross ist, dann...
+
+    .course-search-container{
+        display: flex;
+        flex-flow: row nowrap;
+        padding: 2*$basicHeight 2*$basicWidth;
+    }
+    
+    
+    .course-search-container-criteria{
+        order: 0;
+        display: flex;
+        flex-flow: row nowrap;
+    }
+
+    .course-search-container-actions{
+        order: 1;
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: flex-start;
+    }
+
+
+}

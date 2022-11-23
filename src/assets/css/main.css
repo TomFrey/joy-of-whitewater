@@ -2957,6 +2957,47 @@ h4.course-list-detail__title::after {
     grid-area: item5;
   }
 }
+.course-search-container {
+  display: flex;
+  flex-flow: column;
+  padding: 8px 8px;
+  background-color: #BADDFF;
+}
+
+.course-search-container-criteria {
+  display: flex;
+  flex-flow: column;
+  order: 1;
+}
+
+.course-search-container-actions {
+  display: flex;
+  flex-flow: row nowrap;
+  order: 0;
+}
+
+/* *************************************************** */
+/* *********** ab hier für tablet *******************  */
+/* *************************************************** */
+/* *********** ab hier für desktop ******************* */
+@media screen and (min-width: 992px) {
+  .course-search-container {
+    display: flex;
+    flex-flow: row nowrap;
+    padding: 16px 16px;
+  }
+  .course-search-container-criteria {
+    order: 0;
+    display: flex;
+    flex-flow: row nowrap;
+  }
+  .course-search-container-actions {
+    order: 1;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: flex-start;
+  }
+}
 .open-drawer {
   background-color: #004570;
   bottom: 0;
@@ -3175,6 +3216,104 @@ a.open-drawer-wrapper {
     margin-left: 12px;
     height: 20px;
     width: 30px;
+  }
+}
+.dropdown-button-wrapper .dropdown-button {
+  font-family: "Open Sans", "Arial", "sans-serif";
+  font-size: 16px;
+  line-height: 32px;
+  background-color: #004570;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  border: 1px solid #ffffff;
+  border-radius: 4px;
+  padding: 0 24px;
+}
+.dropdown-button-wrapper .dropdown-button-label {
+  padding-right: 8px;
+  pointer-events: none;
+}
+.dropdown-button-wrapper .dropdown-button-icon {
+  width: 0px;
+  height: 0px;
+  border-style: solid;
+  border-width: 15px 12.5px 0 12.5px;
+  border-color: #ffffff transparent transparent transparent;
+  transform: rotate(0deg);
+  transition: transform 0.5s ease-in-out;
+  pointer-events: none;
+}
+.dropdown-button-wrapper .dropdown-button-icon.js-show {
+  transform: rotate(180deg);
+}
+.dropdown-button-wrapper .dropdown-list {
+  color: #000000;
+  font-family: "Open Sans", "Arial", "sans-serif";
+  font-size: 1rem;
+  font-weight: normal;
+  background-color: #E6E6E6;
+  overflow: hidden;
+  max-height: 0px;
+  transition: max-height 0.5s ease-in-out;
+}
+.dropdown-button-wrapper .dropdown-list.js-show {
+  max-height: 300px;
+}
+.dropdown-button-wrapper .dropdown-list ul:not(.dropdown-list-group-wrapper) {
+  padding: 8px 8px;
+}
+.dropdown-button-wrapper .dropdown-list ul li:not(.dropdown-list-group) {
+  border: solid 1px black;
+  border-radius: 4px;
+  box-shadow: 0 8px 6px -6px black;
+  padding: 4px 4px;
+}
+.dropdown-button-wrapper .dropdown-list ul li:not(:last-of-type):not(.dropdown-list-group) {
+  margin-bottom: 4px;
+}
+.dropdown-button-wrapper .dropdown-list-group-wrapper {
+  display: flex;
+  flex-flow: row nowrap;
+}
+.dropdown-button-wrapper .dropdown-list ul li.js-isSelected:not(.dropdown-list-group) {
+  background-color: #ffffff;
+  border: 1px solid #004570;
+  color: #004570;
+  transform: scale(1.02);
+}
+
+/* *************************************************** */
+/* *********** ab hier für tablet ******************* */
+/* *************************************************** */
+/* *********** ab hier für desktop ******************* */
+@media screen and (min-width: 992px) {
+  .dropdown-button-wrapper {
+    margin-right: 16px;
+  }
+  .dropdown-button-wrapper .dropdown-list ul:not(.dropdown-list-group-wrapper) {
+    padding: 16px 16px 16px 16px;
+  }
+  .dropdown-button-wrapper .dropdown-list .dropdown-list-group-wrapper .dropdown-list-group ul {
+    padding: 16px 0 16px 16px;
+  }
+  .dropdown-button-wrapper .dropdown-list .dropdown-list-group-wrapper .dropdown-list-group:last-of-type ul {
+    padding: 16px 16px 16px 16px;
+  }
+  .dropdown-button-wrapper .dropdown-list ul li:not(.dropdown-list-group) {
+    padding: 8px 8px;
+  }
+  .dropdown-button-wrapper .dropdown-list ul li:not(:last-of-type):not(.dropdown-list-group) {
+    margin-bottom: 8px;
+  }
+  .dropdown-button-wrapper .dropdown-list ul li:hover:not(.dropdown-list-group) {
+    background-color: #ffffff;
+    border: 1px solid #004570;
+    color: #004570;
+    transform: scale(1.02);
+  }
+  .dropdown-button-wrapper .dropdown-list ul li:active:not(.dropdown-list-group) {
+    transform: scale(0.98);
   }
 }
 /* Border Box Trick */

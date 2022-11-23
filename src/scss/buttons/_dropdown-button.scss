@@ -1,0 +1,121 @@
+.dropdown-button-wrapper{
+
+    .dropdown-button {
+        @include primaryButtonFont();
+        background-color: $color-drawer-buttonToOpenDrawer;
+        color: $color-drawer-buttonToOpenDrawerText;
+        display: flex;
+        align-items: center;
+	    border: 1px solid #ffffff;
+        border-radius: 4px;
+	    //line-height: 6*$basicHeight;
+	    padding: 0 3*$basicWidth;
+    }
+  
+    .dropdown-button-label{
+        padding-right: $basicWidth;
+        pointer-events: none;
+    }
+
+    .dropdown-button-icon{
+        width: 0px;
+        height: 0px;
+        border-style: solid;
+        border-width: 15px 12.5px 0 12.5px;
+        border-color: $color-drawer-buttonToOpenDrawerText transparent transparent transparent;
+        transform: rotate(0 + deg);
+        transition: transform 0.5s ease-in-out;
+        pointer-events: none;
+    }
+
+    .dropdown-button-icon.js-show{
+        transform: rotate(180 + deg);
+    }
+
+    .dropdown-list{
+        @include standardTextFont();
+        background-color: $color-textContainer-background;
+        overflow: hidden;
+        max-height: 0px;
+        transition: max-height 0.5s ease-in-out;
+    }
+
+    .dropdown-list.js-show{
+        max-height: 300px;
+    }
+
+    //die Listenelemente sind nicht gruppiert
+    .dropdown-list ul:not(.dropdown-list-group-wrapper){
+        padding: $basicHeight $basicWidth;
+    }
+
+    .dropdown-list ul li:not(.dropdown-list-group){
+        border: solid 1px black;
+        border-radius: 4px;
+        box-shadow: 0 8px 6px -6px black;
+        padding: 0.5*$basicHeight 0.5*$basicWidth;
+    }
+
+    .dropdown-list ul li:not(:last-of-type):not(.dropdown-list-group){
+        margin-bottom: 0.5*$basicHeight;
+    }
+
+    //die Listenelemente sind gruppiert
+    .dropdown-list-group-wrapper{
+        display: flex;
+        flex-flow: row nowrap;
+    }
+
+    .dropdown-list ul li.js-isSelected:not(.dropdown-list-group){
+        background-color: $color-drawer-buttonToOpenDrawerText;
+        border: 1px solid $color-drawer-buttonToOpenDrawer;
+        color: $color-drawer-buttonToOpenDrawer;
+        transform: scale(1.02);
+    }
+}
+
+/* *************************************************** */
+/* *********** ab hier für tablet ******************* */
+@media screen and (min-width: $breakpoint-medium) {   // > 688px
+
+
+}
+
+/* *************************************************** */
+/* *********** ab hier für desktop ******************* */
+@media screen and (min-width: $breakpoint-large) { // > 992px
+    .dropdown-button-wrapper{
+        margin-right: 2 * $basicWidth;
+
+        .dropdown-list ul:not(.dropdown-list-group-wrapper){
+            padding: 2*$basicWidth 2*$basicWidth 2*$basicWidth 2*$basicWidth;
+        }
+
+        .dropdown-list .dropdown-list-group-wrapper .dropdown-list-group ul{
+             padding: 2*$basicWidth 0 2*$basicWidth 2*$basicWidth;
+        }
+
+        .dropdown-list .dropdown-list-group-wrapper .dropdown-list-group:last-of-type ul{
+            padding: 2*$basicWidth 2*$basicWidth 2*$basicWidth 2*$basicWidth;
+       }
+
+        .dropdown-list ul li:not(.dropdown-list-group){
+            padding: $basicHeight $basicWidth;
+        }
+
+        .dropdown-list ul li:not(:last-of-type):not(.dropdown-list-group){
+            margin-bottom: $basicHeight;
+        }
+
+        .dropdown-list ul li:hover:not(.dropdown-list-group){
+            background-color: $color-drawer-buttonToOpenDrawerText;
+            border: 1px solid $color-drawer-buttonToOpenDrawer;
+            color: $color-drawer-buttonToOpenDrawer;
+            transform: scale(1.02);
+        }
+
+        .dropdown-list ul li:active:not(.dropdown-list-group){
+            transform: scale(0.98);
+        }
+    }
+}

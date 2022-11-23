@@ -23,7 +23,7 @@ const CourseDates = (function (RenderCourseDates, Dates) {
 
 					RenderCourseDates.createCourseListFor(courses, ['alle'], 'Eskimotieren', '.course-list-wrapper-rollCourse');
 
-					RenderCourseDates.createCourseListFor(courses, ['B','F'], 'Packraft Kurs', '.course-list-wrapper-packraftCourse');
+					RenderCourseDates.createCourseListFor(courses, ['Level2','Level3-Level4','Level5'], 'Packraft Kurs', '.course-list-wrapper-packraftCourse');
 
 					RenderCourseDates.createPaddleJourniesOverview(courses);
 					RenderCourseDates.createPaddleJournies(courses);
