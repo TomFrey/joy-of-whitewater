@@ -33,7 +33,6 @@ const CourseSearch = (function (RenderCourseSearchResults, CourseRegistration) {
      */
     function toggleSelectedElement(event){
         let listElement = event;
-        let selectedElement = event.innerText;
 
         if (listElement.classList.contains(SELECTED)) {
 			listElement.classList.remove(SELECTED);
@@ -178,6 +177,7 @@ const CourseSearch = (function (RenderCourseSearchResults, CourseRegistration) {
         searchResultCourseLists = document.querySelectorAll('.course-search-result .course-list');
 		if (searchResultCourseLists !== null) {
 			searchResultCourseLists.forEach((courseList) => {
+                console.log('addListener');
 				courseList.addEventListener('click', (event) => {
 					toggleCourseDetails(event.target);
 				});
@@ -190,8 +190,6 @@ const CourseSearch = (function (RenderCourseSearchResults, CourseRegistration) {
      * 
      */
     function startSearch(event){
-        //console.log('startSearch() called');
-
         let searchCriteria = getSearchCriteria();
         let searchResult = [];
 
@@ -200,13 +198,16 @@ const CourseSearch = (function (RenderCourseSearchResults, CourseRegistration) {
             response.json()
             .then((jsonResponseData) => {
                 searchResult = getSearchResults(searchCriteria, jsonResponseData);
-                RenderCourseSearchResults.init(searchResult);
-                addListenersToSearchResults();
-
-                console.log('Anzahl: ' + searchResult.length);
-                searchResult.forEach((course) => {
-                    console.log('gefiltert nach Level: ' + JSON.stringify(course));
+                
+                RenderCourseSearchResults.init(searchResult)
+                .then(() => {
+                    addListenersToSearchResults();
                 })
+
+                // console.log('Anzahl: ' + searchResult.length);
+                // searchResult.forEach((course) => {
+                //     console.log('gefiltert nach Level: ' + JSON.stringify(course));
+                // })
             })
         })
         .catch(() => {
@@ -256,7 +257,6 @@ const CourseSearch = (function (RenderCourseSearchResults, CourseRegistration) {
                     startSearch(event.target);
                 });
             }
-			
 		}
 	}
 

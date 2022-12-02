@@ -5,8 +5,6 @@
     background-color: $color-drawer-background-drawer;
 }
 
-
-
 .course-search-container-criteria{
     display: flex;
     flex-flow: column;
@@ -17,6 +15,16 @@
     display: flex;
     flex-flow: row nowrap;
     order: 0;
+}
+
+.course-search-loader.js-hide{
+    display: none;
+}
+
+.course-search-loader.js-show{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
 }
 
 

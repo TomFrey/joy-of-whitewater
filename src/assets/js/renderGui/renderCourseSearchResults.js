@@ -1,12 +1,17 @@
 // eslint-disable-next-line no-unused-vars
 const RenderCourseSearchResults = (function () {
     const SHOW = 'js-show';
-    const SELECTED = 'js-isSelected';
-
+    
 	let courseSearchResultContainer;
-    let courseSearchResults;
-  
 
+    function toggleSpinner(){
+        const courseSearchLoader = document.querySelector('.course-search-loader');
+		if (courseSearchLoader.classList.contains(SHOW)) {
+			courseSearchLoader.classList.remove(SHOW);
+		} else {
+			courseSearchLoader.classList.add(SHOW);
+		}
+    }
 
     function deleteAllData(courseSearchResultContainer){
         // delete all current children
@@ -15,13 +20,10 @@ const RenderCourseSearchResults = (function () {
         }
     }
 
-
-
     function renderCourses(foundCourses){
         const courseSearchResults = document.createElement('div');
 		courseSearchResults.classList.add('course-list-wrapper');
         courseSearchResults.classList.add('course-search-result');
-		//courseSearchResults.innerText = 'Suchresultate';
 		courseSearchResultContainer.appendChild(courseSearchResults);
 
         if(foundCourses.length > 0){
@@ -32,23 +34,24 @@ const RenderCourseSearchResults = (function () {
         } else {
             RenderCourseDates.createEmptyCourseList('.course-search-result-wrapper .course-search-result');
         }
-
-      
     }
 
 
-
 	function init(foundCourses) {
-        console.log('RenderCourseSearchResults.init()');
-
         courseSearchResultContainer = document.querySelector('.course-search-result-wrapper');
-        if (courseSearchResultContainer !== null) { 
-          
+        if (courseSearchResultContainer !== null) {  
             deleteAllData(courseSearchResultContainer);
-            renderCourses(foundCourses);
+            toggleSpinner();
 
+            const searchPromise = new Promise((resolve) => {
+                setTimeout(() => {
+                    toggleSpinner();
+                    renderCourses(foundCourses);
+                    resolve();
+                }, 1000)
+            });
+            return searchPromise;
         }
-
 	}
 
 	// public api
