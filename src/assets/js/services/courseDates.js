@@ -4,12 +4,28 @@ const CourseDates = (function (RenderCourseDates, Dates) {
 		const promise = new Promise((resolve, reject) => {
 			// alle Kursdaten lesen
 			Service.call('GET', '/api/kurse.php') // http://localhost:3000/api/kurse.php
-				.then((courses) => {
+				.then(async (courses) => {
 					// Datum vom Format yyyy-mm-dd ins Format yyyy/mm/dd konvertieren
 					courses.forEach((course) => {
 						course.vonDatum = Dates.convertToAllBrowsersReadableDate(course.vonDatum);
 						course.bisDatum = Dates.convertToAllBrowsersReadableDate(course.bisDatum);
 					});
+
+
+					//test code
+					if ('caches' in window){
+						const newCache = await caches.open('courses');
+						newCache.add('/api/kurse.php')
+						.then(() => {
+							console.log('success');
+						})
+
+						.catch((error) => {
+							console.log('errer '+error)
+						})
+					}
+
+
 					// Render Level1 Basis Kanukurse
 					RenderCourseDates.createCourseListFor(courses, ['Level1'], 'Kanukurs', '.course-list-wrapper-level1Course');
 					// Render Level2 Basis Kanukurse

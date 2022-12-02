@@ -50,14 +50,15 @@ const allFrontAppJsFiles = [
 	'./src/assets/js/guiControll/renderHeader.js',
 	'./src/assets/js/util/responsive.js',
 	'./src/assets/js/guiControll/renderImageSlider.js',
+	'./src/assets/js/guiControll/kanukursanmeldung.js',
+	'./src/assets/js/renderGui/renderCourseSearchResults.js',
 	'./src/assets/js/guiControll/courseSearch.js',
 	'./src/assets/js/guiControll/navigation.js',
 	'./src/assets/js/guiControll/youtubeVideoControl.js',
 	'./src/assets/js/guiControll/imageCarousel.js',
 	'./src/assets/js/guiControll/imageSlider.js',
 	'./src/assets/js/guiControll/kontaktform.js',
-	'./src/assets/js/guiControll/kanukursanmeldung.js',
-
+	
 	'./src/assets/js/app.js',
 	'./src/assets/js/ready.js'
 ];
@@ -365,10 +366,10 @@ function build(enviroment) {
 		gulp.parallel(	minifyFrontJsForDist,
 						compileScss),
 		gulp.parallel(	minifyCss),
-		gulp.parallel(	copyApi,
+		gulp.parallel(	//copyApi,
 						copyHTML,
 						copyFrontJs,
-						copyImages,
+						//copyImages,
 						copyXml,
 						copyRobotsAndHtaccess,
 						copyGoogleConfirmationFile,

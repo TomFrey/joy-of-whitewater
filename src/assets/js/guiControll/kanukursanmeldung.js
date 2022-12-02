@@ -27,7 +27,7 @@ const CourseRegistration = (function (Validator, RenderConfirmation, Dates) {
 	let sendRegistraitionFormButtonOkIcon;
 	let sendRegistraitionFormButtonNokIcon;
 
-	let registrationButtons;
+	//let registrationButtons;
 
 
 	function isCourseNameValid() {
@@ -159,16 +159,30 @@ const CourseRegistration = (function (Validator, RenderConfirmation, Dates) {
 	}
 
 
-	function init() {
-		// Listener auf allen 'Anmelden' Knöpfen
-		registrationButtons = document.querySelectorAll('.link-button-wrapper__courseRegistration');
+	function addListenerToRegistrationButtons() {
+		let registrationButtons = document.querySelectorAll('.link-button-wrapper__courseRegistration');
 		if (registrationButtons !== null) {
+			console.log('gugus');
 			registrationButtons.forEach((registrationButton) => {
 				registrationButton.addEventListener('click', (event) => {
 					callRegistrationForm(event);
 				});
 			});
 		}
+	}
+
+
+	function init() {
+		// Listener auf allen 'Anmelden' Knöpfen
+		addListenerToRegistrationButtons();
+		// registrationButtons = document.querySelectorAll('.link-button-wrapper__courseRegistration');
+		// if (registrationButtons !== null) {
+		// 	registrationButtons.forEach((registrationButton) => {
+		// 		registrationButton.addEventListener('click', (event) => {
+		// 			callRegistrationForm(event);
+		// 		});
+		// 	});
+		// }
 
 		registrationForm = document.querySelector('.anmeldung');
 		if (registrationForm !== null) {
@@ -300,6 +314,7 @@ const CourseRegistration = (function (Validator, RenderConfirmation, Dates) {
 
 	// public api
 	return {
-		init
+		init,
+		addListenerToRegistrationButtons
 	};
 })(Validator, RenderConfirmation, Dates);

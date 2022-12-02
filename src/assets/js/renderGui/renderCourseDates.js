@@ -592,6 +592,64 @@ const RenderCourseDates = (function (Dates, Globals) {
 		return paddelJourneyItem;
 	}
 
+	/**
+	 * Erstellt eine leere Liste (ein leerer Eintrag) von Kursen.
+	 * 
+	 * @param {¨} cssClass wohin die leere Liste gerendert werden soll
+	 */
+	function renderEmptyCourseList(cssClass){
+		const courseListWrapper = document.querySelector(cssClass);
+		if (courseListWrapper !== null) {
+			const emptyCourseListItemWrapper = document.createElement('div');
+			emptyCourseListItemWrapper.classList.add('course-list-item-wrapper');
+
+			const emptyCourseListMessageWrapper = document.createElement('div');
+			emptyCourseListMessageWrapper.classList.add('empty-course-list-message-wrapper');
+			const emptyCourseListMessage = document.createElement('p');
+			emptyCourseListMessage.classList.add('text-container-drawer__paragraph');
+			emptyCourseListMessage.innerText = 'Im Moment ist kein Kurs geplant, der deinen Suchkriterien entspricht. Gerne planen wir für dich. ';
+			const contactLink = document.createElement('a');
+			contactLink.classList.add('link-in-text');
+			contactLink.setAttribute('href', '/kontakt.html');
+			contactLink.innerText = 'Kontakt';
+			emptyCourseListMessage.appendChild(contactLink);
+			emptyCourseListMessageWrapper.appendChild(emptyCourseListMessage);
+			courseListWrapper.appendChild(emptyCourseListMessageWrapper);
+
+			const courseList = document.createElement('div');
+			courseList.classList.add('course-list');
+
+			const courseListItem = document.createElement('a');
+			courseListItem.classList.add('course-list-item');
+			courseListItem.classList.add('empty-link');
+			courseListItem.setAttribute('href', 'javascript:;');
+
+			const courseItemName = document.createElement('div');
+			courseItemName.classList.add('course-item__name-wrapper');
+			
+			const courseItemPlace = document.createElement('div');
+			courseItemPlace.classList.add('course-item__place-wrapper');
+
+			const courseItemStatus = document.createElement('div');
+			courseItemStatus.classList.add('course-item__status-wrapper');
+
+			const courseItemDuration = document.createElement('div');
+			courseItemDuration.classList.add('course-item__duration-wrapper');
+
+			const courseItemDate = document.createElement('div');
+			courseItemDate.classList.add('course-item__date-wrapper');
+			
+			courseListItem.appendChild(courseItemStatus);
+			courseListItem.appendChild(courseItemName);
+			courseListItem.appendChild(courseItemPlace);
+			courseListItem.appendChild(courseItemDuration);
+			courseListItem.appendChild(courseItemDate);
+			emptyCourseListItemWrapper.appendChild(courseListItem);
+			courseList.appendChild(emptyCourseListItemWrapper);
+			courseListWrapper.appendChild(courseList);
+		}
+	}
+
 
 	/**
 	 * Sucht das Vorkommen aller Klassen z.B.: cssClass = 'course-list-wrapper-fCourse' und erstellt darin eine Liste
@@ -599,12 +657,12 @@ const RenderCourseDates = (function (Dates, Globals) {
 	 *
 	 * @param courseDates  -> array (Eingang), mit allen Kursen, die gefiltert werden
 	 * @param courseLevels  -> array (Filterwert), mit allen Leveln, die ausgefiltert werden sollen 
-	 * @param courseType   -> (Filterwert), Kurstype, der ausgefiltert werden soll
+	 * @param courseType   -> array (Filterwert), Kurstype, der ausgefiltert werden soll
 	 * @param cssClass     -> css Klasse, wo die Liste gerendert wird
 	 */
-	function renderCourseListFor(courseDates, courseLevels, courseType, cssClass) {
+	function renderCourseListFor(courseDates, courseLevels, courseTypes, cssClass) {
 		let courseDatesForLevel = courseDates.filter((courseDate) => {
-			return courseDate.typ === courseType && courseLevels.indexOf(courseDate.kursStufe) != -1;
+			return courseTypes.indexOf(courseDate.typ) != -1 && courseLevels.indexOf(courseDate.kursStufe) != -1;
 		});
 		courseDatesForLevel = showCoursesNotOlderThen(courseDatesForLevel, 60);
 		courseDatesForLevel = sortDatumAscending(courseDatesForLevel);
@@ -709,6 +767,7 @@ const RenderCourseDates = (function (Dates, Globals) {
 	return {
 		createCourseListFor: renderCourseListFor,
 		createPaddleJourniesOverview: renderListForPaddleJournies,
-		createPaddleJournies: renderListsForAllPaddleJournies
+		createPaddleJournies: renderListsForAllPaddleJournies,
+		createEmptyCourseList: renderEmptyCourseList
 	};
 })(Dates, Globals);

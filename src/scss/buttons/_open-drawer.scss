@@ -46,9 +46,13 @@ a.open-drawer-wrapper{
 	.open-drawer{
 		border: 1px solid $complimentaryColor1;
 	  	border-radius: $basicHeight;
-		margin: $basicWidth 2*$basicHeight;
+		margin: $basicHeight 2*$basicWidth;
 		width: 55%;
   	}
+
+	.text-container-full-width .open-drawer{
+		margin: $basicHeight 0;
+	}
 
 }
 

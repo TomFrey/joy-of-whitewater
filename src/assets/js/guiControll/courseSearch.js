@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-const CourseSearch = (function () {
+const CourseSearch = (function (RenderCourseSearchResults, CourseRegistration) {
     const SHOW = 'js-show';
     const SELECTED = 'js-isSelected';
 
@@ -8,6 +8,7 @@ const CourseSearch = (function () {
     let dropdownListElements;
     let courseSearchResetButton;
     let courseSearchButton;
+    let searchResultCourseLists;
   
     /**
      * Öffnet und schliesst die Dropdown Liste und dreht das 'Dreieck Icon' um 180 Grad.
@@ -41,6 +42,17 @@ const CourseSearch = (function () {
 		}
     }
 
+
+    function toggleCourseDetails(event) {
+		const drawer = event.parentElement.parentElement.lastElementChild;
+
+		if (drawer.classList.contains(SHOW)) {
+			drawer.classList.remove(SHOW);
+		} else {
+			drawer.classList.add(SHOW);
+		}
+	}
+
     /**
      * Setzt alle ausgewählten Kriterien zurück und schliesst die Dropdown Listen
      */
@@ -59,13 +71,150 @@ const CourseSearch = (function () {
                 dropdownButtonIcon.classList.remove(SHOW);
             } 
         })
+
+        //location.reload();
+    }
+
+    /**
+     * Alle vom Benutzer ausgewählten Suchkriterien (AKTIVITÄT, BOOT, MONAT, STUFE) 
+     * in ein Objekt schreiben.
+     */
+    function getSearchCriteria(){
+        let searchObject = {levels: [], months: [], activities: [], boats: []};
+
+        dropdownListElements.forEach((dropdownListElement) => {
+            if (dropdownListElement.classList.contains(SELECTED)) {
+                //console.log('Element: ' + dropdownListElement.innerText);
+
+                if (dropdownListElement.innerText.includes('Level')) {
+                    searchObject.levels.push(dropdownListElement.innerText.replace(/\s+/g, ''));
+
+                } else if (dropdownListElement.innerText.includes('Wildwasser')) {
+                    if(dropdownListElement.innerText === 'Wildwasser Reise'){
+                        searchObject.activities.push('Paddelreise');
+                    } else {
+                        //Bei einem Kurs immer nach Kanu, Packraft und Eskimotierkurs suchen
+                        searchObject.activities.push('Kanukurs', 'Packraft Kurs', 'Eskimotieren');
+                    }
+
+                } else if (dropdownListElement.innerText === 'Kajak' || 
+                           dropdownListElement.innerText === 'Kanadier' ||
+                           dropdownListElement.innerText === 'Packraft') {
+                    searchObject.boats.push(dropdownListElement.innerText);
+
+                } else {
+                    searchObject.months.push(dropdownListElement.innerText);
+                }
+            }
+        });
+
+        //Packraft kennt nur den 'Level3-Level4'. Drum bei 'Level3' oder 'Level4' nach 'Level3-Level4' suchen.
+        if(searchObject.boats.includes('Packraft') && 
+          (searchObject.levels.includes('Level3') || searchObject.levels.includes('Level4'))){
+            searchObject.levels.push('Level3-Level4');
+        }
+        console.log('searchObject: ' + JSON.stringify(searchObject));
+        return searchObject;
+    }
+
+    /**
+     * Alle Kurse anhand der Suchkriterien (AKTIVITÄT, BOOT, MONAT, STUFE) filtern.
+     * 
+     * @param {*} searchCriteria 
+     * @param {*} data 
+     * @returns [{}, {}, {}... ,{}] searchResult 
+     */
+    function getSearchResults(searchCriteria, data){
+        let searchResult = data;
+
+        if(searchCriteria.activities.length > 0){
+            searchResult = searchResult.filter((course) => {
+                return searchCriteria.activities.some((activity) => {
+                    return activity === course.typ
+                })
+            });
+        }
+
+        if(searchCriteria.boats.length > 0){
+            //Wenn gefiltert wird, dann sollen 'alle' immer kommen.
+            searchCriteria.boats.push('alle');
+            searchResult = searchResult.filter((course) => {
+                return searchCriteria.boats.some((boat) => {
+                    return boat === course.sportArt
+                })
+            });
+        }
+
+        if(searchCriteria.levels.length > 0){
+            searchResult = searchResult.filter((course) => {
+                return searchCriteria.levels.some((level) => {
+                    return level === course.kursStufe
+                })
+            });
+        }
+
+        if(searchCriteria.months.length > 0){
+            searchResult = searchResult.filter((course) => {
+                const options = { month: 'long' };
+                let fromMonth = new Date(course.vonDatum).toLocaleDateString('de-DE', options);
+                let toMonth = new Date(course.bisDatum).toLocaleDateString('de-DE', options);
+
+                return searchCriteria.months.some((month) => {
+                    return month === fromMonth || month === toMonth
+                })
+            });
+        }
+
+        return searchResult;
+    }
+
+    /**
+     * Nach dem Aufbau der Suchresultate müssen die Listener auf den Buttons wieder gesetzt 
+     * werden.
+     */
+    function addListenersToSearchResults(){
+        //TODO: Das hier inkl. toggleCourseDetails ist duplicated code.
+        //Das ist so, weil ich mit den IIFE gegenseitige Abhängigkeiten habe: navigation.js und courseSearch.js
+        searchResultCourseLists = document.querySelectorAll('.course-search-result .course-list');
+		if (searchResultCourseLists !== null) {
+			searchResultCourseLists.forEach((courseList) => {
+				courseList.addEventListener('click', (event) => {
+					toggleCourseDetails(event.target);
+				});
+			});
+		}
+        CourseRegistration.addListenerToRegistrationButtons();
     }
 
     /**
      * 
      */
-    function startSearch(){
-        console.log('startSearch() called');
+    function startSearch(event){
+        //console.log('startSearch() called');
+
+        let searchCriteria = getSearchCriteria();
+        let searchResult = [];
+
+        fetch('/api/kurse.php', {cache: "force-cache"})
+        .then((response) => {
+            response.json()
+            .then((jsonResponseData) => {
+                searchResult = getSearchResults(searchCriteria, jsonResponseData);
+                RenderCourseSearchResults.init(searchResult);
+                addListenersToSearchResults();
+
+                console.log('Anzahl: ' + searchResult.length);
+                searchResult.forEach((course) => {
+                    console.log('gefiltert nach Level: ' + JSON.stringify(course));
+                })
+            })
+        })
+        .catch(() => {
+            //Wenn keine Daten im Cache sind die Kurse von der DB holen
+            //TODO:
+        })
+
+        
     }
 
 
@@ -115,4 +264,4 @@ const CourseSearch = (function () {
 	return {
 		init
 	};
-})();
+})(RenderCourseSearchResults, CourseRegistration);

@@ -1104,6 +1104,10 @@ img.text-container-fill__bottom {
   text-decoration: none;
 }
 
+.course-list-item.empty-link {
+  height: 48px;
+}
+
 .course-list-item-detail {
   color: #004570;
   font-family: "Open Sans", "Arial", "sans-serif";
@@ -1262,6 +1266,9 @@ h4.course-list-detail__title::after {
   }
   .course-list-item:hover {
     background-color: #d9d9d9;
+  }
+  .course-list-item.empty-link {
+    pointer-events: none;
   }
   .course-item__status-wrapper {
     flex: 0 0 3%;
@@ -3045,6 +3052,9 @@ a.open-drawer-wrapper {
     border-radius: 8px;
     margin: 8px 16px;
     width: 55%;
+  }
+  .text-container-full-width .open-drawer {
+    margin: 8px 0;
   }
 }
 /* *************************************************** */
