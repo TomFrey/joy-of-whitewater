@@ -8,7 +8,6 @@ const CourseSearch = (function (RenderCourseSearchResults, CourseRegistration) {
     let dropdownListElements;
     let courseSearchResetButton;
     let courseSearchButton;
-    let searchResultCourseLists;
   
     /**
      * Öffnet und schliesst die Dropdown Liste und dreht das 'Dreieck Icon' um 180 Grad.
@@ -32,7 +31,7 @@ const CourseSearch = (function (RenderCourseSearchResults, CourseRegistration) {
      * @param {*} event 
      */
     function toggleSelectedElement(event){
-        let listElement = event;
+        const listElement = event;
 
         if (listElement.classList.contains(SELECTED)) {
 			listElement.classList.remove(SELECTED);
@@ -172,16 +171,11 @@ const CourseSearch = (function (RenderCourseSearchResults, CourseRegistration) {
      * werden.
      */
     function addListenersToSearchResults(){
-        //TODO: Das hier inkl. toggleCourseDetails ist duplicated code.
-        //Das ist so, weil ich mit den IIFE gegenseitige Abhängigkeiten habe: navigation.js und courseSearch.js
-        searchResultCourseLists = document.querySelectorAll('.course-search-result .course-list');
-		if (searchResultCourseLists !== null) {
-			searchResultCourseLists.forEach((courseList) => {
-                console.log('addListener');
-				courseList.addEventListener('click', (event) => {
-					toggleCourseDetails(event.target);
-				});
-			});
+        const searchResultCourseList = document.querySelector('.course-search-result .course-list');
+		if (searchResultCourseList !== null) {
+            searchResultCourseList.addEventListener('click', (event) => {
+                toggleCourseDetails(event.target);
+            });
 		}
         CourseRegistration.addListenerToRegistrationButtons();
     }
