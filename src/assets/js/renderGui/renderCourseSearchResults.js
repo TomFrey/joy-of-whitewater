@@ -46,9 +46,11 @@ const RenderCourseSearchResults = (function (RenderCourseDates) {
             const searchPromise = new Promise((resolve) => {
                 setTimeout(() => {
                     toggleSpinner();
+                    //Daten noch mal löschen, sonst werden sie mehrfach angezeigt, wenn der User mehrfach schnell klickt.
+                    deleteAllData(courseSearchResultContainer);
                     renderCourses(foundCourses);
                     resolve();
-                }, 1000)
+                }, 500)
             });
             return searchPromise;
         }
