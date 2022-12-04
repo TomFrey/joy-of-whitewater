@@ -8,8 +8,8 @@
         align-items: center;
 	    border: 1px solid #ffffff;
         border-radius: 4px;
-	    //line-height: 6*$basicHeight;
 	    padding: 0 3*$basicWidth;
+        width: 100%;
     }
   
     .dropdown-button-label{
@@ -77,7 +77,14 @@
 /* *************************************************** */
 /* *********** ab hier für tablet ******************* */
 @media screen and (min-width: $breakpoint-medium) {   // > 688px
+    .dropdown-button-wrapper{
+        width: 100%;
+    }
 
+    //bei dieser Grösse sind zwei Dropdown nebeneinander und zwei Dropdown untereinander
+    .dropdown-button-wrapper:first-of-type{
+        margin-right: $basicWidth;
+    }
 
 }
 
@@ -85,6 +92,7 @@
 /* *********** ab hier für desktop ******************* */
 @media screen and (min-width: $breakpoint-large) { // > 992px
     .dropdown-button-wrapper{
+        width: unset;
         margin-right: 2 * $basicWidth;
 
         .dropdown-list ul:not(.dropdown-list-group-wrapper){
@@ -117,5 +125,10 @@
         .dropdown-list ul li:active:not(.dropdown-list-group){
             transform: scale(0.98);
         }
+    }
+
+    //bei dieser Grösse sind vier Dropdown nebeneinander
+    .dropdown-button-wrapper:first-of-type{
+        margin-right: 2*$basicWidth;
     }
 }

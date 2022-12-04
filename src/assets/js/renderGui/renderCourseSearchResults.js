@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-const RenderCourseSearchResults = (function () {
+const RenderCourseSearchResults = (function (RenderCourseDates) {
     const SHOW = 'js-show';
     
 	let courseSearchResultContainer;
@@ -58,4 +58,4 @@ const RenderCourseSearchResults = (function () {
 	return {
 		init
 	};
-})();
+})(RenderCourseDates);

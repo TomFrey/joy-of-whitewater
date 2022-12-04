@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55.2 (78181) - https://sketchapp.com -->
+    <title>search-cancel_black</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="search-cancel_black" fill="#FFFFFF" fill-rule="nonzero">
+            <path d="M10,0 C4.4889971,0 0,4.4889971 0,10 C0,15.511003 4.4889971,20 10,20 C15.511003,20 20,15.511003 20,10 C20,4.4889971 15.511003,0 10,0 Z M10,2 C14.430123,2 18,5.5698774 18,10 C18,14.430123 14.430123,18 10,18 C5.5698774,18 2,14.430123 2,10 C2,5.5698774 5.5698774,2 10,2 Z M6.7070312,5.2929688 L5.2929688,6.7070312 L8.585938,10 L5.2929688,13.2929688 L6.7070312,14.707031 L10,11.414062 L13.2929688,14.707031 L14.707031,13.2929688 L11.414062,10 L14.707031,6.7070312 L13.2929688,5.2929688 L10,8.585938 L6.7070312,5.2929688 Z" id="Shape"></path>
+        </g>
+    </g>
+</svg>
