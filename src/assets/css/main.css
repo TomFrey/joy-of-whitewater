@@ -3312,6 +3312,9 @@ a.open-drawer-wrapper {
     width: 30px;
   }
 }
+.dropdown-button-wrapper {
+  margin-bottom: 8px;
+}
 .dropdown-button-wrapper .dropdown-button {
   font-family: "Open Sans", "Arial", "sans-serif";
   font-size: 16px;
@@ -3386,6 +3389,7 @@ a.open-drawer-wrapper {
 @media screen and (min-width: 688px) {
   .dropdown-button-wrapper {
     width: 100%;
+    margin-bottom: 0;
   }
   .dropdown-button-wrapper:first-of-type {
     margin-right: 8px;

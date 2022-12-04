@@ -1,4 +1,5 @@
 .dropdown-button-wrapper{
+    margin-bottom: $basicHeight;
 
     .dropdown-button {
         @include primaryButtonFont();
@@ -83,6 +84,7 @@
 @media screen and (min-width: $breakpoint-medium) {   // > 688px
     .dropdown-button-wrapper{
         width: 100%;
+        margin-bottom: 0;
     }
 
     //bei dieser Grösse sind zwei Dropdown nebeneinander und zwei Dropdown untereinander
