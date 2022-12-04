@@ -3368,7 +3368,7 @@ a.open-drawer-wrapper {
   padding: 4px 4px;
 }
 .dropdown-button-wrapper .dropdown-list ul li:not(:last-of-type):not(.dropdown-list-group) {
-  margin-bottom: 4px;
+  margin-bottom: 8px;
 }
 .dropdown-button-wrapper .dropdown-list-group-wrapper {
   display: flex;

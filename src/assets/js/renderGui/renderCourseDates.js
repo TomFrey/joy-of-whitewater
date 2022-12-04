@@ -655,19 +655,19 @@ const RenderCourseDates = (function (Dates, Globals) {
 	 * Sucht das Vorkommen aller Klassen z.B.: cssClass = 'course-list-wrapper-fCourse' und erstellt darin eine Liste
 	 * mit allen Kursen vom courseType z.B.: 'Kanukurs', 'Eskimotieren' und courseLevels z.B.: ['B'], ['B','F'], ['alle'].
 	 *
-	 * @param courseDates  -> array (Eingang), mit allen Kursen, die gefiltert werden
-	 * @param courseLevels  -> array (Filterwert), mit allen Leveln, die ausgefiltert werden sollen 
-	 * @param courseType   -> array (Filterwert), Kurstype, der ausgefiltert werden soll
-	 * @param cssClass     -> css Klasse, wo die Liste gerendert wird
+	 * @param courseDates       -> array (Eingang), mit allen Kursen, die gefiltert werden
+	 * @param courseLevels      -> array (Filterwert), mit allen Leveln, die ausgefiltert werden sollen 
+	 * @param courseType        -> array (Filterwert), Kurstype, der ausgefiltert werden soll
+	 * @param cssClass          -> css Klasse, wo die Liste gerendert wird
+	 * @param deleteCurrentData -> boolean, default true
 	 */
-	function renderCourseListFor(courseDates, courseLevels, courseTypes, cssClass) {
+	function renderCourseListFor(courseDates, courseLevels, courseTypes, cssClass, deleteCurrentData=true) {
 		let courseDatesForLevel = courseDates.filter((courseDate) => {
 			return courseTypes.indexOf(courseDate.typ) != -1 && courseLevels.indexOf(courseDate.kursStufe) != -1;
 		});
 		courseDatesForLevel = showCoursesNotOlderThen(courseDatesForLevel, 60);
 		courseDatesForLevel = sortDatumAscending(courseDatesForLevel);
 		
-
 		const courseListWrappers = document.querySelectorAll(cssClass);
 		if (courseListWrappers !== null) {
 			courseListWrappers.forEach((courseListWrapper) => {
@@ -675,10 +675,12 @@ const RenderCourseDates = (function (Dates, Globals) {
 				courseList.classList.add('course-list');
 
 				// delete all current course dates
-				while (courseListWrapper.firstChild) {
-					courseListWrapper.removeChild(courseListWrapper.firstChild);
+				if (deleteCurrentData) {
+					while (courseListWrapper.firstChild) {
+						courseListWrapper.removeChild(courseListWrapper.firstChild);
+					}
 				}
-
+				
 				// add the course dates
 				courseDatesForLevel.forEach((courseDate) => {
 					const courseListItem = createCourseListItem(courseDate);

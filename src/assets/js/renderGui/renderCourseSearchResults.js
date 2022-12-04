@@ -20,6 +20,21 @@ const RenderCourseSearchResults = (function (RenderCourseDates) {
         }
     }
 
+    function renderSearchResultMessage(targetContainer) {
+        const courseListMessageWrapper = document.createElement('div');
+        courseListMessageWrapper.classList.add('course-list-message-wrapper');
+        const courseListMessage = document.createElement('p');
+        courseListMessage.classList.add('text-container-drawer__paragraph');
+        courseListMessage.innerHTML = 'Deine Suchresultate ...<br> Wenn du nichts passendes findest melde dich gerne. ';
+        const contactLink = document.createElement('a');
+        contactLink.classList.add('link-in-text');
+        contactLink.setAttribute('href', '/kontakt.html');
+        contactLink.innerText = 'Kontakt';
+        courseListMessage.appendChild(contactLink);
+        courseListMessageWrapper.appendChild(courseListMessage);
+        targetContainer.appendChild(courseListMessageWrapper);
+    }
+
     function renderCourses(foundCourses){
         const courseSearchResults = document.createElement('div');
 		courseSearchResults.classList.add('course-list-wrapper');
@@ -27,10 +42,12 @@ const RenderCourseSearchResults = (function (RenderCourseDates) {
 		courseSearchResultContainer.appendChild(courseSearchResults);
 
         if(foundCourses.length > 0){
+            renderSearchResultMessage(courseSearchResults);
             RenderCourseDates.createCourseListFor(foundCourses, 
                 ['Level1', 'Level2', 'Level3', 'Level3-Level4', 'Level4', 'Level5', 'alle'], 
                 ['Kanukurs', 'Packraft Kurs', 'Eskimotieren', 'Paddelreise'], 
-                '.course-search-result');
+                '.course-search-result',
+                false);
         } else {
             RenderCourseDates.createEmptyCourseList('.course-search-result-wrapper .course-search-result');
         }
@@ -43,6 +60,7 @@ const RenderCourseSearchResults = (function (RenderCourseDates) {
             deleteAllData(courseSearchResultContainer);
             toggleSpinner();
 
+            //Damit der Spinner für einen Moment angezeigt wird, damit der User merkt, dass gesucht wird.
             const searchPromise = new Promise((resolve) => {
                 setTimeout(() => {
                     toggleSpinner();

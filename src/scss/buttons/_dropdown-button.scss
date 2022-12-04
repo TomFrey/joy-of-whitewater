@@ -58,7 +58,7 @@
     }
 
     .dropdown-list ul li:not(:last-of-type):not(.dropdown-list-group){
-        margin-bottom: 0.5*$basicHeight;
+        margin-bottom: $basicHeight;
     }
 
     //die Listenelemente sind gruppiert
