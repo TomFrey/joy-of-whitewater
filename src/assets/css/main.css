@@ -3377,6 +3377,9 @@ a.open-drawer-wrapper {
   color: #004570;
   transform: scale(1.02);
 }
+.dropdown-button-wrapper .dropdown-list-group {
+  flex: 1 1 50%;
+}
 
 /* *************************************************** */
 /* *********** ab hier für tablet ******************* */

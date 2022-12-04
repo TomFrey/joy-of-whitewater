@@ -72,6 +72,10 @@
         color: $color-drawer-buttonToOpenDrawer;
         transform: scale(1.02);
     }
+
+    .dropdown-list-group{
+        flex: 1 1 50%;
+    }
 }
 
 /* *************************************************** */
