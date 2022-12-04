@@ -8,6 +8,9 @@ const CourseSearch = (function (RenderCourseSearchResults, CourseRegistration) {
     let dropdownListElements;
     let courseSearchResetButton;
     let courseSearchButton;
+    let isSearchActive = true;
+    let removeEventListenerController;
+    
   
     /**
      * Öffnet und schliesst die Dropdown Liste und dreht das 'Dreieck Icon' um 180 Grad.
@@ -215,41 +218,48 @@ const CourseSearch = (function (RenderCourseSearchResults, CourseRegistration) {
 
 	function init() {
         console.log('CourseSearch.init()');
-
-		courseSearchContainer = document.querySelector('.course-search-container');
-		
+        
+		courseSearchContainer = document.querySelector('.course-search-container');		
         if (courseSearchContainer !== null) {
+            if(isSearchActive){
+                isSearchActive = false;
+                removeEventListenerController = new AbortController();
 
-            dropdownButtons = document.querySelectorAll('.dropdown-button');
-            if (dropdownButtons !== null) { 
-                dropdownButtons.forEach((dropdownButton) => {
-                    dropdownButton.addEventListener('click', (event) => {
-                        toggleDropdownList(event.target);
+                dropdownButtons = document.querySelectorAll('.dropdown-button');
+                if (dropdownButtons !== null) { 
+                    dropdownButtons.forEach((dropdownButton) => {
+                        dropdownButton.addEventListener('click', (event) => {
+                            toggleDropdownList(event.target);
+                        }, { signal: removeEventListenerController.signal });
                     });
-                });
-            }
-
-            dropdownListElements = document.querySelectorAll('.dropdown-list ul:not(.dropdown-list-group-wrapper) li:not(.dropdown-list-group)');
-            if (dropdownListElements !== null) { 
-                dropdownListElements.forEach((dropdownListElement) => {
-                    dropdownListElement.addEventListener('click', (event) => {
-                        toggleSelectedElement(event.target);
+                }
+    
+                dropdownListElements = document.querySelectorAll('.dropdown-list ul:not(.dropdown-list-group-wrapper) li:not(.dropdown-list-group)');
+                if (dropdownListElements !== null) { 
+                    dropdownListElements.forEach((dropdownListElement) => {
+                        dropdownListElement.addEventListener('click', (event) => {
+                            toggleSelectedElement(event.target);
+                        }, { signal: removeEventListenerController.signal });
                     });
-                });
-            }
-
-            courseSearchResetButton = document.querySelector('.course-search-reset-button');
-            if (courseSearchResetButton !== null) { 
-                courseSearchResetButton.addEventListener('click', () => {
-                    resetSearchCriteria();
-                });
-            }
-
-            courseSearchButton = document.querySelector('.course-search-button');
-            if (courseSearchButton !== null) { 
-                courseSearchButton.addEventListener('click', (event) => {
-                    startSearch(event.target);
-                });
+                }
+    
+                courseSearchResetButton = document.querySelector('.course-search-reset-button');
+                if (courseSearchResetButton !== null) { 
+                    courseSearchResetButton.addEventListener('click', () => {
+                        resetSearchCriteria();
+                    }, { signal: removeEventListenerController.signal });
+                }
+    
+                courseSearchButton = document.querySelector('.course-search-button');
+                if (courseSearchButton !== null) { 
+                    courseSearchButton.addEventListener('click', (event) => {
+                        startSearch(event.target);
+                    }, { signal: removeEventListenerController.signal });
+                }    
+            //Alle EventListeners beim Schliessen der Suche entfernen, sonst werden Listener angehäuft.
+            } else {
+                isSearchActive = true;
+                removeEventListenerController.abort(); 
             }
 		}
 	}
