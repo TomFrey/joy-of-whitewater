@@ -1,5 +1,11 @@
 // eslint-disable-next-line no-unused-vars
 const CourseDates = (function (RenderCourseDates, Dates) {
+	let coursesFromStaticStorage;
+
+	function getCoursesFromStaticStorage(){
+		return coursesFromStaticStorage;
+	}
+
 	function init() {
 		const promise = new Promise((resolve, reject) => {
 			// alle Kursdaten lesen
@@ -11,20 +17,8 @@ const CourseDates = (function (RenderCourseDates, Dates) {
 						course.bisDatum = Dates.convertToAllBrowsersReadableDate(course.bisDatum);
 					});
 
-
-					//test code
-					if ('caches' in window){
-						const newCache = await caches.open('courses');
-						newCache.add('/api/kurse.php')
-						.then(() => {
-							console.log('success');
-						})
-
-						.catch((error) => {
-							console.log('errer '+error)
-						})
-					}
-
+					//Kurse in globaler Varibale speichern
+					coursesFromStaticStorage = courses;
 
 					// Render Level1 Basis Kanukurse
 					RenderCourseDates.createCourseListFor(courses, ['Level1'], 'Kanukurs', '.course-list-wrapper-level1Course');
@@ -56,6 +50,7 @@ const CourseDates = (function (RenderCourseDates, Dates) {
 
 	// public api
 	return {
-		loadAndRender: init
+		loadAndRender: init,
+		getCoursesFromStaticStorage
 	};
 })(RenderCourseDates, Dates);

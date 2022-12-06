@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-const CourseSearch = (function (RenderCourseSearchResults, CourseRegistration) {
+const CourseSearch = (function (CourseDates, RenderCourseSearchResults, CourseRegistration) {
     const SHOW = 'js-show';
     const SELECTED = 'js-isSelected';
 
@@ -30,7 +30,7 @@ const CourseSearch = (function (RenderCourseSearchResults, CourseRegistration) {
     }
 
     /**
-     * Markiert oder demarkiert eine Element in der Dropdown Liste
+     * Markiert oder demarkiert ein Element in der Dropdown Liste
      * @param {*} event 
      */
     function toggleSelectedElement(event){
@@ -72,8 +72,6 @@ const CourseSearch = (function (RenderCourseSearchResults, CourseRegistration) {
                 dropdownButtonIcon.classList.remove(SHOW);
             } 
         })
-
-        //location.reload();
     }
 
     /**
@@ -85,8 +83,6 @@ const CourseSearch = (function (RenderCourseSearchResults, CourseRegistration) {
 
         dropdownListElements.forEach((dropdownListElement) => {
             if (dropdownListElement.classList.contains(SELECTED)) {
-                //console.log('Element: ' + dropdownListElement.innerText);
-
                 if (dropdownListElement.innerText.includes('Level')) {
                     searchObject.levels.push(dropdownListElement.innerText.replace(/\s+/g, ''));
 
@@ -114,7 +110,7 @@ const CourseSearch = (function (RenderCourseSearchResults, CourseRegistration) {
           (searchObject.levels.includes('Level3') || searchObject.levels.includes('Level4'))){
             searchObject.levels.push('Level3-Level4');
         }
-        console.log('searchObject: ' + JSON.stringify(searchObject));
+        //console.log('searchObject: ' + JSON.stringify(searchObject));
         return searchObject;
     }
 
@@ -190,35 +186,15 @@ const CourseSearch = (function (RenderCourseSearchResults, CourseRegistration) {
         let searchCriteria = getSearchCriteria();
         let searchResult = [];
 
-        fetch('/api/kurse.php', {cache: "force-cache"})
-        .then((response) => {
-            response.json()
-            .then((jsonResponseData) => {
-                searchResult = getSearchResults(searchCriteria, jsonResponseData);
-                
-                RenderCourseSearchResults.init(searchResult)
-                .then(() => {
-                    addListenersToSearchResults();
-                })
-
-                // console.log('Anzahl: ' + searchResult.length);
-                // searchResult.forEach((course) => {
-                //     console.log('gefiltert nach Level: ' + JSON.stringify(course));
-                // })
-            })
+        searchResult = getSearchResults(searchCriteria, CourseDates.getCoursesFromStaticStorage());
+        RenderCourseSearchResults.init(searchResult)
+        .then(() => {
+            addListenersToSearchResults();
         })
-        .catch(() => {
-            //Wenn keine Daten im Cache sind die Kurse von der DB holen
-            //TODO:
-        })
-
-        
     }
 
 
 	function init() {
-        console.log('CourseSearch.init()');
-        
 		courseSearchContainer = document.querySelector('.course-search-container');		
         if (courseSearchContainer !== null) {
             if(isSearchActive){
@@ -268,4 +244,4 @@ const CourseSearch = (function (RenderCourseSearchResults, CourseRegistration) {
 	return {
 		init
 	};
-})(RenderCourseSearchResults, CourseRegistration);
+})(CourseDates, RenderCourseSearchResults, CourseRegistration);

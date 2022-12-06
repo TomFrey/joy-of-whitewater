@@ -162,7 +162,6 @@ const CourseRegistration = (function (Validator, RenderConfirmation, Dates) {
 	function addListenerToRegistrationButtons() {
 		let registrationButtons = document.querySelectorAll('.link-button-wrapper__courseRegistration');
 		if (registrationButtons !== null) {
-			console.log('add Listener for Anmeldebutton');
 			registrationButtons.forEach((registrationButton) => {
 				registrationButton.addEventListener('click', (event) => {
 					callRegistrationForm(event);
