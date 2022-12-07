@@ -83,24 +83,24 @@ const CourseSearch = (function (CourseDates, RenderCourseSearchResults, CourseRe
 
         dropdownListElements.forEach((dropdownListElement) => {
             if (dropdownListElement.classList.contains(SELECTED)) {
-                if (dropdownListElement.innerText.includes('Level')) {
-                    searchObject.levels.push(dropdownListElement.innerText.replace(/\s+/g, ''));
+                if (dropdownListElement.innerHTML.includes('Level')) {
+                    searchObject.levels.push(dropdownListElement.innerHTML.replace(/\s+/g, ''));
 
-                } else if (dropdownListElement.innerText.includes('Wildwasser')) {
-                    if(dropdownListElement.innerText === 'Wildwasser Reise'){
+                } else if (dropdownListElement.innerHTML.includes('Wildwasser')) {
+                    if(dropdownListElement.innerHTML === 'Wildwasser Reise'){
                         searchObject.activities.push('Paddelreise');
                     } else {
                         //Bei einem Kurs immer nach Kanu, Packraft und Eskimotierkurs suchen
                         searchObject.activities.push('Kanukurs', 'Packraft Kurs', 'Eskimotieren');
                     }
 
-                } else if (dropdownListElement.innerText === 'Kajak' || 
-                           dropdownListElement.innerText === 'Kanadier' ||
-                           dropdownListElement.innerText === 'Packraft') {
-                    searchObject.boats.push(dropdownListElement.innerText);
+                } else if (dropdownListElement.innerHTML === 'Kajak' || 
+                           dropdownListElement.innerHTML === 'Kanadier' ||
+                           dropdownListElement.innerHTML === 'Packraft') {
+                    searchObject.boats.push(dropdownListElement.innerHTML);
 
                 } else {
-                    searchObject.months.push(dropdownListElement.innerText);
+                    searchObject.months.push(dropdownListElement.innerHTML);
                 }
             }
         });
