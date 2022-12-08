@@ -3003,7 +3003,7 @@ h4.course-list-detail__title::after {
 .course-search-container-criteria {
   display: flex;
   flex-flow: column;
-  order: 1;
+  order: 0;
 }
 
 .course-search-container-actions {

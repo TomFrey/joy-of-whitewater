@@ -77,6 +77,9 @@ const CourseSearch = (function (CourseDates, RenderCourseSearchResults, CourseRe
     /**
      * Alle vom Benutzer ausgewählten Suchkriterien (AKTIVITÄT, BOOT, MONAT, STUFE) 
      * in ein Objekt schreiben.
+     * 
+     * Die Texte der Listelemente werden mit 'innerHTML' gelesen, weil 'innerText' auf einem Mobile Gerät nicht funktioniert.
+     * Im Mobile Simulator auf dem Desktop geht es noch, aber auf dem echten Mobilgerät dann nicht mehr.
      */
     function getSearchCriteria(){
         let searchObject = {levels: [], months: [], activities: [], boats: []};
