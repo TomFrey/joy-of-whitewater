@@ -675,6 +675,15 @@ Tablet / Desktop
 .text-container a.link-in-text:hover, .text-container a.link-in-text--big:hover, .text-container__home a.link-in-text:hover, .text-container__home a.link-in-text--big:hover {
   color: #004570;
 }
+.text-container ul.program-points, .text-container__home ul.program-points {
+  margin-top: 2px;
+}
+.text-container ul.program-points li, .text-container__home ul.program-points li {
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: #4d4d4d;
+  padding-bottom: 2px;
+}
 
 .text-container-main, .text-container-main__home {
   background-color: #E6E6E6;
@@ -920,6 +929,9 @@ img.text-container-fill__bottom {
   .text-container:not(:first-child) > .text-container-main:not(:only-child):last-of-type {
     border-radius: 0px 0px 16px 16px;
     padding: 8px 16px 24px 16px;
+  }
+  .text-container-main.center-text {
+    align-items: center;
   }
   .text-container-full-width {
     padding: 0 16px;

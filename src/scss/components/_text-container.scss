@@ -148,6 +148,16 @@ Tablet / Desktop
 	a.link-in-text:hover, a.link-in-text--big:hover{
 		color: $color-textContainer-text-hover;
 	}
+
+	ul.program-points{
+		margin-top: 2px;
+		li{
+			font-size: $smallTextSize;
+			font-weight: bold;
+			color: lighten($complimentaryColor3, 30%);
+			padding-bottom: 2px;
+		}
+	}
 }
 
 .text-container-main, .text-container-main__home {
@@ -457,6 +467,10 @@ img.text-container-fill__bottom {
 			border-radius: 0px 0px 16px 16px;
 			padding: $basicHeight 2*$basicWidth 3*$basicHeight 2*$basicWidth;
 		}
+	}
+
+	.text-container-main.center-text{
+		align-items: center;
 	}
 	
 	
