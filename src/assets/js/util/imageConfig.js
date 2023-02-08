@@ -5,33 +5,30 @@ var Images = (function () {
 	const imageCarousel = {
 		theJoyOfWhiteWaterImages: [
 			{ name: 'joyOfWhitewater_6', title: 'Kanuschule', alt: 'Kanuschule - The Joy Of Whitewater' },
+			{ name: 'joyOfWhitewater_3', title: 'Kanuschule', alt: 'Kanuschule - The Joy Of Whitewater' },
 			{ name: 'joyOfWhitewater_1', title: 'Kanuschule', alt: 'Kanuschule - The Joy Of Whitewater' },
-			{ name: 'joyOfWhitewater_7', title: 'Kanuschule', alt: 'Kanuschule - The Joy Of Whitewater' },
 			{ name: 'joyOfWhitewater_2', title: 'Kanuschule', alt: 'Kanuschule - The Joy Of Whitewater' },
-			{ name: 'joyOfWhitewater_4', title: 'Kanuschule', alt: 'Kanuschule - The Joy Of Whitewater' }
+			{ name: 'joyOfWhitewater_8', title: 'Kanuschule', alt: 'Kanuschule - The Joy Of Whitewater' }
 		],
 		kanukurseImages: [
-			{ name: 'kanukurse_1', title: 'Open Canoe Kurse', alt: 'Kanuschule' },
-			{ name: 'kanukurse_4', title: 'Kanukurse', alt: 'Kanuschule' },
-			{ name: 'kanukurse_7', title: 'Kajakkurse', alt: 'Kanuschule' },
-			{ name: 'kanukurse_2', title: 'Eskimotieren', alt: 'Kanuschule' },
-			{ name: 'kanukurse_6', title: 'Kajakkurse', alt: 'Kanuschule' },
-			{ name: 'kanukurse_3', title: 'Kajakkurs', alt: 'Kanuschule' }
+			{ name: 'kanukurse_5', title: 'Kajakkurse', alt: 'Kajakkurse' },
+			{ name: 'kanukurse_4', title: 'Kanukurse', alt: 'Kanukurse' },
+			{ name: 'kanukurse_9', title: 'Kajakkurse', alt: 'Kajakkurse' },
+			{ name: 'kanukurse_8', title: 'Open Canoe Kurse', alt: 'Open Canoe Kurse' }
 		],
 		paddelreisenImages: [
 			{ name: 'paddelreisen_10', title: 'Tavignano, Korsika', alt: 'Paddelreisen' },
 			{ name: 'paddelreisen_7', title: 'Transportmittel in Chile', alt: 'Paddelreisen' },
-			{ name: 'paddelreisen_4', title: 'Open Canoe in Costa Rica', alt: 'Paddelreisen' },
-			{ name: 'paddelreisen_1', title: 'Sesia, Piemont', alt: 'Paddelreisen' },
+			{ name: 'paddelreisen_3', title: 'Inn, Engadin', alt: 'Paddelreisen' },
 			{ name: 'paddelreisen_2', title: 'Paddelreise in Georgien', alt: 'Paddelreisen' },
 			{ name: 'paddelreisen_5', title: 'Taravo, Korsika', alt: 'Paddelreisen' }
 			
 		],
 		packraftImages: [
+			{ name: 'packraft_1', title: 'Packraft Kurse', alt: 'Packraft Kurse' },
 			{ name: 'packraft_6', title: 'Packraft Kurse', alt: 'Packraft Kurse' },
-			{ name: 'packraft_7', title: 'Packraft Kurse', alt: 'Packraft Kurse' },
-			{ name: 'packraft_3', title: 'Packraft', alt: 'Packraft' },
-			{ name: 'packraft_4', title: 'Packraft Ausflüge', alt: 'Packraft Ausflüge' }
+			{ name: 'packraft_2', title: 'Packraft', alt: 'Packraft' },
+			{ name: 'packraft_3', title: 'Packraft Ausflüge', alt: 'Packraft Ausflüge' }
 		]
 	};
 
