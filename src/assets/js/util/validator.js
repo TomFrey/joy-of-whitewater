@@ -105,7 +105,7 @@ const Validator = (function () {
 	 * @returns {boolean}
 	 */
 	 function isTextFieldValid(textInputField) {
-		const isValidTextField = new RegExp(/^[\w\s\.\'\"\?\-)(,;:!öäüÖÄÜéàèçœøæåêÉÈÀÇÅËÊ]*$/);
+		const isValidTextField = new RegExp(/^[\w\s\.\'\"\?\-)(,;:!öäüÖÄÜéàèçœøæåêÉÈÀÇÅËÊßẞśŚšŠ]*$/);
 		return validate(isValidTextField, textInputField, false);
 	}
 
@@ -118,7 +118,7 @@ const Validator = (function () {
 	 * @returns {boolean}
 	 */
 	 function isTextFieldNotEmptyValid(textInputField) {
-		const isValidTextField = new RegExp(/^[\w\s\.\'\"\?\-)(,;:!öäüÖÄÜéàèçœøæåêÉÈÀÇÅËÊ]+$/);
+		const isValidTextField = new RegExp(/^[\w\s\.\'\"\?\-)(,;:!öäüÖÄÜéàèçœøæåêÉÈÀÇÅËÊßẞśŚšŠ]+$/);
 		return validate(isValidTextField, textInputField, false);
 	}
 
@@ -130,7 +130,7 @@ const Validator = (function () {
 	 * @returns {boolean}
 	 */
 	 function isCourseNameValid(courseNameInputField) {
-		const isValidCourseName = new RegExp(/^[a-zA-Z\s0-9öüäéàèçœøæåêÖÜÄÉÈÀÇÅËÊ(),\-]+$/);
+		const isValidCourseName = new RegExp(/^[a-zA-Z\s0-9öüäéàèçœøæåêÖÜÄÉÈÀÇÅËÊßẞśŚšŠ(),\-]+$/);
 		return validate(isValidCourseName, courseNameInputField);
 	}
 
@@ -142,7 +142,7 @@ const Validator = (function () {
 	 * @returns {boolean}
 	 */
 	function isNameValid(nameInputField) {
-		const isValidName = new RegExp(/^[a-zA-Z\söüäéàèçœøæåêÖÜÄÉÈÀÇÅËÊ,\-]+$/);
+		const isValidName = new RegExp(/^[a-zA-Z\söüäéàèçœøæåêÖÜÄÉÈÀÇÅËÊßẞśŚšŠ,\-]+$/);
 		return validate(isValidName, nameInputField);
 	}
 
@@ -154,7 +154,7 @@ const Validator = (function () {
 	 * @returns {boolean}
 	 */
 	function isAddressValid(addressInputField) {
-		const isValidAddress = new RegExp(/^[a-zA-Z\s0-9öüäéàèçœøæåêÖÜÄÉÈÀÇÅËÊ,\-\.]+$/);
+		const isValidAddress = new RegExp(/^[a-zA-Z\s0-9öüäéàèçœøæåêÖÜÄÉÈÀÇÅËÊßẞśŚšŠ,\-\.]+$/);
 		return validate(isValidAddress, addressInputField);
 	}
 
