@@ -125,11 +125,10 @@ Tablet / Desktop
 	.paragraph{
 		color: $color-textContainer-text;
 		font-size: $textSize;
-		//margin-bottom: 0.5rem;
 	}
 
 	.paragraph + .paragraph{
-		margin-top: 0.5rem;
+		margin-top: 0.75rem;
 	}
 
 	a.link-in-text, a.link-in-text--big{

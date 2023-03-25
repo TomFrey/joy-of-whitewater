@@ -660,7 +660,7 @@ Tablet / Desktop
   font-size: 1rem;
 }
 .text-container .paragraph + .paragraph, .text-container__home .paragraph + .paragraph {
-  margin-top: 0.5rem;
+  margin-top: 0.75rem;
 }
 .text-container a.link-in-text, .text-container a.link-in-text--big, .text-container__home a.link-in-text, .text-container__home a.link-in-text--big {
   color: #941216;
