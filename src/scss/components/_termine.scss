@@ -1,0 +1,122 @@
+
+/* 
+Mobile
+-------------------------------------------------------------
+|                                                           |
+|                        Titel                              |
+|                                                           |
+| --------------------------------------------------------- |    
+|                                                           |
+|                        Text                               |
+|                                                           |
+| --------------------------------------------------------- |    
+|                                                           |
+|                                                           |
+|                        Bild                               |
+|                                                           |
+|                                                           |
+| --------------------------------------------------------- |    
+|                                                           |
+|                 Button, Details öffnen                    |
+|                                                           |
+-------------------------------------------------------------     
+
+
+Desktop und Tablet
+----------------------------------------------------------------------------
+|                                        |                                 | 
+|                  Titel                 |                                 | 
+|                                        |                                 | 
+| -------------------------------------- |                                 |    
+|                                        |                                 | 
+|                   Text                 |               Bild              | 
+|                                        |                                 | 
+| -------------------------------------- |                                 |    
+|                                        |                                 | 
+|         Button, Details öffnen         |                                 | 
+|                                        |                                 | 
+---------------------------------------- | ---------------------------------                                  
+*/
+
+.termine-header-grid{
+    display: grid;
+    grid-template: [Zeile1] "Titel" auto
+                   [Zeile2] "Text" auto
+                   [Zeile3] "Bild" auto
+                   [Zeile4] "Button" auto 
+                   [Zeile4Ende] / 100%;
+
+    background-color: lighten($color-textContainer-background, 5%);
+    margin: 3*$basicHeight 0*$basicWidth $basicHeight 0*$basicWidth;
+    padding: $basicHeight;
+    border: 2px gray solid;
+    border-radius: 8px;
+}
+
+.termine-header-area__titel{
+    grid-area: Titel;
+}
+
+.termine-header-area__text{
+    grid-area: Text;
+}
+
+.termine-header-area__picture{
+    grid-area: Bild;
+    margin-top: $basicHeight;
+
+    picture{
+        display: flex;
+    }
+
+    img{
+        max-width: 100%;
+        border-radius: 8px;
+    }
+}
+
+.termine-header-area__button{
+    grid-area: Button;
+    margin-top: $basicHeight;
+}
+
+
+/* *************************************************** */
+/* *********** ab hier für tablet ******************* */
+@media screen and (min-width: $breakpoint-medium) {   // > 688px
+
+    .termine-header-grid{
+        display: grid;
+        grid-template: [Zeile1] "Titel Bild" auto
+                    [Zeile2] "Text Bild" auto
+                    [Zeile3] "Button Bild" auto
+                    [Zeile3Ende] / 59% 40%;
+        column-gap: $basicWidth;
+
+        //Absichtlich geschachtelt, sonst ist die Spezifität zu klein
+        .termine-header-area__button{
+            align-self: end;
+    
+            .open-drawer{
+                display: block;
+                width: 100%;
+                margin: 0;
+            }
+        }
+    }
+
+    .termine-header-area__picture{
+        align-self: end;
+        margin-top: 0;
+    }
+}
+
+
+/* *************************************************** */
+/* *********** ab hier für desktop ******************* */
+@media screen and (min-width: $breakpoint-large) { // > 992px
+
+    .termine-header-grid{
+        margin: 3*$basicHeight 20*$basicWidth $basicHeight 0*$basicWidth;
+    }
+}

@@ -21,6 +21,7 @@ const Navigation = (function (RenderImageSlider, Images, Globals, Responsive, Co
 	let courseSearchDrawerButton;
 	let drawerButtons;
 	let courseLists;
+	let courseOverviewDrawerButtons;
 
 
 	function setHeaderTitle(titleContent) {
@@ -144,7 +145,24 @@ const Navigation = (function (RenderImageSlider, Images, Globals, Responsive, Co
 
 
 	function toggleTextContainerDrawer(event) {
+		console.log('toggleTextContainerDrawer');
 		const drawer = event.parentElement.parentElement.lastElementChild;
+		const drawerButtonIcon = event.lastElementChild;
+
+		if (drawer.classList.contains(SHOW)) {
+			drawer.classList.remove(SHOW);
+			drawerButtonIcon.classList.remove(SHOW);
+		} else {
+			drawer.classList.add(SHOW);
+			drawerButtonIcon.classList.add(SHOW);
+		}
+	}
+
+
+
+	function toggleTerminOverviewDrawer(event) {
+		console.log('toggleTerminOverviewDrawer');
+		const drawer = event.parentElement.parentElement.parentElement.parentElement.lastElementChild;
 		const drawerButtonIcon = event.lastElementChild;
 
 		if (drawer.classList.contains(SHOW)) {
@@ -352,6 +370,26 @@ const Navigation = (function (RenderImageSlider, Images, Globals, Responsive, Co
 				CourseSearch.init();
 				toggleTextContainerDrawer(event.target);
 			});
+		}
+
+		//die Drawer welche, auf der Termine Seite, die Kanukurs, Reisen und Packraft Termine auf und zu klappen
+		courseOverviewDrawerButtons = document.querySelectorAll('.open-close-drawer-button-course-overview');
+		if (courseOverviewDrawerButtons !== null) {
+			courseOverviewDrawerButtons.forEach((courseOverviewDrawerButton) => {
+				courseOverviewDrawerButton.addEventListener('click', (event) => {
+					toggleTerminOverviewDrawer(event.target);
+				});
+			})
+		}
+
+		//die Drawer welche, auf der Termine Seite, in einem Drawer sind und wieder einen Drawer öffnen
+		courseOverviewDrawerButtons = document.querySelectorAll('.open-close-drawer-button-course-overview-drawer-in-drawer');
+		if (courseOverviewDrawerButtons !== null) {
+			courseOverviewDrawerButtons.forEach((courseOverviewDrawerButton) => {
+				courseOverviewDrawerButton.addEventListener('click', (event) => {
+					toggleTextContainerDrawer(event.target);
+				});
+			})
 		}
 		
 		courseLists = document.querySelectorAll('.course-list');

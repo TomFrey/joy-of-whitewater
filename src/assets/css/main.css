@@ -752,6 +752,10 @@ Tablet / Desktop
   transition: max-height 0.5s ease-in-out 1ms;
 }
 
+.text-container-drawer.text-container-drawer--details.drawer-big-height.js-show {
+  max-height: 10000px;
+}
+
 .text-container-drawer__content-wrapper {
   padding: 16px 16px;
 }
@@ -957,6 +961,14 @@ img.text-container-fill__bottom {
   .text-container-drawer--paddling-trip-details .text-container-drawer__content-wrapper > .gridx12 {
     margin: 16px 16px;
   }
+  .text-container-drawer.text-container-drawer--details.js-show {
+    max-height: 1300px;
+    padding: 8px;
+    transition: max-height 0.5s ease-in-out 1ms;
+  }
+  .text-container-drawer.text-container-drawer--details.drawer-big-height.js-show {
+    max-height: 7500px;
+  }
 }
 /* *************************************************** */
 /* *********** ab hier für desktop ******************* */
@@ -1040,6 +1052,9 @@ img.text-container-fill__bottom {
   }
   .text-container-drawer--paddling-trip-details .text-container-drawer__content-wrapper > .gridx12 {
     margin: 16px 0;
+  }
+  .text-container-drawer.text-container-drawer--details.drawer-big-height.js-show {
+    max-height: 7000px;
   }
 }
 .images-carousel {
@@ -3076,6 +3091,107 @@ h4.course-list-detail__title::after {
   .course-search-button {
     margin-right: 0px;
     margin-bottom: 16px;
+  }
+}
+/* 
+Mobile
+-------------------------------------------------------------
+|                                                           |
+|                        Titel                              |
+|                                                           |
+| --------------------------------------------------------- |    
+|                                                           |
+|                        Text                               |
+|                                                           |
+| --------------------------------------------------------- |    
+|                                                           |
+|                                                           |
+|                        Bild                               |
+|                                                           |
+|                                                           |
+| --------------------------------------------------------- |    
+|                                                           |
+|                 Button, Details öffnen                    |
+|                                                           |
+-------------------------------------------------------------     
+
+
+Desktop und Tablet
+----------------------------------------------------------------------------
+|                                        |                                 | 
+|                  Titel                 |                                 | 
+|                                        |                                 | 
+| -------------------------------------- |                                 |    
+|                                        |                                 | 
+|                   Text                 |               Bild              | 
+|                                        |                                 | 
+| -------------------------------------- |                                 |    
+|                                        |                                 | 
+|         Button, Details öffnen         |                                 | 
+|                                        |                                 | 
+---------------------------------------- | ---------------------------------                                  
+*/
+.termine-header-grid {
+  display: grid;
+  grid-template: [Zeile1] "Titel" auto [Zeile2] "Text" auto [Zeile3] "Bild" auto [Zeile4] "Button" auto [Zeile4Ende]/100%;
+  background-color: #f3f3f3;
+  margin: 24px 0px 8px 0px;
+  padding: 8px;
+  border: 2px gray solid;
+  border-radius: 8px;
+}
+
+.termine-header-area__titel {
+  grid-area: Titel;
+}
+
+.termine-header-area__text {
+  grid-area: Text;
+}
+
+.termine-header-area__picture {
+  grid-area: Bild;
+  margin-top: 8px;
+}
+.termine-header-area__picture picture {
+  display: flex;
+}
+.termine-header-area__picture img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+.termine-header-area__button {
+  grid-area: Button;
+  margin-top: 8px;
+}
+
+/* *************************************************** */
+/* *********** ab hier für tablet ******************* */
+@media screen and (min-width: 688px) {
+  .termine-header-grid {
+    display: grid;
+    grid-template: [Zeile1] "Titel Bild" auto [Zeile2] "Text Bild" auto [Zeile3] "Button Bild" auto [Zeile3Ende]/59% 40%;
+    column-gap: 8px;
+  }
+  .termine-header-grid .termine-header-area__button {
+    align-self: end;
+  }
+  .termine-header-grid .termine-header-area__button .open-drawer {
+    display: block;
+    width: 100%;
+    margin: 0;
+  }
+  .termine-header-area__picture {
+    align-self: end;
+    margin-top: 0;
+  }
+}
+/* *************************************************** */
+/* *********** ab hier für desktop ******************* */
+@media screen and (min-width: 992px) {
+  .termine-header-grid {
+    margin: 24px 160px 8px 0px;
   }
 }
 .open-drawer {
