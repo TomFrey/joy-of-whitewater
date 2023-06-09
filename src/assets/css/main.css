@@ -752,6 +752,10 @@ Tablet / Desktop
   transition: max-height 0.5s ease-in-out 1ms;
 }
 
+.text-container-drawer.text-container-drawer--details.drawer-medium-height.js-show {
+  max-height: 5000px;
+}
+
 .text-container-drawer.text-container-drawer--details.drawer-big-height.js-show {
   max-height: 10000px;
 }
@@ -966,6 +970,9 @@ img.text-container-fill__bottom {
     padding: 8px;
     transition: max-height 0.5s ease-in-out 1ms;
   }
+  .text-container-drawer.text-container-drawer--details.drawer-medium-height.js-show {
+    max-height: 4000px;
+  }
   .text-container-drawer.text-container-drawer--details.drawer-big-height.js-show {
     max-height: 7500px;
   }
@@ -1052,6 +1059,9 @@ img.text-container-fill__bottom {
   }
   .text-container-drawer--paddling-trip-details .text-container-drawer__content-wrapper > .gridx12 {
     margin: 16px 0;
+  }
+  .text-container-drawer.text-container-drawer--details.drawer-medium-height.js-show {
+    max-height: 3000px;
   }
   .text-container-drawer.text-container-drawer--details.drawer-big-height.js-show {
     max-height: 7000px;
@@ -3134,10 +3144,9 @@ Desktop und Tablet
 .termine-header-grid {
   display: grid;
   grid-template: [Zeile1] "Titel" auto [Zeile2] "Text" auto [Zeile3] "Bild" auto [Zeile4] "Button" auto [Zeile4Ende]/100%;
-  background-color: #f3f3f3;
+  background-color: #ffffff;
   margin: 24px 0px 8px 0px;
   padding: 8px;
-  border: 2px gray solid;
   border-radius: 8px;
 }
 

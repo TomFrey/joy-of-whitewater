@@ -46,10 +46,9 @@ Desktop und Tablet
                    [Zeile4] "Button" auto 
                    [Zeile4Ende] / 100%;
 
-    background-color: lighten($color-textContainer-background, 5%);
+    background-color: $color-main-background;
     margin: 3*$basicHeight 0*$basicWidth $basicHeight 0*$basicWidth;
     padding: $basicHeight;
-    border: 2px gray solid;
     border-radius: 8px;
 }
 

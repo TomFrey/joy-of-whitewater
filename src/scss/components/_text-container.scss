@@ -241,6 +241,10 @@ Tablet / Desktop
 	transition: max-height 0.5s ease-in-out 1ms;
 }
 
+.text-container-drawer.text-container-drawer--details.drawer-medium-height.js-show{
+	max-height: 5000px;
+}
+
 .text-container-drawer.text-container-drawer--details.drawer-big-height.js-show{
 	max-height: 10000px;
 }
@@ -522,6 +526,10 @@ img.text-container-fill__bottom {
 		transition: max-height 0.5s ease-in-out 1ms;
 	}
 
+	.text-container-drawer.text-container-drawer--details.drawer-medium-height.js-show{
+		max-height: 4000px;
+	}
+
 	.text-container-drawer.text-container-drawer--details.drawer-big-height.js-show{
 		max-height: 7500px;
 	}
@@ -649,6 +657,10 @@ img.text-container-fill__bottom {
 				margin: 2*$basicWidth 0;
 			}
 		}
+	}
+
+	.text-container-drawer.text-container-drawer--details.drawer-medium-height.js-show{
+		max-height: 3000px;
 	}
 
 	.text-container-drawer.text-container-drawer--details.drawer-big-height.js-show{
