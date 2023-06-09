@@ -216,6 +216,10 @@ Tablet / Desktop
 
 //im Mobile den Drawer schneller schliessen, da hier bei den Kanumaterial Preisen ein Teil der Tabelle
 //absolute positioniert ist. Das Umschalten der Position sieht man beim Öffnen und Schliessen.
+.text-container-detail-wrapper{
+	margin-bottom: $basicHeight;
+}
+
 .text-container-drawer{
   	background-color: $color-drawer-background-drawer;
 	color: $color-drawer-text;
@@ -238,7 +242,12 @@ Tablet / Desktop
 .text-container-drawer.text-container-drawer--details.js-show{
 	max-height: 1300px;
 	padding-bottom: $basicHeight;
+	//padding: $basicHeight;
 	transition: max-height 0.5s ease-in-out 1ms;
+
+	h3, h4, .paragraph{
+		padding: 0 $basicWidth;
+	}
 }
 
 .text-container-drawer.text-container-drawer--details.drawer-medium-height.js-show{
@@ -532,6 +541,16 @@ img.text-container-fill__bottom {
 
 	.text-container-drawer.text-container-drawer--details.drawer-big-height.js-show{
 		max-height: 7500px;
+	}
+
+	.text-container-detail-wrapper .text-container-drawer .course-list-wrapper .course-list{
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	.text-container-drawer .text-container-detail-wrapper .text-container-drawer{
+		padding-left: 0;
+		padding-right: 0;
 	}
 }
 

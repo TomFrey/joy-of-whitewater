@@ -728,6 +728,10 @@ Tablet / Desktop
   color: #000000;
 }
 
+.text-container-detail-wrapper {
+  margin-bottom: 8px;
+}
+
 .text-container-drawer {
   background-color: #BADDFF;
   color: #000000;
@@ -751,13 +755,16 @@ Tablet / Desktop
   padding-bottom: 8px;
   transition: max-height 0.5s ease-in-out 1ms;
 }
+.text-container-drawer.text-container-drawer--details.js-show h3, .text-container-drawer.text-container-drawer--details.js-show h4, .text-container-drawer.text-container-drawer--details.js-show .paragraph {
+  padding: 0 8px;
+}
 
 .text-container-drawer.text-container-drawer--details.drawer-medium-height.js-show {
   max-height: 5000px;
 }
 
 .text-container-drawer.text-container-drawer--details.drawer-big-height.js-show {
-  max-height: 10000px;
+  max-height: 12000px;
 }
 
 .text-container-drawer__content-wrapper {
@@ -976,6 +983,14 @@ img.text-container-fill__bottom {
   .text-container-drawer.text-container-drawer--details.drawer-big-height.js-show {
     max-height: 7500px;
   }
+  .text-container-detail-wrapper .text-container-drawer .course-list-wrapper .course-list {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .text-container-drawer .text-container-detail-wrapper .text-container-drawer {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
 /* *************************************************** */
 /* *********** ab hier für desktop ******************* */
@@ -1152,7 +1167,7 @@ img.text-container-fill__bottom {
   line-height: 32px;
   display: flex;
   flex-flow: column nowrap;
-  padding: 8px 8px;
+  padding: 8px 4px;
 }
 
 .course-list-item-wrapper:not(:first-of-type) {
@@ -1324,6 +1339,13 @@ h4.course-list-detail__title::after {
   content: " - ";
 }
 
+/* *************************************************** */
+/* *********** ab hier für tablet *******************  */
+@media screen and (min-width: 688px) {
+  .course-list {
+    padding: 8px 16px;
+  }
+}
 /* *************************************************** */
 /* *********** ab hier für desktop ******************* */
 @media screen and (min-width: 992px) {

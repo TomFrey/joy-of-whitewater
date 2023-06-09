@@ -2,7 +2,7 @@
   @include courseTableFont();
   display: flex;
   flex-flow: column nowrap;
-  padding: $basicHeight $basicWidth;
+  padding: $basicHeight 0.5*$basicWidth;
 }
 
 
@@ -176,6 +176,15 @@ h4.course-list-detail__title::after{
   content: ' - ';
 }
 
+
+
+/* *************************************************** */
+/* *********** ab hier für tablet *******************  */
+@media screen and (min-width: $breakpoint-medium) {   // > 688px
+	.course-list{
+		padding: $basicHeight 2*$basicWidth;
+	  }
+}
 
 
 
