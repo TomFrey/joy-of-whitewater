@@ -665,7 +665,7 @@ const RenderCourseDates = (function (Dates, Globals) {
 		let courseDatesForLevel = courseDates.filter((courseDate) => {
 			return courseTypes.indexOf(courseDate.typ) != -1 && courseLevels.indexOf(courseDate.kursStufe) != -1;
 		});
-		courseDatesForLevel = showCoursesNotOlderThen(courseDatesForLevel, 60);
+		courseDatesForLevel = showCoursesNotOlderThen(courseDatesForLevel, 14);
 		courseDatesForLevel = sortDatumAscending(courseDatesForLevel);
 		
 		const courseListWrappers = document.querySelectorAll(cssClass);
