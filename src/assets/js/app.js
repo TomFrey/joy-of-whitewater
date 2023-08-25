@@ -21,6 +21,12 @@ const App = (function (Globals, Responsive) {
 							RenderHeader.addJustFirstImage(Images.getImagesForKanukurse());
 							Navigation.setHeaderTitle('Kanukurse');
 							break;
+
+						// case 'kanadierkurse':
+						// 	RenderHeader.addJustFirstImage(Images.getImagesForKanukurse());
+						// 	Navigation.setHeaderTitle('Kanadierkurse');
+						// 	break;
+
 						case 'paddelreisen':
 							RenderHeader.addJustFirstImage(Images.getImagesForPaddelreisen());
 							Navigation.setHeaderTitle('Wildwasser Reisen');

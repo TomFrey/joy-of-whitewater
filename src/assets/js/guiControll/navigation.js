@@ -35,6 +35,12 @@ const Navigation = (function (RenderImageSlider, Images, Globals, Responsive, Co
 
 		const kanuKurse = document.querySelector('li.main-navi-desktop__kanukurse a.u-slide-line');
 		allLinksFromMainNavigation.push(kanuKurse);
+
+		// const kanadierKurse = document.querySelector('li.main-navi-desktop__kanadierkurse a.u-slide-line');
+		// allLinksFromMainNavigation.push(kanadierKurse);
+		// const specials = document.querySelector('li.main-navi-desktop__specials a.u-slide-line');
+		// allLinksFromMainNavigation.push(specials);
+
 		const paddelReisen = document.querySelector('li.main-navi-desktop__paddelreisen a.u-slide-line');
 		allLinksFromMainNavigation.push(paddelReisen);
 		const joyOfWhitewater = document.querySelector('li.main-navi-desktop__joyOfWhitewater a.u-slide-line');
@@ -50,6 +56,11 @@ const Navigation = (function (RenderImageSlider, Images, Globals, Responsive, Co
 			case 'kanukurse':
 				kanuKurse.classList.add(SELECTED);
 				break;
+
+			// case 'kanadierkurse':
+			// 	kanadierKurse.classList.add(SELECTED);
+			// 	break;
+
 			case 'paddelreisen':
 				paddelReisen.classList.add(SELECTED);
 				break;

@@ -49,6 +49,50 @@ nav{
 		position: absolute;
 		animation: 1.5s slideIn;
 
+
+
+		div.main-navi-desktop-submenu__kurse{
+			background-color: $color-nav-mobile-background-slider;
+			padding-left: 2*$basicWidth;
+
+			a.submenu-row1-column1, a.submenu-row1-column2,
+			a.submenu-row2-column1, a.submenu-row2-column2{
+				display: inline-block;
+				background-color: $color-nav-mobile-background-slider;
+				text-decoration: none;
+				padding-bottom: $basicHeight;
+				width: 100%;
+			}
+
+			div.submenu-content{
+				display: flex;
+				flex-flow: row nowrap;
+				align-items: center;
+				
+				.submenu-content-image{
+					height: 100px;
+					width: 150px;
+	
+					img{
+						width: 100%;	
+						height: auto;
+					}
+				}
+				
+				.submenu-content-label{
+					color: $color-nav-mobile-text;
+					padding-left: 2*$basicWidth;
+				}
+			}
+		}
+
+		li.main-navi-desktop__label{
+			display: none;
+		}
+
+
+		
+
 		> li {
 			margin-bottom: 2px;
 			> a {
@@ -62,6 +106,11 @@ nav{
 		> li:last-child{
 			margin-bottom: 0px;
 		}
+		> li:not(:last-child){
+			> a::before{
+				content: 'Wildwasser '
+			}
+		}
 	}
 
 	ul.main-navi-desktop.js-hide {
@@ -70,10 +119,102 @@ nav{
 }
 
 
+/* ************************************************************* */
+/* *********** ab hier für mobile quer ******************* */
+@media screen and (min-width: 600px) {    // wenn Bildschirm grösser als 600px dann...
+
+	nav{
+
+		ul.main-navi-desktop {
+
+			div.main-navi-desktop-submenu__kurse{
+				display: grid;
+				position: relative;
+				pointer-events: auto;
+				background-color: white;
+				padding-left: 0px;
+				top: 0px;
+				left: 0px;
+		
+				grid-template-columns: 1fr 1fr 1fr 1fr;
+				grid-template-rows: auto;
+				grid-template-areas: "item11 item12 item21 item22";
+		
+				a.submenu-row1-column1, a.submenu-row1-column2,
+				a.submenu-row2-column1, a.submenu-row2-column2{
+					display: inline-block;
+					background-color: $color-nav-mobile-background-slider;
+					text-decoration: none;
+					padding-bottom: $basicHeight;
+					width: 100%;
+				}
+		
+				div.submenu-content{
+					display: flex;
+					flex-flow: column nowrap;
+					align-items: center;
+					
+					.submenu-content-image{
+						height: 100px;
+						width: 150px;
+		
+						img{
+							width: 100%;	
+							height: auto;
+						}
+					}
+					
+					.submenu-content-label{
+						color: $color-nav-mobile-text;
+						padding-left: 2*$basicWidth;
+					}
+				}
+		
+				a.submenu-row1-column1{
+					grid-area: item11;
+				}
+		
+				a.submenu-row1-column2{
+					grid-area: item12;
+				}
+		
+				a.submenu-row2-column1{
+					grid-area: item21;
+				}
+		
+				a.submenu-row2-column2{
+					grid-area: item22;
+				}
+			}
+		}
+	}
+}
+
+
+
+/* ************************************************************* */
+/* *********** ab hier für tablet ******************* */
+@media screen and (min-width: $breakpoint-medium) {    // wenn Bildschirm grösser als 688px dann...
+
+	nav{
+		ul.main-navi-desktop {
+			div.main-navi-desktop-submenu__kurse{
+				div.submenu-content{
+					.submenu-content-image{
+						height: 120px;
+						width: 180px;
+					}
+					
+				}
+			}
+		}
+	}
+}
+
 
 /* *************************************************** */
 /* *********** ab hier für desktop ******************* */
-@media screen and (min-width: $breakpoint-large) { //wenn Bildschirm grösser 740 px gross ist, dann...
+@media screen and (min-width: $breakpoint-large) { //wenn Bildschirm grösser 992 px gross ist, dann...
 
 	.nav-wrapper{
 		position: sticky;
@@ -104,11 +245,125 @@ nav{
 		ul.main-navi-desktop, ul.main-navi-desktop.js-hide {
 			display: block;
 			position: static;
+			
+			//Ist der Rahmen, damit das main-navi-desktop-submenu rein- und rausgeschoben werden kann.
+			div.main-navi-desktop-submenu-frame{
+				position: absolute;
+				top: 32px;
+				left: 12px;
+				overflow: hidden;
+				pointer-events: none;
+			}
+
+			div.main-navi-desktop-submenu__kurse{
+				display: grid;
+				position: relative;
+				pointer-events: auto;
+				background-color: white;
+				padding: 16px 16px;
+				transition: left 0.3s ease-in-out;
+				left: -408px;
+
+				grid-template-columns: 1fr 1fr;
+				grid-template-rows: auto;
+				grid-template-areas: "item11 item12"
+									 "item21 item22";
+				column-gap: 16px;
+				row-gap: 16px;
+
+
+				div.submenu-content{
+					display: flex;
+					flex-flow: column nowrap;
+					align-items: center;
+					
+					.submenu-content-image{
+						overflow: hidden;
+						height: 120px;
+						width: 180px;
+
+						img{
+							width: 100%;	
+							height: auto;
+							-webkit-transform: scale(1);
+							-moz-transform: scale(1);
+							-ms-transform: scale(1);	
+							-o-transform: scale(1);
+							transform: scale(1);
+							
+							-webkit-transition: all 0.3s linear;
+							-moz-transition: all 0.3s linear;
+							-ms-transition: all 0.3s linear;
+							-o-transition: all 0.3s linear;
+							transition: all 0.3s linear;
+						}
+					}
+					
+					.submenu-content-label{
+						color: lighten(black, 50%);
+						padding-top: 8px;
+						padding-left: 0px;
+						font-size: 1.2rem;
+			 			font-weight: bold;
+
+						transition: all 0.3s linear;
+					}
+				}
+
+				a.submenu-row1-column1, a.submenu-row1-column2,
+				a.submenu-row2-column1, a.submenu-row2-column2{
+					background-color: white;
+					text-decoration: none;
+					padding-bottom: 0px;
+				}
+
+				a.submenu-row1-column1:hover, a.submenu-row1-column2:hover, 
+				a.submenu-row2-column1:hover, a.submenu-row2-column2:hover{
+					.submenu-content .submenu-content-image img{
+						-webkit-transform: scale(1.1);
+						-moz-transform: scale(1.1);
+						-ms-transform: scale(1.1);
+						-o-transform: scale(1.1);
+						transform: scale(1.1);
+					}
+
+					.submenu-content .submenu-content-label{
+						color: black;
+						font-size: 1.3rem;
+					}
+				}
+
+				a.submenu-row1-column1{
+					grid-area: item11;
+				}
+
+				a.submenu-row1-column2{
+					grid-area: item12;
+				}
+
+				a.submenu-row2-column1{
+					grid-area: item21;
+				}
+
+				a.submenu-row2-column2{
+					grid-area: item22;
+				}
+			}
+
+			li.main-navi-desktop__label{
+				display: inline;
+				font-size: 1.5rem;
+				font-weight: bold;
+			}
 
 			> li {
 				float: left;
 				padding-left: 12px;
 				position: relative;
+
+				a.u-slide-line::before {
+					content: ''
+				}
 
 				a.u-slide-line {
 					@include navigationFontDesktop();
@@ -144,6 +399,14 @@ nav{
 				a.u-slide-line.js-isSelected::after {
 					visibility: visible;
 					transform: translate3d(0%, 0, 0);
+				}
+			}
+
+			li.main-navi-desktop__kanukurse:hover{
+
+				div.main-navi-desktop-submenu__kurse{
+					transition: left 0.3s linear;
+					left: 0px;
 				}
 			}
 		}
