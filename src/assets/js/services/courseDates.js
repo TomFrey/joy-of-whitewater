@@ -21,19 +21,32 @@ const CourseDates = (function (RenderCourseDates, Dates) {
 					coursesFromStaticStorage = courses;
 
 					// Render Level1 Basis Kanukurse
-					RenderCourseDates.createCourseListFor(courses, ['Level1'], 'Kanukurs', '.course-list-wrapper-level1Course');
+					RenderCourseDates.createCourseListFor(courses, ['Level1'], 'Kanukurs', ['Kanadier', 'Kajak'], '.course-list-wrapper-level1Course');
 					// Render Level2 Basis Kanukurse
-					RenderCourseDates.createCourseListFor(courses, ['Level2'], 'Kanukurs', '.course-list-wrapper-level2Course');
+					RenderCourseDates.createCourseListFor(courses, ['Level2'], 'Kanukurs', ['Kanadier', 'Kajak'], '.course-list-wrapper-level2Course');
 					// Render Level3 Aufbau Kanukurse
-					RenderCourseDates.createCourseListFor(courses, ['Level3'], 'Kanukurs', '.course-list-wrapper-level3Course');
+					RenderCourseDates.createCourseListFor(courses, ['Level3'], 'Kanukurs', ['Kanadier', 'Kajak'], '.course-list-wrapper-level3Course');
 					// Render Level4 Aufbau Kanukurse
-					RenderCourseDates.createCourseListFor(courses, ['Level4'], 'Kanukurs', '.course-list-wrapper-level4Course');
+					RenderCourseDates.createCourseListFor(courses, ['Level4'], 'Kanukurs', ['Kanadier', 'Kajak'], '.course-list-wrapper-level4Course');
 					// Render Level5 WW IV Kanukurse
-					RenderCourseDates.createCourseListFor(courses, ['Level5'], 'Kanukurs', '.course-list-wrapper-level5Course');
+					RenderCourseDates.createCourseListFor(courses, ['Level5'], 'Kanukurs', ['Kanadier', 'Kajak'], '.course-list-wrapper-level5Course');
+
+
+					// Render Level1 Kanadierkurse
+					RenderCourseDates.createCourseListFor(courses, ['Level1'], 'Kanukurs', ['Kanadier'], '.course-list-wrapper-level1CanoeCourse');
+					// Render Level2 Kanadierkurse
+					RenderCourseDates.createCourseListFor(courses, ['Level2'], 'Kanukurs', ['Kanadier'], '.course-list-wrapper-level2CanoeCourse');
+					// Render Level3 Kanadierkurse
+					RenderCourseDates.createCourseListFor(courses, ['Level3'], 'Kanukurs', ['Kanadier'], '.course-list-wrapper-level3CanoeCourse');
+					// Render Level4 Kanadierkurse
+					RenderCourseDates.createCourseListFor(courses, ['Level4'], 'Kanukurs', ['Kanadier'], '.course-list-wrapper-level4CanoeCourse');
+					// Render Level5 Kanadierkurse
+					RenderCourseDates.createCourseListFor(courses, ['Level5'], 'Kanukurs', ['Kanadier'], '.course-list-wrapper-level5CanoeCourse');
+
 
 					RenderCourseDates.createCourseListFor(courses, ['alle'], 'Eskimotieren', '.course-list-wrapper-rollCourse');
 
-					RenderCourseDates.createCourseListFor(courses, ['Level2','Level3-Level4','Level5'], 'Packraft Kurs', '.course-list-wrapper-packraftCourse');
+					RenderCourseDates.createCourseListFor(courses, ['Level2','Level3-Level4','Level5'], 'Packraft Kurs', ['Packraft'], '.course-list-wrapper-packraftCourse');
 
 					RenderCourseDates.createPaddleJourniesOverview(courses);
 					RenderCourseDates.createPaddleJournies(courses);

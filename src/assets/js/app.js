@@ -22,10 +22,10 @@ const App = (function (Globals, Responsive) {
 							Navigation.setHeaderTitle('Kanukurse');
 							break;
 
-						// case 'kanadierkurse':
-						// 	RenderHeader.addJustFirstImage(Images.getImagesForKanukurse());
-						// 	Navigation.setHeaderTitle('Kanadierkurse');
-						// 	break;
+						case 'kanadierkurse':
+							RenderHeader.addJustFirstImage(Images.getImagesForKanadierkurse());
+							Navigation.setHeaderTitle('Open Canoe und<br> Kanadierkurse');
+							break;
 
 						case 'paddelreisen':
 							RenderHeader.addJustFirstImage(Images.getImagesForPaddelreisen());

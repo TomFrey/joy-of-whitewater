@@ -22,7 +22,7 @@ const Preloader = (function (Images, Globals) {
 	function loadImagesForHeaderCarousel() {
 		const imagePaths = Globals.get().pathForImagesInTheCarousel;
 		const imagesToPreload = Images.getAllCarouselImages().map((image) => {
-			return imagePaths + image.name + '.jpg';
+			return imagePaths + image.name;
 		});
 		return preload(imagesToPreload);
 	}
@@ -37,16 +37,21 @@ const Preloader = (function (Images, Globals) {
 		const whereAmI = Globals.get().nameOfCurrentSite;
 		switch (whereAmI) {
 			case 'kanukurse':
-				imageToPreload = imagePaths + Images.getTheFirstImageForKanukurse().name + '.jpg';
+				imageToPreload = imagePaths + Images.getTheFirstImageForKanukurse().name;
 				break;
+
+			case 'kanadierkurse':
+				imageToPreload = imagePaths + Images.getTheFirstImageForKanadierkurse().name;
+				break;
+
 			case 'paddelreisen':
-				imageToPreload = imagePaths + Images.getTheFirstImageForPaddelreisen().name + '.jpg';
+				imageToPreload = imagePaths + Images.getTheFirstImageForPaddelreisen().name;
 				break;
 			case 'packraft':
-				imageToPreload = imagePaths + Images.getTheFirstImageForPackraft().name + '.jpg';
+				imageToPreload = imagePaths + Images.getTheFirstImageForPackraft().name;
 				break;
 			case '': // Startseite
-			 	imageToPreload = imagePaths + Images.getTheFirstImageForJoyOfWhitewater().name + '.jpg';
+			 	imageToPreload = imagePaths + Images.getTheFirstImageForJoyOfWhitewater().name;
 				break;
 			default: // alle Seiten ohne Header, wie Anmeldung, Impressum, AGB ...
 				return Promise.resolve();

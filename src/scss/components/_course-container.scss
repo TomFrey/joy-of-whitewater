@@ -1,0 +1,149 @@
+.course-container-intro{
+    display: grid;
+
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: 
+        "titel"
+        "inhalt1"
+        "inhalt2";
+        
+    column-gap: $basicWidth;
+    row-gap: $basicWidth;
+    background-color: $color-textContainer-background;
+}
+
+.course-container-intro-item-title{
+    grid-area: titel;
+}
+
+.course-container-intro-item-paddle{
+   display: none;
+}
+
+.course-container-intro-item-content1{
+    grid-area: inhalt1;
+}
+
+.course-container-intro-item-content2{
+    grid-area: inhalt2;
+}
+
+
+.course-container{
+    display: grid;
+
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: 
+        "titel"
+        "bild"
+        "inhalt2"
+        "inhalt3" 
+        "inhalt1"
+        "termine";
+        
+    column-gap: $basicWidth;
+    row-gap: $basicWidth;
+    background-color: $color-textContainer-background;
+}
+
+.course-container-item-title{
+    grid-area: titel;
+}
+
+.course-container-item-image{
+    grid-area: bild;
+
+    img{
+        max-width: 100%;
+    }
+}
+
+.course-container-item-content1{
+    grid-area: inhalt1;
+}
+
+.course-container-item-content2{
+    grid-area: inhalt2;
+}
+
+.course-container-item-content3{
+    grid-area: inhalt3;
+}
+
+.course-container-item-dates{
+    grid-area: termine;
+
+    .text-container-detail{
+        .open-drawer{
+            max-width: 100%;
+            width: unset;
+            margin: 0px;
+        }
+    }
+}
+
+
+/* *************************************************** */
+/* *********** ab hier für tablet *******************  */
+@media screen and (min-width: $breakpoint-medium) {   // > 688px
+    .course-container{
+        display: grid;
+
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+        grid-template-areas: 
+            "titel bild"
+            "inhalt2 bild"
+            "inhalt3 inhalt1"
+            "termine termine";
+
+        column-gap: 2*$basicWidth;
+        row-gap: 2*$basicWidth;
+
+        background-color: $color-textContainer-background;
+    }
+}
+
+/* *************************************************** */
+/* *********** ab hier für desktop ******************* */
+@media screen and (min-width: $breakpoint-large) { //wenn Bildschirm grösser 740 px gross ist, dann...
+
+    .course-container-intro{
+        display: grid;
+    
+        grid-template-columns: 10% auto;
+        grid-template-rows: auto;
+        grid-template-areas: 
+            "paddel titel titel"
+            "paddel inhalt1 inhalt2";
+            
+        column-gap: 3*$basicWidth;
+        row-gap: 3*$basicWidth;
+    
+        background-color: $color-textContainer-background;
+    }
+
+    .course-container-intro-item-title{
+        grid-area: titel;
+    }
+
+    .course-container-intro-item-paddle{
+        display: block;
+        grid-area: paddel;
+        align-self: center;
+
+        img{
+            max-width: 100%;
+        }
+    }
+
+    .course-container-intro-item-content1{
+        grid-area: inhalt1;
+    }
+
+    .course-container-intro-item-content2{
+        grid-area: inhalt2;
+    }
+}

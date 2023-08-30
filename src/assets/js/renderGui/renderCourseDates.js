@@ -657,13 +657,14 @@ const RenderCourseDates = (function (Dates, Globals) {
 	 *
 	 * @param courseDates       -> array (Eingang), mit allen Kursen, die gefiltert werden
 	 * @param courseLevels      -> array (Filterwert), mit allen Leveln, die ausgefiltert werden sollen 
-	 * @param courseType        -> array (Filterwert), Kurstype, der ausgefiltert werden soll
+	 * @param courseTypes       -> array (Filterwert), Kurstype, der ausgefiltert werden soll
+	 * @param boatTypes         -> array (Filterwert), Sport_Art, die ausgefiltert werden soll, z.B. Kajak, Kanadier, Packraft
 	 * @param cssClass          -> css Klasse, wo die Liste gerendert wird
 	 * @param deleteCurrentData -> boolean, default true
 	 */
-	function renderCourseListFor(courseDates, courseLevels, courseTypes, cssClass, deleteCurrentData=true) {
+	function renderCourseListFor(courseDates, courseLevels, courseTypes, boatTypes, cssClass, deleteCurrentData=true) {
 		let courseDatesForLevel = courseDates.filter((courseDate) => {
-			return courseTypes.indexOf(courseDate.typ) != -1 && courseLevels.indexOf(courseDate.kursStufe) != -1;
+			return courseTypes.indexOf(courseDate.typ) != -1 && courseLevels.indexOf(courseDate.kursStufe) != -1 && boatTypes.indexOf(courseDate.sportArt) != -1;
 		});
 		courseDatesForLevel = showCoursesNotOlderThen(courseDatesForLevel, 14);
 		courseDatesForLevel = sortDatumAscending(courseDatesForLevel);

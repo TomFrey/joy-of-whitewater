@@ -289,6 +289,11 @@ const Navigation = (function (RenderImageSlider, Images, Globals, Responsive, Co
 			case 'packraft':
 				Responsive.renderHeaderWithImagesAccordingToBreakPoint(Images.getImagesForPackraft(), Images.getMobileImagesForPackraft());
 				break;
+
+			case 'kanadierkurse':
+				Responsive.renderHeaderWithImagesAccordingToBreakPoint(Images.getImagesForKanadierkurse(), Images.getMobileImagesForKanadierkurse());
+				break;
+
 			case '': // Startseite
 				Responsive.renderHeaderWithImagesAccordingToBreakPoint(Images.getImagesForJoyOfWhitewater(), Images.getMobileImagesForJoyOfWhitewater());
 				break;

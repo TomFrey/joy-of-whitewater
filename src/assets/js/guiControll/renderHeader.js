@@ -10,7 +10,7 @@ const RenderHeader = (function (Globals) {
 		listElement.classList.add('image');
 
 		const imgElement = document.createElement('img');
-		imgElement.setAttribute('src', Globals.get().pathForImagesInTheCarousel + image.name + '.jpg');
+		imgElement.setAttribute('src', Globals.get().pathForImagesInTheCarousel + image.name);
 		imgElement.setAttribute('title', image.title);
 		imgElement.setAttribute('alt', image.alt);
 
@@ -73,11 +73,11 @@ const RenderHeader = (function (Globals) {
 			let element;
 			if (index === 0) {
 				element = document.createElement('source');
-				element.setAttribute('srcset', '/assets/images/mobileHeader/' + image.name + '.jpg');
+				element.setAttribute('srcset', '/assets/images/mobileHeader/' + image.name);
 				element.setAttribute('media', '(min-width: 440px)');
 			} else {
 				element = document.createElement('img');
-				element.setAttribute('src', '/assets/images/mobileHeader/' + image.name + '.jpg');
+				element.setAttribute('src', '/assets/images/mobileHeader/' + image.name);
 				element.setAttribute('alt', image.alt);
 				element.setAttribute('title', image.title);
 			}
