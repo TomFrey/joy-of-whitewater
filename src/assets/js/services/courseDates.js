@@ -20,17 +20,16 @@ const CourseDates = (function (RenderCourseDates, Dates) {
 					//Kurse in globaler Varibale speichern
 					coursesFromStaticStorage = courses;
 
-					// Render Level1 Basis Kanukurse
-					RenderCourseDates.createCourseListFor(courses, ['Level1'], 'Kanukurs', ['Kanadier', 'Kajak'], '.course-list-wrapper-level1Course');
-					// Render Level2 Basis Kanukurse
-					RenderCourseDates.createCourseListFor(courses, ['Level2'], 'Kanukurs', ['Kanadier', 'Kajak'], '.course-list-wrapper-level2Course');
-					// Render Level3 Aufbau Kanukurse
-					RenderCourseDates.createCourseListFor(courses, ['Level3'], 'Kanukurs', ['Kanadier', 'Kajak'], '.course-list-wrapper-level3Course');
-					// Render Level4 Aufbau Kanukurse
-					RenderCourseDates.createCourseListFor(courses, ['Level4'], 'Kanukurs', ['Kanadier', 'Kajak'], '.course-list-wrapper-level4Course');
-					// Render Level5 WW IV Kanukurse
-					RenderCourseDates.createCourseListFor(courses, ['Level5'], 'Kanukurs', ['Kanadier', 'Kajak'], '.course-list-wrapper-level5Course');
-
+					// Render Level1 Basis Kajakkurse
+					RenderCourseDates.createCourseListFor(courses, ['Level1'], 'Kanukurs', ['Kajak'], '.course-list-wrapper-level1KayakCourse');
+					// Render Level2 Basis Kajakkurse
+					RenderCourseDates.createCourseListFor(courses, ['Level2'], 'Kanukurs', ['Kajak'], '.course-list-wrapper-level2KayakCourse');
+					// Render Level3 Aufbau Kajakkurse
+					RenderCourseDates.createCourseListFor(courses, ['Level3'], 'Kanukurs', ['Kajak'], '.course-list-wrapper-level3KayakCourse');
+					// Render Level4 Aufbau Kajakkurse
+					RenderCourseDates.createCourseListFor(courses, ['Level4'], 'Kanukurs', ['Kajak'], '.course-list-wrapper-level4KayakCourse');
+					// Render Level5 WW IV Kajakkurse
+					RenderCourseDates.createCourseListFor(courses, ['Level5'], 'Kanukurs', ['Kajak'], '.course-list-wrapper-level5KayakCourse');
 
 					// Render Level1 Kanadierkurse
 					RenderCourseDates.createCourseListFor(courses, ['Level1'], 'Kanukurs', ['Kanadier'], '.course-list-wrapper-level1CanoeCourse');
@@ -42,7 +41,6 @@ const CourseDates = (function (RenderCourseDates, Dates) {
 					RenderCourseDates.createCourseListFor(courses, ['Level4'], 'Kanukurs', ['Kanadier'], '.course-list-wrapper-level4CanoeCourse');
 					// Render Level5 Kanadierkurse
 					RenderCourseDates.createCourseListFor(courses, ['Level5'], 'Kanukurs', ['Kanadier'], '.course-list-wrapper-level5CanoeCourse');
-
 
 					RenderCourseDates.createCourseListFor(courses, ['alle'], 'Eskimotieren', '.course-list-wrapper-rollCourse');
 

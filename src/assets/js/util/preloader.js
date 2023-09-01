@@ -36,8 +36,8 @@ const Preloader = (function (Images, Globals) {
 		let imageToPreload;
 		const whereAmI = Globals.get().nameOfCurrentSite;
 		switch (whereAmI) {
-			case 'kanukurse':
-				imageToPreload = imagePaths + Images.getTheFirstImageForKanukurse().name;
+			case 'kajakkurse':
+				imageToPreload = imagePaths + Images.getTheFirstImageForKajakkurse().name;
 				break;
 
 			case 'kanadierkurse':

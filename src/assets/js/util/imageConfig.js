@@ -10,7 +10,7 @@ var Images = (function () {
 			{ name: 'joyOfWhitewater_2.jpg', title: 'Kanuschule', alt: 'Kanuschule - The Joy Of Whitewater' },
 			{ name: 'joyOfWhitewater_8.jpg', title: 'Kanuschule', alt: 'Kanuschule - The Joy Of Whitewater' }
 		],
-		kanukurseImages: [
+		kajakkurseImages: [
 			{ name: 'kanukurse_5.jpg', title: 'Kajakkurse', alt: 'Kajakkurse' },
 			{ name: 'kanukurse_8.jpg', title: 'Open Canoe Kurse', alt: 'Open Canoe Kurse' }
 		],
@@ -44,7 +44,7 @@ var Images = (function () {
 			{ name: 'mobile_quer_joyofwhitewater.jpg', title: 'Kanuschule - The Joy Of Whitewater', alt: 'Kanuschule - The Joy Of Whitewater' },
 			{ name: 'mobile_joyofwhitewater.jpg', title: 'Kanuschule - The Joy Of Whitewater', alt: 'Kanuschule - The Joy Of Whitewater' }
 		],
-		kanukurseImages: [
+		kajakkurseImages: [
 			{ name: 'mobile_quer_kanukurse.jpg', title: 'Kanukurs', alt: 'Kanukurs' },
 			{ name: 'mobile_kanukurse.jpg', title: 'Kanukurs', alt: 'Kanukurs' }
 		],
@@ -329,8 +329,8 @@ var Images = (function () {
 		]
 	};
 
-	function getImagesForKanukurse() {
-		return imageCarousel.kanukurseImages;
+	function getImagesForKajakkurse() {
+		return imageCarousel.kajakkurseImages;
 	}
 
 	function getImagesForKanadierkurse() {
@@ -350,7 +350,7 @@ var Images = (function () {
 	}
 
 	function getAllCarouselImages() {
-		return getImagesForJoyOfWhitewater().concat(getImagesForPaddelreisen(), getImagesForKanukurse(), getImagesForPackraft(), getImagesForKanadierkurse());
+		return getImagesForJoyOfWhitewater().concat(getImagesForPaddelreisen(), getImagesForKajakkurse(), getImagesForPackraft(), getImagesForKanadierkurse());
 	}
 
 	// Gets the first image, which is the first image in the array ;-)
@@ -366,16 +366,16 @@ var Images = (function () {
 		return imageCarousel.paddelreisenImages[0];
 	}
 
-	function getTheFirstImageForKanukurse() {
-		return imageCarousel.kanukurseImages[0];
+	function getTheFirstImageForKajakkurse() {
+		return imageCarousel.kajakkurseImages[0];
 	}
 
 	function getTheFirstImageForKanadierkurse() {
 		return imageCarousel.kanadierkurseImages[0];
 	}
 
-	function getMobileImagesForKanukurse() {
-		return mobileImages.kanukurseImages;
+	function getMobileImagesForKajakkurse() {
+		return mobileImages.kajakkurseImages;
 	}
 
 	function getMobileImagesForKanadierkurse() {
@@ -401,7 +401,7 @@ var Images = (function () {
 	// public api
 	return {
 		getAllCarouselImages,
-		getImagesForKanukurse,
+		getImagesForKajakkurse,
 		getImagesForKanadierkurse,
 		getImagesForPaddelreisen,
 		getImagesForPackraft,
@@ -409,9 +409,9 @@ var Images = (function () {
 		getTheFirstImageForJoyOfWhitewater,
 		getTheFirstImageForPackraft,
 		getTheFirstImageForPaddelreisen,
-		getTheFirstImageForKanukurse,
+		getTheFirstImageForKajakkurse,
 		getTheFirstImageForKanadierkurse,
-		getMobileImagesForKanukurse,
+		getMobileImagesForKajakkurse,
 		getMobileImagesForKanadierkurse,
 		getMobileImagesForPaddelreisen,
 		getMobileImagesForPackraft,

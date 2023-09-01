@@ -53,6 +53,8 @@ const Navigation = (function (RenderImageSlider, Images, Globals, Responsive, Co
 		});
 
 		switch (whereAmI) {
+			case 'kanadierkurse':
+			case 'kajakkurse':
 			case 'kanukurse':
 				kanuKurse.classList.add(SELECTED);
 				break;
@@ -280,8 +282,8 @@ const Navigation = (function (RenderImageSlider, Images, Globals, Responsive, Co
 	 */
 	function renderHeaderWithImagesAccordingToSite(whereAmI) {
 		switch (whereAmI) {
-			case 'kanukurse':
-				Responsive.renderHeaderWithImagesAccordingToBreakPoint(Images.getImagesForKanukurse(), Images.getMobileImagesForKanukurse());
+			case 'kajakkurse':
+				Responsive.renderHeaderWithImagesAccordingToBreakPoint(Images.getImagesForKajakkurse(), Images.getMobileImagesForKajakkurse());
 				break;
 			case 'paddelreisen':
 				Responsive.renderHeaderWithImagesAccordingToBreakPoint(Images.getImagesForPaddelreisen(), Images.getMobileImagesForPaddelreisen());

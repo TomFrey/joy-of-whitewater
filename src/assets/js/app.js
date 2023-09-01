@@ -17,9 +17,9 @@ const App = (function (Globals, Responsive) {
 			Preloader.loadFirstImageForHeaderCarousel()
 				.then(() => {
 					switch (whereAmI) {
-						case 'kanukurse':
-							RenderHeader.addJustFirstImage(Images.getImagesForKanukurse());
-							Navigation.setHeaderTitle('Kanukurse');
+						case 'kajakkurse':
+							RenderHeader.addJustFirstImage(Images.getImagesForKajakkurse());
+							Navigation.setHeaderTitle('Kajakkurse');
 							break;
 
 						case 'kanadierkurse':
