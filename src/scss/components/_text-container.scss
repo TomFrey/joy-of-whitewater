@@ -160,10 +160,11 @@ Tablet / Desktop
 }
 
 .text-container-main, .text-container-main__home {
-  background-color: $color-textContainer-background;
-  display: flex;
-  flex-flow: column nowrap;
-  padding: $basicHeight $basicWidth;
+  	background-color: $color-textContainer-background;
+	display: flex;
+  	flex-flow: column nowrap;
+  	padding: $basicHeight $basicWidth;
+	// scroll-margin-top: 50px;
 
   	> .text-container-left, .text-container-left__home{
     	order: 0;

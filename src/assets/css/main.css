@@ -3424,9 +3424,9 @@ Desktop und Tablet
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto;
-  grid-template-areas: "titel" "inhalt1" "inhalt2";
+  grid-template-areas: "titel" "level" "more" "inhalt1" "inhalt2" "less";
   column-gap: 8px;
-  row-gap: 8px;
+  row-gap: 0px;
   background-color: #E6E6E6;
 }
 
@@ -3438,12 +3438,129 @@ Desktop und Tablet
   display: none;
 }
 
+.course-container-intro-item-level {
+  grid-area: level;
+}
+
+.course-container-intro-item-more {
+  grid-area: more;
+  justify-self: center;
+  visibility: visible;
+  padding-top: 8px;
+  transition: visibility 0s ease-in-out 0.4s;
+}
+
+.course-container-intro-item-more.js-hide {
+  visibility: hidden;
+  transition: visibility 0s ease-in-out 0s;
+}
+
+.course-container-intro-item-content1.js-hide {
+  grid-area: inhalt1;
+  max-height: 0px;
+  overflow: hidden;
+  transition: max-height 0.4s ease-in-out;
+}
+
 .course-container-intro-item-content1 {
   grid-area: inhalt1;
+  max-height: 1000px;
+  transition: max-height 0.4s ease-in-out;
+}
+
+.course-container-intro-item-content2.js-hide {
+  grid-area: inhalt2;
+  max-height: 0px;
+  overflow: hidden;
+  transition: max-height 0.4s ease-in-out;
 }
 
 .course-container-intro-item-content2 {
   grid-area: inhalt2;
+  max-height: 1000px;
+  transition: max-height 0.4s ease-in-out;
+}
+
+.course-container-intro-item-less {
+  grid-area: less;
+  justify-self: center;
+  visibility: visible;
+  padding-top: 8px;
+  transition: visibility 0s ease-in-out 0.4s;
+}
+
+.course-container-intro-item-less.js-hide {
+  visibility: hidden;
+  transition: visibility 0s ease-in-out 0s;
+}
+
+.course-container-level {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 25px auto auto 25px auto auto 25px auto;
+  grid-template-areas: "basis" "level1" "level2" "aufbau" "level3" "level4" "wwIV" "level5";
+  column-gap: 8px;
+  row-gap: 8px;
+  background-color: #E6E6E6;
+  padding-top: 8px;
+}
+
+.course-container-level-basic {
+  grid-area: basis;
+}
+
+.course-container-level-advanced {
+  grid-area: aufbau;
+}
+
+.course-container-level-wwIV {
+  grid-area: wwIV;
+}
+
+.course-container-level-title {
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  padding: 4px 0px;
+}
+
+.course-container-level-one {
+  grid-area: level1;
+}
+
+.course-container-level-two {
+  grid-area: level2;
+}
+
+.course-container-level-three {
+  grid-area: level3;
+}
+
+.course-container-level-four {
+  grid-area: level4;
+}
+
+.course-container-level-five {
+  grid-area: level5;
+}
+
+.course-container-level-button {
+  background-color: #004570;
+  border: 1px solid #004570;
+}
+.course-container-level-button .course-container-level-button__link {
+  align-items: baseline;
+  color: #ffffff;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 0px;
+  text-decoration: none;
+}
+.course-container-level-button .course-container-level-button__label {
+  pointer-events: none;
+  padding-right: 16px;
 }
 
 .course-container {
@@ -3454,6 +3571,7 @@ Desktop und Tablet
   column-gap: 8px;
   row-gap: 8px;
   background-color: #E6E6E6;
+  scroll-margin-top: 65px;
 }
 
 .course-container-item-title {
@@ -3491,6 +3609,15 @@ Desktop und Tablet
 /* *************************************************** */
 /* *********** ab hier für tablet *******************  */
 @media screen and (min-width: 688px) {
+  .course-container-level {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 25px auto 25px auto 25px auto;
+    grid-template-areas: "basis basis" "level1 level2" "aufbau aufbau" "level3 level4" "wwIV wwIV" "level5 .";
+    column-gap: 8px;
+    row-gap: 8px;
+    background-color: #E6E6E6;
+  }
   .course-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -3499,6 +3626,7 @@ Desktop und Tablet
     column-gap: 16px;
     row-gap: 16px;
     background-color: #E6E6E6;
+    scroll-margin-top: 75px;
   }
 }
 /* *************************************************** */
@@ -3508,27 +3636,48 @@ Desktop und Tablet
     display: grid;
     grid-template-columns: 10% auto;
     grid-template-rows: auto;
-    grid-template-areas: "paddel titel titel" "paddel inhalt1 inhalt2";
+    grid-template-areas: "paddel titel titel" "paddel level level" "paddel more ." "paddel inhalt1 inhalt2" "paddel less .";
     column-gap: 24px;
-    row-gap: 24px;
     background-color: #E6E6E6;
-  }
-  .course-container-intro-item-title {
-    grid-area: titel;
   }
   .course-container-intro-item-paddle {
     display: block;
     grid-area: paddel;
-    align-self: center;
+    overflow: hidden;
+    max-height: 350px;
+    transition: max-height 0.4s ease-in-out;
   }
   .course-container-intro-item-paddle img {
     max-width: 100%;
   }
-  .course-container-intro-item-content1 {
-    grid-area: inhalt1;
+  .course-container-intro-item-paddle.js-show {
+    max-height: 1000px;
+    transition: max-height 0.4s ease-in-out;
   }
-  .course-container-intro-item-content2 {
-    grid-area: inhalt2;
+  .course-container-level {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: "basis basis aufbau aufbau wwIV" "level1 level2 level3 level4 level5";
+    column-gap: 8px;
+    row-gap: 8px;
+    background-color: #E6E6E6;
+  }
+  .course-container-level-button:hover {
+    background-color: #ffffff;
+    border: 1px solid #004570;
+  }
+  .course-container-level-button:hover .course-container-level-button__link {
+    color: #004570;
+  }
+  .course-container-level-button:hover .course-container-level-button__link .course-container-level-button__icon svg g g {
+    stroke: #004570;
+  }
+  .course-container-intro-item-more, .course-container-intro-item-less {
+    justify-self: start;
+  }
+  .course-container-intro-item-more, .course-container-intro-item-less {
+    padding-top: 16px;
   }
 }
 .open-drawer {
@@ -3895,6 +4044,52 @@ a.open-drawer-wrapper {
     margin-right: 16px;
   }
 }
+.show-more-button, .show-less-button {
+  color: #000000;
+  font-family: "Open Sans", "Arial", "sans-serif";
+  font-size: 1rem;
+  font-weight: normal;
+  display: flex;
+  border: none;
+  color: #004570;
+  background-color: #E6E6E6;
+  cursor: pointer;
+}
+.show-more-button .show-less-button__label, .show-more-button .show-more-button__label, .show-less-button .show-less-button__label, .show-less-button .show-more-button__label {
+  pointer-events: none;
+}
+.show-more-button .show-less-button__icon, .show-more-button .show-more-button__icon, .show-less-button .show-less-button__icon, .show-less-button .show-more-button__icon {
+  pointer-events: none;
+}
+.show-more-button .show-more-button__icon, .show-more-button .show-less-button__icon, .show-less-button .show-more-button__icon, .show-less-button .show-less-button__icon {
+  border-bottom: 2px solid #004570;
+  border-right: 2px solid #004570;
+  height: 12px;
+  width: 12px;
+  margin-left: 12px;
+  transform: rotate(45deg);
+}
+.show-more-button .show-more-button__icon, .show-less-button .show-more-button__icon {
+  transform: rotate(45deg);
+}
+.show-more-button .show-less-button__icon, .show-less-button .show-less-button__icon {
+  transform: rotate(225deg);
+  align-self: flex-end;
+}
+
+/* *************************************************** */
+/* *********** ab hier für tablet *******************  */
+/* *************************************************** */
+/* *********** ab hier für desktop ******************* */
+@media screen and (min-width: 992px) {
+  .course-container-intro-item-more:hover .show-more-button__label, .course-container-intro-item-more:hover .show-less-button__label, .course-container-intro-item-less:hover .show-more-button__label, .course-container-intro-item-less:hover .show-less-button__label {
+    color: #000000;
+  }
+  .course-container-intro-item-more:hover .show-less-button__icon, .course-container-intro-item-more:hover .show-more-button__icon, .course-container-intro-item-less:hover .show-less-button__icon, .course-container-intro-item-less:hover .show-more-button__icon {
+    border-bottom: 2px solid #000000;
+    border-right: 2px solid #000000;
+  }
+}
 /* Border Box Trick */
 /* padding ist in der Box Breite miteingerechnet*/
 html {
@@ -3907,6 +4102,7 @@ html {
 
 /* Ende Border Box Trick*/
 html {
+  scroll-behavior: smooth;
   font-size: 16px;
 }
 

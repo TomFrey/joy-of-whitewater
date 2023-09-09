@@ -22,6 +22,8 @@ const Navigation = (function (RenderImageSlider, Images, Globals, Responsive, Co
 	let drawerButtons;
 	let courseLists;
 	let courseOverviewDrawerButtons;
+	let moreDetailsButtons;
+	let lessDetailsButtons;
 
 
 	function setHeaderTitle(titleContent) {
@@ -303,6 +305,44 @@ const Navigation = (function (RenderImageSlider, Images, Globals, Responsive, Co
 		}
 	}
 
+
+	function toggleContent(event) {
+		const introContainer = event.parentElement.parentElement;
+		
+		function getMoreButton(){
+			for (const child of introContainer.children) {
+				if (child.classList.contains('course-container-intro-item-more')){
+					return child;
+				};
+			}
+		}
+
+		function toggleMoreButton(parentOfMoreButton){
+			parentOfMoreButton.classList.toggle(HIDE);
+		}
+	
+		function togglePaddle(){
+			for (const child of introContainer.children) {
+				if (child.classList.contains('course-container-intro-item-paddle')){
+					child.classList.toggle(SHOW);
+				};
+			}
+		}
+
+		function toggleElementsAfterMoreButton(parentOfMoreButton){
+			let elementsAfterMore = parentOfMoreButton.nextElementSibling
+			while (elementsAfterMore) {
+				elementsAfterMore.classList.toggle(HIDE);
+				elementsAfterMore = elementsAfterMore.nextElementSibling;
+			}
+		}
+
+		togglePaddle();
+		toggleMoreButton(getMoreButton());
+		toggleElementsAfterMoreButton(getMoreButton()); //content1, content2 und lessButton
+	}
+
+
 	function initiate() {	
 		hamburger = document.getElementById('hamburger');
 		hamburger.addEventListener('click', showHideNavigation);
@@ -424,6 +464,24 @@ const Navigation = (function (RenderImageSlider, Images, Globals, Responsive, Co
 			drawerButtons.forEach((drawerButton) => {
 				drawerButton.addEventListener('click', (event) => {
 					toggleDrawer(event.target);
+				});
+			});
+		}
+
+		moreDetailsButtons = document.querySelectorAll('.course-container-intro-item-more button');
+		if (moreDetailsButtons !== null) {
+			moreDetailsButtons.forEach((moreDetailsButton) => {
+				moreDetailsButton.addEventListener('click', (event) => {
+					toggleContent(event.target);
+				});
+			});
+		}
+
+		lessDetailsButtons = document.querySelectorAll('.course-container-intro-item-less button');
+		if (lessDetailsButtons !== null) {
+			lessDetailsButtons.forEach((lessDetailsButton) => {
+				lessDetailsButton.addEventListener('click', (event) => {
+					toggleContent(event.target);
 				});
 			});
 		}

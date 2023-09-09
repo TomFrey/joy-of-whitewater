@@ -1,0 +1,64 @@
+.show-more-button, .show-less-button{
+    @include standardTextFont();
+    display: flex;
+    border: none;
+    color: $color-drawer-buttonToOpenDrawer;
+    background-color: $color-textContainer-background;
+    cursor: pointer;
+   
+    .show-less-button__label, .show-more-button__label{
+        pointer-events: none;
+    }
+
+    .show-less-button__icon, .show-more-button__icon{
+        pointer-events: none;
+    }
+
+    .show-more-button__icon, .show-less-button__icon{
+        border-bottom: 2px solid $color-drawer-buttonToOpenDrawer;
+        border-right: 2px solid $color-drawer-buttonToOpenDrawer;
+        height: 12px;
+        width: 12px;
+        margin-left: 12px;
+        transform: rotate(45 + deg);
+    }
+
+    .show-more-button__icon{
+        transform: rotate(45 + deg);
+    }
+
+    .show-less-button__icon{
+        transform: rotate(225 + deg);
+        align-self: flex-end;
+    }
+
+   
+}
+
+
+
+
+/* *************************************************** */
+/* *********** ab hier für tablet *******************  */
+@media screen and (min-width: $breakpoint-medium) {   // > 688px
+   
+
+}
+
+
+/* *************************************************** */
+/* *********** ab hier für desktop ******************* */
+@media screen and (min-width: $breakpoint-large) { //wenn Bildschirm grösser 740 px gross ist, dann...
+
+    .course-container-intro-item-more:hover, .course-container-intro-item-less:hover{
+        .show-more-button__label, .show-less-button__label{
+            color: $complimentaryColor3;
+        }
+
+        .show-less-button__icon, .show-more-button__icon{
+            border-bottom: 2px solid $complimentaryColor3;
+            border-right: 2px solid $complimentaryColor3;
+        }
+    }
+   
+}

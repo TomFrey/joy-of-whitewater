@@ -5,11 +5,14 @@
     grid-template-rows: auto;
     grid-template-areas: 
         "titel"
+        "level"
+        "more"
         "inhalt1"
-        "inhalt2";
+        "inhalt2"
+        "less";
         
     column-gap: $basicWidth;
-    row-gap: $basicWidth;
+    row-gap: 0px;
     background-color: $color-textContainer-background;
 }
 
@@ -18,15 +21,147 @@
 }
 
 .course-container-intro-item-paddle{
-   display: none;
+    display: none;
+ }
+
+.course-container-intro-item-level{
+    grid-area: level;
 }
 
+.course-container-intro-item-more{
+    grid-area: more;
+    justify-self: center;
+    visibility: visible;
+    padding-top: $basicHeight;
+    transition: visibility 0s ease-in-out 0.4s;
+}
+.course-container-intro-item-more.js-hide{
+    visibility: hidden;
+    transition: visibility 0s ease-in-out 0s;
+}
+
+.course-container-intro-item-content1.js-hide{
+    grid-area: inhalt1;
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out;
+}
 .course-container-intro-item-content1{
     grid-area: inhalt1;
+    max-height: 1000px;
+    transition: max-height 0.4s ease-in-out;
 }
 
+.course-container-intro-item-content2.js-hide{
+    grid-area: inhalt2;
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out;
+}
 .course-container-intro-item-content2{
     grid-area: inhalt2;
+    max-height: 1000px;
+    transition: max-height 0.4s ease-in-out;
+}
+
+.course-container-intro-item-less{
+    grid-area: less;
+    justify-self: center;
+    visibility: visible;
+    padding-top: $basicHeight;
+    transition: visibility 0s ease-in-out 0.4s;
+}
+.course-container-intro-item-less.js-hide{
+    visibility: hidden;
+    transition: visibility 0s ease-in-out 0s;
+}
+
+
+//Grid für die Level 1 - 5 Knöpfe innerhlab des Intro Containers
+.course-container-level{
+    display: grid;
+
+    grid-template-columns: 1fr;
+    grid-template-rows: 25px auto auto 25px auto auto 25px auto;
+    grid-template-areas: 
+        "basis"
+        "level1"
+        "level2"
+        "aufbau"
+        "level3"
+        "level4"
+        "wwIV"
+        "level5";
+        
+    column-gap: $basicWidth;
+    row-gap: $basicWidth;
+
+    background-color: $color-textContainer-background;
+    padding-top: $basicHeight;
+}
+
+.course-container-level-basic{
+    grid-area: basis;
+}
+
+.course-container-level-advanced{
+    grid-area: aufbau;
+}
+
+.course-container-level-wwIV{
+    grid-area: wwIV;
+}
+
+.course-container-level-title{
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    padding: 4px 0px;
+}
+
+.course-container-level-one{
+    grid-area: level1;
+}
+
+.course-container-level-two{
+    grid-area: level2;
+}
+
+.course-container-level-three{
+    grid-area: level3;
+}
+
+.course-container-level-four{
+    grid-area: level4;
+}
+
+.course-container-level-five{
+    grid-area: level5;
+}
+
+.course-container-level-button{
+    background-color: $color-drawer-buttonToOpenDrawer;
+    border: 1px solid $color-drawer-buttonToOpenDrawer;
+
+    .course-container-level-button__link{
+        align-items: baseline;
+        color: #ffffff;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        align-items: center;
+        padding: 8px 0px;
+        text-decoration: none;
+    }
+
+    .course-container-level-button__icon{
+       
+    }
+
+    .course-container-level-button__label{
+        pointer-events: none;
+        padding-right: 2*$basicWidth;
+    }
 }
 
 
@@ -46,6 +181,7 @@
     column-gap: $basicWidth;
     row-gap: $basicWidth;
     background-color: $color-textContainer-background;
+    scroll-margin-top: 65px;
 }
 
 .course-container-item-title{
@@ -88,6 +224,27 @@
 /* *************************************************** */
 /* *********** ab hier für tablet *******************  */
 @media screen and (min-width: $breakpoint-medium) {   // > 688px
+    
+    //Grid für die Level 1 - 5 Knöpfe innerhlab des Intro Containers
+    .course-container-level{
+        display: grid;
+    
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 25px auto 25px auto 25px auto;
+        grid-template-areas: 
+            "basis basis"
+            "level1 level2"
+            "aufbau aufbau"
+            "level3 level4"
+            "wwIV wwIV"
+            "level5 .";
+            
+        column-gap: $basicWidth;
+        row-gap: $basicWidth;
+    
+        background-color: $color-textContainer-background;
+    }
+    
     .course-container{
         display: grid;
 
@@ -103,8 +260,10 @@
         row-gap: 2*$basicWidth;
 
         background-color: $color-textContainer-background;
+        scroll-margin-top: 75px;
     }
 }
+
 
 /* *************************************************** */
 /* *********** ab hier für desktop ******************* */
@@ -117,33 +276,66 @@
         grid-template-rows: auto;
         grid-template-areas: 
             "paddel titel titel"
-            "paddel inhalt1 inhalt2";
+            "paddel level level"
+            "paddel more ."
+            "paddel inhalt1 inhalt2"
+            "paddel less .";
             
         column-gap: 3*$basicWidth;
-        row-gap: 3*$basicWidth;
-    
         background-color: $color-textContainer-background;
     }
-
-    .course-container-intro-item-title{
-        grid-area: titel;
-    }
-
+  
     .course-container-intro-item-paddle{
         display: block;
         grid-area: paddel;
-        align-self: center;
-
+     
         img{
             max-width: 100%;
         }
+        overflow: hidden;
+        max-height: 350px;
+        transition: max-height 0.4s ease-in-out;
+    }
+    .course-container-intro-item-paddle.js-show{
+        max-height: 1000px;
+        transition: max-height 0.4s ease-in-out;
     }
 
-    .course-container-intro-item-content1{
-        grid-area: inhalt1;
+    //Grid für die Level 1 - 5 Knöpfe innerhlab des Intro Containers
+    .course-container-level{
+        display: grid;
+    
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: auto;
+        grid-template-areas: 
+            "basis basis aufbau aufbau wwIV"
+            "level1 level2 level3 level4 level5";
+            
+        column-gap: $basicWidth;
+        row-gap: $basicWidth;
+        background-color: $color-textContainer-background;
     }
 
-    .course-container-intro-item-content2{
-        grid-area: inhalt2;
+    .course-container-level-button:hover{
+        background-color: $color-drawer-buttonToOpenDrawer-hover;
+		border: 1px solid $color-drawer-buttonToOpenDrawer;
+
+		.course-container-level-button__link{
+			color: $color-drawer-buttonToOpenDrawerText-hover;
+
+			.course-container-level-button__icon{
+                svg g g {
+                    stroke: $color-footer-link-hover;
+                  }
+			}
+		}
+    }
+
+    .course-container-intro-item-more, .course-container-intro-item-less{
+        justify-self: start;
+    }
+
+    .course-container-intro-item-more, .course-container-intro-item-less{
+        padding-top: 2*$basicHeight;
     }
 }
