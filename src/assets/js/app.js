@@ -27,12 +27,17 @@ const App = (function (Globals, Responsive) {
 							Navigation.setHeaderTitle('Open Canoe und<br> Kanadierkurse');
 							break;
 
+						case 'packraftkurse':
+							RenderHeader.addJustFirstImage(Images.getImagesForPackraftkurse());
+							Navigation.setHeaderTitle('Packraftkurse');
+							break;
+
 						case 'paddelreisen':
 							RenderHeader.addJustFirstImage(Images.getImagesForPaddelreisen());
 							Navigation.setHeaderTitle('Wildwasser Reisen');
 							break;
 						case 'packraft':
-							RenderHeader.addJustFirstImage(Images.getImagesForPackraft());
+							RenderHeader.addJustFirstImage(Images.getImagesForPackraftkurse());
 							Navigation.setHeaderTitle('Packraft');
 							break;
 						case '': // Startseite

@@ -3497,12 +3497,20 @@ Desktop und Tablet
 .course-container-level {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 25px auto auto 25px auto auto 25px auto;
-  grid-template-areas: "basis" "level1" "level2" "aufbau" "level3" "level4" "wwIV" "level5";
   column-gap: 8px;
   row-gap: 8px;
   background-color: #E6E6E6;
   padding-top: 8px;
+}
+
+.course-container-level__fiveLevels {
+  grid-template-rows: 25px auto auto 25px auto auto 25px auto;
+  grid-template-areas: "basis" "level1" "level2" "aufbau" "level3" "level4" "wwIV" "level5";
+}
+
+.course-container-level__threeLevels {
+  grid-template-rows: 25px auto 25px auto 25px auto;
+  grid-template-areas: "basis" "level2" "aufbau" "level4" "wwIV" "level5";
 }
 
 .course-container-level-basic {
@@ -3611,12 +3619,17 @@ Desktop und Tablet
 @media screen and (min-width: 688px) {
   .course-container-level {
     display: grid;
-    grid-template-columns: 1fr 1fr;
     grid-template-rows: 25px auto 25px auto 25px auto;
-    grid-template-areas: "basis basis" "level1 level2" "aufbau aufbau" "level3 level4" "wwIV wwIV" "level5 .";
     column-gap: 8px;
     row-gap: 8px;
-    background-color: #E6E6E6;
+  }
+  .course-container-level__fiveLevels {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "basis basis" "level1 level2" "aufbau aufbau" "level3 level4" "wwIV wwIV" "level5 .";
+  }
+  .course-container-level__threeLevels {
+    grid-template-columns: 1fr;
+    grid-template-areas: "basis" "level2" "aufbau" "level4" "wwIV" "level5";
   }
   .course-container {
     display: grid;
@@ -3656,12 +3669,18 @@ Desktop und Tablet
   }
   .course-container-level {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: auto;
-    grid-template-areas: "basis basis aufbau aufbau wwIV" "level1 level2 level3 level4 level5";
     column-gap: 8px;
     row-gap: 8px;
     background-color: #E6E6E6;
+  }
+  .course-container-level__fiveLevels {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas: "basis basis aufbau aufbau wwIV" "level1 level2 level3 level4 level5";
+  }
+  .course-container-level__threeLevels {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: "basis aufbau wwIV" "level2 level4 level5";
   }
   .course-container-level-button:hover {
     background-color: #ffffff;

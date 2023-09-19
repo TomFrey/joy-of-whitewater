@@ -57,6 +57,7 @@ const Navigation = (function (RenderImageSlider, Images, Globals, Responsive, Co
 		switch (whereAmI) {
 			case 'kanadierkurse':
 			case 'kajakkurse':
+			case 'packraftkurse':
 			case 'kanukurse':
 				kanuKurse.classList.add(SELECTED);
 				break;
@@ -290,12 +291,17 @@ const Navigation = (function (RenderImageSlider, Images, Globals, Responsive, Co
 			case 'paddelreisen':
 				Responsive.renderHeaderWithImagesAccordingToBreakPoint(Images.getImagesForPaddelreisen(), Images.getMobileImagesForPaddelreisen());
 				break;
-			case 'packraft':
-				Responsive.renderHeaderWithImagesAccordingToBreakPoint(Images.getImagesForPackraft(), Images.getMobileImagesForPackraft());
-				break;
+
+			// case 'packraft':
+			// 	Responsive.renderHeaderWithImagesAccordingToBreakPoint(Images.getImagesForPackraft(), Images.getMobileImagesForPackraft());
+			// 	break;
 
 			case 'kanadierkurse':
 				Responsive.renderHeaderWithImagesAccordingToBreakPoint(Images.getImagesForKanadierkurse(), Images.getMobileImagesForKanadierkurse());
+				break;
+
+			case 'packraftkurse':
+				Responsive.renderHeaderWithImagesAccordingToBreakPoint(Images.getImagesForPackraftkurse(), Images.getMobileImagesForPackraftkurse());
 				break;
 
 			case '': // Startseite

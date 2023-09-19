@@ -44,7 +44,13 @@ const CourseDates = (function (RenderCourseDates, Dates) {
 
 					RenderCourseDates.createCourseListFor(courses, ['alle'], 'Eskimotieren', '.course-list-wrapper-rollCourse');
 
-					RenderCourseDates.createCourseListFor(courses, ['Level2','Level3-Level4','Level5'], 'Packraft Kurs', ['Packraft'], '.course-list-wrapper-packraftCourse');
+					//RenderCourseDates.createCourseListFor(courses, ['Level2','Level3-Level4','Level5'], 'Packraft Kurs', ['Packraft'], '.course-list-wrapper-packraftCourse');
+
+					RenderCourseDates.createCourseListFor(courses, ['Level2'], 'Packraft Kurs', ['Packraft'], '.course-list-wrapper-level2PackraftCourse');
+					RenderCourseDates.createCourseListFor(courses, ['Level3-Level4'], 'Packraft Kurs', ['Packraft'], '.course-list-wrapper-level34PackraftCourse');
+					RenderCourseDates.createCourseListFor(courses, ['Level5'], 'Packraft Kurs', ['Packraft'], '.course-list-wrapper-level5PackraftCourse');
+
+					
 
 					RenderCourseDates.createPaddleJourniesOverview(courses);
 					RenderCourseDates.createPaddleJournies(courses);

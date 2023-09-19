@@ -80,8 +80,15 @@
 //Grid für die Level 1 - 5 Knöpfe innerhlab des Intro Containers
 .course-container-level{
     display: grid;
-
     grid-template-columns: 1fr;
+    column-gap: $basicWidth;
+    row-gap: $basicWidth;
+    background-color: $color-textContainer-background;
+    padding-top: $basicHeight;
+}
+
+//Grid für fünf Level (z.B. Kajak)
+.course-container-level__fiveLevels{
     grid-template-rows: 25px auto auto 25px auto auto 25px auto;
     grid-template-areas: 
         "basis"
@@ -92,12 +99,18 @@
         "level4"
         "wwIV"
         "level5";
-        
-    column-gap: $basicWidth;
-    row-gap: $basicWidth;
+}
 
-    background-color: $color-textContainer-background;
-    padding-top: $basicHeight;
+ //Grid für drei Level (z.B. Packraft)
+ .course-container-level__threeLevels{
+    grid-template-rows: 25px auto 25px auto 25px auto;;
+    grid-template-areas: 
+        "basis"
+        "level2"
+        "aufbau"
+        "level4"
+        "wwIV"
+        "level5";
 }
 
 .course-container-level-basic{
@@ -228,9 +241,14 @@
     //Grid für die Level 1 - 5 Knöpfe innerhlab des Intro Containers
     .course-container-level{
         display: grid;
-    
-        grid-template-columns: 1fr 1fr;
         grid-template-rows: 25px auto 25px auto 25px auto;
+        column-gap: $basicWidth;
+        row-gap: $basicWidth;
+    }
+
+    //Grid für fünf Level (z.B. Kajak)
+    .course-container-level__fiveLevels{
+        grid-template-columns: 1fr 1fr;
         grid-template-areas: 
             "basis basis"
             "level1 level2"
@@ -238,13 +256,20 @@
             "level3 level4"
             "wwIV wwIV"
             "level5 .";
-            
-        column-gap: $basicWidth;
-        row-gap: $basicWidth;
-    
-        background-color: $color-textContainer-background;
     }
-    
+
+    //Grid für drei Level (z.B. Packraft)
+    .course-container-level__threeLevels{
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "basis"
+            "level2"
+            "aufbau"
+            "level4"
+            "wwIV"
+            "level5";
+    }
+
     .course-container{
         display: grid;
 
@@ -301,19 +326,29 @@
         transition: max-height 0.4s ease-in-out;
     }
 
-    //Grid für die Level 1 - 5 Knöpfe innerhlab des Intro Containers
+    //Grid für die Level 1 - 5 Knöpfe (z.B. Kajak) innerhlab des Intro Containers
     .course-container-level{
         display: grid;
-    
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-        grid-template-rows: auto;
-        grid-template-areas: 
-            "basis basis aufbau aufbau wwIV"
-            "level1 level2 level3 level4 level5";
-            
+        grid-template-rows: auto;      
         column-gap: $basicWidth;
         row-gap: $basicWidth;
         background-color: $color-textContainer-background;
+    }
+
+    //Grid für fünf Level (z.B. Kajak)
+    .course-container-level__fiveLevels{
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-areas: 
+            "basis basis aufbau aufbau wwIV"
+            "level1 level2 level3 level4 level5"
+    }
+
+    //Grid für drei Level (z.B. Packraft)
+    .course-container-level__threeLevels{
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-areas: 
+            "basis aufbau wwIV"
+            "level2 level4 level5";
     }
 
     .course-container-level-button:hover{

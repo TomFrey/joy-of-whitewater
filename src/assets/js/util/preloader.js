@@ -47,8 +47,8 @@ const Preloader = (function (Images, Globals) {
 			case 'paddelreisen':
 				imageToPreload = imagePaths + Images.getTheFirstImageForPaddelreisen().name;
 				break;
-			case 'packraft':
-				imageToPreload = imagePaths + Images.getTheFirstImageForPackraft().name;
+			case 'packraftkurse':
+				imageToPreload = imagePaths + Images.getTheFirstImageForPackraftkurse().name;
 				break;
 			case '': // Startseite
 			 	imageToPreload = imagePaths + Images.getTheFirstImageForJoyOfWhitewater().name;
