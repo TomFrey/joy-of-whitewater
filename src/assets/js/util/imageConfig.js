@@ -33,6 +33,10 @@ var Images = (function () {
 			{ name: 'packraft_6.jpg', title: 'Packraft Kurse', alt: 'Packraft Kurse' },
 			{ name: 'packraft_2.jpg', title: 'Packraft', alt: 'Packraft' },
 			{ name: 'packraft_3.jpg', title: 'Packraft Ausflüge', alt: 'Packraft Ausflüge' }
+		],
+		specialImages: [
+			{ name: 'kanukurse_2.jpg', title: 'Eskimorolle', alt: 'Eskimotierkurse' },
+			{ name: 'paddelreisen_9.jpg', title: '', alt: 'Packraft Kurse' }
 		]
 	};
 
@@ -57,6 +61,10 @@ var Images = (function () {
 			{ name: 'mobile_paddelreisen.jpg', title: 'Wildwasser Reisen', alt: 'Wildwasser Reisen' }
 		],
 		packraftkurseImages: [
+			{ name: 'mobile_quer_packraft.jpg', title: 'Packraft Kurse', alt: 'Packraft Kurse' },
+			{ name: 'mobile_packraft.jpg', title: 'Packraft Kurse', alt: 'Packraft Kurse' }
+		],
+		specialImages: [
 			{ name: 'mobile_quer_packraft.jpg', title: 'Packraft Kurse', alt: 'Packraft Kurse' },
 			{ name: 'mobile_packraft.jpg', title: 'Packraft Kurse', alt: 'Packraft Kurse' }
 		]
@@ -329,6 +337,10 @@ var Images = (function () {
 		]
 	};
 
+	function getImagesForSpecials() {
+		return imageCarousel.specialImages;
+	}
+
 	function getImagesForKajakkurse() {
 		return imageCarousel.kajakkurseImages;
 	}
@@ -374,6 +386,11 @@ var Images = (function () {
 		return imageCarousel.kanadierkurseImages[0];
 	}
 
+	function getTheFirstImageForSpecials() {
+		return imageCarousel.specialImages[0];
+	}
+
+
 	function getMobileImagesForKajakkurse() {
 		return mobileImages.kajakkurseImages;
 	}
@@ -394,6 +411,11 @@ var Images = (function () {
 		return mobileImages.theJoyOfWhiteWaterImages;
 	}
 
+	function getMobileImagesForSpecials() {
+		return mobileImages.specialImages;
+	}
+	
+
 	function getImagesForSlider(nameOfImageSlider) {
 		return imageSlider[nameOfImageSlider];
 	}
@@ -401,21 +423,28 @@ var Images = (function () {
 	// public api
 	return {
 		getAllCarouselImages,
+
 		getImagesForKajakkurse,
 		getImagesForKanadierkurse,
 		getImagesForPaddelreisen,
 		getImagesForPackraftkurse,
 		getImagesForJoyOfWhitewater,
+		getImagesForSpecials,
+
 		getTheFirstImageForJoyOfWhitewater,
 		getTheFirstImageForPackraftkurse,
 		getTheFirstImageForPaddelreisen,
 		getTheFirstImageForKajakkurse,
 		getTheFirstImageForKanadierkurse,
+		getTheFirstImageForSpecials,
+
 		getMobileImagesForKajakkurse,
 		getMobileImagesForKanadierkurse,
 		getMobileImagesForPaddelreisen,
 		getMobileImagesForPackraftkurse,
 		getMobileImagesForJoyOfWhitewater,
+		getMobileImagesForSpecials,
+
 		getImagesForSlider
 	};
 })();

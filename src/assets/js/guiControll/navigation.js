@@ -288,22 +288,18 @@ const Navigation = (function (RenderImageSlider, Images, Globals, Responsive, Co
 			case 'kajakkurse':
 				Responsive.renderHeaderWithImagesAccordingToBreakPoint(Images.getImagesForKajakkurse(), Images.getMobileImagesForKajakkurse());
 				break;
-			case 'paddelreisen':
-				Responsive.renderHeaderWithImagesAccordingToBreakPoint(Images.getImagesForPaddelreisen(), Images.getMobileImagesForPaddelreisen());
-				break;
-
-			// case 'packraft':
-			// 	Responsive.renderHeaderWithImagesAccordingToBreakPoint(Images.getImagesForPackraft(), Images.getMobileImagesForPackraft());
-			// 	break;
-
 			case 'kanadierkurse':
 				Responsive.renderHeaderWithImagesAccordingToBreakPoint(Images.getImagesForKanadierkurse(), Images.getMobileImagesForKanadierkurse());
 				break;
-
 			case 'packraftkurse':
 				Responsive.renderHeaderWithImagesAccordingToBreakPoint(Images.getImagesForPackraftkurse(), Images.getMobileImagesForPackraftkurse());
 				break;
-
+			case 'specials':
+				Responsive.renderHeaderWithImagesAccordingToBreakPoint(Images.getImagesForSpecials(), Images.getMobileImagesForSpecials());
+				break;
+			case 'paddelreisen':
+				Responsive.renderHeaderWithImagesAccordingToBreakPoint(Images.getImagesForPaddelreisen(), Images.getMobileImagesForPaddelreisen());
+				break;
 			case '': // Startseite
 				Responsive.renderHeaderWithImagesAccordingToBreakPoint(Images.getImagesForJoyOfWhitewater(), Images.getMobileImagesForJoyOfWhitewater());
 				break;

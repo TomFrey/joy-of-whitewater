@@ -39,16 +39,17 @@ const Preloader = (function (Images, Globals) {
 			case 'kajakkurse':
 				imageToPreload = imagePaths + Images.getTheFirstImageForKajakkurse().name;
 				break;
-
 			case 'kanadierkurse':
 				imageToPreload = imagePaths + Images.getTheFirstImageForKanadierkurse().name;
 				break;
-
-			case 'paddelreisen':
-				imageToPreload = imagePaths + Images.getTheFirstImageForPaddelreisen().name;
-				break;
 			case 'packraftkurse':
 				imageToPreload = imagePaths + Images.getTheFirstImageForPackraftkurse().name;
+				break;
+			case 'specials':
+				imageToPreload = imagePaths + Images.getTheFirstImageForSpecials().name;
+				break;
+			case 'paddelreisen':
+				imageToPreload = imagePaths + Images.getTheFirstImageForPaddelreisen().name;
 				break;
 			case '': // Startseite
 			 	imageToPreload = imagePaths + Images.getTheFirstImageForJoyOfWhitewater().name;

@@ -21,17 +21,18 @@ const App = (function (Globals, Responsive) {
 							RenderHeader.addJustFirstImage(Images.getImagesForKajakkurse());
 							Navigation.setHeaderTitle('Kajakkurse');
 							break;
-
 						case 'kanadierkurse':
 							RenderHeader.addJustFirstImage(Images.getImagesForKanadierkurse());
 							Navigation.setHeaderTitle('Open Canoe und<br> Kanadierkurse');
 							break;
-
+						case 'specials':
+							RenderHeader.addJustFirstImage(Images.getImagesForSpecials());
+							Navigation.setHeaderTitle('Specials');
+							break;
 						case 'packraftkurse':
 							RenderHeader.addJustFirstImage(Images.getImagesForPackraftkurse());
 							Navigation.setHeaderTitle('Packraftkurse');
 							break;
-
 						case 'paddelreisen':
 							RenderHeader.addJustFirstImage(Images.getImagesForPaddelreisen());
 							Navigation.setHeaderTitle('Wildwasser Reisen');
