@@ -1,0 +1,65 @@
+.ausflug-container-intro{
+    display: grid;
+
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: 
+        "titel"
+        "bild"
+        "inhalt1"
+        "inhalt2";
+        
+    column-gap: $basicWidth;
+    row-gap: 0px;
+    background-color: $color-textContainer-background;
+}
+
+.ausflug-container-intro-item-title{
+    grid-area: titel;
+}
+
+.ausflug-container-intro-item-picture{
+    grid-area: bild;
+
+    img{
+        max-width: 100%;
+    }
+}
+
+.ausflug-container-intro-item-content1{
+    grid-area: inhalt1;
+}
+
+.ausflug-container-intro-item-content2{
+    grid-area: inhalt2;
+}
+
+
+/* *************************************************** */
+/* *********** ab hier für tablet *******************  */
+@media screen and (min-width: $breakpoint-medium) {   // > 688px
+    
+   
+}
+
+
+/* *************************************************** */
+/* *********** ab hier für desktop ******************* */
+@media screen and (min-width: $breakpoint-large) { //wenn Bildschirm grösser 740 px gross ist, dann...
+
+    .ausflug-container-intro{
+        display: grid;
+    
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+        grid-template-areas: 
+            "titel titel"
+            "bild bild"
+            "inhalt1 inhalt2";
+            
+        column-gap: 3*$basicWidth;
+        row-gap: 0px;
+        background-color: $color-textContainer-background;
+    }
+   
+}

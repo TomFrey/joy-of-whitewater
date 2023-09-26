@@ -37,9 +37,9 @@ const App = (function (Globals, Responsive) {
 							RenderHeader.addJustFirstImage(Images.getImagesForPaddelreisen());
 							Navigation.setHeaderTitle('Wildwasser Reisen');
 							break;
-						case 'packraft':
-							RenderHeader.addJustFirstImage(Images.getImagesForPackraftkurse());
-							Navigation.setHeaderTitle('Packraft');
+						case 'ausfluege':
+							RenderHeader.addJustFirstImage(Images.getImagesForAusfluege());
+							Navigation.setHeaderTitle('Wildwasser <br> Ausflüge');
 							break;
 						case '': // Startseite
 							RenderHeader.addJustFirstImage(Images.getImagesForJoyOfWhitewater());

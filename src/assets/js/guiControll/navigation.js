@@ -300,6 +300,9 @@ const Navigation = (function (RenderImageSlider, Images, Globals, Responsive, Co
 			case 'paddelreisen':
 				Responsive.renderHeaderWithImagesAccordingToBreakPoint(Images.getImagesForPaddelreisen(), Images.getMobileImagesForPaddelreisen());
 				break;
+			case 'ausfluege':
+				Responsive.renderHeaderWithImagesAccordingToBreakPoint(Images.getImagesForAusfluege(), Images.getMobileImagesForAusfluege());
+				break;
 			case '': // Startseite
 				Responsive.renderHeaderWithImagesAccordingToBreakPoint(Images.getImagesForJoyOfWhitewater(), Images.getMobileImagesForJoyOfWhitewater());
 				break;

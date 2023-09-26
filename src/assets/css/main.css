@@ -3699,6 +3699,50 @@ Desktop und Tablet
     padding-top: 16px;
   }
 }
+.ausflug-container-intro {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  grid-template-areas: "titel" "bild" "inhalt1" "inhalt2";
+  column-gap: 8px;
+  row-gap: 0px;
+  background-color: #E6E6E6;
+}
+
+.ausflug-container-intro-item-title {
+  grid-area: titel;
+}
+
+.ausflug-container-intro-item-picture {
+  grid-area: bild;
+}
+.ausflug-container-intro-item-picture img {
+  max-width: 100%;
+}
+
+.ausflug-container-intro-item-content1 {
+  grid-area: inhalt1;
+}
+
+.ausflug-container-intro-item-content2 {
+  grid-area: inhalt2;
+}
+
+/* *************************************************** */
+/* *********** ab hier für tablet *******************  */
+/* *************************************************** */
+/* *********** ab hier für desktop ******************* */
+@media screen and (min-width: 992px) {
+  .ausflug-container-intro {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: "titel titel" "bild bild" "inhalt1 inhalt2";
+    column-gap: 24px;
+    row-gap: 0px;
+    background-color: #E6E6E6;
+  }
+}
 .open-drawer {
   background-color: #004570;
   bottom: 0;
@@ -3937,7 +3981,7 @@ a.open-drawer-wrapper {
     color: #004570;
   }
   .link-button:hover .link-button-wrapper--mail .link-button-wrapper__icon--mail, .link-button--mail:hover .link-button-wrapper--mail .link-button-wrapper__icon--mail {
-    background-image: url("/assets/images/icon/mail_hover.svg");
+    background-image: url("/assets/images/icon/mail-hover-blue.svg");
     background-repeat: no-repeat;
     background-position: center;
     margin-left: 12px;
@@ -4242,7 +4286,6 @@ main .text-container, main .text-container__home {
     padding: 15px 0px 0px 0px;
     background: inherit;
     background-attachment: fixed;
-    overflow: hidden;
     z-index: 15;
   }
   header .images-carousel .containerForTitle h1 {

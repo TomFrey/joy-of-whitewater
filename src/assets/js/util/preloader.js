@@ -51,6 +51,9 @@ const Preloader = (function (Images, Globals) {
 			case 'paddelreisen':
 				imageToPreload = imagePaths + Images.getTheFirstImageForPaddelreisen().name;
 				break;
+			case 'ausfluege':
+				imageToPreload = imagePaths + Images.getTheFirstImageForAusfluege().name;
+				break;
 			case '': // Startseite
 			 	imageToPreload = imagePaths + Images.getTheFirstImageForJoyOfWhitewater().name;
 				break;

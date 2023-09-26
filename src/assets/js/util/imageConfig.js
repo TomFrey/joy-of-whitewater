@@ -37,6 +37,12 @@ var Images = (function () {
 		specialImages: [
 			{ name: 'kanukurse_2.jpg', title: 'Eskimorolle', alt: 'Eskimotierkurse' },
 			{ name: 'paddelreisen_9.jpg', title: '', alt: 'Packraft Kurse' }
+		],
+		ausflugImages: [
+			{ name: 'ausflug_1.webp', title: 'Wildwasserausflüge durch die Rheinschlucht', alt: 'Wildwasserausflüge durch die Rheinschlucht' },
+			{ name: 'ausflug_3.webp', title: 'Wildwasserausflüge durch die Rheinschlucht', alt: 'Wildwasserausflüge durch die Rheinschlucht' },
+			{ name: 'packraft_2.jpg', title: 'Wildwassertouren mit dem Packraft', alt: 'Wildwassertouren mit dem Packraft' },
+			{ name: 'packraft_3.jpg', title: 'Wildwasserausflug mit dem Packraft', alt: 'Wildwasserausflug mit dem Packraft' }
 		]
 	};
 
@@ -65,6 +71,10 @@ var Images = (function () {
 			{ name: 'mobile_packraft.jpg', title: 'Packraft Kurse', alt: 'Packraft Kurse' }
 		],
 		specialImages: [
+			{ name: 'mobile_quer_packraft.jpg', title: 'Packraft Kurse', alt: 'Packraft Kurse' },
+			{ name: 'mobile_packraft.jpg', title: 'Packraft Kurse', alt: 'Packraft Kurse' }
+		],
+		ausflugImages: [
 			{ name: 'mobile_quer_packraft.jpg', title: 'Packraft Kurse', alt: 'Packraft Kurse' },
 			{ name: 'mobile_packraft.jpg', title: 'Packraft Kurse', alt: 'Packraft Kurse' }
 		]
@@ -357,6 +367,10 @@ var Images = (function () {
 		return imageCarousel.paddelreisenImages;
 	}
 
+	function getImagesForAusfluege() {
+		return imageCarousel.ausflugImages;
+	}
+
 	function getImagesForJoyOfWhitewater() {
 		return imageCarousel.theJoyOfWhiteWaterImages;
 	}
@@ -390,6 +404,10 @@ var Images = (function () {
 		return imageCarousel.specialImages[0];
 	}
 
+	function getTheFirstImageForAusfluege() {
+		return imageCarousel.ausflugImages[0];
+	}
+
 
 	function getMobileImagesForKajakkurse() {
 		return mobileImages.kajakkurseImages;
@@ -414,6 +432,10 @@ var Images = (function () {
 	function getMobileImagesForSpecials() {
 		return mobileImages.specialImages;
 	}
+
+	function getMobileImagesForAusfluege() {
+		return mobileImages.ausflugImages;
+	}
 	
 
 	function getImagesForSlider(nameOfImageSlider) {
@@ -430,6 +452,7 @@ var Images = (function () {
 		getImagesForPackraftkurse,
 		getImagesForJoyOfWhitewater,
 		getImagesForSpecials,
+		getImagesForAusfluege,
 
 		getTheFirstImageForJoyOfWhitewater,
 		getTheFirstImageForPackraftkurse,
@@ -437,6 +460,7 @@ var Images = (function () {
 		getTheFirstImageForKajakkurse,
 		getTheFirstImageForKanadierkurse,
 		getTheFirstImageForSpecials,
+		getTheFirstImageForAusfluege,
 
 		getMobileImagesForKajakkurse,
 		getMobileImagesForKanadierkurse,
@@ -444,6 +468,7 @@ var Images = (function () {
 		getMobileImagesForPackraftkurse,
 		getMobileImagesForJoyOfWhitewater,
 		getMobileImagesForSpecials,
+		getMobileImagesForAusfluege,
 
 		getImagesForSlider
 	};
