@@ -2135,6 +2135,28 @@ h4.course-list-detail__title::after {
   grid-area: 4/1/4/13;
 }
 
+.button-grid-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  grid-template-areas: "button1" "button2" "button3";
+  column-gap: 8px;
+  row-gap: 8px;
+  background-color: #E6E6E6;
+}
+
+.button-grid-item-1 {
+  grid-area: button1;
+}
+
+.button-grid-item-2 {
+  grid-area: button2;
+}
+
+.button-grid-item-3 {
+  grid-area: button3;
+}
+
 /* *************************************************** */
 /* *********** ab hier für tablet ******************* */
 @media screen and (min-width: 688px) {
@@ -2149,6 +2171,15 @@ h4.course-list-detail__title::after {
   }
   .gridx12__width3--col4of4 {
     grid-area: 2/7/2/13;
+  }
+  .button-grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: "button1 button2" "button3 .";
+    column-gap: 16px;
+    row-gap: 16px;
+    background-color: #E6E6E6;
   }
 }
 /* *************************************************** */
@@ -2247,6 +2278,15 @@ h4.course-list-detail__title::after {
   }
   .gridx12__width3--col4of4 {
     grid-area: 1/10/1/13;
+  }
+  .button-grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: "button1 button2 button3";
+    column-gap: 16px;
+    row-gap: 16px;
+    background-color: #E6E6E6;
   }
 }
 /*

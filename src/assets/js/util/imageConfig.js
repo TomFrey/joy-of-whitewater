@@ -12,7 +12,9 @@ var Images = (function () {
 		],
 		kajakkurseImages: [
 			{ name: 'kanukurse_5.jpg', title: 'Kajakkurse', alt: 'Kajakkurse' },
-			{ name: 'kanukurse_8.jpg', title: 'Open Canoe Kurse', alt: 'Open Canoe Kurse' }
+			{ name: 'kanukurse_8.jpg', title: 'Wildwasser Kajakkurse', alt: 'Wildwasser Kajakkurse' },
+			{ name: 'paddelreisen_1.jpg', title: 'Wildwasser Kajakkurse auf WW IV', alt: 'Wildwasser Kajakkurse auf WW IV' },
+			{ name: 'kanukurse_7.jpg', title: 'Wildwasser Kajakkurse', alt: 'Wildwasser Kajakkurse' }
 		],
 		kanadierkurseImages: [
 			{ name: 'kanukurse_4.jpg', title: 'Canadierkurse', alt: 'Canadierkurse' },
@@ -21,12 +23,11 @@ var Images = (function () {
 			{ name: 'kanukurse_9.jpg', title: 'Open Canoe und Kanadierkurse', alt: 'Open Canoe und Kanadierkurse' }
 		],
 		paddelreisenImages: [
-			{ name: 'paddelreisen_10.jpg', title: 'Tavignano, Korsika', alt: 'Paddelreisen' },
+			{ name: 'paddelreisen_10.jpg', title: 'Wildwasserreise - Tavignano, Korsika', alt: 'Paddelreisen' },
 			{ name: 'paddelreisen_7.jpg', title: 'Transportmittel in Chile', alt: 'Paddelreisen' },
 			{ name: 'paddelreisen_3.jpg', title: 'Inn, Engadin', alt: 'Paddelreisen' },
 			{ name: 'paddelreisen_2.jpg', title: 'Paddelreise in Georgien', alt: 'Paddelreisen' },
-			{ name: 'paddelreisen_5.jpg', title: 'Taravo, Korsika', alt: 'Paddelreisen' }
-			
+			{ name: 'paddelreisen_5.jpg', title: 'Wildwasser Reise - Taravo, Korsika', alt: 'Paddelreisen' }
 		],
 		packraftkurseImages: [
 			{ name: 'packraft_1.jpg', title: 'Packraft Kurse', alt: 'Packraft Kurse' },
@@ -35,8 +36,11 @@ var Images = (function () {
 			{ name: 'packraft_3.jpg', title: 'Packraft Ausflüge', alt: 'Packraft Ausflüge' }
 		],
 		specialImages: [
-			{ name: 'kanukurse_2.jpg', title: 'Eskimorolle', alt: 'Eskimotierkurse' },
-			{ name: 'paddelreisen_9.jpg', title: '', alt: 'Packraft Kurse' }
+			{ name: 'specials_1.webp', title: 'Eskimotierkurse', alt: 'Eskimotierkurse' },
+			{ name: 'specials_2.webp', title: 'Wildwasser Rettungskurse', alt: 'Wildwasser Rettungskurse' },
+			{ name: 'specials_3.webp', title: 'Eskimotierkurse', alt: 'Eskimotierkurse' },
+			{ name: 'specials_4.webp', title: 'Wildwasser Rettungskurse', alt: 'Wildwasser Rettungskurse' },
+			{ name: 'specials_5.jpg', title: 'Eskimotierkurse', alt: 'Eskimotierkurse' }
 		],
 		ausflugImages: [
 			{ name: 'ausflug_1.webp', title: 'Wildwasserausflüge durch die Rheinschlucht', alt: 'Wildwasserausflüge durch die Rheinschlucht' },

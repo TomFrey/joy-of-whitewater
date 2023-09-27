@@ -90,6 +90,35 @@
 
 
 
+.button-grid-container{
+    display: grid;
+
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+	grid-template-areas: 
+	"button1"
+	"button2"
+	"button3";
+        
+    column-gap: $basicWidth;
+    row-gap: $basicWidth;
+    background-color: $color-textContainer-background;
+}
+
+.button-grid-item-1{
+	grid-area: button1;
+}
+
+.button-grid-item-2{
+	grid-area: button2;
+}
+
+.button-grid-item-3{
+	grid-area: button3;
+}
+
+
+
 
 
 /* *************************************************** */
@@ -111,6 +140,22 @@
 	.gridx12__width3--col4of4{
 		grid-area: 2 / 7 / 2 / 13;
 	}
+
+
+	.button-grid-container{
+		display: grid;
+
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: auto;
+		grid-template-areas: 
+			"button1 button2"
+			"button3 .";
+			
+		column-gap: 2*$basicWidth;
+		row-gap: 2*$basicWidth;
+		background-color: $color-textContainer-background;
+	}
+
 
 }
 
@@ -247,6 +292,19 @@
 	
 	.gridx12__width3--col4of4{
 		grid-area: 1 / 10 / 1 / 13;
+	}
+
+	.button-grid-container{
+		display: grid;
+
+		grid-template-columns: 1fr 1fr 1fr;
+		grid-template-rows: auto;
+		grid-template-areas: 
+			"button1 button2 button3";
+			
+		column-gap: 2*$basicWidth;
+		row-gap: 2*$basicWidth;
+		background-color: $color-textContainer-background;
 	}
 }
 
