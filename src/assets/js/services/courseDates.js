@@ -42,13 +42,16 @@ const CourseDates = (function (RenderCourseDates, Dates) {
 					// Render Level5 Kanadierkurse
 					RenderCourseDates.createCourseListFor(courses, ['Level5'], 'Kanukurs', ['Kanadier'], '.course-list-wrapper-level5CanoeCourse');
 
-					RenderCourseDates.createCourseListFor(courses, ['alle'], 'Eskimotieren', '.course-list-wrapper-rollCourse');
+					RenderCourseDates.createCourseListFor(courses, ['alle'], 'Eskimotieren', ['alle'], '.course-list-wrapper-rollCourse');
 
 					//RenderCourseDates.createCourseListFor(courses, ['Level2','Level3-Level4','Level5'], 'Packraft Kurs', ['Packraft'], '.course-list-wrapper-packraftCourse');
 
 					RenderCourseDates.createCourseListFor(courses, ['Level2'], 'Packraft Kurs', ['Packraft'], '.course-list-wrapper-level2PackraftCourse');
 					RenderCourseDates.createCourseListFor(courses, ['Level3-Level4'], 'Packraft Kurs', ['Packraft'], '.course-list-wrapper-level34PackraftCourse');
 					RenderCourseDates.createCourseListFor(courses, ['Level5'], 'Packraft Kurs', ['Packraft'], '.course-list-wrapper-level5PackraftCourse');
+					RenderCourseDates.createCourseListFor(courses, ['Level2','Level3-Level4','Level5'], 'Packraft Kurs', ['Packraft'], '.course-list-wrapper-packraftCourse');
+
+					
 
 					
 
