@@ -52,21 +52,49 @@ nav{
 
 
 		div.main-navi-desktop-submenu__kurse{
+			display: grid;
+			position: relative;
+			pointer-events: auto;
+			background-color: white;
+			padding: 8px 8px;
+
+			grid-template-columns: 1fr 1fr;
+			grid-template-rows: auto;
+			grid-template-areas: "item11 item12"
+								 "item21 item22";
+			column-gap: 8px;
+			row-gap: 8px;
+
 			background-color: $color-nav-mobile-background-slider;
-			padding-left: 2*$basicWidth;
 
 			a.submenu-row1-column1, a.submenu-row1-column2,
 			a.submenu-row2-column1, a.submenu-row2-column2{
-				display: inline-block;
-				background-color: $color-nav-mobile-background-slider;
+				//display: inline-block;
+				//background-color: $color-nav-mobile-background-slider;
 				text-decoration: none;
-				padding-bottom: $basicHeight;
-				width: 100%;
+				//padding-bottom: $basicHeight;
+				//width: 100%;
+			}
+
+			a.submenu-row1-column1{
+				grid-area: item11;
+			}
+	
+			a.submenu-row1-column2{
+				grid-area: item12;
+			}
+	
+			a.submenu-row2-column1{
+				grid-area: item21;
+			}
+	
+			a.submenu-row2-column2{
+				grid-area: item22;
 			}
 
 			div.submenu-content{
 				display: flex;
-				flex-flow: row nowrap;
+				flex-flow: column nowrap;
 				align-items: center;
 				
 				.submenu-content-image{
@@ -81,7 +109,7 @@ nav{
 				
 				.submenu-content-label{
 					color: $color-nav-mobile-text;
-					padding-left: 2*$basicWidth;
+					padding-top: $basicWidth;
 				}
 			}
 		}
@@ -132,13 +160,16 @@ nav{
 				position: relative;
 				pointer-events: auto;
 				background-color: white;
-				padding-left: 0px;
+				padding: 0px;
 				top: 0px;
 				left: 0px;
 		
 				grid-template-columns: 1fr 1fr 1fr 1fr;
 				grid-template-rows: auto;
 				grid-template-areas: "item11 item12 item21 item22";
+
+				column-gap: 0px;
+				row-gap: 0px;
 		
 				a.submenu-row1-column1, a.submenu-row1-column2,
 				a.submenu-row2-column1, a.submenu-row2-column2{
@@ -166,24 +197,8 @@ nav{
 					
 					.submenu-content-label{
 						color: $color-nav-mobile-text;
-						padding-left: 2*$basicWidth;
+						padding-top: 0.5*$basicWidth;
 					}
-				}
-		
-				a.submenu-row1-column1{
-					grid-area: item11;
-				}
-		
-				a.submenu-row1-column2{
-					grid-area: item12;
-				}
-		
-				a.submenu-row2-column1{
-					grid-area: item21;
-				}
-		
-				a.submenu-row2-column2{
-					grid-area: item22;
 				}
 			}
 		}
@@ -204,7 +219,6 @@ nav{
 						height: 120px;
 						width: 180px;
 					}
-					
 				}
 			}
 		}
