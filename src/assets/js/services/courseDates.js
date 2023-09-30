@@ -43,6 +43,7 @@ const CourseDates = (function (RenderCourseDates, Dates) {
 					RenderCourseDates.createCourseListFor(courses, ['Level5'], 'Kanukurs', ['Kanadier'], '.course-list-wrapper-level5CanoeCourse');
 
 					RenderCourseDates.createCourseListFor(courses, ['alle'], 'Eskimotieren', ['alle'], '.course-list-wrapper-rollCourse');
+					RenderCourseDates.createCourseListFor(courses, ['alle'], 'Rettungskurs', ['alle'], '.course-list-wrapper-saftyCourse');
 
 					//RenderCourseDates.createCourseListFor(courses, ['Level2','Level3-Level4','Level5'], 'Packraft Kurs', ['Packraft'], '.course-list-wrapper-packraftCourse');
 

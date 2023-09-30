@@ -247,6 +247,7 @@ function copyImages(){
 		'./src/assets/images/**/*.png',
 		'./src/assets/images/**/*.svg',
 		'./src/assets/images/**/*.gif',
+		'./src/assets/images/**/*.webp',
 		'./src/assets/images/**/*.jpg'
 	]).pipe(gulp.dest('dist/assets/images'));
 }
@@ -366,7 +367,7 @@ function build(enviroment) {
 		gulp.parallel(	minifyFrontJsForDist,
 						compileScss),
 		gulp.parallel(	minifyCss),
-		gulp.parallel(	copyApi,
+		gulp.parallel(	//copyApi,
 						copyHTML,
 						copyFrontJs,
 						copyImages,

@@ -45,7 +45,7 @@ const RenderCourseSearchResults = (function (RenderCourseDates) {
             renderSearchResultMessage(courseSearchResults);
             RenderCourseDates.createCourseListFor(foundCourses, 
                 ['Level1', 'Level2', 'Level3', 'Level3-Level4', 'Level4', 'Level5', 'alle'], 
-                ['Kanukurs', 'Packraft Kurs', 'Eskimotieren', 'Paddelreise'], 
+                ['Kanukurs', 'Packraft Kurs', 'Eskimotieren', 'Paddelreise', 'Rettungskurs'], 
                 ['Kajak', 'Kanadier', 'Packraft', 'alle'],
                 '.course-search-result',
                 false);

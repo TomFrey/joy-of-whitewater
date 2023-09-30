@@ -94,7 +94,7 @@ const CourseSearch = (function (CourseDates, RenderCourseSearchResults, CourseRe
                         searchObject.activities.push('Paddelreise');
                     } else {
                         //Bei einem Kurs immer nach Kanu, Packraft und Eskimotierkurs suchen
-                        searchObject.activities.push('Kanukurs', 'Packraft Kurs', 'Eskimotieren');
+                        searchObject.activities.push('Kanukurs', 'Packraft Kurs', 'Eskimotieren', 'Rettungskurs');
                     }
 
                 } else if (dropdownListElement.innerHTML === 'Kajak' || 
@@ -146,6 +146,8 @@ const CourseSearch = (function (CourseDates, RenderCourseSearchResults, CourseRe
         }
 
         if(searchCriteria.levels.length > 0){
+            //Wenn gefiltert wird, dann sollen 'alle' immer kommen.
+            searchCriteria.levels.push('alle');
             searchResult = searchResult.filter((course) => {
                 return searchCriteria.levels.some((level) => {
                     return level === course.kursStufe
