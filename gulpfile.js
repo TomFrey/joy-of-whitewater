@@ -12,7 +12,7 @@ const concat = require('gulp-concat');
 const replace = require('gulp-replace');
 const cleanCss = require('gulp-clean-css');
 const pump = require('pump');
-const gUtil = require('gulp-util');
+//const gUtil = require('gulp-util');
 const ftp = require('vinyl-ftp');
 
 const configFile = require('./config.js');
@@ -298,8 +298,8 @@ const getFtpProductionConnection = () => {
 		port: 21,
 		user: configFile.config.ftp.user,
 		password: configFile.config.ftp.pass,
-		parallel: 5,
-		log: gUtil.log
+		parallel: 5
+		//log: gUtil.log
 	})
 }
 
@@ -310,8 +310,8 @@ const getFtpTestConnection = () => {
 		user: configFile.config.testFtp.user,
 		password: configFile.config.testFtp.pass,
 		parallel: 5,
-		reload: true,
-		log: gUtil.log
+		reload: true
+		//log: gUtil.log
 	})
 }
 
