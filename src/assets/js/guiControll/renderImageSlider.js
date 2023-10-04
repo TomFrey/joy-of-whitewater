@@ -21,15 +21,15 @@ const RenderImageSlider = (function (Globals) {
 		const pictureElement = document.createElement('picture');
 
 		const sourceElementLargeImg = document.createElement('source');
-		sourceElementLargeImg.setAttribute('srcset', path + image.name + '.jpg');
+		sourceElementLargeImg.setAttribute('srcset', path + image.name);
 		sourceElementLargeImg.setAttribute('media', '(min-width: ' + breakPointLarge + 'px)');
 
 		const sourceElementMediumImg = document.createElement('source');
-		sourceElementMediumImg.setAttribute('srcset', path + image.nameTablet + '.jpg');
+		sourceElementMediumImg.setAttribute('srcset', path + image.nameTablet);
 		sourceElementMediumImg.setAttribute('media', '(min-width: ' + breakPointMedium + 'px)');
 		
 		const imgElement = document.createElement('img');
-		imgElement.setAttribute('src', path + image.nameMobile + '.jpg');
+		imgElement.setAttribute('src', path + image.nameMobile);
 		imgElement.setAttribute('title', image.title);
 		imgElement.setAttribute('alt', image.alt);
 
