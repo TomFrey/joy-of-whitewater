@@ -370,7 +370,7 @@ function build(enviroment) {
 		gulp.parallel(	//copyApi,
 						copyHTML,
 						copyFrontJs,
-						copyImages,
+						//copyImages,
 						copyXml,
 						copyRobotsAndHtaccess,
 						copyGoogleConfirmationFile,

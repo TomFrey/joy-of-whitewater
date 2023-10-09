@@ -173,13 +173,13 @@ const Validator = (function () {
 
 
 	/**
-	 * Prüft, ob die PLZ (z.B. 6300 oder 22345) im korrekten Format eingegeben wurde.
-	 * Vier oder fünf stellige Nummern sind erlaubt.
+	 * Prüft, ob die PLZ (z.B. 6300, 22345, CH - 1234, D-23456) im korrekten Format eingegeben wurde.
+	 * Vier bis 15 Stellen sind erlaubt.
 	 *
 	 * @returns {boolean}
 	 */
 	function isPlzValid(dateInputField) {
-		const isValidPlz = new RegExp(/^[0-9]{4,5}$/);
+		const isValidPlz = new RegExp(/^[a-zA-Z\s0-9\-]{4,15}$/);
 		return validate(isValidPlz, dateInputField);
 	}
 
