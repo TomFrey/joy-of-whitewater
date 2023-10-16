@@ -367,7 +367,7 @@ function build(enviroment) {
 		gulp.parallel(	minifyFrontJsForDist,
 						compileScss),
 		gulp.parallel(	minifyCss),
-		gulp.parallel(	//copyApi,
+		gulp.parallel(	copyApi,
 						copyHTML,
 						copyFrontJs,
 						//copyImages,

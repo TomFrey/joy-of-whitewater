@@ -241,7 +241,7 @@ const CourseRegistration = (function (Validator, RenderConfirmation, Dates) {
 				default:
 					reject(new Error('unbekannter Bootstyp'));
 			}
-			resolve(boatType);
+			resolve(selectBoatType);
 		});
 		return promise;
 	}
@@ -270,14 +270,19 @@ const CourseRegistration = (function (Validator, RenderConfirmation, Dates) {
 			case 'alle':
 				switch (courseLevel) {
 					case 'Level1':
+					case 'Level 1':
 						return 0;
 					case 'Level2':
+					case 'Level 2':
 						return 1;
 					case 'Level3':
+					case 'Level 3':
 						return 2;
 					case 'Level4':
+					case 'Level 4':
 						return 3;
 					case 'Level5':
+					case 'Level 5':
 						return 4;
 					case 'alle':
 						return 5;
@@ -286,11 +291,20 @@ const CourseRegistration = (function (Validator, RenderConfirmation, Dates) {
 				}
 			case 'Packraft':
 				switch (courseLevel) {
+					case 'Level1':
+					case 'Level 1':
 					case 'Level2':
+					case 'Level 2':
 						return 0;
 					case 'Level3-Level4':
+					case 'Level 3&4':
+					case 'Level 4':
+					case 'Level 3':
+					case 'Level4':
+					case 'Level3':
 						return 1;
 					case 'Level5':
+					case 'Level 5':
 						return 2;
 					case 'alle':
 						return 3;
@@ -328,14 +342,26 @@ const CourseRegistration = (function (Validator, RenderConfirmation, Dates) {
 				setRegistrationFormValidity(isCourseDateValid);
 			});
 
-			bootsTypInputField = document.querySelector('.dropdown-select select.dropdown-select__boatType');
-			bootsTypInputField.addEventListener('change', (event) => {
-				setPossibleCourseLevels(event).catch((error) => {
-					console.log(' Kurslevel konnten nicht gerendert werden. --> ' + error);
-				});
-			});
 			courseLevelInputField = document.querySelector('.dropdown-select select.dropdown-select__courseLevel');
 
+			bootsTypInputField = document.querySelector('.dropdown-select select.dropdown-select__boatType');
+			bootsTypInputField.addEventListener('change', (event) => {
+
+				let currentCourseLevel =  courseLevelInputField.options[courseLevelInputField.selectedIndex].text;
+				let currentBoatType = event.target.options[event.target.selectedIndex].text;
+
+				//Die möglichen Kurslevel anhand des Bootstyp in die Dropdown Box rendern.
+				setPossibleCourseLevels(event)
+				.then(() => {
+					//Der Kurslevel soll sich nicht ändern, wenn der Bootstyp geändert wird.
+					courseLevelInputField.options[convertCourseLevelToDropdownPosition(currentBoatType, currentCourseLevel)].setAttribute('selected', 'selected');
+				})
+				.catch((error) => {
+					console.log('Kurslevel konnten nicht gerendert werden. --> ' + error);
+				});
+
+			});
+			
 			numberOfParticipantsInputField = document.querySelector('.anmeldung__number-of-participants .moving-placeholder__input');
 			numberOfParticipantsInputField.addEventListener('blur', () => {
 				setRegistrationFormValidity(isNumberOfParticipantsValid);
@@ -451,7 +477,7 @@ const CourseRegistration = (function (Validator, RenderConfirmation, Dates) {
 					courseLevelInputField.options[convertCourseLevelToDropdownPosition(bootsTyp, kursLevel)].setAttribute('selected', 'selected');
 				})
 				.catch((error) => {
-					console.log(' Kurslevel konnten nicht gerendert werden. --> ' + error);
+					console.log('Kurslevel konnte aus der URL nicht gerendert werden. --> ' + error);
 				});
 
 				
