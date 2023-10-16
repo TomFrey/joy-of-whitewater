@@ -161,7 +161,6 @@ const Navigation = (function (RenderImageSlider, Images, Globals, Responsive, Co
 
 
 	function toggleTextContainerDrawer(event) {
-		console.log('toggleTextContainerDrawer');
 		const drawer = event.parentElement.parentElement.lastElementChild;
 		const drawerButtonIcon = event.lastElementChild;
 
@@ -175,9 +174,7 @@ const Navigation = (function (RenderImageSlider, Images, Globals, Responsive, Co
 	}
 
 
-
 	function toggleTerminOverviewDrawer(event) {
-		console.log('toggleTerminOverviewDrawer');
 		const drawer = event.parentElement.parentElement.parentElement.parentElement.lastElementChild;
 		const drawerButtonIcon = event.lastElementChild;
 

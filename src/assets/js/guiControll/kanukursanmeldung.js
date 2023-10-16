@@ -7,6 +7,10 @@ const CourseRegistration = (function (Validator, RenderConfirmation, Dates) {
 	let registrationForm;
 	let sendRegistraitionFormButton;
 	let courseNameInputField;
+
+	let bootsTypInputField;
+	let courseLevelInputField;
+
 	let courseDateInputField;
 	let firstNameInputField;
 	let surNameInputField;
@@ -125,6 +129,10 @@ const CourseRegistration = (function (Validator, RenderConfirmation, Dates) {
 		registrationData.subject = 'Anmeldung über TheJoyOfWhitewater';
 		registrationData.courseName = courseNameInputField.value;
 		registrationData.courseDate = courseDateInputField.value;
+
+		registrationData.bootsTyp = bootsTypInputField.options[bootsTypInputField.selectedIndex].text;
+		registrationData.courseLevel = courseLevelInputField.options[courseLevelInputField.selectedIndex].text;
+
 		registrationData.numberOfParticipants = numberOfParticipantsInputField.value;
 		registrationData.firstName = firstNameInputField.value;
 		registrationData.surName = surNameInputField.value;
@@ -138,8 +146,8 @@ const CourseRegistration = (function (Validator, RenderConfirmation, Dates) {
 		registrationData.comment = commentTextArea.value;
 
 		Server.sendFormDataWithMail(registrationData)
-			.then(() => {
-				// console.log(response);
+			.then((response) => {
+				//console.log(response);
 				// Die Formular Daten konnten vom Server entgegengenommen werden, ein EMail wurde verschickt...
 				RenderConfirmation.createRegistrationConfirmation(registrationData);
 			})
@@ -171,17 +179,139 @@ const CourseRegistration = (function (Validator, RenderConfirmation, Dates) {
 	}
 
 
+
+	/**
+	 * Je nach Bootstyp (Kajak, Kanadier, Packraft) werden andere Kurslevel in die Dropdown Box
+	 * gerendert.
+	 * 
+	 * @param {*} boatType 
+	 * @returns Promise
+	 */
+	function setPossibleCourseLevels(boatType) {
+		const kajakLevels = [{name: 'Level 1', value: 1}, 
+							 {name: 'Level 2', value: 2}, 
+							 {name: 'Level 3', value: 3},
+							 {name: 'Level 4', value: 4}, 
+							 {name: 'Level 5', value: 5}, 
+							 {name: 'alle', value: 6}];
+		const packraftLevels = [{name: 'Level 2', value: 2}, 
+							    {name: 'Level 3&4', value: 3}, 
+								{name: 'Level 5', value: 5}, 
+								{name: 'alle', value: 6}];
+
+
+		const promise = new Promise((resolve, reject) => {
+			let selectBoatType;
+
+			//boatType ist ein Objekt, wenn man den Bootstyp im Dropdown wechselt,
+			//und ein String, wenn der Bootstyp aus der URL kommt.
+			if (typeof boatType === 'object') {
+				selectBoatType = boatType.target.value;
+			} else {
+				if (boatType === 'Packraft') {
+					selectBoatType = '3';
+				} else {
+					selectBoatType = '1';
+				}
+			}
+
+			function renderLevelDropdown(levels){
+				// delete all current children
+				while (courseLevelInputField.firstChild) {
+					courseLevelInputField.removeChild(courseLevelInputField.firstChild);
+				}
+
+				levels.forEach((level) => {
+					const optionEle = document.createElement('option');
+					optionEle.setAttribute('value', level.value);
+					optionEle.innerText = level.name;
+					courseLevelInputField.appendChild(optionEle);
+				})
+			}
+
+			switch (selectBoatType) {
+				case '1':
+				case '2':
+				case '4':
+					renderLevelDropdown(kajakLevels);
+					break;
+				case '3':
+					renderLevelDropdown(packraftLevels);
+					break;
+				default:
+					reject(new Error('unbekannter Bootstyp'));
+			}
+			resolve(boatType);
+		});
+		return promise;
+	}
+
+
+	function convertBoatsTypeToDropdownPosition (boatType){
+		switch (boatType) {
+			case 'Kanadier':
+				return 0;
+			case 'Kajak':
+				return 1;
+			case 'Packraft':
+				return 2;
+			case 'alle':
+				return 3;
+			default:
+				return 0;
+		}
+	}
+
+
+	function convertCourseLevelToDropdownPosition (boatType, courseLevel){
+		switch (boatType) {
+			case 'Kanadier':
+			case 'Kajak':
+			case 'alle':
+				switch (courseLevel) {
+					case 'Level1':
+						return 0;
+					case 'Level2':
+						return 1;
+					case 'Level3':
+						return 2;
+					case 'Level4':
+						return 3;
+					case 'Level5':
+						return 4;
+					case 'alle':
+						return 5;
+					default:
+						return 0;
+				}
+			case 'Packraft':
+				switch (courseLevel) {
+					case 'Level2':
+						return 0;
+					case 'Level3-Level4':
+						return 1;
+					case 'Level5':
+						return 2;
+					case 'alle':
+						return 3;
+					default:
+						return 0;
+				}
+		}
+	}
+
+
+	function clearAllSelectedElementsInDropdown(parentEle){
+		let children = parentEle.children;
+		for (let i = 0; i < children.length; i++) {
+			children[i].removeAttribute('selected');
+		}
+	}
+
+
 	function init() {
 		// Listener auf allen 'Anmelden' Knöpfen
 		addListenerToRegistrationButtons();
-		// registrationButtons = document.querySelectorAll('.link-button-wrapper__courseRegistration');
-		// if (registrationButtons !== null) {
-		// 	registrationButtons.forEach((registrationButton) => {
-		// 		registrationButton.addEventListener('click', (event) => {
-		// 			callRegistrationForm(event);
-		// 		});
-		// 	});
-		// }
 
 		registrationForm = document.querySelector('.anmeldung');
 		if (registrationForm !== null) {
@@ -197,6 +327,14 @@ const CourseRegistration = (function (Validator, RenderConfirmation, Dates) {
 			courseDateInputField.addEventListener('blur', () => {
 				setRegistrationFormValidity(isCourseDateValid);
 			});
+
+			bootsTypInputField = document.querySelector('.dropdown-select select.dropdown-select__boatType');
+			bootsTypInputField.addEventListener('change', (event) => {
+				setPossibleCourseLevels(event).catch((error) => {
+					console.log(' Kurslevel konnten nicht gerendert werden. --> ' + error);
+				});
+			});
+			courseLevelInputField = document.querySelector('.dropdown-select select.dropdown-select__courseLevel');
 
 			numberOfParticipantsInputField = document.querySelector('.anmeldung__number-of-participants .moving-placeholder__input');
 			numberOfParticipantsInputField.addEventListener('blur', () => {
@@ -293,13 +431,30 @@ const CourseRegistration = (function (Validator, RenderConfirmation, Dates) {
 			}
 
 
-			// Kursname und Datum aus der URL nehmen und in die Input Felder abfüllen
+			// Kursname, Datum ... aus der URL nehmen und in die Input Felder abfüllen
 			const url = new URL(window.location.href);
-			const name = url.searchParams.get('name');
+			const name = encodeURIComponent(url.searchParams.get('name')).replace(/%20/g, " ");
 			const vonDatum = url.searchParams.get('vonDatum');
-			if (name !== null && vonDatum !== null) {
+			const bootsTyp = encodeURIComponent(url.searchParams.get('bootsTyp'));
+			const kursLevel = encodeURIComponent(url.searchParams.get('kursLevel'));
+			if (name !== null && vonDatum !== null && bootsTyp !== null && kursLevel !== null) {
 				courseNameInputField.setAttribute('value', name);
 				courseDateInputField.setAttribute('value', Dates.convertToMediumDateFormatJustDigits(vonDatum));
+
+				clearAllSelectedElementsInDropdown(bootsTypInputField);
+				bootsTypInputField.options[convertBoatsTypeToDropdownPosition(bootsTyp)].setAttribute('selected', 'selected');
+
+				//Kurslevel rendern
+				setPossibleCourseLevels(bootsTyp)
+				.then(() => {
+					clearAllSelectedElementsInDropdown(courseLevelInputField);
+					courseLevelInputField.options[convertCourseLevelToDropdownPosition(bootsTyp, kursLevel)].setAttribute('selected', 'selected');
+				})
+				.catch((error) => {
+					console.log(' Kurslevel konnten nicht gerendert werden. --> ' + error);
+				});
+
+				
 			}
 
 			

@@ -142,7 +142,7 @@ const RenderCourseDates = (function (Dates, Globals) {
 		linkButtonWrapper.classList.add('link-button-wrapper');
 		linkButtonWrapper.classList.add('link-button-wrapper__courseRegistration');
 		linkButtonWrapper.setAttribute('href', 'javascript:;');
-		linkButtonWrapper.setAttribute('courseData', '?name=' + courseDate.name + '&vonDatum=' + courseDate.vonDatum);
+		linkButtonWrapper.setAttribute('courseData', '?name=' + courseDate.name + '&vonDatum=' + courseDate.vonDatum + '&bootsTyp=' + courseDate.sportArt + '&kursLevel=' + courseDate.kursStufe);
 		const linkButtonText = document.createElement('span');
 		linkButtonText.classList.add('link-button-wrapper__label');
 		linkButtonText.innerText = 'Zur Anmeldung';

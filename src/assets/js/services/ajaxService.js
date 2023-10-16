@@ -14,6 +14,7 @@ const Service = (function () {
 			request.open(method, url, true);
 			request.setRequestHeader('Content-Type', 'application/json');
 			request.send(jsonRequestData);
+			//console.log('Request: '+jsonRequestData);
 
 			request.onreadystatechange = function () {
 				if (request.readyState === DONE) {

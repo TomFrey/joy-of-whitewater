@@ -27,6 +27,63 @@
 	height: 100%;
 }
 
+.dropdown-select{
+	position: relative;
+	select{
+		@include registrationFormFont();
+		appearance: none;
+		width: 100%;
+		padding: 3*$basicHeight 9*$basicWidth 0 2*$basicHeight;
+		border: none;
+	}
+}
+
+.dropdown-select-arrow{
+	position: absolute;
+	top: 0;
+	right: 0;
+	display: block;
+	background-color: $complimentaryColor2;
+	height: 100%;
+	width: 3.5rem;
+	pointer-events: none;
+}
+
+.dropdown-select-label{
+	color: lighten($complimentaryColor2, 10%);
+	font-size: 14px;
+	position: absolute;
+	left: 0px;
+	top: -10px;
+	padding: $basicWidth 0 0 2*$basicWidth;
+	pointer-events: none;
+}
+
+.dropdown-select-arrow::after,
+.dropdown-select-arrow::before{
+	--arrowSize: 0.75em;
+	content: '';
+	position: absolute;
+	width: 0;
+	height: 0;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.dropdown-select-arrow::before{
+	border-left: var(--arrowSize) solid transparent;
+	border-right: var(--arrowSize) solid transparent;
+	border-bottom: var(--arrowSize) solid $complimentaryColor1;
+	top: 35%;
+}
+
+.dropdown-select-arrow::after{
+	border-left: var(--arrowSize) solid transparent;
+	border-right: var(--arrowSize) solid transparent;
+	border-top: var(--arrowSize) solid $complimentaryColor1;
+	top: 65%;
+}
+
 .equipment-wrapper{
 	@include registrationFormFont();
 	margin-bottom: 2*$basicHeight;
@@ -42,13 +99,13 @@
 
 .equipment-needed-input{
 	@include courseTableFont();
-	background-color: $baseColor1;
+	background-color: $complimentaryColor1;
 	border: none;
 	width: 100%;
 }
 
 .equipment-needed-input[disabled]{
-	background-color: lighten($baseColor2, 15%);
+	background-color: $baseColor1;
 }
 
 .comment-wrapper{
@@ -58,7 +115,7 @@
 .comment-input{
 	@include courseTableFont();
 	line-height: 27px;
-	background-color: $baseColor1;
+	background-color: $complimentaryColor1;
 	border: none;
 	width: 100%;
 }
@@ -143,7 +200,7 @@
 
 .moving-placeholder__input{
 	@include registrationFormFont();
-	background-color: $baseColor1;
+	background-color: $complimentaryColor1;
 	border: none;
 	color: $complimentaryColor2;
 	display: block;
@@ -174,7 +231,7 @@
 .moving-placeholder__input:valid ~ .moving-placeholder__label,
 .moving-placeholder__input:disabled ~ .moving-placeholder__label
 {
-	top: -10px;
+	top: -8px;
 	font-size: 14px;
 }
 
@@ -224,7 +281,7 @@
 }
 
 .registration-confirmation__paragraph{
-	color: $complimentaryColor1;
+	color: $complimentaryColor2;
 	margin: 2*$basicHeight  2*$basicWidth;
 }
 

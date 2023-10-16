@@ -142,7 +142,7 @@ const Validator = (function () {
 	 * @returns {boolean}
 	 */
 	function isNameValid(nameInputField) {
-		const isValidName = new RegExp(/^[a-zA-Z\söüäéàèçœøæåêÖÜÄÉÈÀÇÅËÊßẞśŚšŠ,\-]+$/);
+		const isValidName = new RegExp(/^[a-zA-Z\söüäéàèçœøæåêÖÜÄÉÈÀÇÅËÊßẞśŚšŠ,'\-]+$/);
 		return validate(isValidName, nameInputField);
 	}
 

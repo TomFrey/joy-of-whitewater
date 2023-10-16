@@ -36,10 +36,10 @@ $data = json_decode(file_get_contents("php://input"));
 // eine Nachricht über das Kontaktformular
 if (str_contains($data->subject, 'Nachricht')) {
 	// Sanitize input data
-	$data->firstName = filter_var($data->firstName, FILTER_SANITIZE_STRING);
-	$data->surName = filter_var($data->surName, FILTER_SANITIZE_STRING);
-	$data->email = filter_var($data->email, FILTER_SANITIZE_EMAIL);
-	$data->message = filter_var($data->message, FILTER_SANITIZE_STRING);
+	$data->firstName = htmlspecialchars($data->firstName, ENT_COMPAT);
+	$data->surName = htmlspecialchars($data->surName, ENT_COMPAT);
+	$data->email = htmlspecialchars($data->email, ENT_QUOTES);
+	$data->message = htmlspecialchars($data->message, ENT_QUOTES);
 
 	if ($data->firstName
 		&& $data->surName
@@ -65,22 +65,28 @@ if (str_contains($data->subject, 'Nachricht')) {
 // eine Anmeldung	
 } elseif (str_contains($data->subject,'Anmeldung')) {
 	// Sanitize input data
-	$data->numberOfParticipants = filter_var($data->numberOfParticipants, FILTER_SANITIZE_NUMBER_INT);
-	$data->plz = filter_var($data->plz, FILTER_SANITIZE_NUMBER_INT);
-	$data->courseName = filter_var($data->courseName, FILTER_SANITIZE_STRING);
-	$data->courseDate = filter_var($data->courseDate, FILTER_SANITIZE_STRING);
-	$data->firstName = filter_var($data->firstName, FILTER_SANITIZE_STRING);
-	$data->surName = filter_var($data->surName, FILTER_SANITIZE_STRING);
-	$data->city = filter_var($data->city, FILTER_SANITIZE_STRING);
-	$data->equipment = filter_var($data->equipment, FILTER_SANITIZE_STRING);
-	$data->equipmentDetails = filter_var($data->equipmentDetails, FILTER_SANITIZE_STRING);
-	$data->agb = filter_var($data->agb, FILTER_SANITIZE_STRING);
-	$data->address = filter_var($data->address, FILTER_SANITIZE_STRING);
-	$data->email = filter_var($data->email, FILTER_SANITIZE_EMAIL);
-	$data->comment = filter_var($data->comment, FILTER_SANITIZE_STRING);
+	$data->numberOfParticipants = htmlspecialchars($data->numberOfParticipants, ENT_QUOTES);
+	$data->plz = htmlspecialchars($data->plz, ENT_QUOTES);
+	$data->courseName = htmlspecialchars($data->courseName, ENT_QUOTES);
+	$data->courseDate = htmlspecialchars($data->courseDate, ENT_QUOTES);
+	$data->bootsTyp = htmlspecialchars($data->bootsTyp, ENT_QUOTES);
+	$data->courseLevel = htmlspecialchars($data->courseLevel, ENT_QUOTES);
+
+	$data->firstName = htmlspecialchars($data->firstName, ENT_COMPAT); //lässt ' zu aber keine "
+	$data->surName = htmlspecialchars($data->surName, ENT_COMPAT);     //lässt ' zu aber keine "
+	
+	$data->city = htmlspecialchars($data->city, ENT_QUOTES);
+	$data->equipment = htmlspecialchars($data->equipment, ENT_QUOTES);
+	$data->equipmentDetails = htmlspecialchars($data->equipmentDetails, ENT_QUOTES);
+	$data->agb = htmlspecialchars($data->agb, ENT_QUOTES);
+	$data->address = htmlspecialchars($data->address, ENT_QUOTES);
+	$data->email = htmlspecialchars($data->email, ENT_QUOTES);
+	$data->comment = htmlspecialchars($data->comment, ENT_QUOTES);
 
 	if ($data->courseName
 		&& $data->courseDate
+		&& $data->bootsTyp
+		&& $data->courseLevel
 		&& $data->numberOfParticipants
 		&& $data->firstName
 		&& $data->surName
@@ -103,6 +109,8 @@ if (str_contains($data->subject, 'Nachricht')) {
 				. "Angemeldet für den Kurs:" . "\r\n"
 				. "Kurs: " . $data->courseName . "\r\n"
 				. "Datum: " .  $data->courseDate . "\r\n"
+				. "Boot: " .  $data->bootsTyp . "\r\n"
+				. "Kursstufe: " .  $data->courseLevel . "\r\n"
 				. "Anzahl Personen: " . $data->numberOfParticipants . "\r\n"
 				. "Ausrüstung: " . $data->equipment . "\r\n"
 				. "Kommentare: " . $data->comment . "\r\n";

@@ -1,5 +1,11 @@
 // eslint-disable-next-line no-unused-vars
 var RenderConfirmation = (function () {
+	function encodeHTMLEntities(text) {
+		var textArea = document.createElement('textarea');
+		textArea.innerText = text;
+		return textArea.innerHTML;
+	}
+
 	function getEquipmentString(registrationData) {
 		if (registrationData.equipment === 'all') {
 			return 'Du benötigst die gesamte Ausrüstung.';
@@ -7,7 +13,7 @@ var RenderConfirmation = (function () {
 		if (registrationData.equipment === 'nothing') {
 			return 'Du benötigst keine Ausrüstung, du bringst alles selber mit.';
 		}
-		return registrationData.equipmentDetails;
+		return encodeHTMLEntities(registrationData.equipmentDetails);
 	}
 
 	function createRegistrationConfirmation(registrationData) {
@@ -27,7 +33,7 @@ var RenderConfirmation = (function () {
 
 		const anrede = document.createElement('p');
 		anrede.classList.add('registration-confirmation__paragraph');
-		anrede.innerHTML = 'Hallo ' + registrationData.firstName;
+		anrede.innerHTML = 'Hallo ' + encodeHTMLEntities(registrationData.firstName);
 
 		const text = document.createElement('p');
 		text.classList.add('registration-confirmation__paragraph');
@@ -50,15 +56,19 @@ var RenderConfirmation = (function () {
 		const daten = document.createElement('p');
 		daten.classList.add('registration-confirmation__paragraph');
 		daten.innerHTML = 'Du hast uns folgende Informationen geschickt:<br><br>'
-							+ registrationData.firstName + ' ' + registrationData.surName + '<br>'
-							+ registrationData.address + '<br>'
-							+ registrationData.plz + ' ' + registrationData.city + '<br>'
-							+ registrationData.email + '<br><br>'
-							+ 'Kurs: ' + registrationData.courseName + '<br>'
-							+ 'Datum: ' + registrationData.courseDate + '<br>'
-							+ 'Anzahl Personen: ' + registrationData.numberOfParticipants + '<br>'
+							+ encodeHTMLEntities(registrationData.firstName) + ' ' + encodeHTMLEntities(registrationData.surName) + '<br>'
+							+ encodeHTMLEntities(registrationData.address) + '<br>'
+							+ encodeHTMLEntities(registrationData.plz) + ' ' + encodeHTMLEntities(registrationData.city) + '<br>'
+							+ encodeHTMLEntities(registrationData.email) + '<br><br>'
+							+ 'Kurs: ' + encodeHTMLEntities(registrationData.courseName) + '<br>'
+							+ 'Datum: ' + encodeHTMLEntities(registrationData.courseDate) + '<br>'
+
+							+ 'Kursstufe: ' + encodeHTMLEntities(registrationData.courseLevel) + '<br>'
+							+ 'Boot: ' + encodeHTMLEntities(registrationData.bootsTyp) + '<br>'
+
+							+ 'Anzahl Personen: ' + encodeHTMLEntities(registrationData.numberOfParticipants) + '<br>'
 							+ 'Ausrüstung: ' + getEquipmentString(registrationData) + '<br>'
-							+ 'Kommentare: ' + registrationData.comment;
+							+ 'Kommentare: ' + encodeHTMLEntities(registrationData.comment);
 
 		confirmationText.appendChild(anrede);
 		confirmationText.appendChild(text);
