@@ -1817,12 +1817,14 @@ h4.course-list-detail__title::after {
 
 .dropdown-select {
   position: relative;
+  margin-bottom: 16px;
 }
 .dropdown-select select {
   color: #004570;
   font-family: "Open Sans", "Arial", "sans-serif";
   font-size: 16px;
   line-height: 32px;
+  background-color: #ffffff;
   appearance: none;
   width: 100%;
   padding: 24px 72px 0 16px;

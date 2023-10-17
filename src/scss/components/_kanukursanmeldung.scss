@@ -29,8 +29,11 @@
 
 .dropdown-select{
 	position: relative;
+	margin-bottom: 2*$basicHeight;
+
 	select{
 		@include registrationFormFont();
+		background-color: $complimentaryColor1;
 		appearance: none;
 		width: 100%;
 		padding: 3*$basicHeight 9*$basicWidth 0 2*$basicHeight;
