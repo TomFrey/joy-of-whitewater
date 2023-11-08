@@ -396,6 +396,9 @@ const RenderCourseDates = (function (Dates, Globals) {
 				case 'Durance':
 					detailsLink.setAttribute('href', '/paddelreisen.html#paddleJourneyDuranceAnchor');
 					break;
+				case 'Yukon Territories':
+					detailsLink.setAttribute('href', '/paddelreisen.html#paddleJourneyWildnisreiseNorthAmerica');
+					break;
 				default:
 					detailsLink.setAttribute('href', '/paddelreisen.html');
 					break;

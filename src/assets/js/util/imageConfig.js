@@ -348,6 +348,62 @@ var Images = (function () {
 			  title: 'Paddeln auf dem Aoos in Griechenland', 
 			  alt: 'Paddeln auf dem Aoos in Griechenland' 
 			}
+		],
+		wildnisreiseNorthAmerica: [
+			{ name: 'northAmerica_1_gr.webp', 
+			  nameTablet: 'northAmerica_1_mi.webp',
+			  nameMobile: 'northAmerica_1_kl.webp', 
+			  title: 'Paddelreise in der Wildnis Nordamerikas', 
+			  alt: 'Paddelreise in der Wildnis Nordamerikas' 
+			},
+			{ name: 'northAmerica_2_gr.webp', 
+			  nameTablet: 'northAmerica_2_mi.webp',
+			  nameMobile: 'northAmerica_2_kl.webp', 
+			  title: 'Paddelreise in der Wildnis Nordamerikas', 
+			  alt: 'Paddelreise in der Wildnis Nordamerikas' 
+			},
+			{ name: 'northAmerica_3_gr.webp', 
+			  nameTablet: 'northAmerica_3_mi.webp',
+			  nameMobile: 'northAmerica_3_kl.webp', 
+			  title: 'Paddelreise in der Wildnis Nordamerikas', 
+			  alt: 'Paddelreise in der Wildnis Nordamerikas' 
+			},
+			{ name: 'northAmerica_4_gr.webp', 
+			  nameTablet: 'northAmerica_4_mi.webp',
+			  nameMobile: 'northAmerica_4_kl.webp', 
+			  title: 'Paddelreise in der Wildnis Nordamerikas', 
+			  alt: 'Paddelreise in der Wildnis Nordamerikas' 
+			},
+			{ name: 'northAmerica_5_gr.webp', 
+			  nameTablet: 'northAmerica_5_mi.webp',
+			  nameMobile: 'northAmerica_5_kl.webp', 
+			  title: 'Paddelreise in der Wildnis Nordamerikas', 
+			  alt: 'Paddelreise in der Wildnis Nordamerikas' 
+			},
+			{ name: 'northAmerica_6_gr.webp', 
+			  nameTablet: 'northAmerica_6_mi.webp',
+			  nameMobile: 'northAmerica_6_kl.webp', 
+			  title: 'Paddelreise in der Wildnis Nordamerikas', 
+			  alt: 'Paddelreise in der Wildnis Nordamerikas' 
+			},
+			{ name: 'northAmerica_7_gr.webp', 
+			  nameTablet: 'northAmerica_7_mi.webp',
+			  nameMobile: 'northAmerica_7_kl.webp', 
+			  title: 'Paddelreise in der Wildnis Nordamerikas', 
+			  alt: 'Paddelreise in der Wildnis Nordamerikas' 
+			},
+			{ name: 'northAmerica_8_gr.webp', 
+			  nameTablet: 'northAmerica_8_mi.webp',
+			  nameMobile: 'northAmerica_8_kl.webp', 
+			  title: 'Paddelreise in der Wildnis Nordamerikas', 
+			  alt: 'Paddelreise in der Wildnis Nordamerikas' 
+			},
+			{ name: 'northAmerica_9_gr.webp', 
+			  nameTablet: 'northAmerica_9_mi.webp',
+			  nameMobile: 'northAmerica_9_kl.webp', 
+			  title: 'Paddelreise in der Wildnis Nordamerikas', 
+			  alt: 'Paddelreise in der Wildnis Nordamerikas' 
+			}
 		]
 	};
 

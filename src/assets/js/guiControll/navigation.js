@@ -240,6 +240,9 @@ const Navigation = (function (RenderImageSlider, Images, Globals, Responsive, Co
 				case 'Details zur Durance':
 					sliderName = 'durance';
 				break;
+				case 'Details Wildnisreise':
+					sliderName = 'wildnisreiseNorthAmerica';
+				break;
 				default:
 					sliderName = 'korsika';
 					break;

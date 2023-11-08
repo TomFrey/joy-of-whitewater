@@ -105,7 +105,7 @@ const Validator = (function () {
 	 * @returns {boolean}
 	 */
 	 function isTextFieldValid(textInputField) {
-		const isValidTextField = new RegExp(/^[\w\s\.\'\"\?\-)(,;:!öäüÖÄÜéàèçœøæåêÉÈÀÇÅËÊßẞśŚšŠ]*$/);
+		const isValidTextField = new RegExp(/^[\w\s\.\'\"\?\-)(,;:!öäüÖÄÜéàèçœøæåêÉÈÀÇÅËÊßẞśŚšŠ%]*$/);
 		return validate(isValidTextField, textInputField, false);
 	}
 
@@ -118,7 +118,7 @@ const Validator = (function () {
 	 * @returns {boolean}
 	 */
 	 function isTextFieldNotEmptyValid(textInputField) {
-		const isValidTextField = new RegExp(/^[\w\s\.\'\"\?\-)(,;:!öäüÖÄÜéàèçœøæåêÉÈÀÇÅËÊßẞśŚšŠ]+$/);
+		const isValidTextField = new RegExp(/^[\w\s\.\'\"\?\-)(,;:!öäüÖÄÜéàèçœøæåêÉÈÀÇÅËÊßẞśŚšŠ%]+$/);
 		return validate(isValidTextField, textInputField, false);
 	}
 
@@ -196,6 +196,26 @@ const Validator = (function () {
 	}
 
 
+	/**
+	 * Ein Text (aus der URL) wird von Sonderzeichen befreit (z.B.: ><). Danach werden im encodierten Text
+	 * die Zeichen ' üöäÖÄÜ,' wieder ersetzt.
+	 * @param {*} text 
+ 	 * @returns 
+	 */
+	function encodeUri(text) {
+		let encodedText = encodeURIComponent(text);
+		encodedText = encodedText.replace(/%20/g, " ");
+		encodedText = encodedText.replace(/%C3%BC/g, "ü");
+		encodedText = encodedText.replace(/%C3%9C/g, "Ü");
+		encodedText = encodedText.replace(/%C3%A4/g, "ä");
+		encodedText = encodedText.replace(/%C3%84/g, "Ä");
+		encodedText = encodedText.replace(/%C3%B6/g, "ö");
+		encodedText = encodedText.replace(/%C3%96/g, "Ö");
+		encodedText = encodedText.replace(/%2C/g, ",");
+		return encodedText;
+	}
+
+
 	// public api
 	return {
 		onlyNumbers,
@@ -209,6 +229,7 @@ const Validator = (function () {
 		isDateValid,
 		isPlzValid,
 		isNumberOfParticipantsValid,
-		validate
+		validate,
+		encodeUri
 	};
 })();

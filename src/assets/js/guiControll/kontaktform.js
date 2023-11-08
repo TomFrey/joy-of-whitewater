@@ -138,7 +138,34 @@ const ContactForm = (function (Validator) {
 	}
 
 
+	function fillUrlAttributeWithMessage (event){
+		const urlParameter = event.target.getAttribute('message');
+		window.location.href = '/kontakt.html?message=' + urlParameter;
+	}
+
+
+	function fillMessageFieldWithUrlAttribute (){
+		const url = new URL(window.location.href);
+		let message = url.searchParams.get('message');
+
+		if (message != null ) {
+			message = Validator.encodeUri(message);
+			messageInputField.value = message;			
+		}
+	}
+
+
 	function init() {
+		//Listener auf alle Links setzen, die das Kontaktformular (mit vorgefülltem Text) aufrufen.
+		const linksToContactForm = document.querySelectorAll('.link-to-filled-form');
+		if (linksToContactForm !== null) {
+			linksToContactForm.forEach((linkToContactForm) => {
+				linkToContactForm.addEventListener('click', (event) => {
+					fillUrlAttributeWithMessage(event);
+				})
+			});
+		}
+
         copyEMailButton = document.querySelector('.copy-email__button');
 		if (copyEMailButton !== null) {
 			copyEMailButton.addEventListener('click', () => {
@@ -188,7 +215,11 @@ const ContactForm = (function (Validator) {
 				event.target.classList.remove('js-invalid');
 				event.target.parentElement.classList.remove('js-invalid');
 			}, true);
+
+			fillMessageFieldWithUrlAttribute();
 		}
+
+		
 	}
 
 	// public api

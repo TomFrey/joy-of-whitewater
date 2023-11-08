@@ -459,7 +459,7 @@ const CourseRegistration = (function (Validator, RenderConfirmation, Dates) {
 
 			// Kursname, Datum ... aus der URL nehmen und in die Input Felder abfüllen
 			const url = new URL(window.location.href);
-			const name = encodeURIComponent(url.searchParams.get('name')).replace(/%20/g, " ");
+			const name = Validator.encodeUri(url.searchParams.get('name'));
 			const vonDatum = url.searchParams.get('vonDatum');
 			const bootsTyp = encodeURIComponent(url.searchParams.get('bootsTyp'));
 			const kursLevel = encodeURIComponent(url.searchParams.get('kursLevel'));
