@@ -75,7 +75,7 @@ const Dates = (function () {
 		if (!(fromDate instanceof Date)) {
 			fromDate = new Date(fromDate);
 		}
-		return Math.trunc(((toDate - fromDate) + oneDayInMilliseconds) / oneDayInMilliseconds);
+		return Math.round(((toDate - fromDate) + oneDayInMilliseconds) / oneDayInMilliseconds);
 	}
 
 	/**

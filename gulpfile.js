@@ -248,7 +248,8 @@ function copyImages(){
 		'./src/assets/images/**/*.svg',
 		'./src/assets/images/**/*.gif',
 		'./src/assets/images/**/*.webp',
-		'./src/assets/images/**/*.jpg'
+		'./src/assets/images/**/*.jpg',
+		'./src/assets/images/**/*.json'
 	]).pipe(gulp.dest('dist/assets/images'));
 }
 
@@ -370,7 +371,7 @@ function build(enviroment) {
 		gulp.parallel(	copyApi,
 						copyHTML,
 						copyFrontJs,
-						//copyImages,
+						copyImages,
 						copyXml,
 						copyRobotsAndHtaccess,
 						copyGoogleConfirmationFile,
