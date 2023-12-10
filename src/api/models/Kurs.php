@@ -15,6 +15,9 @@ class Kurs
 	private $vonDatum;
 	private $bisDatum;
 	private $anzahlPausentage;
+	private $textPausentage;
+	private $minTeilnehmer;
+	private $maxTeilnehmer;
 	private $ort;
 	private $land;
 	private $fluss;
@@ -61,6 +64,9 @@ class Kurs
 			$this->setIsShown($kurs['wirdAngezeigt']);
 			$this->setPaddelreiseGruppe($kurs['paddelreise_gruppe']);
 			$this->setAnzahlPausentage($kurs['anzahl_pausentage']);
+			$this->setTextPausentage($kurs['text_pausentage']);
+			$this->setMinTeilnehmer($kurs['min_anzahl_teilnehmer']);
+			$this->setMaxTeilnehmer($kurs['max_anzahl_teilnehmer']);
 			$this->setStatus($kurs['status']);
 			$this->setStatusText($kurs['status_text']);
 			$this->setAnmeldeSchluss($kurs['anmelde_schluss']);
@@ -263,6 +269,36 @@ class Kurs
 	public function setAnzahlPausentage($anzahlPausentage)
 	{
 		$this->anzahlPausentage = $anzahlPausentage;
+	}
+
+	public function getTextPausentage()
+	{
+		return $this->textPausentage;
+	}
+
+	public function setTextPausentage($textPausentage)
+	{
+		$this->textPausentage = $textPausentage;
+	}
+
+	public function getMinTeilnehmer()
+	{
+		return $this->minTeilnehmer;
+	}
+
+	public function setMinTeilnehmer($minTeilnehmer)
+	{
+		$this->minTeilnehmer = $minTeilnehmer;
+	}
+
+	public function getMaxTeilnehmer()
+	{
+		return $this->maxTeilnehmer;
+	}
+
+	public function setMaxTeilnehmer($maxTeilnehmer)
+	{
+		$this->maxTeilnehmer = $maxTeilnehmer;
 	}
 
 	public function getStatus()

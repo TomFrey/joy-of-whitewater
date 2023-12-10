@@ -81,15 +81,16 @@ const RenderCourseDates = (function (Dates, Globals) {
 	 */
 	function renderCourseDuration(courseDate){
 		const numberOfBreakDays = parseInt(courseDate.anzahlPausentage, 10);
+		const textForNonePaddlingDays = courseDate.textPausentage;
 		const courseDuration = Dates.calculateDurationBetweenTwoDates(courseDate.bisDatum, courseDate.vonDatum) - numberOfBreakDays;
 		let courseDurationText;
 
 		if (numberOfBreakDays === 0) {
 			courseDurationText = courseDuration;
 		} else if (numberOfBreakDays === 1) {
-			courseDurationText = courseDuration + ' (plus ' + courseDate.anzahlPausentage + ' Tag Pause)'
+			courseDurationText = courseDuration + ' (plus ' + courseDate.anzahlPausentage + ' Tag ' + (textForNonePaddlingDays ? textForNonePaddlingDays : 'Pause') + ')';
 		} else {
-			courseDurationText = courseDuration + ' (plus ' + courseDate.anzahlPausentage + ' Tage Pause)'
+			courseDurationText = courseDuration + ' (plus ' + courseDate.anzahlPausentage + ' Tage ' + (textForNonePaddlingDays ? textForNonePaddlingDays : 'Pause') + ')';
 		} 
 		return courseDurationText;
 	}
@@ -551,6 +552,14 @@ const RenderCourseDates = (function (Dates, Globals) {
 		list = document.createElement('ul');
 		list.classList.add('text-container-drawer__list');
 		list.appendChild(createListItemForPaddleJourney('Stufe', replacePaddleLevelWithDescription(courseDate.kursStufe)));
+
+		if(courseDate.minTeilnehmer || courseDate.maxTeilnehmer){
+			let minParticipants = courseDate.minTeilnehmer ? 'min. ' + courseDate.minTeilnehmer : '';
+			let maxParticipants = courseDate.maxTeilnehmer ? ' bis max. ' + courseDate.maxTeilnehmer : '';
+			let nunmberOfParticipants = minParticipants + maxParticipants;
+			list.appendChild(createListItemForPaddleJourney('Anzahl TN', nunmberOfParticipants));
+		}
+		
 		list.appendChild(createListItemForPaddleJourney('Kursleitung', courseDate.guide));
 		list.appendChild(createListItemForPaddleJourney('Preis', courseDate.preisKurs));
 		column1.appendChild(list);

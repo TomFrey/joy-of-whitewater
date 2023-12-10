@@ -30,8 +30,6 @@ function getAllCourses(){
  *
  * GET: api/kurse.php
  */
-
-
 	foreach(getAllCourses() as $kurs){
 		$row = Array();
 		$row['id'] = $kurs->getId();
@@ -45,6 +43,9 @@ function getAllCourses(){
 		$row['vonDatum'] = $kurs->getVonDatum();
 		$row['bisDatum'] = $kurs->getBisDatum();
 		$row['anzahlPausentage'] = $kurs->getAnzahlPausentage();
+		$row['textPausentage'] = $kurs->getTextPausentage();
+		$row['minTeilnehmer'] = $kurs->getMinTeilnehmer();
+		$row['maxTeilnehmer'] = $kurs->getMaxTeilnehmer();
 		$row['ort'] = $kurs->getOrt();
 		$row['land'] = $kurs->getLand();
 		$row['fluss'] = $kurs->getFluss();
