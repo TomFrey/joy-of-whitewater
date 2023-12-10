@@ -1017,6 +1017,39 @@ img.text-container-fill__bottom {
   content: " CHF";
 }
 
+.picture-banner-wrapper {
+  position: relative;
+  height: 43vw;
+  overflow: hidden;
+}
+.picture-banner-wrapper .filler__picture {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.picture-banner-wrapper .filler__picture img {
+  max-width: 100%;
+}
+.picture-banner-wrapper .picture-banner-text {
+  color: #000000;
+  font-family: "Open Sans", "Arial", "sans-serif";
+  font-size: 1rem;
+  font-weight: normal;
+  position: absolute;
+  transform: rotate(45deg);
+  top: 9%;
+  left: 41%;
+  width: 100%;
+  padding: 8px;
+  text-align: center;
+  font-weight: bolder;
+  background-color: #941216;
+  color: #ffffff;
+  border: 2px #ffffff solid;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+
 /* *************************************************** */
 /* *********** ab hier für tablet *******************  */
 @media screen and (min-width: 688px) {
@@ -1199,6 +1232,14 @@ img.text-container-fill__bottom {
     padding-left: 0;
     padding-right: 0;
   }
+  .picture-banner-wrapper {
+    height: 69vw;
+  }
+  .picture-banner-wrapper .picture-banner-text {
+    top: 6%;
+    left: 32%;
+    padding: 12px;
+  }
 }
 /* *************************************************** */
 /* *********** ab hier für desktop ******************* */
@@ -1288,6 +1329,14 @@ img.text-container-fill__bottom {
   }
   .text-container-drawer.text-container-drawer--details.drawer-big-height.js-show {
     max-height: 7000px;
+  }
+  .picture-banner-wrapper {
+    height: 450px;
+  }
+  .picture-banner-wrapper .picture-banner-text {
+    top: 8%;
+    left: 36%;
+    padding: 16px;
   }
 }
 .images-carousel {
