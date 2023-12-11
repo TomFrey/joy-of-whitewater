@@ -1050,6 +1050,21 @@ img.text-container-fill__bottom {
   box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
 
+.faq-item .faq-item-question {
+  padding: 8px 0 8px 8px;
+  border-top: 1px black solid;
+}
+.faq-item .faq-item-answer {
+  display: none;
+}
+.faq-item .faq-item-answer.js-show {
+  display: block;
+}
+
+.faq-item:last-of-type .faq-item-question {
+  border-bottom: 1px black solid;
+}
+
 /* *************************************************** */
 /* *********** ab hier für tablet *******************  */
 @media screen and (min-width: 688px) {
