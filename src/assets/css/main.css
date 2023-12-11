@@ -1050,21 +1050,6 @@ img.text-container-fill__bottom {
   box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
 
-.faq-item .faq-item-question {
-  padding: 8px 0 8px 8px;
-  border-top: 1px black solid;
-}
-.faq-item .faq-item-answer {
-  display: none;
-}
-.faq-item .faq-item-answer.js-show {
-  display: block;
-}
-
-.faq-item:last-of-type .faq-item-question {
-  border-bottom: 1px black solid;
-}
-
 /* *************************************************** */
 /* *********** ab hier für tablet *******************  */
 @media screen and (min-width: 688px) {
@@ -3931,7 +3916,7 @@ Desktop und Tablet
   transform: scale(0.98);
 }
 
-a.open-drawer-wrapper {
+a.open-drawer-wrapper, .open-close-faq-button {
   align-items: baseline;
   color: #ffffff;
   display: flex;
@@ -3941,11 +3926,11 @@ a.open-drawer-wrapper {
   text-decoration: none;
 }
 
-.open-drawer-wrapper__label {
+.open-drawer-wrapper__label, .open-close-faq-button__label {
   pointer-events: none;
 }
 
-.open-drawer-wrapper__icon {
+.open-drawer-wrapper__icon, .open-close-faq-button__icon {
   border-bottom: 2px solid #ffffff;
   border-right: 2px solid #ffffff;
   height: 12px;
@@ -3956,9 +3941,39 @@ a.open-drawer-wrapper {
   width: 12px;
 }
 
-.open-drawer-wrapper__icon.js-show {
+.open-close-faq-button__icon {
+  border-bottom: 2px solid #000000;
+  border-right: 2px solid #000000;
+}
+
+.open-drawer-wrapper__icon.js-show, .open-close-faq-button__icon.js-show {
   align-self: flex-end;
   transform: rotate(-135deg);
+}
+
+.faq-item:last-of-type .faq-item-question {
+  border-bottom: 1px black solid;
+}
+
+.faq-item-question {
+  padding: 8px 0 8px 8px;
+  border-top: 1px black solid;
+}
+
+.open-close-faq-button {
+  color: #000000;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 0;
+}
+
+.faq-item-answer {
+  display: none;
+  padding: 0 8px 8px 16px;
+}
+
+.faq-item-answer.js-show {
+  display: block;
 }
 
 /* *************************************************** */
@@ -3990,6 +4005,13 @@ a.open-drawer-wrapper {
   .open-drawer:hover .open-drawer-wrapper .open-drawer-wrapper__icon {
     border-bottom: 2px solid #004570;
     border-right: 2px solid #004570;
+  }
+  .open-close-faq-button:hover .open-close-faq-button__label {
+    color: #ffffff;
+  }
+  .open-close-faq-button:hover .open-close-faq-button__icon {
+    border-bottom: 2px solid #ffffff;
+    border-right: 2px solid #ffffff;
   }
 }
 .general-button {

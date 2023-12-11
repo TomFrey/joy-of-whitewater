@@ -346,30 +346,6 @@ img.text-container-fill__bottom {
 }
 
 
-//FAQ
-.faq-item{
-
-	.faq-item-question{
-		padding: $basicHeight 0 $basicHeight $basicWidth;
-		border-top: 1px black solid;
-	}
-
-	.faq-item-answer{
-		display: none;
-	}
-
-	.faq-item-answer.js-show{
-		display: block;
-	}
-}
-
-.faq-item:last-of-type{
-	.faq-item-question{
-		border-bottom: 1px black solid;
-	}
-}
-
-
 /* *************************************************** */
 /* *********** ab hier für tablet *******************  */
 @media screen and (min-width: $breakpoint-medium) {   // > 688px

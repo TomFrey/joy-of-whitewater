@@ -24,6 +24,7 @@ const Navigation = (function (RenderImageSlider, Images, Globals, Responsive, Co
 	let courseOverviewDrawerButtons;
 	let moreDetailsButtons;
 	let lessDetailsButtons;
+	let faqButtons;
 
 
 	function setHeaderTitle(titleContent) {
@@ -490,6 +491,17 @@ const Navigation = (function (RenderImageSlider, Images, Globals, Responsive, Co
 				});
 			});
 		}
+
+		faqButtons = document.querySelectorAll('.open-close-faq-button');
+		if (faqButtons !== null) {
+			faqButtons.forEach((faqButton) => {
+				faqButton.addEventListener('click', (event) => {
+					toggleDrawer(event.target);
+				});
+			});
+		}
+
+		
 	}
 
 	// public api
