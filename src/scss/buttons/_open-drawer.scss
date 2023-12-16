@@ -22,14 +22,14 @@ a.open-drawer-wrapper, .open-close-faq-button{
 }
 
 .open-drawer-wrapper__icon, .open-close-faq-button__icon{
-  border-bottom: 2px solid $color-drawer-buttonToOpenDrawerText;
-  border-right: 2px solid $color-drawer-buttonToOpenDrawerText;
-  height: 12px;
-  margin-left: 12px;
+	border-bottom: 2px solid $color-drawer-buttonToOpenDrawerText;
+  	border-right: 2px solid $color-drawer-buttonToOpenDrawerText;
+  	height: 12px;
+  	margin-left: 12px;
 	pointer-events: none;
-  transform: rotate(45 + deg);
-  transition: transform 0.2s ease-in-out;
-  width: 12px;
+  	transform: rotate(45 + deg);
+  	transition: transform 0.2s ease-in-out;
+  	width: 12px;
 }
 
 .open-close-faq-button__icon{
@@ -38,18 +38,17 @@ a.open-drawer-wrapper, .open-close-faq-button{
 }
 
 .open-drawer-wrapper__icon.js-show, .open-close-faq-button__icon.js-show{
-  align-self: flex-end;
-  transform: rotate(-135 + deg);
+	border-bottom: 2px solid $color-drawer-buttonToOpenDrawer-hover;
+	border-right: 2px solid $color-drawer-buttonToOpenDrawer-hover;
+  	align-self: flex-end;
+  	transform: rotate(-135 + deg);
 }
 
-
-
-
-.faq-item:last-of-type{
-	.faq-item-question{
-		border-bottom: 1px black solid;
-	}
-}
+// .faq-item:last-of-type{
+// 	.faq-item-question{
+// 		border-bottom: 1px black solid;
+// 	}
+// }
 
 .faq-item-question{
 	padding: $basicHeight 0 $basicHeight $basicWidth;
@@ -64,12 +63,17 @@ a.open-drawer-wrapper, .open-close-faq-button{
 }
 
 .faq-item-answer{
-	display: none;
-	padding: 0 $basicWidth $basicHeight 2*$basicWidth;
+	max-height: 0;
+	overflow: hidden;
+	padding:  0 $basicWidth 0 2*$basicWidth;
+	transition: max-height 0.1s ease-in-out 1ms;
+	
 }
 
 .faq-item-answer.js-show{
-	display: block;
+	max-height: 2000px;
+	padding: 0 $basicWidth $basicHeight 2*$basicWidth;
+	transition: max-height 1s ease-in-out 1ms;
 }
 
 
@@ -125,5 +129,9 @@ a.open-drawer-wrapper, .open-close-faq-button{
 			border-bottom: 2px solid $color-drawer-buttonToOpenDrawer-hover;
 			border-right: 2px solid $color-drawer-buttonToOpenDrawer-hover;
 		}
+	}
+
+	.faq-item-answer.js-show{
+		max-height: 1500px;
 	}
 }

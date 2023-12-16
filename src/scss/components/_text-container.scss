@@ -246,6 +246,10 @@ Tablet / Desktop
 	transition: max-height 1s ease-in-out 1ms;
 }
 
+.text-container-drawer.text-container-drawer--paddling-trip-details.drawer-big-height.js-show{
+	max-height: 7500px;
+}
+
 //allgemeiner Drawer, verwendet bis her bei den Kanumaterial Preisen und der Terminsuche
 .text-container-drawer.text-container-drawer--details.js-show{
 	max-height: 1300px;
@@ -569,6 +573,10 @@ img.text-container-fill__bottom {
 				margin: 2*$basicWidth 2*$basicWidth;
 			}
 		}
+	}
+
+	.text-container-drawer.text-container-drawer--paddling-trip-details.drawer-big-height.js-show{
+		max-height: 3500px;
 	}
 
 	//allgemeiner Drawer, verwendet bis her bei den Kanumaterial Preisen und der Terminsuche
