@@ -350,17 +350,23 @@ var Images = (function () {
 			}
 		],
 		wildnisreiseNorthAmerica: [
-			{ name: 'northAmerica_1_gr.webp', 
-			  nameTablet: 'northAmerica_1_mi.webp',
-			  nameMobile: 'northAmerica_1_kl.webp', 
-			  title: 'Paddelreise in der Wildnis Nordamerikas', 
-			  alt: 'Paddelreise in der Wildnis Nordamerikas' 
+			{ name: 'northAmerica_1_gr.jpg', 
+			  nameTablet: 'northAmerica_1_mi.jpg',
+			  nameMobile: 'northAmerica_1_kl.jpg', 
+			  title: 'Die Anreise zum Bonnet Plume River ist nur mit Wasserflugzeug möglich.', 
+			  alt: 'Die Anreise zum Bonnet Plume River ist nur mit Wasserflugzeug möglich.' 
 			},
-			{ name: 'northAmerica_2_gr.webp', 
-			  nameTablet: 'northAmerica_2_mi.webp',
-			  nameMobile: 'northAmerica_2_kl.webp', 
-			  title: 'Paddelreise in der Wildnis Nordamerikas', 
-			  alt: 'Paddelreise in der Wildnis Nordamerikas' 
+			{ name: 'northAmerica_2_gr.jpg', 
+			  nameTablet: 'northAmerica_2_mi.jpg',
+			  nameMobile: 'northAmerica_2_kl.jpg', 
+			  title: 'Paddelreise in den Yukon Territories', 
+			  alt: 'Paddelreise in den Yukon Territories' 
+			},
+			{ name: 'northAmerica_5_gr.jpg', 
+			  nameTablet: 'northAmerica_5_mi.jpg',
+			  nameMobile: 'northAmerica_5_kl.jpg', 
+			  title: 'Wildnisreise Yukon Territories', 
+			  alt: 'Wildnisreise Yukon Territories' 
 			},
 			{ name: 'northAmerica_3_gr.webp', 
 			  nameTablet: 'northAmerica_3_mi.webp',
@@ -368,23 +374,11 @@ var Images = (function () {
 			  title: 'Paddelreise in der Wildnis Nordamerikas', 
 			  alt: 'Paddelreise in der Wildnis Nordamerikas' 
 			},
-			{ name: 'northAmerica_4_gr.webp', 
-			  nameTablet: 'northAmerica_4_mi.webp',
-			  nameMobile: 'northAmerica_4_kl.webp', 
-			  title: 'Paddelreise in der Wildnis Nordamerikas', 
-			  alt: 'Paddelreise in der Wildnis Nordamerikas' 
-			},
-			{ name: 'northAmerica_5_gr.webp', 
-			  nameTablet: 'northAmerica_5_mi.webp',
-			  nameMobile: 'northAmerica_5_kl.webp', 
-			  title: 'Paddelreise in der Wildnis Nordamerikas', 
-			  alt: 'Paddelreise in der Wildnis Nordamerikas' 
-			},
-			{ name: 'northAmerica_6_gr.webp', 
-			  nameTablet: 'northAmerica_6_mi.webp',
-			  nameMobile: 'northAmerica_6_kl.webp', 
-			  title: 'Paddelreise in der Wildnis Nordamerikas', 
-			  alt: 'Paddelreise in der Wildnis Nordamerikas' 
+			{ name: 'northAmerica_4_gr.jpg', 
+			  nameTablet: 'northAmerica_4_mi.jpg',
+			  nameMobile: 'northAmerica_4_kl.jpg', 
+			  title: 'Wildwasserreise Bonnet Plume River', 
+			  alt: 'Wildwasserreise Bonnet Plume River' 
 			},
 			{ name: 'northAmerica_7_gr.webp', 
 			  nameTablet: 'northAmerica_7_mi.webp',
@@ -392,17 +386,17 @@ var Images = (function () {
 			  title: 'Paddelreise in der Wildnis Nordamerikas', 
 			  alt: 'Paddelreise in der Wildnis Nordamerikas' 
 			},
-			{ name: 'northAmerica_8_gr.webp', 
-			  nameTablet: 'northAmerica_8_mi.webp',
-			  nameMobile: 'northAmerica_8_kl.webp', 
-			  title: 'Paddelreise in der Wildnis Nordamerikas', 
-			  alt: 'Paddelreise in der Wildnis Nordamerikas' 
-			},
-			{ name: 'northAmerica_9_gr.webp', 
-			  nameTablet: 'northAmerica_9_mi.webp',
-			  nameMobile: 'northAmerica_9_kl.webp', 
-			  title: 'Paddelreise in der Wildnis Nordamerikas', 
-			  alt: 'Paddelreise in der Wildnis Nordamerikas' 
+			{ name: 'northAmerica_8_gr.jpg', 
+			nameTablet: 'northAmerica_8_mi.jpg',
+			nameMobile: 'northAmerica_8_kl.ipg', 
+			title: 'Camp am Bonnet Plume River', 
+			alt: 'Camp am Bonnet Plume Rivern' 
+		  	},
+			{ name: 'northAmerica_9_gr.jpg', 
+			  nameTablet: 'northAmerica_9_mi.jpg',
+			  nameMobile: 'northAmerica_9_kl.ipg', 
+			  title: 'Wildwasserreise Yukon', 
+			  alt: 'Wildwasserreise Yukon' 
 			}
 		]
 	};
