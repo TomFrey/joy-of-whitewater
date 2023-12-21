@@ -388,13 +388,13 @@ var Images = (function () {
 			},
 			{ name: 'northAmerica_8_gr.jpg', 
 			nameTablet: 'northAmerica_8_mi.jpg',
-			nameMobile: 'northAmerica_8_kl.ipg', 
+			nameMobile: 'northAmerica_8_kl.jpg', 
 			title: 'Camp am Bonnet Plume River', 
 			alt: 'Camp am Bonnet Plume Rivern' 
 		  	},
 			{ name: 'northAmerica_9_gr.jpg', 
 			  nameTablet: 'northAmerica_9_mi.jpg',
-			  nameMobile: 'northAmerica_9_kl.ipg', 
+			  nameMobile: 'northAmerica_9_kl.jpg', 
 			  title: 'Wildwasserreise Yukon', 
 			  alt: 'Wildwasserreise Yukon' 
 			}
