@@ -400,6 +400,9 @@ const RenderCourseDates = (function (Dates, Globals) {
 				case 'Yukon Territories':
 					detailsLink.setAttribute('href', '/paddelreisen.html#paddleJourneyWildnisreiseNorthAmerica');
 					break;
+				case 'Chile':
+					detailsLink.setAttribute('href', '/paddelreisen.html#paddleJourneyChileAnchor');
+					break;
 				default:
 					detailsLink.setAttribute('href', '/paddelreisen.html');
 					break;

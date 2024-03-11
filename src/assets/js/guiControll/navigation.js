@@ -244,6 +244,9 @@ const Navigation = (function (RenderImageSlider, Images, Globals, Responsive, Co
 				case 'Details Wildnisreise':
 					sliderName = 'wildnisreiseNorthAmerica';
 				break;
+				case 'Details zur Chile Reise':
+					sliderName = 'chile';
+				break;
 				default:
 					sliderName = 'korsika';
 					break;

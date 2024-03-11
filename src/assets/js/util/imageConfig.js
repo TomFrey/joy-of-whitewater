@@ -398,6 +398,80 @@ var Images = (function () {
 			  title: 'Wildwasserreise Yukon', 
 			  alt: 'Wildwasserreise Yukon' 
 			}
+		],
+		chile: [
+			{ name: 'chile_8_gr.webp', 
+			nameTablet: 'chile_8_mi.webp',
+			nameMobile: 'chile_8_kl.webp', 
+			title: 'Wildwasser Reise in Chile', 
+			alt: 'Wildwasser Reise in Chile' 
+		  	},
+			{ name: 'chile_2_gr.webp', 
+			  nameTablet: 'chile_2_mi.webp',
+			  nameMobile: 'chile_2_kl.webp', 
+			  title: 'Wildwasser am Rio Claro de Teno', 
+			  alt: 'Wildwasser am Rio Claro de Teno' 
+			},
+			{ name: 'chile_3_gr.webp', 
+			  nameTablet: 'chile_3_mi.webp',
+			  nameMobile: 'chile_3_kl.webp', 
+			  title: 'Wanderziel im Tal des Futaleufu', 
+			  alt: 'Wanderziel im Tal des Futaleufu' 
+			},
+			{ name: 'chile_5_gr.webp', 
+			  nameTablet: 'chile_5_mi.webp',
+			  nameMobile: 'chile_5_kl.webp', 
+			  title: 'Abgelegenes Wildwasser am Rio Figeroa im Süden von Chile', 
+			  alt: 'Abgelegenes Wildwasser am Rio Figeroa im Süden von Chile' 
+			},
+			{ name: 'chile_4_gr.webp', 
+			  nameTablet: 'chile_4_mi.webp',
+			  nameMobile: 'chile_4_kl.webp', 
+			  title: 'Traumhafte Flusslandschaften, Rio Puelo', 
+			  alt: 'Traumhafte Flusslandschaften, Rio Puelo' 
+			},
+			{ name: 'chile_11_gr.webp', 
+			  nameTablet: 'chile_11_mi.webp',
+			  nameMobile: 'chile_11_kl.webp', 
+			  title: 'Rio Petrohue in Chile', 
+			  alt: 'Rio Petrohue in Chile' 
+			},
+			{ name: 'chile_6_gr.webp', 
+			  nameTablet: 'chile_6_mi.webp',
+			  nameMobile: 'chile_6_kl.webp', 
+			  title: 'Wandern zwischen Araukanien in Chile', 
+			  alt: 'Wandern zwischen Araukanien in Chile' 
+			},
+			{ name: 'chile_7_gr.webp', 
+			  nameTablet: 'chile_7_mi.webp',
+			  nameMobile: 'chile_7_kl.webp', 
+			  title: 'Rodeo Training in Chile', 
+			  alt: 'Rodeo Training in Chile' 
+			},
+			{ name: 'chile_1_gr.webp', 
+			  nameTablet: 'chile_1_mi.webp',
+			  nameMobile: 'chile_1_kl.webp', 
+			  title: 'Der Fluss der Flüsse, Rio Futaleufu', 
+			  alt: 'Der Fluss der Flüsse, Rio Futaleufu' 
+		  	},
+			{ name: 'chile_9_gr.webp', 
+			  nameTablet: 'chile_9_mi.webp',
+			  nameMobile: 'chile_9_kl.webp', 
+			  title: 'Wildwasser, Rio Trancura', 
+			  alt: 'Wildwasser, Rio Trancura' 
+			},
+			{ name: 'chile_10_gr.webp', 
+			  nameTablet: 'chile_10_mi.webp',
+			  nameMobile: 'chile_10_kl.webp', 
+			  title: 'Rio San Pedro in Chile', 
+			  alt: 'Rio San Pedro in Chile' 
+			},
+			{ name: 'chile_12_gr.webp', 
+			  nameTablet: 'chile_12_mi.webp',
+			  nameMobile: 'chile_12_kl.webp', 
+			  title: 'Wildwasser Reise in Chile, auf dem Weg ins Puelo Tal', 
+			  alt: 'Wildwasser Reise in Chile, auf dem Weg ins Puelo Tal' 
+			}
 		]
 	};
 
