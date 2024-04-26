@@ -2,3 +2,6 @@ User-agent: *
 Disallow: /impressum.html
 Disallow: /datenschutz.html
 Disallow: /app/
+
+
+Sitemap: https://www.joyofwhitewater.ch/sitemap.xml
