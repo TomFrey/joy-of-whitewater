@@ -350,6 +350,14 @@ img.text-container-fill__bottom {
 }
 
 
+.picture-in-text-container{
+	display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+	margin: $basicHeight 0;
+}
+
+
 /* *************************************************** */
 /* *********** ab hier für tablet *******************  */
 @media screen and (min-width: $breakpoint-medium) {   // > 688px
