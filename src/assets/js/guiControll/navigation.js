@@ -15,7 +15,11 @@ const Navigation = (function (RenderImageSlider, Images, Globals, Responsive, Co
 	let level3KursDrawerButton;
 	let level4KursDrawerButton;
 	let level5KursDrawerButton;
+
 	let eskimotierenDrawerButton;
+	let rettungsKursDrawerButton;
+	let kajakRetreatDrawerButton;
+
 	let paddelReisenDrawerButtons;
 	let packraftKursDrawerButton;
 	let courseSearchDrawerButton;
@@ -408,9 +412,23 @@ const Navigation = (function (RenderImageSlider, Images, Globals, Responsive, Co
 			});
 		}
 
-		eskimotierenDrawerButton = document.querySelector('#open-close-drawer-button-eskimotieren');
+		eskimotierenDrawerButton = document.querySelector('#open-close-drawer-button-rollCourse');
 		if (eskimotierenDrawerButton !== null) {
 			eskimotierenDrawerButton.addEventListener('click', (event) => {
+				toggleTextContainerDrawer(event.target);
+			});
+		}
+
+		rettungsKursDrawerButton = document.querySelector('#open-close-drawer-button-saftyCourse');
+		if (rettungsKursDrawerButton !== null) {
+			rettungsKursDrawerButton.addEventListener('click', (event) => {
+				toggleTextContainerDrawer(event.target);
+			});
+		}
+
+		kajakRetreatDrawerButton = document.querySelector('#open-close-drawer-button-kayakRetreat');
+		if (kajakRetreatDrawerButton !== null) {
+			kajakRetreatDrawerButton.addEventListener('click', (event) => {
 				toggleTextContainerDrawer(event.target);
 			});
 		}
