@@ -131,6 +131,14 @@ Tablet / Desktop
 		margin-top: 0.75rem;
 	}
 
+	.paragraph + ul{
+		margin-top: 0.5rem;
+	}
+
+	ul + .paragraph{
+		margin-top: 0.5rem;
+	}
+
 	a.link-in-text, a.link-in-text--big{
 		color: $color-textContainer-link;
 		padding: 0 2px;

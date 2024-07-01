@@ -864,6 +864,12 @@ Tablet / Desktop
 .text-container .paragraph + .paragraph, .text-container__home .paragraph + .paragraph {
   margin-top: 0.75rem;
 }
+.text-container .paragraph + ul, .text-container__home .paragraph + ul {
+  margin-top: 0.5rem;
+}
+.text-container ul + .paragraph, .text-container__home ul + .paragraph {
+  margin-top: 0.5rem;
+}
 .text-container a.link-in-text, .text-container a.link-in-text--big, .text-container__home a.link-in-text, .text-container__home a.link-in-text--big {
   color: #941216;
   padding: 0 2px;
