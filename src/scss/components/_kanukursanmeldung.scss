@@ -89,11 +89,10 @@
 
 .equipment-wrapper{
 	@include registrationFormFont();
-	margin-bottom: 2*$basicHeight;
-}
-
-.equipment-wrapper label{
-	//pointer-events: none;
+	
+	.equipment__all,.equipment__some-wrapper,.equipment__nothing{
+		margin-top: $basicHeight;
+	}
 }
 
 .equipment-needed-wrapper{
@@ -137,6 +136,7 @@
 
 .agb-wrapper{
 	@include registrationFormFont();
+	margin-top: 2*$basicHeight;
 	margin-bottom: 2*$basicHeight;
 }
 
@@ -198,7 +198,15 @@
 */
 .form-field-moving-placeholder{
 	position:relative;
-	margin-bottom: 2*$basicHeight;
+	margin-top: 2*$basicHeight;
+}
+
+.anmeldung__course .form-field-moving-placeholder{
+	margin-top: 0;
+}
+
+.dropdown-select{
+	margin-top: 2*$basicHeight;
 }
 
 .moving-placeholder__input{
@@ -288,6 +296,21 @@
 	margin: 2*$basicHeight  2*$basicWidth;
 }
 
+.form-error-message.js-hide{
+	display: none;
+}
+
+.form-error-message{
+	@include registrationFormSmallFont();
+	padding-top: 2px;
+	color: $errorColor;
+}
+
+.equipment-needed-wrapper + .form-error-message{
+	margin-left: 3*$basicWidth;
+	padding-top: 0;
+}
+
 
 /* ************************************************************* */
 /* *********** ab hier für tablet ******************* */
@@ -311,6 +334,10 @@
 
 	.anmeldung__links{
 		margin-right: 3*$basicWidth;
+	}
+
+	.anmeldung__date .form-field-moving-placeholder{
+		margin-top: 0;
 	}
 
 	.equipment-needed-input{

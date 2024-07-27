@@ -1897,8 +1897,8 @@ h4.course-list-detail__title::after {
 .dropdown-select select {
   color: #004570;
   font-family: "Open Sans", "Arial", "sans-serif";
-  font-size: 16px;
-  line-height: 32px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   background-color: #ffffff;
   appearance: none;
   width: 100%;
@@ -1955,9 +1955,11 @@ h4.course-list-detail__title::after {
 .equipment-wrapper {
   color: #004570;
   font-family: "Open Sans", "Arial", "sans-serif";
-  font-size: 16px;
-  line-height: 32px;
-  margin-bottom: 16px;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+.equipment-wrapper .equipment__all, .equipment-wrapper .equipment__some-wrapper, .equipment-wrapper .equipment__nothing {
+  margin-top: 8px;
 }
 
 .equipment-needed-wrapper {
@@ -2011,8 +2013,9 @@ h4.course-list-detail__title::after {
 .agb-wrapper {
   color: #004570;
   font-family: "Open Sans", "Arial", "sans-serif";
-  font-size: 16px;
-  line-height: 32px;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  margin-top: 16px;
   margin-bottom: 16px;
 }
 
@@ -2073,14 +2076,22 @@ h4.course-list-detail__title::after {
 */
 .form-field-moving-placeholder {
   position: relative;
-  margin-bottom: 16px;
+  margin-top: 16px;
+}
+
+.anmeldung__course .form-field-moving-placeholder {
+  margin-top: 0;
+}
+
+.dropdown-select {
+  margin-top: 16px;
 }
 
 .moving-placeholder__input {
   color: #004570;
   font-family: "Open Sans", "Arial", "sans-serif";
-  font-size: 16px;
-  line-height: 32px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   background-color: #ffffff;
   border: none;
   color: #004570;
@@ -2171,6 +2182,24 @@ h4.course-list-detail__title::after {
   margin: 16px 16px;
 }
 
+.form-error-message.js-hide {
+  display: none;
+}
+
+.form-error-message {
+  color: #004570;
+  font-family: "Open Sans", "Arial", "sans-serif";
+  font-size: 0.85rem;
+  line-height: 1rem;
+  padding-top: 2px;
+  color: #FA4B57;
+}
+
+.equipment-needed-wrapper + .form-error-message {
+  margin-left: 24px;
+  padding-top: 0;
+}
+
 /* ************************************************************* */
 /* *********** ab hier für tablet ******************* */
 /* *************************************************** */
@@ -2185,6 +2214,9 @@ h4.course-list-detail__title::after {
   }
   .anmeldung__links {
     margin-right: 24px;
+  }
+  .anmeldung__date .form-field-moving-placeholder {
+    margin-top: 0;
   }
   .equipment-needed-input {
     width: 100%;

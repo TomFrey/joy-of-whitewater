@@ -1,6 +1,8 @@
 // eslint-disable-next-line no-unused-vars
 const CourseRegistration = (function (Validator, RenderConfirmation, Dates) {
 	const SHOW = 'js-show';
+	const HIDE = 'js-hide';
+	const INVALID = 'js-invalid';
 
 	const registrationData = {};
 
@@ -31,48 +33,125 @@ const CourseRegistration = (function (Validator, RenderConfirmation, Dates) {
 	let sendRegistraitionFormButtonOkIcon;
 	let sendRegistraitionFormButtonNokIcon;
 
-	//let registrationButtons;
+	
+	/**
+	 * Holt anhand des Input Feldes das Feld, wo die Error Meldung drin steht.
+	 * @param {*} inputField 
+	 * @returns 
+	 */
+	function getErrorMessageField(inputField){
+		return inputField.parentElement.parentElement.lastElementChild;
+	}
+
+
+	/**
+	 * Setzt die Error Meldung und den roten Rahmen an das Input Feld.
+	 * @param {*} inputField 
+	 * @param {*} errorMessage 
+	 * @param {*} markParent 
+	 */
+	function setErrorMessageOnFormField(inputField, errorMessage, markParent){
+		let errorMessageField = getErrorMessageField(inputField);
+		errorMessageField.innerText = errorMessage;
+		errorMessageField.classList.remove(HIDE);
+		markParent?inputField.parentElement.classList.add(INVALID):inputField.classList.add(INVALID);
+	}
+
+
+	/**
+	 * Löscht die Fehlermeldung und den roten Rahmen.
+	 * @param {*} inputField 
+	 * @param {*} markParent 
+	 */
+	function resetErrorMessageOnFormField(inputField, markParent){
+		let errorMessageField = getErrorMessageField(inputField);
+		errorMessageField.innerText = '';
+		errorMessageField.classList.add(HIDE);
+		markParent?inputField.parentElement.classList.remove(INVALID):inputField.classList.remove(INVALID);
+	}
+
+
+	/**
+	 * Setzt oder löscht die Fehlermeldung je nach Validation
+	 * @param {*} inputField 
+	 * @param {*} validationResult 
+	 * @param {*} markParent 
+	 */
+	function toggleFormFieldMessage (inputField, validationResult, markParent=true){
+		if (validationResult.isValid) {
+			resetErrorMessageOnFormField(inputField, markParent);
+		} else {
+			setErrorMessageOnFormField(inputField, validationResult.message, markParent);
+		}
+	}
 
 
 	function isCourseNameValid() {
-		return Validator.isCourseNameValid(courseNameInputField);
+		let validationResult = Validator.notEmptyNoEvilCharacters(courseNameInputField)
+		toggleFormFieldMessage(courseNameInputField, validationResult);
+		return validationResult.isValid;
 	}
 
 	function isCommentValid() {
-		return Validator.isTextFieldValid(commentTextArea);
+		let validationResult = Validator.noEvilCharacters(commentTextArea)
+		toggleFormFieldMessage(commentTextArea, validationResult, false);
+		return validationResult.isValid;
 	}
 
 	function isFirstNameValid() {
-		return Validator.isNameValid(firstNameInputField);
+		let validationResult = Validator.isNameValid(firstNameInputField)
+		toggleFormFieldMessage(firstNameInputField, validationResult);
+		return validationResult.isValid;
 	}
 
 	function isSurNameValid() {
-		return Validator.isNameValid(surNameInputField);
+		let validationResult = Validator.isNameValid(surNameInputField)
+		toggleFormFieldMessage(surNameInputField, validationResult);
+		return validationResult.isValid;
 	}
 
 	function isCourseDateValid() {
-		return Validator.isDateValid(courseDateInputField);
+		let validationResult = Validator.isDateValid(courseDateInputField)
+		toggleFormFieldMessage(courseDateInputField, validationResult);
+		return validationResult.isValid;
 	}
 
 	function isAddressValid() {
-		return Validator.isAddressValid(addressInputField);
+		let validationResult = Validator.notEmptyNoEvilCharacters(addressInputField)
+		toggleFormFieldMessage(addressInputField, validationResult);
+		return validationResult.isValid;
 	}
 
 	function isPlzValid() {
-		return Validator.isPlzValid(plzInputField);
+		let validationResult = Validator.isPlzValid(plzInputField)
+		toggleFormFieldMessage(plzInputField, validationResult);
+		return validationResult.isValid;
 	}
 
 	function isPlaceValid() {
-		return Validator.isNameValid(placeInputField);
+		let validationResult = Validator.notEmptyNoEvilCharacters(placeInputField)
+		toggleFormFieldMessage(placeInputField, validationResult);
+		return validationResult.isValid;
 	}
 
 	function isEmailValid() {
-		return Validator.isEMailValid(emailInputField);
+		let validationResult = Validator.isEMailValid(emailInputField)
+		toggleFormFieldMessage(emailInputField, validationResult);
+		return validationResult.isValid;
 	}
 
 	function isNumberOfParticipantsValid() {
-		return Validator.isNumberOfParticipantsValid(numberOfParticipantsInputField);
+		let validationResult = Validator.isNumberOfParticipantsValid(numberOfParticipantsInputField)
+		toggleFormFieldMessage(numberOfParticipantsInputField, validationResult);
+		return validationResult.isValid;
 	}
+
+	function isEquipmentValid() {
+		let validationResult = Validator.noEvilCharacters(equipmentTextArea)
+		toggleFormFieldMessage(equipmentTextArea, validationResult, false);
+		return validationResult.isValid;
+	}
+
 
 	function setRegistrationFormInvalid() {
 		sendRegistraitionFormButtonNokIcon.classList.add(SHOW);
@@ -95,6 +174,7 @@ const CourseRegistration = (function (Validator, RenderConfirmation, Dates) {
 			&& isCourseDateValid()
 			&& isNumberOfParticipantsValid()
 			&& isCommentValid()
+			&& isEquipmentValid()
 			&& isFirstNameValid()
 			&& isSurNameValid()
 			&& isAddressValid()
@@ -334,7 +414,7 @@ const CourseRegistration = (function (Validator, RenderConfirmation, Dates) {
 
 			courseNameInputField = document.querySelector('.anmeldung__course .moving-placeholder__input');
 			courseNameInputField.addEventListener('blur', () => {
-				setRegistrationFormValidity(isCourseNameValid);
+				setRegistrationFormValidity(isCourseNameValid);			
 			});
 
 			courseDateInputField = document.querySelector('.anmeldung__date .moving-placeholder__input');
@@ -428,14 +508,20 @@ const CourseRegistration = (function (Validator, RenderConfirmation, Dates) {
 						equipmentSome.setAttribute('checked', 'true');
 						equipmentAll.removeAttribute('checked');
 						equipmentNothing.removeAttribute('checked');
+
+						equipmentTextArea.addEventListener('blur', () => {
+							setRegistrationFormValidity(isEquipmentValid);
+						});
 					} else if (event.target && event.target.parentElement.matches('.equipment__all')) {
 						equipmentTextArea.value = '';
+						setRegistrationFormValidity(isEquipmentValid);
 						equipmentTextArea.setAttribute('disabled', 'disabled');
 						equipmentAll.setAttribute('checked', 'true');
 						equipmentNothing.removeAttribute('checked');
 						equipmentSome.removeAttribute('checked');
 					} else if (event.target && event.target.parentElement.matches('.equipment__nothing')) {
 						equipmentTextArea.value = '';
+						setRegistrationFormValidity(isEquipmentValid);
 						equipmentTextArea.setAttribute('disabled', 'disabled');
 						equipmentNothing.setAttribute('checked', 'checked');
 						equipmentAll.removeAttribute('checked');
@@ -486,8 +572,9 @@ const CourseRegistration = (function (Validator, RenderConfirmation, Dates) {
 			
 			// Das Feld mit dem Focus ist nie invalid.
 			registrationForm.addEventListener('focus', (event) => {
-				event.target.classList.remove('js-invalid');
-				event.target.parentElement.classList.remove('js-invalid');
+				event.target.classList.remove(INVALID);
+				event.target.parentElement.classList.remove(INVALID);
+				getErrorMessageField(event.target).classList.add(HIDE);
 			}, true);
 		}
 	}
