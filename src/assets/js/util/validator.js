@@ -2,6 +2,8 @@
 const Validator = (function () {
 	const BACK_SPACE_CHAR = 8;
 	const TAB_CHAR = 9;
+	const HIDE = 'js-hide';
+	const INVALID = 'js-invalid';
 	const validationResult = {
 		isValid: true,
 		message: ''
@@ -22,31 +24,6 @@ const Validator = (function () {
 		return false;
 	}
 
-	/**
-	 * Validiert den Inhalt eines Inputfeldes mit einem vorgegebenen Regex und setzt auf dem entsprechenden
-	 * HTML Feld eine css Klasse, um das Feld zu stylen.
-	 *
-	 * @param regex       -> ein Regex Objekt
-	 * @param inputField  -> DOM Inputfeld
-	 * @param markParent  -> Wenn true, wird das Parent Objekt "markiert", sonst das Input Feld
-	 * @returns {boolean}
-	 */
-	function validate(regex, inputField, markParent=true) {
-		if (regex.test(inputField.value)) {
-			markParent?inputField.parentElement.classList.remove('js-invalid'):inputField.classList.remove('js-invalid');
-			return true;
-		}
-
-		//Test
-		// Alle korrekten Zeichen ersetzen mit '', damit nur die falschen übrig bleiben.
-		// let wrongCharacter = inputField.value.replace(regex, '');
-		// console.log('inputField :' + inputField.value);
-		// console.log('Falsch ist :' + wrongCharacter);
-		
-		markParent?inputField.parentElement.classList.add('js-invalid'):inputField.classList.add('js-invalid');
-		return false;
-	}
-
 
 	function checkFor(regex, inputField) {
 		if (regex.test(inputField.value)) {	
@@ -64,39 +41,57 @@ const Validator = (function () {
 	}
 
 
-	// /**
-	//  * Setzt eine Fehlermeldung und markiert das Feld entsprechend oder löscht die Fehlermeldung.
-	//  * 
-	//  * @param markParent  -> Wenn true, wird das Parent Objekt "markiert", sonst das Input Feld
-	//  */
-	// function toggleErrorMessage(inputField, errorMessage, markParent=true){
+
+	/**
+	 * Holt anhand des Input Feldes das Feld, wo die Error Meldung drin steht.
+	 * @param {*} inputField 
+	 * @returns 
+	 */
+	function getErrorMessageField(inputField){
+		return inputField.parentElement.parentElement.lastElementChild;
+	}
 
 
-	// 	let errorMessageField = inputField.parentElement.parentElement.lastElementChild;
+	/**
+	 * Setzt die Error Meldung und den roten Rahmen an das Input Feld.
+	 * @param {*} inputField 
+	 * @param {*} errorMessage 
+	 * @param {*} markParent 
+	 */
+	function setErrorMessageOnFormField(inputField, errorMessage, markParent){
+		let errorMessageField = getErrorMessageField(inputField);
+		errorMessageField.innerText = errorMessage;
+		errorMessageField.classList.remove(HIDE);
+		markParent?inputField.parentElement.classList.add(INVALID):inputField.classList.add(INVALID);
+	}
 
-	// 	// console.log('inputField = '+inputField);
-	// 	// console.log('inputField.parentElement = '+inputField.parentElement);
-	// 	// console.log('inputField.parentElement.parentElement = '+inputField.parentElement.parentElement);
-	// 	// console.log('errorMessageField = '+errorMessageField);
+
+	/**
+	 * Löscht die Fehlermeldung und den roten Rahmen.
+	 * @param {*} inputField 
+	 * @param {*} markParent 
+	 */
+	function resetErrorMessageOnFormField(inputField, markParent){
+		let errorMessageField = getErrorMessageField(inputField);
+		errorMessageField.innerText = '';
+		errorMessageField.classList.add(HIDE);
+		markParent?inputField.parentElement.classList.remove(INVALID):inputField.classList.remove(INVALID);
+	}
 
 
-	// 	//let errorMessageField = document.querySelector('.form-error-message__'+fieldName);
-
-	// 	//Feld nicht gültig
-	// 	if (errorMessageField !== null) {
-
-	// 		if (errorMessageField.classList.contains('js-hide')) {
-	// 			errorMessageField.innerText = errorMessage;
-	// 			errorMessageField.classList.remove('js-hide');
-	// 			markParent?inputField.parentElement.classList.add('js-invalid'):inputField.classList.add('js-invalid');
-	// 		} else {
-	// 			errorMessageField.innerText = '';
-	// 			errorMessageField.classList.add('js-hide');
-	// 			markParent?inputField.parentElement.classList.remove('js-invalid'):inputField.classList.remove('js-invalid');
-	// 		}
-	// 	} 
-
-	// }
+	/**
+	 * Setzt oder löscht die Fehlermeldung je nach Validation
+	 * @param {*} inputField 
+	 * @param {*} validationResult 
+	 * @param {*} markParent 
+	 */
+	function toggleFormFieldMessage (inputField, validationResult, markParent=true){
+		if (validationResult.isValid) {
+			resetErrorMessageOnFormField(inputField, markParent);
+		} else {
+			setErrorMessageOnFormField(inputField, validationResult.message, markParent);
+		}
+	}
 
 
 	/**
@@ -195,7 +190,7 @@ const Validator = (function () {
 	 */
 	 function isTextFieldNotEmptyValid(textInputField) {
 		const isValidTextField = new RegExp(/^[\w\s\.\'\"\?\-)(,;:!öäüÖÄÜéàèçœøæåêÉÈÀÇÅËÊßẞśŚšŠ%]+$/);
-		return validate(isValidTextField, textInputField, false);
+		return checkFor(isValidTextField, textInputField, false);
 	}
 
 
@@ -207,8 +202,6 @@ const Validator = (function () {
 	 */
 	function isNameValid(nameInputField) {
 		//const isValidName = new RegExp(/^[a-zA-Z\söüäéàèçœøæåêÖÜÄÉÈÀÇÅËÊßẞśŚšŠ,'\-]+$/);
-		//return validate(isValidName, nameInputField);
-
 		const noNumbers = new RegExp(/^[^0-9]*$/);
 
 		if (isStringEmpty(nameInputField.value)) {
@@ -236,7 +229,7 @@ const Validator = (function () {
 	 */
 	function isAddressValid(addressInputField) {
 		const isValidAddress = new RegExp(/^[a-zA-Z\s0-9öüäéàèçœøæåêÖÜÄÉÈÀÇÅËÊßẞśŚšŠ,\-\.]+$/);
-		return validate(isValidAddress, addressInputField);
+		return checkFor(isValidAddress, addressInputField);
 	}
 
 
@@ -249,7 +242,6 @@ const Validator = (function () {
 	 */
 	function isDateValid(dateInputField) {
 		const isValidDate = new RegExp(/^(?:(?:31(\.)(?:0?[13578]|1[02]))\1|(?:(?:29|30)(\.)(?:0?[1,3-9]|1[0-2])\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:29(\.)0?2\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\d|2[0-8])(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:(?:1[6-9]|[2-9]\d)?\d{2})$/);
-		//return validate(isValidDate, dateInputField);
 
 		if (isStringEmpty(dateInputField.value)) {
 			validationResult.isValid =  false;
@@ -305,11 +297,8 @@ const Validator = (function () {
 	 */
 	function isNumberOfParticipantsValid(dateInputField) {
 		const isValidNumberOfParticipants = new RegExp(/^[1-9]{1,1}[0-9]{0,1}$/);
-		//return validate(isValidNumberOfParticipants, dateInputField);
-
-		validationResult.isValid = validate(isValidNumberOfParticipants, dateInputField);
+		validationResult.isValid = checkFor(isValidNumberOfParticipants, dateInputField);
 		validationResult.message = 'Es sind nur Zahlen zwischen 1 und 99 erlaubt.';
-		
 		return validationResult;
 	}
 
@@ -356,6 +345,40 @@ const Validator = (function () {
 	}
 
 
+	/**
+	 * Prüft den Input auf: darf nicht leer, keine Leerzeichen und keine bösen Zeichen wie: < > &
+	 * Prüft auf minimum Anzahl Zeichen und auf maximal Anzahl Zeichen.
+	 * 
+	 * @param {*} inputField 
+	 * @param {*} minNumberOfChars 
+	 * @param {*} maxNumberOfChars 
+	 * @returns 
+	 */
+	function minMaxNoEvilCharacters(inputField, minNumberOfChars=1, maxNumberOfChars=10000) {
+	
+		const minChar = new RegExp('^.{'+ minNumberOfChars +',}$', 'm');    //multi line
+		const maxChar = new RegExp('^.{0,' + maxNumberOfChars + '}$', 's'); //single line
+
+		if (isStringEmpty(inputField.value)) {
+			validationResult.isValid =  false;
+			validationResult.message = 'Das Feld darf nicht leer sein.';
+		} else if (checkForNo(noEvilCharacterInString, inputField)) {
+			validationResult.isValid = false;
+			validationResult.message = 'Die folgenden Zeichen sind nicht erlaubt: < > &';
+		} else if (checkForNo(minChar, inputField)) {
+			validationResult.isValid = false;
+			validationResult.message = 'min. ' + minNumberOfChars + ' Zeichen';
+		} else if (checkForNo(maxChar, inputField)) {
+			validationResult.isValid = false;
+			validationResult.message = 'max. ' + maxNumberOfChars + ' Zeichen';
+		} else {
+			validationResult.isValid = true;
+			validationResult.message = '';
+		}
+		return validationResult;
+	}
+
+
 	// public api
 	return {
 		onlyNumbers,
@@ -367,9 +390,11 @@ const Validator = (function () {
 		isDateValid,
 		isPlzValid,
 		isNumberOfParticipantsValid,
-		validate,
 		encodeUri,
 		notEmptyNoEvilCharacters,
-		noEvilCharacters
+		noEvilCharacters,
+		minMaxNoEvilCharacters,
+		toggleFormFieldMessage,
+		getErrorMessageField
 	};
 })();

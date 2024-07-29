@@ -34,121 +34,121 @@ const CourseRegistration = (function (Validator, RenderConfirmation, Dates) {
 	let sendRegistraitionFormButtonNokIcon;
 
 	
-	/**
-	 * Holt anhand des Input Feldes das Feld, wo die Error Meldung drin steht.
-	 * @param {*} inputField 
-	 * @returns 
-	 */
-	function getErrorMessageField(inputField){
-		return inputField.parentElement.parentElement.lastElementChild;
-	}
+	// /**
+	//  * Holt anhand des Input Feldes das Feld, wo die Error Meldung drin steht.
+	//  * @param {*} inputField 
+	//  * @returns 
+	//  */
+	// function getErrorMessageField(inputField){
+	// 	return inputField.parentElement.parentElement.lastElementChild;
+	// }
 
 
-	/**
-	 * Setzt die Error Meldung und den roten Rahmen an das Input Feld.
-	 * @param {*} inputField 
-	 * @param {*} errorMessage 
-	 * @param {*} markParent 
-	 */
-	function setErrorMessageOnFormField(inputField, errorMessage, markParent){
-		let errorMessageField = getErrorMessageField(inputField);
-		errorMessageField.innerText = errorMessage;
-		errorMessageField.classList.remove(HIDE);
-		markParent?inputField.parentElement.classList.add(INVALID):inputField.classList.add(INVALID);
-	}
+	// /**
+	//  * Setzt die Error Meldung und den roten Rahmen an das Input Feld.
+	//  * @param {*} inputField 
+	//  * @param {*} errorMessage 
+	//  * @param {*} markParent 
+	//  */
+	// function setErrorMessageOnFormField(inputField, errorMessage, markParent){
+	// 	let errorMessageField = getErrorMessageField(inputField);
+	// 	errorMessageField.innerText = errorMessage;
+	// 	errorMessageField.classList.remove(HIDE);
+	// 	markParent?inputField.parentElement.classList.add(INVALID):inputField.classList.add(INVALID);
+	// }
 
 
-	/**
-	 * Löscht die Fehlermeldung und den roten Rahmen.
-	 * @param {*} inputField 
-	 * @param {*} markParent 
-	 */
-	function resetErrorMessageOnFormField(inputField, markParent){
-		let errorMessageField = getErrorMessageField(inputField);
-		errorMessageField.innerText = '';
-		errorMessageField.classList.add(HIDE);
-		markParent?inputField.parentElement.classList.remove(INVALID):inputField.classList.remove(INVALID);
-	}
+	// /**
+	//  * Löscht die Fehlermeldung und den roten Rahmen.
+	//  * @param {*} inputField 
+	//  * @param {*} markParent 
+	//  */
+	// function resetErrorMessageOnFormField(inputField, markParent){
+	// 	let errorMessageField = getErrorMessageField(inputField);
+	// 	errorMessageField.innerText = '';
+	// 	errorMessageField.classList.add(HIDE);
+	// 	markParent?inputField.parentElement.classList.remove(INVALID):inputField.classList.remove(INVALID);
+	// }
 
 
-	/**
-	 * Setzt oder löscht die Fehlermeldung je nach Validation
-	 * @param {*} inputField 
-	 * @param {*} validationResult 
-	 * @param {*} markParent 
-	 */
-	function toggleFormFieldMessage (inputField, validationResult, markParent=true){
-		if (validationResult.isValid) {
-			resetErrorMessageOnFormField(inputField, markParent);
-		} else {
-			setErrorMessageOnFormField(inputField, validationResult.message, markParent);
-		}
-	}
+	// /**
+	//  * Setzt oder löscht die Fehlermeldung je nach Validation
+	//  * @param {*} inputField 
+	//  * @param {*} validationResult 
+	//  * @param {*} markParent 
+	//  */
+	// function toggleFormFieldMessage (inputField, validationResult, markParent=true){
+	// 	if (validationResult.isValid) {
+	// 		resetErrorMessageOnFormField(inputField, markParent);
+	// 	} else {
+	// 		setErrorMessageOnFormField(inputField, validationResult.message, markParent);
+	// 	}
+	// }
 
 
 	function isCourseNameValid() {
 		let validationResult = Validator.notEmptyNoEvilCharacters(courseNameInputField)
-		toggleFormFieldMessage(courseNameInputField, validationResult);
+		Validator.toggleFormFieldMessage(courseNameInputField, validationResult);
 		return validationResult.isValid;
 	}
 
 	function isCommentValid() {
 		let validationResult = Validator.noEvilCharacters(commentTextArea)
-		toggleFormFieldMessage(commentTextArea, validationResult, false);
+		Validator.toggleFormFieldMessage(commentTextArea, validationResult, false);
 		return validationResult.isValid;
 	}
 
 	function isFirstNameValid() {
 		let validationResult = Validator.isNameValid(firstNameInputField)
-		toggleFormFieldMessage(firstNameInputField, validationResult);
+		Validator.toggleFormFieldMessage(firstNameInputField, validationResult);
 		return validationResult.isValid;
 	}
 
 	function isSurNameValid() {
 		let validationResult = Validator.isNameValid(surNameInputField)
-		toggleFormFieldMessage(surNameInputField, validationResult);
+		Validator.toggleFormFieldMessage(surNameInputField, validationResult);
 		return validationResult.isValid;
 	}
 
 	function isCourseDateValid() {
 		let validationResult = Validator.isDateValid(courseDateInputField)
-		toggleFormFieldMessage(courseDateInputField, validationResult);
+		Validator.toggleFormFieldMessage(courseDateInputField, validationResult);
 		return validationResult.isValid;
 	}
 
 	function isAddressValid() {
 		let validationResult = Validator.notEmptyNoEvilCharacters(addressInputField)
-		toggleFormFieldMessage(addressInputField, validationResult);
+		Validator.toggleFormFieldMessage(addressInputField, validationResult);
 		return validationResult.isValid;
 	}
 
 	function isPlzValid() {
 		let validationResult = Validator.isPlzValid(plzInputField)
-		toggleFormFieldMessage(plzInputField, validationResult);
+		Validator.toggleFormFieldMessage(plzInputField, validationResult);
 		return validationResult.isValid;
 	}
 
 	function isPlaceValid() {
 		let validationResult = Validator.notEmptyNoEvilCharacters(placeInputField)
-		toggleFormFieldMessage(placeInputField, validationResult);
+		Validator.toggleFormFieldMessage(placeInputField, validationResult);
 		return validationResult.isValid;
 	}
 
 	function isEmailValid() {
 		let validationResult = Validator.isEMailValid(emailInputField)
-		toggleFormFieldMessage(emailInputField, validationResult);
+		Validator.toggleFormFieldMessage(emailInputField, validationResult);
 		return validationResult.isValid;
 	}
 
 	function isNumberOfParticipantsValid() {
 		let validationResult = Validator.isNumberOfParticipantsValid(numberOfParticipantsInputField)
-		toggleFormFieldMessage(numberOfParticipantsInputField, validationResult);
+		Validator.toggleFormFieldMessage(numberOfParticipantsInputField, validationResult);
 		return validationResult.isValid;
 	}
 
 	function isEquipmentValid() {
 		let validationResult = Validator.noEvilCharacters(equipmentTextArea)
-		toggleFormFieldMessage(equipmentTextArea, validationResult, false);
+		Validator.toggleFormFieldMessage(equipmentTextArea, validationResult, false);
 		return validationResult.isValid;
 	}
 
@@ -574,7 +574,7 @@ const CourseRegistration = (function (Validator, RenderConfirmation, Dates) {
 			registrationForm.addEventListener('focus', (event) => {
 				event.target.classList.remove(INVALID);
 				event.target.parentElement.classList.remove(INVALID);
-				getErrorMessageField(event.target).classList.add(HIDE);
+				Validator.getErrorMessageField(event.target).classList.add(HIDE);
 			}, true);
 		}
 	}

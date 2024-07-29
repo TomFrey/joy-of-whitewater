@@ -2,6 +2,8 @@
 const ContactForm = (function (Validator) {
     const SHOW = 'js-show';
     const SHOWANDFADE = 'js-fadeaway';
+	const HIDE = 'js-hide';
+	const INVALID = 'js-invalid';
     const contactFormData = {};
 
 	let contactForm;
@@ -37,19 +39,27 @@ const ContactForm = (function (Validator) {
 
 
 	function isMessageValid() {
-		return Validator.isTextFieldNotEmptyValid(messageInputField);
+		let validationResult = Validator.minMaxNoEvilCharacters(messageInputField, 50, 5000)
+		Validator.toggleFormFieldMessage(messageInputField, validationResult, false);
+		return validationResult.isValid;
 	}
 
 	function isFirstNameValid() {
-		return Validator.isNameValid(firstNameInputField);
+		let validationResult = Validator.isNameValid(firstNameInputField)
+		Validator.toggleFormFieldMessage(firstNameInputField, validationResult);
+		return validationResult.isValid;
 	}
 
 	function isSurNameValid() {
-		return Validator.isNameValid(surNameInputField);
+		let validationResult = Validator.isNameValid(surNameInputField)
+		Validator.toggleFormFieldMessage(surNameInputField, validationResult);
+		return validationResult.isValid;
 	}
 
     function isEmailValid() {
-		return Validator.isEMailValid(emailInputField);
+		let validationResult = Validator.isEMailValid(emailInputField)
+		Validator.toggleFormFieldMessage(emailInputField, validationResult);
+		return validationResult.isValid;
 	}
 
 
@@ -212,8 +222,9 @@ const ContactForm = (function (Validator) {
 
 			// Das Feld mit dem Focus ist nie invalid.
 			contactForm.addEventListener('focus', (event) => {
-				event.target.classList.remove('js-invalid');
-				event.target.parentElement.classList.remove('js-invalid');
+				event.target.classList.remove(INVALID);
+				event.target.parentElement.classList.remove(INVALID);
+				Validator.getErrorMessageField(event.target).classList.add(HIDE);
 			}, true);
 
 			fillMessageFieldWithUrlAttribute();
