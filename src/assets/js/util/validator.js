@@ -356,7 +356,7 @@ const Validator = (function () {
 	 */
 	function minMaxNoEvilCharacters(inputField, minNumberOfChars=1, maxNumberOfChars=10000) {
 	
-		const minChar = new RegExp('^.{'+ minNumberOfChars +',}$', 'm');    //multi line
+		const minChar = new RegExp('^.{'+ minNumberOfChars +',}$', 's');    //single line
 		const maxChar = new RegExp('^.{0,' + maxNumberOfChars + '}$', 's'); //single line
 
 		if (isStringEmpty(inputField.value)) {

@@ -56,6 +56,7 @@ const App = (function (Globals, Responsive) {
 							CourseRegistration.init();
 							Navigation.init();
 							YoutubeVideoControl.init();
+							GoogleMaps.init();
 							// Alle Bilder vorladen, damit man den Aufbau im GUI nicht sieht.
 							return Preloader.loadImagesForHeaderCarousel();
 						})
@@ -82,6 +83,7 @@ const App = (function (Globals, Responsive) {
 					CourseRegistration.init();
 					Navigation.init();
 					YoutubeVideoControl.init();
+					GoogleMaps.init();
 				})
 				.catch((error) => {
 					console.log(error);

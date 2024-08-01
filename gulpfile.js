@@ -38,7 +38,8 @@ const allFrontAppJsFiles = [
 	'./src/assets/js/util/dates.js',
 	'./src/assets/js/util/validator.js',
 	'./src/assets/js/util/preloader.js',
-	'./src/assets/js/util/googleMaps.js',
+	//'./src/assets/js/util/googleMaps.js',
+	'./src/assets/js/util/implementGoogleMaps.js',
 
 	'./src/assets/js/renderGui/renderCourseDates.js',
 
@@ -123,6 +124,7 @@ function minifyFrontJs(cb){
 		gulp.src(allFrontAppJsFiles),
 		sourcemaps.init(),
 		concat('frontApp.js'),
+		replace('googleMapsApiKeyReplacedWithGulp',  configFile.config.googleMap.apiKey),
 	 	babel({
 			compact: false, // unterdrückt die Warnung 'The code generator has deoptimised the styling ... as it exceeds the max of'
 			presets: 
@@ -161,6 +163,7 @@ function minifyFrontJsForDist(cb){
 	pump([
 		gulp.src(allFrontAppJsFiles),
 		concat('frontApp.js'),
+		replace('googleMapsApiKeyReplacedWithGulp',  configFile.config.googleMap.apiKey),
 		babel({
 			compact: false, // unterdrückt die Warnung 'The code generator has deoptimised the styling ... as it exceeds the max of'
 			presets: ['@babel/env']
@@ -283,14 +286,14 @@ function replaceProductionCredentials(){
 }
 
 
-/**
- * Ersetzt googleMapApiKey mit dem eigentlichen Key
- */
- function replaceGoogleMapApiKey(){
-	return gulp.src(['./src/*.html'])
-		.pipe(replace('googleMapApiKey', configFile.config.googleMap.apiKey))
-		.pipe(gulp.dest('dist'));
-}
+// /**
+//  * Ersetzt googleMapApiKey mit dem eigentlichen Key
+//  */
+//  function replaceGoogleMapApiKeyInDist(){
+// 	return gulp.src(['./src/index.html'])
+// 		.pipe(replace('googleMapApiKey', configFile.config.googleMap.apiKey))
+// 		.pipe(gulp.dest('dist'));
+// }
 
 
 const getFtpProductionConnection = () => {
@@ -360,6 +363,7 @@ function run(done){
 exports.default = gulp.series(gulp.parallel(compileScss,
 											minifyFrontJs,
 											injectHeaderAndFooter),
+								//replaceGoogleMapApiKey,
 								run);
 
 // Mit 'gulp build' wird das Projekte zusammengebaut und in den 'dist' Ordner gestellt.
@@ -376,8 +380,8 @@ function build(enviroment) {
 						copyRobotsAndHtaccess,
 						copyGoogleConfirmationFile,
 						copyKanukursePdf),
-		replaceProductionCredentials,
-		replaceGoogleMapApiKey);
+		replaceProductionCredentials);
+		//replaceGoogleMapApiKeyInDist);
 
 	//Überschreibt robots.txt mit src/assets/webServerConfig/robotsForTestEnviroment.txt
 	if (enviroment === 'toTestEnviroment') {
