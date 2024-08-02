@@ -286,16 +286,6 @@ function replaceProductionCredentials(){
 }
 
 
-// /**
-//  * Ersetzt googleMapApiKey mit dem eigentlichen Key
-//  */
-//  function replaceGoogleMapApiKeyInDist(){
-// 	return gulp.src(['./src/index.html'])
-// 		.pipe(replace('googleMapApiKey', configFile.config.googleMap.apiKey))
-// 		.pipe(gulp.dest('dist'));
-// }
-
-
 const getFtpProductionConnection = () => {
 	return ftp.create({
 		host: 'joyofwhitewater.ch',
@@ -375,13 +365,12 @@ function build(enviroment) {
 		gulp.parallel(	//copyApi,
 						copyHTML,
 						copyFrontJs,
-						//copyImages,
+						copyImages,
 						copyXml,
 						copyRobotsAndHtaccess,
 						copyGoogleConfirmationFile,
 						copyKanukursePdf),
 		replaceProductionCredentials);
-		//replaceGoogleMapApiKeyInDist);
 
 	//Überschreibt robots.txt mit src/assets/webServerConfig/robotsForTestEnviroment.txt
 	if (enviroment === 'toTestEnviroment') {

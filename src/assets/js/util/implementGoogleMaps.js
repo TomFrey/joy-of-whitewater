@@ -43,7 +43,7 @@ const GoogleMaps = (function () {
                                     "</div>";
 
         const glyphImg = document.createElement('img');
-        glyphImg.src = '/assets/images/icon/Spirale.svg';
+        glyphImg.src = '/assets/images/icon/Spirale_kl.svg';
 
         const pin = new PinElement({
             background: '#ffffff',
