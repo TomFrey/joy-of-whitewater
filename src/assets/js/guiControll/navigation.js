@@ -251,6 +251,9 @@ const Navigation = (function (RenderImageSlider, Images, Globals, Responsive, Co
 				case 'Details zur Chile Reise':
 					sliderName = 'chile';
 				break;
+				case 'Details zum Inn':
+					sliderName = 'engadin';
+				break;
 				default:
 					sliderName = 'korsika';
 					break;

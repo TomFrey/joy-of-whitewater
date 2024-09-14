@@ -366,6 +366,46 @@ img.text-container-fill__bottom {
 }
 
 
+.journey-text-item{
+	margin-bottom: 5*$basicHeight;
+}
+
+.journey-text-item-icon-wrapper{
+	display: inline;
+	float: left;
+	margin-right: 2*$basicWidth;
+	width: 30%;
+}
+
+.journey-icon{
+	display: flex;
+	flex-flow: column nowrap;
+	align-items: flex-start;
+
+
+	.journey-icon-icon{
+		max-width: 100%;
+		padding-bottom: 0.5*$basicHeight;
+		//margin-right: 2*$basicWidth;
+	}
+
+	.journey-icon-label{
+		font-family: $standardTextFont;
+		font-size: 1.5rem;
+		color: $complimentaryColor4;
+	}
+}
+
+.journey-text-item-text::first-letter{
+	font-family: $standardTextFont;
+	font-size: 1.75rem;
+	color: $color-textContainer-text;
+}
+
+
+
+
+
 /* *************************************************** */
 /* *********** ab hier für tablet *******************  */
 @media screen and (min-width: $breakpoint-medium) {   // > 688px

@@ -472,6 +472,82 @@ var Images = (function () {
 			  title: 'Wildwasser Reise in Chile, auf dem Weg ins Puelo Tal', 
 			  alt: 'Wildwasser Reise in Chile, auf dem Weg ins Puelo Tal' 
 			}
+		],
+		durance: [
+			{ name: 'durance_2_gr.webp', 
+			nameTablet: 'durance_2_mi.webp',
+			nameMobile: 'durance_2_kl.webp', 
+			title: 'Guisane, ein Seitenfluss der Durance', 
+			alt: 'Guisane, ein Seitenfluss der Durance' 
+		  	},
+			{ name: 'durance_1_gr.webp', 
+			  nameTablet: 'durance_1_mi.webp',
+			  nameMobile: 'durance_1_kl.webp', 
+			  title: 'Wildwasser Reise an die Durance', 
+			  alt: 'Wildwasser Reise an die Durance' 
+			},
+			{ name: 'durance_3_gr.webp', 
+			  nameTablet: 'durance_3_mi.webp',
+			  nameMobile: 'durance_3_kl.webp', 
+			  title: 'Clareé, ein Seitenfluss der Durance', 
+			  alt: 'Clareé, ein Seitenfluss der Durance' 
+			},
+			{ name: 'durance_4_gr.webp', 
+			  nameTablet: 'durance_4_mi.webp',
+			  nameMobile: 'durance_4_kl.webp', 
+			  title: 'Paddeln auf der Durance', 
+			  alt: 'Paddeln auf der Durance' 
+			},
+			{ name: 'durance_5_gr.webp', 
+			  nameTablet: 'durance_5_mi.webp',
+			  nameMobile: 'durance_5_kl.webp', 
+			  title: 'Wildwasser Reise an die Durance', 
+			  alt: 'Wildwasser Reise an die Durance' 
+			}
+		],
+		engadin: [
+			{ name: 'inn_1_gr.webp', 
+			  nameTablet: 'inn_1_mi.webp',
+			  nameMobile: 'inn_1_kl.webp', 
+			  title: 'Kajakreise auf dem Inn', 
+			  alt: 'Kajakreise auf dem Inn' 
+		  	},
+			{ name: 'inn_2_gr.webp', 
+			  nameTablet: 'inn_2_mi.webp',
+			  nameMobile: 'inn_2_kl.webp', 
+			  title: 'Wildwasserreise im Open Canoe auf dem Inn', 
+			  alt: 'Wildwasserreise im Open Canoe auf dem Inn' 
+			},
+			{ name: 'inn_3_gr.webp', 
+			  nameTablet: 'inn_3_mi.webp',
+			  nameMobile: 'inn_3_kl.webp', 
+			  title: 'Wildwasser Reise im Engadin', 
+			  alt: 'Wildwasser Reise im Engadin' 
+			},
+			{ name: 'inn_4_gr.webp', 
+			  nameTablet: 'inn_4_mi.webp',
+			  nameMobile: 'inn_4_kl.webp', 
+			  title: 'Wildwasser paddeln in der Giarsun Schlucht auf dem Inn', 
+			  alt: 'Wildwasser paddeln in der Giarsun Schlucht auf dem Inn' 
+			},
+			{ name: 'inn_5_gr.webp', 
+			  nameTablet: 'inn_5_mi.webp',
+			  nameMobile: 'inn_5_kl.webp', 
+			  title: 'Wildwasserreise im Engadin', 
+			  alt: 'Wildwasserreise im Engadin' 
+			},
+			{ name: 'inn_6_gr.webp', 
+			  nameTablet: 'inn_6_mi.webp',
+			  nameMobile: 'inn_6_kl.webp', 
+			  title: 'Kanureise auf dem Inn', 
+			  alt: 'Kanureise auf dem Inn' 
+			},
+			{ name: 'inn_7_gr.webp', 
+			  nameTablet: 'inn_7_mi.webp',
+			  nameMobile: 'inn_7_kl.webp', 
+			  title: 'Im Open Canoe durch die Preussenschleuder auf dem Inn', 
+			  alt: 'Im Open Canoe durch die Preussenschleuder auf dem Inn' 
+			}
 		]
 	};
 

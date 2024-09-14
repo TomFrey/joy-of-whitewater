@@ -403,6 +403,9 @@ const RenderCourseDates = (function (Dates, Globals) {
 				case 'Chile':
 					detailsLink.setAttribute('href', '/paddelreisen.html#paddleJourneyChileAnchor');
 					break;
+				case 'Engadin':
+					detailsLink.setAttribute('href', '/paddelreisen.html#paddleJourneyEngadinAnchor');
+					break;
 				default:
 					detailsLink.setAttribute('href', '/paddelreisen.html');
 					break;
