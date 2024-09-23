@@ -1069,13 +1069,15 @@ img.text-container-fill__bottom {
 
 .journey-text-item {
   margin-bottom: 40px;
+  clear: both;
 }
 
 .journey-text-item-icon-wrapper {
   display: inline;
   float: left;
   margin-right: 16px;
-  width: 30%;
+  margin-bottom: 16px;
+  width: 25%;
 }
 
 .journey-icon {
@@ -1089,7 +1091,7 @@ img.text-container-fill__bottom {
 }
 .journey-icon .journey-icon-label {
   font-family: "Open Sans", "Arial", "sans-serif";
-  font-size: 1.5rem;
+  font-size: 4.5vw;
   color: #941216;
 }
 
@@ -1292,6 +1294,12 @@ img.text-container-fill__bottom {
     left: 32%;
     padding: 12px;
   }
+  .journey-text-item-icon-wrapper {
+    width: 20%;
+  }
+  .journey-icon .journey-icon-label {
+    font-size: 3.5vw;
+  }
 }
 /* *************************************************** */
 /* *********** ab hier für desktop ******************* */
@@ -1389,6 +1397,13 @@ img.text-container-fill__bottom {
     top: 8%;
     left: 36%;
     padding: 16px;
+  }
+  .journey-text-item-icon-wrapper {
+    margin-bottom: 0;
+    width: 30%;
+  }
+  .journey-icon .journey-icon-label {
+    font-size: 1.5rem;
   }
 }
 .images-carousel {

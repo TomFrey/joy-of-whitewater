@@ -368,13 +368,15 @@ img.text-container-fill__bottom {
 
 .journey-text-item{
 	margin-bottom: 5*$basicHeight;
+	clear: both;
 }
 
 .journey-text-item-icon-wrapper{
 	display: inline;
 	float: left;
 	margin-right: 2*$basicWidth;
-	width: 30%;
+	margin-bottom: 2*$basicHeight;
+	width: 25%;
 }
 
 .journey-icon{
@@ -386,12 +388,11 @@ img.text-container-fill__bottom {
 	.journey-icon-icon{
 		max-width: 100%;
 		padding-bottom: 0.5*$basicHeight;
-		//margin-right: 2*$basicWidth;
 	}
 
 	.journey-icon-label{
 		font-family: $standardTextFont;
-		font-size: 1.5rem;
+		font-size: 4.5vw;
 		color: $complimentaryColor4;
 	}
 }
@@ -669,6 +670,17 @@ img.text-container-fill__bottom {
 			padding: 12px;
 		}
 	}
+
+	.journey-text-item-icon-wrapper{
+		width: 20%;
+	}
+
+	.journey-icon{
+		
+		.journey-icon-label{
+			font-size: 3.5vw;
+		}
+	}
 }
 
 
@@ -810,6 +822,19 @@ img.text-container-fill__bottom {
 			top: 8%;
 			left: 36%;
 			padding: 16px;
+		}
+	}
+
+
+	.journey-text-item-icon-wrapper{
+		margin-bottom: 0;
+		width: 30%;
+	}
+
+	.journey-icon{
+		
+		.journey-icon-label{
+			font-size: 1.5rem;
 		}
 	}
 }
