@@ -13,8 +13,8 @@
   "author": "Thomas Frey <joe@mitlinxlernen.ch>",
   "license": "MIT",
   "devDependencies": {
-    "@babel/core": "7.12.10",
-    "@babel/preset-env": "^7.12.11",
+    "@babel/core": "^7.25.2",
+    "@babel/preset-env": "^7.25.4",
     "babel-core": "^6.26.3",
     "babel-preset-es2015-script": "^1.1.0",
     "browser-sync": "^2.26.13",
