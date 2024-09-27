@@ -32,8 +32,10 @@ const Navigation = (function (RenderImageSlider, Images, Globals, Responsive, Co
 
 
 	function setHeaderTitle(titleContent) {
-		const title = document.querySelector('.images-carousel .containerForTitle h1');
-		title.innerHTML = titleContent;
+		let titleH1 = document.createElement('h1');
+		const titleContainer = document.querySelector('.images-carousel .containerForTitle');
+		titleH1.innerHTML = titleContent;
+		titleContainer.appendChild(titleH1);
 	}
 
 
