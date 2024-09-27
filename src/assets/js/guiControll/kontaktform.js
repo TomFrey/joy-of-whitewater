@@ -149,7 +149,7 @@ const ContactForm = (function (Validator) {
 
 
 	function fillUrlAttributeWithMessage (event){
-		const urlParameter = event.target.getAttribute('message');
+		const urlParameter = event.target.getAttribute('data-message');
 		window.location.href = '/kontakt.html?message=' + urlParameter;
 	}
 
