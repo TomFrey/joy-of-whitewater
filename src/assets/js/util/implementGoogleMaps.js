@@ -58,8 +58,8 @@ const GoogleMaps = (function () {
     
         // Sonst kommt es zu Fehlern auf Seiten, die keine Map verwenden.
         if (mapDomElement !== null) {
-            const longitude = parseFloat(mapDomElement.getAttribute('longitude'));
-            const latitude = parseFloat(mapDomElement.getAttribute('latitude'));
+            const longitude = parseFloat(mapDomElement.getAttribute('data-longitude'));
+            const latitude = parseFloat(mapDomElement.getAttribute('data-latitude'));
     
             map = new Map(mapDomElement, {
                 center: { lat: latitude, lng: longitude },
