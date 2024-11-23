@@ -1253,6 +1253,10 @@ img.text-container-fill__bottom {
   .text-container-full-width:first-of-type {
     padding: 16px;
   }
+  .text-container-full-width.text-container-full-width--roundedBottemCorners {
+    padding-bottom: 16px;
+    border-radius: 0px 0px 16px 16px;
+  }
   .text-container-drawer {
     transition: max-height 0.5s ease-in-out 1ms;
   }
@@ -4405,7 +4409,7 @@ a.open-drawer-wrapper, .open-close-faq-button {
   margin: 16px 0;
 }
 
-.link-button-wrapper, .link-button-wrapper--mail {
+.link-button-wrapper, .link-button-wrapper--mail, .link-button-wrapper--moreDetail {
   color: #ffffff;
   box-shadow: 0 11px 10px -8px black;
   display: flex;
@@ -4416,7 +4420,7 @@ a.open-drawer-wrapper, .open-close-faq-button {
   align-items: baseline;
 }
 
-.link-button-wrapper--mail {
+.link-button-wrapper--mail, .link-button-wrapper--moreDetail {
   align-items: center;
 }
 
@@ -4443,6 +4447,15 @@ a.open-drawer-wrapper, .open-close-faq-button {
   width: 30px;
 }
 
+.link-button-wrapper__icon--moreDetail {
+  background-image: url("/assets/images/icon/more_detail.svg");
+  background-repeat: no-repeat;
+  background-position: bottom;
+  margin-left: 12px;
+  height: 16px;
+  width: 30px;
+}
+
 /* *************************************************** */
 /* *********** ab hier für tablet ******************* */
 @media screen and (min-width: 688px) {
@@ -4461,23 +4474,21 @@ a.open-drawer-wrapper, .open-close-faq-button {
     background-color: #ffffff;
     border: 1px solid #004570;
   }
-  .link-button:hover .link-button-wrapper, .link-button--mail:hover .link-button-wrapper, .link-button:hover .link-button-wrapper--mail, .link-button--mail:hover .link-button-wrapper--mail {
+  .link-button:hover .link-button-wrapper, .link-button--mail:hover .link-button-wrapper, .link-button:hover .link-button-wrapper--mail, .link-button--mail:hover .link-button-wrapper--mail, .link-button:hover .link-button-wrapper--moreDetail, .link-button--mail:hover .link-button-wrapper--moreDetail {
     color: #004570;
   }
-  .link-button:hover .link-button-wrapper .link-button-wrapper__icon, .link-button--mail:hover .link-button-wrapper .link-button-wrapper__icon, .link-button:hover .link-button-wrapper--mail .link-button-wrapper__icon, .link-button--mail:hover .link-button-wrapper--mail .link-button-wrapper__icon {
+  .link-button:hover .link-button-wrapper .link-button-wrapper__icon, .link-button--mail:hover .link-button-wrapper .link-button-wrapper__icon, .link-button:hover .link-button-wrapper--mail .link-button-wrapper__icon, .link-button--mail:hover .link-button-wrapper--mail .link-button-wrapper__icon, .link-button:hover .link-button-wrapper--moreDetail .link-button-wrapper__icon, .link-button--mail:hover .link-button-wrapper--moreDetail .link-button-wrapper__icon {
     border-bottom: 2px solid #004570;
     border-right: 2px solid #004570;
+  }
+  .link-button:hover .link-button-wrapper .link-button-wrapper__icon--moreDetail, .link-button--mail:hover .link-button-wrapper .link-button-wrapper__icon--moreDetail, .link-button:hover .link-button-wrapper--mail .link-button-wrapper__icon--moreDetail, .link-button--mail:hover .link-button-wrapper--mail .link-button-wrapper__icon--moreDetail, .link-button:hover .link-button-wrapper--moreDetail .link-button-wrapper__icon--moreDetail, .link-button--mail:hover .link-button-wrapper--moreDetail .link-button-wrapper__icon--moreDetail {
+    background-image: url("/assets/images/icon/more_detail-hover-blue.svg");
   }
   .link-button:hover .link-button-wrapper--mail, .link-button--mail:hover .link-button-wrapper--mail {
     color: #004570;
   }
   .link-button:hover .link-button-wrapper--mail .link-button-wrapper__icon--mail, .link-button--mail:hover .link-button-wrapper--mail .link-button-wrapper__icon--mail {
     background-image: url("/assets/images/icon/mail-hover-blue.svg");
-    background-repeat: no-repeat;
-    background-position: center;
-    margin-left: 12px;
-    height: 20px;
-    width: 30px;
   }
 }
 .dropdown-button-wrapper {

@@ -24,7 +24,7 @@
 	align-items: baseline;
 }
 
-.link-button-wrapper--mail{
+.link-button-wrapper--mail, .link-button-wrapper--moreDetail{
 	@extend .link-button-wrapper;
 	align-items: center;
 }
@@ -49,6 +49,15 @@
 	background-position: center;
 	margin-left: 12px;
 	height: 20px;
+	width: 30px;
+}
+
+.link-button-wrapper__icon--moreDetail{
+	background-image: url("/assets/images/icon/more_detail.svg");
+	background-repeat: no-repeat;
+	background-position: bottom;
+	margin-left: 12px;
+	height: 16px;
 	width: 30px;
 }
 
@@ -86,6 +95,10 @@
 				border-bottom: 2px solid $color-drawer-buttonToOpenDrawerText-hover;
 				border-right: 2px solid $color-drawer-buttonToOpenDrawerText-hover;
 			}
+
+			.link-button-wrapper__icon--moreDetail{
+				background-image: url("/assets/images/icon/more_detail-hover-blue.svg");
+			}
 		}
 
 		.link-button-wrapper--mail{
@@ -93,11 +106,6 @@
 
 			.link-button-wrapper__icon--mail{
 				background-image: url("/assets/images/icon/mail-hover-blue.svg");
-				background-repeat: no-repeat;
-				background-position: center;
-				margin-left: 12px;
-				height: 20px;
-				width: 30px;		
 			}
 		}
 	}

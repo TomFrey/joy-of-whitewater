@@ -610,6 +610,11 @@ img.text-container-fill__bottom {
 		padding: 2*$basicWidth;
 	}
 
+	.text-container-full-width.text-container-full-width--roundedBottemCorners{
+		padding-bottom: 2*$basicHeight;
+		border-radius: 0px 0px 16px 16px;
+	}
+
 	//auf der Desktop Version muss der Drawer nicht so schnell geschlossen werden.
 	.text-container-drawer{
 		transition: max-height 0.5s ease-in-out 1ms;
