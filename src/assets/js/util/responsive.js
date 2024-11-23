@@ -23,11 +23,11 @@ const Responsive = (function (Globals, RenderHeader) {
 	}
 
 
-	function renderHeaderWithImagesAccordingToBreakPoint(carouselImages, mobileImages) {
+	function renderHeaderWithImagesAccordingToBreakPoint() {
 		if (window.innerWidth >= breakPointLarge) {
-			RenderHeader.createImagesListForTheCarousel(carouselImages);
+			RenderHeader.createImagesListForTheCarousel(this.carouselImages);
 		} else {
-			RenderHeader.createPictureTagForMobileHeader(mobileImages);
+			RenderHeader.createPictureTagForMobileHeader(this.mobileImages);
 		}
 	}
 

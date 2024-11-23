@@ -6,6 +6,7 @@ const Globals = (function () {
 			breakpointMedium: 688,
 			pathForImagesInTheCarousel: '/assets/images/carousel/',
 			pathForImagesInTheSlider: '/assets/images/slider/',
+			//Trennt den String bei den '/' und nimmt das zweite Wort. Trennt dann bei '.' und nimmt das erste Wort.
 			nameOfCurrentSite: location.pathname.split('/')[1].split('.')[0]
 		};
 	}

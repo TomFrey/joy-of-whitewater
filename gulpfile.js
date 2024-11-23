@@ -114,6 +114,43 @@ function injectHeaderAndFooter(){
 
 
 /**
+ * Setzt die html-Templates auf jeder Seite ein
+ * Hört auf Änderungen in html Files im Ordner templates
+ */
+function injectHeaderAndFooterIntoWildwasserReisen(){
+	return gulp.src('./src/wildwasser-reisen/*.html')
+		.pipe(fileInject(gulp.src(['./src/templates/header.html']), {
+			starttag: '<!-- inject:htmlHeader -->',
+			transform(filepath, file) {
+				return file.contents.toString();
+			}
+		}))
+
+		.pipe(fileInject(gulp.src(['./src/templates/head.html']), {
+			starttag: '<!-- inject:htmlHead -->',
+			transform(filepath, file) {
+				return file.contents.toString();
+			}
+		}))
+
+		.pipe(fileInject(gulp.src(['./src/templates/navigation.html']), {
+			starttag: '<!-- inject:htmlNavigation -->',
+			transform(filepath, file) {
+				return file.contents.toString();
+			}
+		}))
+
+		.pipe(fileInject(gulp.src(['./src/templates/footer.html']), {
+			starttag: '<!-- inject:htmlFooter -->',
+			transform(filepath, file) {
+				return file.contents.toString();
+			}
+		}))
+		.pipe(gulp.dest('src/wildwasser-reisen/'));
+}
+
+
+/**
  * Fügt alle .js Files aus dem Array allFrontAppJsFiles in einem File frontApp.js zusammen.
  * Und verkleinert die .js Files.
  * - Babel (ES6 zu ES5) braucht es, weil sonst der minifyer nicht geht, der versteht nur ES5.
@@ -338,7 +375,8 @@ function run(done){
 		.on('change', browserSync.reload);
 
 	//watch for changes in html templates
-	gulp.watch('./src/templates/*.html', gulp.series(injectHeaderAndFooter))
+	gulp.watch('./src/templates/*.html', gulp.series(injectHeaderAndFooter));
+	gulp.watch('./src/templates/*.html', gulp.series(injectHeaderAndFooterIntoWildwasserReisen));
 
 	// Wartet auf Änderungen in einer .js Datei im Frontend Bereich
 	gulp.watch([settings.jsDir + '/**/*.js'], gulp.series(minifyFrontJs))
@@ -352,10 +390,12 @@ function run(done){
  */
 exports.default = gulp.series(gulp.parallel(compileScss,
 											minifyFrontJs,
-											injectHeaderAndFooter),
+											injectHeaderAndFooter,
+											injectHeaderAndFooterIntoWildwasserReisen),
 								//replaceGoogleMapApiKey,
 								run);
 
+								
 // Mit 'gulp build' wird das Projekte zusammengebaut und in den 'dist' Ordner gestellt.
 function build(enviroment) {
 	let building = gulp.series(deleteDistFolder,

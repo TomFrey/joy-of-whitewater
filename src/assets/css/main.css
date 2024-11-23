@@ -942,6 +942,13 @@ Tablet / Desktop
   color: #000000;
 }
 
+.course-list-wrapper.outside-detail-drawer {
+  background-color: #E6E6E6;
+}
+.course-list-wrapper.outside-detail-drawer .paddleJourneyItem {
+  background-color: #BADDFF;
+}
+
 .text-container-detail-wrapper {
   margin-bottom: 8px;
 }
@@ -4004,6 +4011,185 @@ Desktop und Tablet
     column-gap: 24px;
     row-gap: 0px;
     background-color: #E6E6E6;
+  }
+}
+.journey-kalendar-overview {
+  width: 100%;
+  display: grid;
+  grid-template: [Zeile1] "jan feb" auto [Zeile1Ende] [Zeile2] "march april" auto [Zeile2Ende] [Zeile3] "may june" auto [Zeile3Ende] [Zeile4] "july aug" auto [Zeile4Ende] [Zeile5] "sept oct" auto [Zeile5Ende] [Zeile6] "nov dec" auto [Zeile6Ende]/1fr 1fr;
+  margin-bottom: 8px;
+}
+
+.journey-kalendar-month {
+  border-right: 1px solid #004570;
+  border-bottom: 1px solid #004570;
+  background-color: #ffffff;
+  padding-bottom: 8px;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+
+.journey-kalendar-month:nth-child(2), .journey-kalendar-month:nth-child(4),
+.journey-kalendar-month:nth-child(6), .journey-kalendar-month:nth-child(8),
+.journey-kalendar-month:nth-child(10), .journey-kalendar-month:nth-child(12) {
+  border-right: none;
+}
+
+.journey-kalendar-month:nth-child(11), .journey-kalendar-month:nth-child(12) {
+  border-bottom: none;
+}
+
+.journey-kalendar-month--january {
+  grid-area: jan;
+}
+
+.journey-kalendar-month--february {
+  grid-area: feb;
+}
+
+.journey-kalendar-month--march {
+  grid-area: march;
+}
+
+.journey-kalendar-month--april {
+  grid-area: april;
+}
+
+.journey-kalendar-month--may {
+  grid-area: may;
+}
+
+.journey-kalendar-month--june {
+  grid-area: june;
+}
+
+.journey-kalendar-month--july {
+  grid-area: july;
+}
+
+.journey-kalendar-month--august {
+  grid-area: aug;
+}
+
+.journey-kalendar-month--september {
+  grid-area: sept;
+}
+
+.journey-kalendar-month--october {
+  grid-area: oct;
+}
+
+.journey-kalendar-month--november {
+  grid-area: nov;
+}
+
+.journey-kalendar-month--december {
+  grid-area: dec;
+}
+
+.journey-kalendar-overview-month-label {
+  background-color: #ffffff;
+  color: #004570;
+  width: 100%;
+  padding: 2px;
+  text-align: center;
+}
+
+.journey-kalendar-overview-month-content {
+  height: 100px;
+  width: 100%;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+}
+
+.journey-kalendar-journey {
+  margin: 4px 0;
+  padding: 4px 8px;
+  background-color: #941216;
+  color: #ffffff;
+  border: #ffffff;
+  border-radius: 20px;
+  text-align: center;
+  width: 50%;
+  align-self: flex-end;
+  text-decoration: none;
+}
+
+.journey-kalendar-journey + .journey-kalendar-journey {
+  margin: 2px 0;
+}
+
+.journey-kalendar-journey.journey-kalendar-journey--start {
+  align-self: flex-start;
+}
+
+.journey-kalendar-journey.journey-kalendar-journey--center {
+  align-self: center;
+}
+
+.journey-kalendar-journey.journey-kalendar-journey--end {
+  align-self: flex-end;
+}
+
+.journey-kalendar-journey-label.journey-kalendar-journey-label--large {
+  display: none;
+}
+
+.journey-kalendar-journey-label.journey-kalendar-journey-label--small {
+  display: inline;
+}
+
+/* *************************************************** */
+/* *********** ab hier für tablet *******************  */
+@media screen and (min-width: 688px) {
+  .journey-kalendar-overview {
+    display: grid;
+    grid-template: [Zeile1] "jan feb march" auto [Zeile1Ende] [Zeile2] "april may june" auto [Zeile2Ende] [Zeile3] "july aug sept" auto [Zeile3Ende] [Zeile4] "oct nov dec" auto [Zeile4Ende]/1fr 1fr 1fr;
+    margin-bottom: 8px;
+  }
+  .journey-kalendar-month:nth-child(2), .journey-kalendar-month:nth-child(4),
+.journey-kalendar-month:nth-child(8), .journey-kalendar-month:nth-child(10) {
+    border-right: 1px #004570 solid;
+  }
+  .journey-kalendar-month:nth-child(3), .journey-kalendar-month:nth-child(9) {
+    border-right: none;
+  }
+  .journey-kalendar-month:nth-child(10) {
+    border-bottom: none;
+  }
+  .journey-kalendar-journey-label.journey-kalendar-journey-label--large {
+    display: inline;
+  }
+  .journey-kalendar-journey-label.journey-kalendar-journey-label--small {
+    display: none;
+  }
+  .journey-kalendar-overview-month-content {
+    padding: 0 4px;
+  }
+}
+/* *************************************************** */
+/* *********** ab hier für desktop ******************* */
+@media screen and (min-width: 992px) {
+  .journey-kalendar-overview {
+    display: grid;
+    grid-template: [Zeile1] "jan feb march april" auto [Zeile1Ende] [Zeile2] "may june july aug" auto [Zeile2Ende] [Zeile3] "sept oct nov dec" auto [Zeile3 Ende]/1fr 1fr 1fr 1fr;
+    margin-bottom: 24px;
+  }
+  .journey-kalendar-month:nth-child(3), .journey-kalendar-month:nth-child(6), .journey-kalendar-month:nth-child(9) {
+    border-right: 1px #004570 solid;
+  }
+  .journey-kalendar-month:nth-child(4), .journey-kalendar-month:nth-child(8) {
+    border-right: none;
+  }
+  .journey-kalendar-month:nth-child(9) {
+    border-bottom: none;
+  }
+  .journey-kalendar-journey:hover {
+    background-color: #ffffff;
+    color: #941216;
+    border: 1px solid #941216;
   }
 }
 .open-drawer {

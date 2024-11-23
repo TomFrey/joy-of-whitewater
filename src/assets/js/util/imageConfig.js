@@ -22,13 +22,6 @@ var Images = (function () {
 			{ name: 'kanadierkurse_2.webp', title: 'Kanadier-Zweier Kurse', alt: 'Kanadier-Zweier Kurse' },
 			{ name: 'kanukurse_9.jpg', title: 'Open Canoe und Kanadierkurse', alt: 'Open Canoe und Kanadierkurse' }
 		],
-		paddelreisenImages: [
-			{ name: 'paddelreisen_10.jpg', title: 'Wildwasserreise - Tavignano, Korsika', alt: 'Paddelreisen' },
-			{ name: 'paddelreisen_7.jpg', title: 'Transportmittel in Chile', alt: 'Paddelreisen' },
-			{ name: 'paddelreisen_3.jpg', title: 'Inn, Engadin', alt: 'Paddelreisen' },
-			{ name: 'paddelreisen_2.jpg', title: 'Paddelreise in Georgien', alt: 'Paddelreisen' },
-			{ name: 'paddelreisen_5.jpg', title: 'Wildwasser Reise - Taravo, Korsika', alt: 'Paddelreisen' }
-		],
 		packraftkurseImages: [
 			{ name: 'packraft_1.jpg', title: 'Packraft Kurse', alt: 'Packraft Kurse' },
 			{ name: 'packraft_6.jpg', title: 'Packraft Kurse', alt: 'Packraft Kurse' },
@@ -47,6 +40,18 @@ var Images = (function () {
 			{ name: 'ausflug_3.webp', title: 'Wildwasserausflüge durch die Rheinschlucht', alt: 'Wildwasserausflüge durch die Rheinschlucht' },
 			{ name: 'packraft_2.jpg', title: 'Wildwassertouren mit dem Packraft', alt: 'Wildwassertouren mit dem Packraft' },
 			{ name: 'packraft_3.jpg', title: 'Wildwasserausflug mit dem Packraft', alt: 'Wildwasserausflug mit dem Packraft' }
+		],
+		paddelreisenImages: [
+			{ name: 'paddelreisen_10.jpg', title: 'Wildwasserreise - Tavignano, Korsika', alt: 'Paddelreisen' },
+			{ name: 'paddelreisen_7.jpg', title: 'Transportmittel in Chile', alt: 'Paddelreisen' },
+			{ name: 'paddelreisen_3.jpg', title: 'Inn, Engadin', alt: 'Paddelreisen' },
+			{ name: 'paddelreisen_2.jpg', title: 'Paddelreise in Georgien', alt: 'Paddelreisen' },
+			{ name: 'paddelreisen_5.jpg', title: 'Wildwasser Reise - Taravo, Korsika', alt: 'Paddelreisen' }
+		],
+		korsikaImages: [
+			{name: 'paddelreisen_5.jpg', title: 'Wildwasser Reise - Taravo, Korsika', alt: 'Wildwasser Reise - Taravo, Korsika' },
+			{name: 'paddelreisen_10.jpg', title: 'Wildwasserreise - Tavignano, Korsika', alt: 'Wildwasserreise - Tavignano, Korsika'}
+			
 		]
 	};
 
@@ -70,13 +75,17 @@ var Images = (function () {
 			{ name: 'mobile_quer_paddelreisen.jpg', title: 'Wildwasser Reisen', alt: 'Wildwasser Reisen' },
 			{ name: 'mobile_paddelreisen.jpg', title: 'Wildwasser Reisen', alt: 'Wildwasser Reisen' }
 		],
+		korsikaImages: [
+			{ name: 'mobile_quer_korsikakurse.webp', title: 'Wildwasser paddeln in Korsika', alt: 'Wildwasser paddeln in Korsika' },
+			{ name: 'mobile_korsikakurse.webp', title: 'Wildwasser paddeln in Korsika', alt: 'Wildwasser paddeln in Korsika' }
+		],
 		packraftkurseImages: [
 			{ name: 'mobile_quer_packraft.jpg', title: 'Packraft Kurse', alt: 'Packraft Kurse' },
 			{ name: 'mobile_packraft.jpg', title: 'Packraft Kurse', alt: 'Packraft Kurse' }
 		],
 		specialImages: [
-			{ name: 'mobile_quer_packraft.jpg', title: 'Packraft Kurse', alt: 'Packraft Kurse' },
-			{ name: 'mobile_packraft.jpg', title: 'Packraft Kurse', alt: 'Packraft Kurse' }
+			{ name: 'mobile_quer_specialskurse.webp', title: 'Sicherheits- und Eskimotierkurse', alt: 'Sicherheits- und Eskimotierkurse' },
+			{ name: 'mobile_specialskurse.webp', title: 'Sicherheits- und Eskimotierkurse', alt: 'Sicherheits- und Eskimotierkurse' }
 		],
 		ausflugImages: [
 			{ name: 'mobile_quer_packraft.jpg', title: 'Packraft Kurse', alt: 'Packraft Kurse' },
@@ -571,6 +580,10 @@ var Images = (function () {
 		return imageCarousel.paddelreisenImages;
 	}
 
+	function getImagesForKorsikaCarousel() {
+		return imageCarousel.korsikaImages;
+	}
+
 	function getImagesForAusfluege() {
 		return imageCarousel.ausflugImages;
 	}
@@ -580,7 +593,7 @@ var Images = (function () {
 	}
 
 	function getAllCarouselImages() {
-		return getImagesForJoyOfWhitewater().concat(getImagesForPaddelreisen(), getImagesForKajakkurse(), getImagesForPackraftkurse(), getImagesForKanadierkurse());
+		return getImagesForJoyOfWhitewater().concat(getImagesForPaddelreisen(), getImagesForKajakkurse(), getImagesForPackraftkurse(), getImagesForKanadierkurse(), getImagesForKorsikaCarousel());
 	}
 
 	// Gets the first image, which is the first image in the array ;-)
@@ -594,6 +607,10 @@ var Images = (function () {
 
 	function getTheFirstImageForPaddelreisen() {
 		return imageCarousel.paddelreisenImages[0];
+	}
+
+	function getTheFirstImageForKorsika() {
+		return imageCarousel.korsikaImages[0];
 	}
 
 	function getTheFirstImageForKajakkurse() {
@@ -629,6 +646,10 @@ var Images = (function () {
 		return mobileImages.paddelreisenImages;
 	}
 
+	function getMobileImagesForKorsika() {
+		return mobileImages.korsikaImages;
+	}
+
 	function getMobileImagesForJoyOfWhitewater() {
 		return mobileImages.theJoyOfWhiteWaterImages;
 	}
@@ -646,6 +667,19 @@ var Images = (function () {
 		return imageSlider[nameOfImageSlider];
 	}
 
+
+	/**
+	 * z.B.: https://joyofwhitewater/wildwasser-reisen/paddeln-auf-korsika.html
+	 * Trennt den String 'paddeln-auf-korsika' bei den '-' und nimmt das letzte Wort aus dem Array.
+	 * @returns string (Name des Ortes der Paddelreise)
+	 */
+	function getPaddleJourneyLocation () {
+		if (location.pathname.split('/')[1].split('.')[0] === 'wildwasser-reisen') {
+			return location.pathname.split('/')[2].split('.')[0].split('-').slice(-1)[0];
+		}
+	}
+
+
 	// public api
 	return {
 		getAllCarouselImages,
@@ -653,6 +687,7 @@ var Images = (function () {
 		getImagesForKajakkurse,
 		getImagesForKanadierkurse,
 		getImagesForPaddelreisen,
+	 	getImagesForKorsikaCarousel,
 		getImagesForPackraftkurse,
 		getImagesForJoyOfWhitewater,
 		getImagesForSpecials,
@@ -661,6 +696,7 @@ var Images = (function () {
 		getTheFirstImageForJoyOfWhitewater,
 		getTheFirstImageForPackraftkurse,
 		getTheFirstImageForPaddelreisen,
+		getTheFirstImageForKorsika,
 		getTheFirstImageForKajakkurse,
 		getTheFirstImageForKanadierkurse,
 		getTheFirstImageForSpecials,
@@ -669,11 +705,13 @@ var Images = (function () {
 		getMobileImagesForKajakkurse,
 		getMobileImagesForKanadierkurse,
 		getMobileImagesForPaddelreisen,
+		getMobileImagesForKorsika,
 		getMobileImagesForPackraftkurse,
 		getMobileImagesForJoyOfWhitewater,
 		getMobileImagesForSpecials,
 		getMobileImagesForAusfluege,
 
-		getImagesForSlider
+		getImagesForSlider,
+		getPaddleJourneyLocation
 	};
 })();

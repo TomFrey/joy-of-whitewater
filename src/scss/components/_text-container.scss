@@ -228,6 +228,14 @@ Tablet / Desktop
 	color: $color-drawer-text;
 }
 
+.course-list-wrapper.outside-detail-drawer{
+	background-color: $color-textContainer-background;
+
+	.paddleJourneyItem{
+		background-color: $color-drawer-background-drawer;
+	}
+}
+
 
 
 //im Mobile den Drawer schneller schliessen, da hier bei den Kanumaterial Preisen ein Teil der Tabelle

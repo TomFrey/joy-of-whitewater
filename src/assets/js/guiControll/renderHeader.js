@@ -18,12 +18,7 @@ const RenderHeader = (function (Globals) {
 		return listElement;
 	}
 
-	/**
-	 * Fügt das erste li Element (mit dem Image) in das ul Element.
-	 * Kein Carousel nur ein Bild, damit beim Laden der Seite das erste Bild sofort dargestellt wird.
-	 * @param images
-	 */
-	function addJustFirstImage(images) {
+	function addJustFirstImage() {
 		const ulElementWithImages = document.querySelector('.images-carousel ul.images');
 
 		// delete all current images
@@ -33,7 +28,7 @@ const RenderHeader = (function (Globals) {
 
 		// add the last image which is the first to show
 		//const liElement = createLiElementWithImageForTheCarousel(images[images.length-1]);
-		const liElement = createLiElementWithImageForTheCarousel(images[0]);
+		const liElement = createLiElementWithImageForTheCarousel(this.carouselImages[0]);
 		ulElementWithImages.appendChild(liElement);
 	}
 
