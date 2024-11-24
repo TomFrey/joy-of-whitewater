@@ -63,6 +63,9 @@ const PageConfig = (function (Images, Globals) {
 				break;
 
 			case 'wildwasser-reisen':
+
+				console.log('where -> '+Images.getPaddleJourneyLocation());
+
 				switch (Images.getPaddleJourneyLocation()) {
 					case 'korsika':
 						pageData = {
@@ -82,7 +85,12 @@ const PageConfig = (function (Images, Globals) {
 					
 						break;
 					case 'griechenland':
-					
+						pageData = {
+							headerTitle: 'Wildwasser paddeln<br> in Griechenland',
+							mobileImages: Images.getMobileImagesForGriechenland(),
+							carouselImages: Images.getImagesForGriechenlandCarousel(),
+							firstImageForCarousel: Images.getTheFirstImageForGriechenland().name
+						};
 						break;
 					case 'sesia':
 					

@@ -52,6 +52,13 @@ var Images = (function () {
 			{name: 'paddelreisen_5.jpg', title: 'Wildwasser Reise - Taravo, Korsika', alt: 'Wildwasser Reise - Taravo, Korsika' },
 			{name: 'paddelreisen_10.jpg', title: 'Wildwasserreise - Tavignano, Korsika', alt: 'Wildwasserreise - Tavignano, Korsika'}
 			
+		],
+		griechenlandImages: [
+			{name: 'wildwasser_reise_griechenland_3.webp', title: 'Wildwasser Griechenland, Arachtos', alt: 'Wildwasser Griechenland, Arachtos' },
+			{name: 'wildwasser_reise_griechenland_1.webp', title: 'Wildwasser Griechenland, Venetikos', alt: 'Wildwasser Griechenland, Venetikos' },
+			{name: 'wildwasser_reise_griechenland_2.webp', title: 'Wildwasser Griechenland, Meteora', alt: 'Wildwasser Griechenland, Meteora' },
+			{name: 'wildwasser_reise_griechenland_4.webp', title: 'Wildwasser Griechenland, Aoos', alt: 'Wildwasser Griechenland, Aoos' },
+			
 		]
 	};
 
@@ -76,6 +83,10 @@ var Images = (function () {
 			{ name: 'mobile_paddelreisen.jpg', title: 'Wildwasser Reisen', alt: 'Wildwasser Reisen' }
 		],
 		korsikaImages: [
+			{ name: 'mobile_quer_korsikakurse.webp', title: 'Wildwasser paddeln in Korsika', alt: 'Wildwasser paddeln in Korsika' },
+			{ name: 'mobile_korsikakurse.webp', title: 'Wildwasser paddeln in Korsika', alt: 'Wildwasser paddeln in Korsika' }
+		],
+		griechenlandImages: [
 			{ name: 'mobile_quer_korsikakurse.webp', title: 'Wildwasser paddeln in Korsika', alt: 'Wildwasser paddeln in Korsika' },
 			{ name: 'mobile_korsikakurse.webp', title: 'Wildwasser paddeln in Korsika', alt: 'Wildwasser paddeln in Korsika' }
 		],
@@ -584,6 +595,10 @@ var Images = (function () {
 		return imageCarousel.korsikaImages;
 	}
 
+	function getImagesForGriechenlandCarousel() {
+		return imageCarousel.griechenlandImages;
+	}
+
 	function getImagesForAusfluege() {
 		return imageCarousel.ausflugImages;
 	}
@@ -611,6 +626,10 @@ var Images = (function () {
 
 	function getTheFirstImageForKorsika() {
 		return imageCarousel.korsikaImages[0];
+	}
+
+	function getTheFirstImageForGriechenland() {
+		return imageCarousel.griechenlandImages[0];
 	}
 
 	function getTheFirstImageForKajakkurse() {
@@ -648,6 +667,10 @@ var Images = (function () {
 
 	function getMobileImagesForKorsika() {
 		return mobileImages.korsikaImages;
+	}
+
+	function getMobileImagesForGriechenland() {
+		return mobileImages.griechenlandImages;
 	}
 
 	function getMobileImagesForJoyOfWhitewater() {
@@ -688,6 +711,7 @@ var Images = (function () {
 		getImagesForKanadierkurse,
 		getImagesForPaddelreisen,
 	 	getImagesForKorsikaCarousel,
+		getImagesForGriechenlandCarousel,
 		getImagesForPackraftkurse,
 		getImagesForJoyOfWhitewater,
 		getImagesForSpecials,
@@ -697,6 +721,7 @@ var Images = (function () {
 		getTheFirstImageForPackraftkurse,
 		getTheFirstImageForPaddelreisen,
 		getTheFirstImageForKorsika,
+		getTheFirstImageForGriechenland,
 		getTheFirstImageForKajakkurse,
 		getTheFirstImageForKanadierkurse,
 		getTheFirstImageForSpecials,
@@ -706,6 +731,7 @@ var Images = (function () {
 		getMobileImagesForKanadierkurse,
 		getMobileImagesForPaddelreisen,
 		getMobileImagesForKorsika,
+		getMobileImagesForGriechenland,
 		getMobileImagesForPackraftkurse,
 		getMobileImagesForJoyOfWhitewater,
 		getMobileImagesForSpecials,
