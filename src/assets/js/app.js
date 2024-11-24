@@ -1,4 +1,4 @@
-const App = (function (Globals, Responsive) {
+const App = (function (Globals, Responsive, PageConfig, RenderHeader, Navigation) {
 	/** ** wird vor dem DOM ready ausgeführt ** */
 	const breakPointLarge = Globals.get().breakpointLarge;
 
@@ -12,11 +12,11 @@ const App = (function (Globals, Responsive) {
 		if (window.innerWidth >= breakPointLarge) {
 			// Jeweils das erste Bild vollständig laden und dann schon mal anzeigen,
 			// bevor alle anderen Bilder... geladen werden.
-			Navigation.callFnAccordingToCurrentPage(Preloader.loadFirstImageForHeaderCarousel)
+			PageConfig.callFnAccordingToCurrentPage(Preloader.loadFirstImageForHeaderCarousel)
 				.then(() => {
-					Navigation.callFnAccordingToCurrentPage(Navigation.setHeaderTitle);
-					Navigation.callFnAccordingToCurrentPage(RenderHeader.addJustFirstImage);
-					Navigation.callFnAccordingToCurrentPage(Navigation.setSelectedNavigation);
+					PageConfig.callFnAccordingToCurrentPage(Navigation.setHeaderTitle);
+					PageConfig.callFnAccordingToCurrentPage(RenderHeader.addJustFirstImage);
+					PageConfig.callFnAccordingToCurrentPage(Navigation.setSelectedNavigation);
 
 					// alle Kursdaten laden
 					CourseDates.loadAndRender()
@@ -31,7 +31,7 @@ const App = (function (Globals, Responsive) {
 						})
 						.then(() => {
 							//Alle Bilder der entsprechenden Seite (Reisen, Kurse, Packraft...) in die Carousel Liste rendern.
-							Navigation.callFnAccordingToCurrentPage(Responsive.renderHeaderWithImagesAccordingToBreakPoint);
+							PageConfig.callFnAccordingToCurrentPage(Responsive.renderHeaderWithImagesAccordingToBreakPoint);
 							
 							//Das Carousel starten
 							ImageCarousel.init();
@@ -46,7 +46,7 @@ const App = (function (Globals, Responsive) {
 			CourseDates.loadAndRender()
 				.then(() => {
 					//Das Bild der entsprechenden Seite (Reisen, Kurse, Packraft...) in den Header rendern.
-					Navigation.callFnAccordingToCurrentPage(Responsive.renderHeaderWithImagesAccordingToBreakPoint);
+					PageConfig.callFnAccordingToCurrentPage(Responsive.renderHeaderWithImagesAccordingToBreakPoint);
 
 					ContactForm.init();
 					CourseRegistration.init();
@@ -64,7 +64,7 @@ const App = (function (Globals, Responsive) {
 	return {
 		init
 	};
-})(Globals, Responsive);
+})(Globals, Responsive, PageConfig, RenderHeader, Navigation);
 
 // wenn der DOM vollständig geladen ist init aufrufen
 // eslint-disable-next-line no-undef

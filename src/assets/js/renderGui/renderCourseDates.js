@@ -366,7 +366,6 @@ const RenderCourseDates = (function (Dates, Globals) {
 		gridX12CostsCol1.appendChild(titleCosts);
 		gridX12CostsCol1.appendChild(costList);
 
-		
 		const gridX12CostsCol2 = document.createElement('div');
 		gridX12CostsCol2.classList.add('gridx12__width5--col2of2');
 		gridX12CostsCol2.classList.add('content-at-the-end');
@@ -374,43 +373,7 @@ const RenderCourseDates = (function (Dates, Globals) {
 		if (courseDate.typ === 'Paddelreise'){
 			const detailsLink = document.createElement('a');
 			detailsLink.classList.add('link-in-text');
-
-			switch (courseDate.paddelreiseGruppe) {
-				case 'Korsika':
-					detailsLink.setAttribute('href', '/paddelreisen.html#paddleJourneyKorsikaAnchor');
-					break;
-				case 'Piemont':
-					detailsLink.setAttribute('href', '/paddelreisen.html#paddleJourneyPiemontAnchor');
-					break;
-				case 'Soca':
-					detailsLink.setAttribute('href', '/paddelreisen.html#paddleJourneySocaAnchor');
-					break;
-				case 'Georgien':
-					detailsLink.setAttribute('href', '/paddelreisen.html#paddleJourneyGeorgienAnchor');
-					break;
-				case 'Griechenland':
-					detailsLink.setAttribute('href', '/paddelreisen.html#paddleJourneyGriechenlandAnchor');
-					break;
-				case 'Albanien':
-					detailsLink.setAttribute('href', '/paddelreisen.html#paddleJourneyAlbanienAnchor');
-					break;
-				case 'Durance':
-					detailsLink.setAttribute('href', '/paddelreisen.html#paddleJourneyDuranceAnchor');
-					break;
-				case 'Yukon Territories':
-					detailsLink.setAttribute('href', '/paddelreisen.html#paddleJourneyWildnisreiseNorthAmerica');
-					break;
-				case 'Chile':
-					detailsLink.setAttribute('href', '/paddelreisen.html#paddleJourneyChileAnchor');
-					break;
-				case 'Engadin':
-					detailsLink.setAttribute('href', '/paddelreisen.html#paddleJourneyEngadinAnchor');
-					break;
-				default:
-					detailsLink.setAttribute('href', '/paddelreisen.html');
-					break;
-			}
-
+			detailsLink.setAttribute('href', courseDate.linkToJourneyDetailPage);
 			detailsLink.innerText = 'weitere Details zu ' + courseDate.name;
 			gridX12CostsCol2.appendChild(detailsLink);
 		}

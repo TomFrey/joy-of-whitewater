@@ -38,7 +38,7 @@ const allFrontAppJsFiles = [
 	'./src/assets/js/util/dates.js',
 	'./src/assets/js/util/validator.js',
 	'./src/assets/js/util/preloader.js',
-	//'./src/assets/js/util/googleMaps.js',
+	'./src/assets/js/util/pageConfig.js',
 	'./src/assets/js/util/implementGoogleMaps.js',
 
 	'./src/assets/js/renderGui/renderCourseDates.js',

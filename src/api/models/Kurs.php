@@ -26,6 +26,7 @@ class Kurs
 	private $typ;
 	private $guide;
 	private $paddelreiseGruppe;
+	private $linkToPaddelreiseDetail;
 	private $anmeldeSchluss;
 
 
@@ -63,6 +64,7 @@ class Kurs
 			$this->setGuide($kurs['guide']);
 			$this->setIsShown($kurs['wirdAngezeigt']);
 			$this->setPaddelreiseGruppe($kurs['paddelreise_gruppe']);
+			$this->setLinkToPaddleJourneyDetailPage($kurs['paddelreise_link_to_detail_page']);
 			$this->setAnzahlPausentage($kurs['anzahl_pausentage']);
 			$this->setTextPausentage($kurs['text_pausentage']);
 			$this->setMinTeilnehmer($kurs['min_anzahl_teilnehmer']);
@@ -260,6 +262,21 @@ class Kurs
 	{
 		$this->paddelreiseGruppe = $paddelreiseGruppe;
 	}
+
+
+
+
+	public function getLinkToPaddleJourneyDetailPage()
+	{
+		return $this->linkToPaddelreiseDetail;
+	}
+
+	public function setLinkToPaddleJourneyDetailPage($linkToPaddelreiseDetail)
+	{
+		$this->linkToPaddelreiseDetail = $linkToPaddelreiseDetail;
+	}
+
+
 
 	public function getAnzahlPausentage()
 	{
