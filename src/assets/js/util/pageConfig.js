@@ -93,7 +93,12 @@ const PageConfig = (function (Images, Globals) {
 						};
 						break;
 					case 'sesia':
-					
+						pageData = {
+							headerTitle: 'Wildwasser paddeln<br> im Valle Sesia',
+							mobileImages: Images.getMobileImagesForSesia(),
+							carouselImages: Images.getImagesForSesiaCarousel(),
+							firstImageForCarousel: Images.getTheFirstImageForSesia().name
+						};
 						break;
 					case 'durance':
 					

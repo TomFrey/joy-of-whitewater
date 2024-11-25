@@ -59,6 +59,12 @@ var Images = (function () {
 			{name: 'wildwasser_reise_griechenland_2.webp', title: 'Wildwasser Griechenland, Meteora', alt: 'Wildwasser Griechenland, Meteora' },
 			{name: 'wildwasser_reise_griechenland_4.webp', title: 'Wildwasser Griechenland, Aoos', alt: 'Wildwasser Griechenland, Aoos' },
 			
+		],
+		sesiaImages: [
+			{name: 'wildwasser_reise_sesia_1.webp', title: 'Wildwasserkurse auf der Sesia im Packraft', alt: 'Wildwasserkurse auf der Sesia im Packraft' },
+			{name: 'wildwasser_reise_sesia_3.webp', title: 'Wildwasserkurse auf der Sesia im Open Canoe', alt: 'Wildwasserkurse auf der Sesia im Open Canoe' },
+			{name: 'wildwasser_reise_sesia_2.webp', title: 'Wildwasserkurse auf der Sesia im Kajak', alt: 'Wildwasserkurse auf der Sesia im Kajak' },
+			{name: 'wildwasser_reise_sesia_4.webp', title: 'Wildwasserreise Sesia', alt: 'Wildwasserreise Sesia' },
 		]
 	};
 
@@ -87,6 +93,10 @@ var Images = (function () {
 			{ name: 'mobile_korsikakurse.webp', title: 'Wildwasser paddeln in Korsika', alt: 'Wildwasser paddeln in Korsika' }
 		],
 		griechenlandImages: [
+			{ name: 'mobile_quer_korsikakurse.webp', title: 'Wildwasser paddeln in Korsika', alt: 'Wildwasser paddeln in Korsika' },
+			{ name: 'mobile_korsikakurse.webp', title: 'Wildwasser paddeln in Korsika', alt: 'Wildwasser paddeln in Korsika' }
+		],
+		sesiaImages: [
 			{ name: 'mobile_quer_korsikakurse.webp', title: 'Wildwasser paddeln in Korsika', alt: 'Wildwasser paddeln in Korsika' },
 			{ name: 'mobile_korsikakurse.webp', title: 'Wildwasser paddeln in Korsika', alt: 'Wildwasser paddeln in Korsika' }
 		],
@@ -599,6 +609,10 @@ var Images = (function () {
 		return imageCarousel.griechenlandImages;
 	}
 
+	function getImagesForSesiaCarousel() {
+		return imageCarousel.sesiaImages;
+	}
+
 	function getImagesForAusfluege() {
 		return imageCarousel.ausflugImages;
 	}
@@ -630,6 +644,10 @@ var Images = (function () {
 
 	function getTheFirstImageForGriechenland() {
 		return imageCarousel.griechenlandImages[0];
+	}
+
+	function getTheFirstImageForSesia() {
+		return imageCarousel.sesiaImages[0];
 	}
 
 	function getTheFirstImageForKajakkurse() {
@@ -673,6 +691,10 @@ var Images = (function () {
 		return mobileImages.griechenlandImages;
 	}
 
+	function getMobileImagesForSesia() {
+		return mobileImages.sesiaImages;
+	}
+
 	function getMobileImagesForJoyOfWhitewater() {
 		return mobileImages.theJoyOfWhiteWaterImages;
 	}
@@ -712,6 +734,7 @@ var Images = (function () {
 		getImagesForPaddelreisen,
 	 	getImagesForKorsikaCarousel,
 		getImagesForGriechenlandCarousel,
+		getImagesForSesiaCarousel,
 		getImagesForPackraftkurse,
 		getImagesForJoyOfWhitewater,
 		getImagesForSpecials,
@@ -722,6 +745,7 @@ var Images = (function () {
 		getTheFirstImageForPaddelreisen,
 		getTheFirstImageForKorsika,
 		getTheFirstImageForGriechenland,
+		getTheFirstImageForSesia,
 		getTheFirstImageForKajakkurse,
 		getTheFirstImageForKanadierkurse,
 		getTheFirstImageForSpecials,
@@ -732,6 +756,7 @@ var Images = (function () {
 		getMobileImagesForPaddelreisen,
 		getMobileImagesForKorsika,
 		getMobileImagesForGriechenland,
+		getMobileImagesForSesia,
 		getMobileImagesForPackraftkurse,
 		getMobileImagesForJoyOfWhitewater,
 		getMobileImagesForSpecials,
