@@ -65,6 +65,25 @@ var Images = (function () {
 			{name: 'wildwasser_reise_sesia_3.webp', title: 'Wildwasserkurse auf der Sesia im Open Canoe', alt: 'Wildwasserkurse auf der Sesia im Open Canoe' },
 			{name: 'wildwasser_reise_sesia_2.webp', title: 'Wildwasserkurse auf der Sesia im Kajak', alt: 'Wildwasserkurse auf der Sesia im Kajak' },
 			{name: 'wildwasser_reise_sesia_4.webp', title: 'Wildwasserreise Sesia', alt: 'Wildwasserreise Sesia' },
+		],
+		socaImages: [
+			{name: 'wildwasser_reise_soca_5.webp', title: 'Wildwasserreise Soča', alt: 'Wildwasserreise Soča' },
+			{name: 'wildwasser_reise_soca_1.webp', title: 'Wildwasserreise Soča, Slovenien', alt: 'Wildwasserreise Soča, Slovenien' },
+			{name: 'wildwasser_reise_soca_3.webp', title: 'Wildwasserreise in Slovenien - Koritnita', alt: 'Wildwasserreise in Slovenien - Koritnita' },
+			{name: 'wildwasser_reise_soca_2.webp', title: 'Paddeln auf der Koritnita', alt: 'Paddeln auf der Koritnita' },
+		],
+		innImages: [
+			{name: 'wildwasser_reise_inn_1.webp', title: 'Wildwasserkurse auf dem Inn', alt: 'Wildwasserkurse auf dem Inn' },
+			{name: 'paddelreisen_3.jpg', title: 'Paddeln im Open Canoe auf dem Inn - Happy Snapper', alt: 'Paddeln im Open Canoe auf dem Inn - Happy Snapper' },
+			{name: 'wildwasser_reise_inn_4.webp', title: 'Wildwasserkurse auf dem Inn', alt: 'Wildwasserkurse auf dem Inn' },
+			
+		],
+		georgienImages: [
+			{name: 'wildwasser_reise_georgien_1.webp', title: 'Wildwasserreise nach Georgien', alt: 'Wildwasserreise nach Georgien' },
+			{name: 'wildwasser_reise_georgien_5.webp', title: 'Wildwasserreise nach Georgien - Bzhuzha', alt: 'Wildwasserreise nach Georgien - Bzhuzha' },
+			{name: 'wildwasser_reise_georgien_6.webp', title: 'Wildwasserreise nach Georgien - Tekhuri', alt: 'Wildwasserreise nach Georgien - Tekhuri' },
+			{name: 'wildwasser_reise_georgien_2.webp', title: 'Wildwasserreise nach Georgien - Uschguli', alt: 'Wildwasserreise nach Georgien - Uschguli' },
+			{name: 'wildwasser_reise_georgien_4.webp', title: 'Wildwasserreise nach Georgien', alt: 'Wildwasserreise nach Georgien' },
 		]
 	};
 
@@ -97,6 +116,18 @@ var Images = (function () {
 			{ name: 'mobile_korsikakurse.webp', title: 'Wildwasser paddeln in Korsika', alt: 'Wildwasser paddeln in Korsika' }
 		],
 		sesiaImages: [
+			{ name: 'mobile_quer_korsikakurse.webp', title: 'Wildwasser paddeln in Korsika', alt: 'Wildwasser paddeln in Korsika' },
+			{ name: 'mobile_korsikakurse.webp', title: 'Wildwasser paddeln in Korsika', alt: 'Wildwasser paddeln in Korsika' }
+		],
+		socaImages: [
+			{ name: 'mobile_quer_paddelreisen.jpg', title: 'Wildwasser Reisen auf der Soca', alt: 'Wildwasser Reisen auf der Soca' },
+			{ name: 'mobile_paddelreisen.jpg', title: 'Wildwasser Reisen auf der Soca', alt: 'Wildwasser Reisen auf der Soca' }
+		],
+		innImages: [
+			{ name: 'mobile_quer_korsikakurse.webp', title: 'Wildwasser paddeln in Korsika', alt: 'Wildwasser paddeln in Korsika' },
+			{ name: 'mobile_korsikakurse.webp', title: 'Wildwasser paddeln in Korsika', alt: 'Wildwasser paddeln in Korsika' }
+		],
+		georgienImages: [
 			{ name: 'mobile_quer_korsikakurse.webp', title: 'Wildwasser paddeln in Korsika', alt: 'Wildwasser paddeln in Korsika' },
 			{ name: 'mobile_korsikakurse.webp', title: 'Wildwasser paddeln in Korsika', alt: 'Wildwasser paddeln in Korsika' }
 		],
@@ -613,6 +644,18 @@ var Images = (function () {
 		return imageCarousel.sesiaImages;
 	}
 
+	function getImagesForSocaCarousel() {
+		return imageCarousel.socaImages;
+	}
+
+	function getImagesForInnCarousel() {
+		return imageCarousel.innImages;
+	}
+
+	function getImagesForGeorgienCarousel() {
+		return imageCarousel.georgienImages;
+	}
+
 	function getImagesForAusfluege() {
 		return imageCarousel.ausflugImages;
 	}
@@ -648,6 +691,18 @@ var Images = (function () {
 
 	function getTheFirstImageForSesia() {
 		return imageCarousel.sesiaImages[0];
+	}
+
+	function getTheFirstImageForSoca() {
+		return imageCarousel.socaImages[0];
+	}
+
+	function getTheFirstImageForInn() {
+		return imageCarousel.innImages[0];
+	}
+
+	function getTheFirstImageForGeorgien() {
+		return imageCarousel.georgienImages[0];
 	}
 
 	function getTheFirstImageForKajakkurse() {
@@ -695,6 +750,18 @@ var Images = (function () {
 		return mobileImages.sesiaImages;
 	}
 
+	function getMobileImagesForSoca() {
+		return mobileImages.socaImages;
+	}
+
+	function getMobileImagesForInn() {
+		return mobileImages.innImages;
+	}
+
+	function getMobileImagesForGeorgien() {
+		return mobileImages.georgienImages;
+	}
+
 	function getMobileImagesForJoyOfWhitewater() {
 		return mobileImages.theJoyOfWhiteWaterImages;
 	}
@@ -735,6 +802,9 @@ var Images = (function () {
 	 	getImagesForKorsikaCarousel,
 		getImagesForGriechenlandCarousel,
 		getImagesForSesiaCarousel,
+		getImagesForSocaCarousel,
+		getImagesForInnCarousel,
+		getImagesForGeorgienCarousel,
 		getImagesForPackraftkurse,
 		getImagesForJoyOfWhitewater,
 		getImagesForSpecials,
@@ -746,6 +816,9 @@ var Images = (function () {
 		getTheFirstImageForKorsika,
 		getTheFirstImageForGriechenland,
 		getTheFirstImageForSesia,
+		getTheFirstImageForSoca,
+		getTheFirstImageForInn,
+		getTheFirstImageForGeorgien,
 		getTheFirstImageForKajakkurse,
 		getTheFirstImageForKanadierkurse,
 		getTheFirstImageForSpecials,
@@ -757,6 +830,9 @@ var Images = (function () {
 		getMobileImagesForKorsika,
 		getMobileImagesForGriechenland,
 		getMobileImagesForSesia,
+		getMobileImagesForSoca,
+		getMobileImagesForInn,
+		getMobileImagesForGeorgien,
 		getMobileImagesForPackraftkurse,
 		getMobileImagesForJoyOfWhitewater,
 		getMobileImagesForSpecials,

@@ -76,10 +76,20 @@ const PageConfig = (function (Images, Globals) {
 						};
 						break;
 					case 'soca':
-						
+						pageData = {
+							headerTitle: 'Wildwasser paddeln<br> auf der Soča',
+							mobileImages: Images.getMobileImagesForSoca(),
+							carouselImages: Images.getImagesForSocaCarousel(),
+							firstImageForCarousel: Images.getTheFirstImageForSoca().name
+						};
 						break;
 					case 'georgien':
-						
+						pageData = {
+							headerTitle: 'Wildwasser paddeln<br> in Georgien',
+							mobileImages: Images.getMobileImagesForGeorgien(),
+							carouselImages: Images.getImagesForGeorgienCarousel(),
+							firstImageForCarousel: Images.getTheFirstImageForGeorgien().name
+						};
 						break;
 					case 'albanien':
 					
@@ -107,7 +117,12 @@ const PageConfig = (function (Images, Globals) {
 					
 						break;
 					case 'inn':
-				
+						pageData = {
+							headerTitle: 'Wildwasser paddeln<br> auf dem Inn',
+							mobileImages: Images.getMobileImagesForInn(),
+							carouselImages: Images.getImagesForInnCarousel(),
+							firstImageForCarousel: Images.getTheFirstImageForInn().name
+						};
 						break;
 		
 					default:
