@@ -92,7 +92,12 @@ const PageConfig = (function (Images, Globals) {
 						};
 						break;
 					case 'albanien':
-					
+						pageData = {
+							headerTitle: 'Wildwasser paddeln<br> in Albanien',
+							mobileImages: Images.getMobileImagesForAlbanien(),
+							carouselImages: Images.getImagesForAlbanienCarousel(),
+							firstImageForCarousel: Images.getTheFirstImageForAlbanien().name
+						};
 						break;
 					case 'griechenland':
 						pageData = {
@@ -113,8 +118,13 @@ const PageConfig = (function (Images, Globals) {
 					case 'durance':
 					
 						break;
-					case 'yukon':
-					
+					case 'territory':
+						pageData = {
+							headerTitle: 'Wildnisreise im Yukon<br> Territory',
+							mobileImages: Images.getMobileImagesForYukon(),
+							carouselImages: Images.getImagesForYukonCarousel(),
+							firstImageForCarousel: Images.getTheFirstImageForYukon().name
+						};
 						break;
 					case 'inn':
 						pageData = {
@@ -124,7 +134,14 @@ const PageConfig = (function (Images, Globals) {
 							firstImageForCarousel: Images.getTheFirstImageForInn().name
 						};
 						break;
-		
+					case 'chile':
+						pageData = {
+							headerTitle: 'Wildwasser paddeln<br> in Chile',
+							mobileImages: Images.getMobileImagesForChile(),
+							carouselImages: Images.getImagesForChileCarousel(),
+							firstImageForCarousel: Images.getTheFirstImageForChile().name
+						};
+						break;
 					default:
 						RenderHeader.addJustFirstImage(Images.getImagesForPaddelreisen());
 						Navigation.setHeaderTitle('Wildwasser Reisen');

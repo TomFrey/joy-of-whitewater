@@ -84,6 +84,22 @@ var Images = (function () {
 			{name: 'wildwasser_reise_georgien_6.webp', title: 'Wildwasserreise nach Georgien - Tekhuri', alt: 'Wildwasserreise nach Georgien - Tekhuri' },
 			{name: 'wildwasser_reise_georgien_2.webp', title: 'Wildwasserreise nach Georgien - Uschguli', alt: 'Wildwasserreise nach Georgien - Uschguli' },
 			{name: 'wildwasser_reise_georgien_4.webp', title: 'Wildwasserreise nach Georgien', alt: 'Wildwasserreise nach Georgien' },
+		],
+		yukonImages: [
+			{name: 'wildwasser_reise_yukon_1.webp', title: 'Wildwasser paddeln in den Yukon Territories', alt: 'Wildwasser paddeln in den Yukon Territories' },
+			{name: 'wildwasser_reise_yukon_2.webp', title: 'Wildnissreise Yukon Territories', alt: 'Wildnissreise Yukon Territories' },
+			{name: 'wildwasser_reise_yukon_3.webp', title: 'Wildnissreise Yukon Territories', alt: 'Wildnissreise Yukon Territories' },
+		],  
+		albanienImages: [
+			{name: 'wildwasser_reise_albanien_1.webp', title: 'Wildwasserreise nach Albanien', alt: 'Wildwasserreise nach Albanien' },
+			{name: 'wildwasser_reise_albanien_2.webp', title: 'Paddeln in Albanien auf dem Cemit', alt: 'Paddeln in Albanien auf dem Cemit' },
+			{name: 'wildwasser_reise_albanien_3.webp', title: 'Paddeln in Albanien auf der Vuclit', alt: 'Paddeln in Albanien auf der Vuclit' },
+		],
+		chileImages: [
+			{name: 'wildwasser_reise_chile_1.webp', title: 'Wildwasserreise nach Chile, Rio Fuy', alt: 'Wildwasserreise nach Chile, Rio Fuy' },
+			{name: 'wildwasser_reise_chile_3.webp', title: 'Wildwasserreise nach Chile, Rio Claro de Teno', alt: 'Wildwasserreise nach Chile, Rio Claro de Teno' },
+			{name: 'wildwasser_reise_chile_2.webp', title: 'Chilenische Araukarien', alt: 'Chilenische Araukarien' },
+			
 		]
 	};
 
@@ -112,20 +128,32 @@ var Images = (function () {
 			{ name: 'mobile_korsikakurse.webp', title: 'Wildwasser paddeln in Korsika', alt: 'Wildwasser paddeln in Korsika' }
 		],
 		griechenlandImages: [
-			{ name: 'mobile_quer_korsikakurse.webp', title: 'Wildwasser paddeln in Korsika', alt: 'Wildwasser paddeln in Korsika' },
-			{ name: 'mobile_korsikakurse.webp', title: 'Wildwasser paddeln in Korsika', alt: 'Wildwasser paddeln in Korsika' }
+			{ name: 'mobile_quer_griechenland_wildwasserreise.webp', title: 'Wildwasser paddeln in Griechenland', alt: 'Wildwasser paddeln in Griechenland' },
+			{ name: 'mobile_griechenland_wildwasserreise.webp', title: 'Wildwasser paddeln in Griechenland', alt: 'Wildwasser paddeln in Griechenland' }
 		],
 		sesiaImages: [
-			{ name: 'mobile_quer_korsikakurse.webp', title: 'Wildwasser paddeln in Korsika', alt: 'Wildwasser paddeln in Korsika' },
-			{ name: 'mobile_korsikakurse.webp', title: 'Wildwasser paddeln in Korsika', alt: 'Wildwasser paddeln in Korsika' }
+			{ name: 'mobile_quer_sesia_wildwasserreise.webp', title: 'Wildwasser paddeln im Valle Sesia', alt: 'Wildwasser paddeln im Valle Sesia' },
+			{ name: 'mobile_sesia_wildwasserreise.webp', title: 'Wildwasser paddeln im Valle Sesia', alt: 'Wildwasser paddeln im Valle Sesia' }
 		],
 		socaImages: [
 			{ name: 'mobile_quer_paddelreisen.jpg', title: 'Wildwasser Reisen auf der Soca', alt: 'Wildwasser Reisen auf der Soca' },
 			{ name: 'mobile_paddelreisen.jpg', title: 'Wildwasser Reisen auf der Soca', alt: 'Wildwasser Reisen auf der Soca' }
 		],
 		innImages: [
-			{ name: 'mobile_quer_korsikakurse.webp', title: 'Wildwasser paddeln in Korsika', alt: 'Wildwasser paddeln in Korsika' },
-			{ name: 'mobile_korsikakurse.webp', title: 'Wildwasser paddeln in Korsika', alt: 'Wildwasser paddeln in Korsika' }
+			{ name: 'mobile_quer_inn_wildwasserreise.webp', title: 'Wildwasser paddeln auf dem Inn', alt: 'Wildwasser paddeln auf dem Inn' },
+			{ name: 'mobile_inn_wildwasserreise.webp', title: 'Wildwasser paddeln auf dem Inn', alt: 'Wildwasser paddeln auf dem Inn' }
+		],
+		yukonImages: [
+			{ name: 'mobile_quer_yukon_wildwasserreise.webp', title: 'Wildwasser paddeln in den Yukon Territories', alt: 'Wildwasser paddeln in den Yukon Territories' },
+			{ name: 'mobile_yukon_wildwasserreise.webp', title: 'Wildwasser paddeln in den Yukon Territories', alt: 'Wildwasser paddeln in den Yukon Territories' }
+		],
+		albanienImages: [
+			{ name: 'mobile_quer_albanien_wildwasserreise.webp', title: 'Wildwasser paddeln in Albanien', alt: 'Wildwasser paddeln in Albanien' },
+			{ name: 'mobile_albanien_wildwasserreise.webp', title: 'Wildwasser paddeln in Albanien', alt: 'Wildwasser paddeln in Albanien' }
+		],
+		chileImages: [
+			{ name: 'mobile_quer_chile_wildwasserreise.webp', title: 'Wildwasser paddeln in Chile', alt: 'Wildwasser paddeln in Chile' },
+			{ name: 'mobile_chile_wildwasserreise.webp', title: 'Wildwasser paddeln in Chile', alt: 'Wildwasser paddeln in Chile' }
 		],
 		georgienImages: [
 			{ name: 'mobile_quer_korsikakurse.webp', title: 'Wildwasser paddeln in Korsika', alt: 'Wildwasser paddeln in Korsika' },
@@ -656,6 +684,18 @@ var Images = (function () {
 		return imageCarousel.georgienImages;
 	}
 
+	function getImagesForYukonCarousel() {
+		return imageCarousel.yukonImages;
+	}
+
+	function getImagesForAlbanienCarousel() {
+		return imageCarousel.albanienImages;
+	}
+
+	function getImagesForChileCarousel() {
+		return imageCarousel.chileImages;
+	}
+
 	function getImagesForAusfluege() {
 		return imageCarousel.ausflugImages;
 	}
@@ -703,6 +743,18 @@ var Images = (function () {
 
 	function getTheFirstImageForGeorgien() {
 		return imageCarousel.georgienImages[0];
+	}
+
+	function getTheFirstImageForYukon() {
+		return imageCarousel.yukonImages[0];
+	}
+
+	function getTheFirstImageForAlbanien() {
+		return imageCarousel.albanienImages[0];
+	}
+
+	function getTheFirstImageForChile() {
+		return imageCarousel.chileImages[0];
 	}
 
 	function getTheFirstImageForKajakkurse() {
@@ -762,6 +814,18 @@ var Images = (function () {
 		return mobileImages.georgienImages;
 	}
 
+	function getMobileImagesForYukon() {
+		return mobileImages.yukonImages;
+	}
+
+	function getMobileImagesForAlbanien() {
+		return mobileImages.albanienImages;
+	}
+
+	function getMobileImagesForChile() {
+		return mobileImages.chileImages;
+	}
+
 	function getMobileImagesForJoyOfWhitewater() {
 		return mobileImages.theJoyOfWhiteWaterImages;
 	}
@@ -805,6 +869,9 @@ var Images = (function () {
 		getImagesForSocaCarousel,
 		getImagesForInnCarousel,
 		getImagesForGeorgienCarousel,
+		getImagesForAlbanienCarousel,
+		getImagesForYukonCarousel,
+		getImagesForChileCarousel,
 		getImagesForPackraftkurse,
 		getImagesForJoyOfWhitewater,
 		getImagesForSpecials,
@@ -819,6 +886,9 @@ var Images = (function () {
 		getTheFirstImageForSoca,
 		getTheFirstImageForInn,
 		getTheFirstImageForGeorgien,
+		getTheFirstImageForYukon,
+		getTheFirstImageForAlbanien,
+		getTheFirstImageForChile,
 		getTheFirstImageForKajakkurse,
 		getTheFirstImageForKanadierkurse,
 		getTheFirstImageForSpecials,
@@ -833,6 +903,9 @@ var Images = (function () {
 		getMobileImagesForSoca,
 		getMobileImagesForInn,
 		getMobileImagesForGeorgien,
+		getMobileImagesForYukon,
+		getMobileImagesForAlbanien,
+		getMobileImagesForChile,
 		getMobileImagesForPackraftkurse,
 		getMobileImagesForJoyOfWhitewater,
 		getMobileImagesForSpecials,
