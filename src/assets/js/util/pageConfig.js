@@ -63,9 +63,7 @@ const PageConfig = (function (Images, Globals) {
 				break;
 
 			case 'wildwasser-reisen':
-
-				console.log('where -> '+Images.getPaddleJourneyLocation());
-
+				//console.log('where -> '+Images.getPaddleJourneyLocation());
 				switch (Images.getPaddleJourneyLocation()) {
 					case 'korsika':
 						pageData = {

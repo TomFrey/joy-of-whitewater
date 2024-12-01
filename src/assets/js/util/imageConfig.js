@@ -156,8 +156,8 @@ var Images = (function () {
 			{ name: 'mobile_chile_wildwasserreise.webp', title: 'Wildwasser paddeln in Chile', alt: 'Wildwasser paddeln in Chile' }
 		],
 		georgienImages: [
-			{ name: 'mobile_quer_korsikakurse.webp', title: 'Wildwasser paddeln in Korsika', alt: 'Wildwasser paddeln in Korsika' },
-			{ name: 'mobile_korsikakurse.webp', title: 'Wildwasser paddeln in Korsika', alt: 'Wildwasser paddeln in Korsika' }
+			{ name: 'mobile_quer_georgien_wildwasserreise.webp', title: 'Wildwasser paddeln in Georgien', alt: 'Wildwasser paddeln in Georgien' },
+			{ name: 'mobile_georgien_wildwasserreise.webp', title: 'Wildwasser paddeln in Georgien', alt: 'Wildwasser paddeln in Georgien' }
 		],
 		packraftkurseImages: [
 			{ name: 'mobile_quer_packraft.jpg', title: 'Packraft Kurse', alt: 'Packraft Kurse' },
