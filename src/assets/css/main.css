@@ -4196,6 +4196,47 @@ Desktop und Tablet
     border: 1px solid #941216;
   }
 }
+.newsgroup-wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  margin: 16px 0;
+}
+.newsgroup-wrapper .paragraph {
+  margin-top: 16px;
+  text-align: center;
+}
+
+.newsgroup-image {
+  max-width: 50%;
+}
+
+.newsgroup-button-wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.copy-newsgroup-button--signal, .copy-newsgroup-button--whatsapp {
+  margin: 8px 0;
+}
+
+.copied__action-message {
+  font-weight: bold;
+  color: #ffffff;
+  opacity: 0;
+  margin-bottom: 8px;
+}
+
+.copied__action-message.js-fadeaway {
+  animation: fadeOut 1.2s 1;
+  align-self: center;
+}
+
+/* *************************************************** */
+/* *********** ab hier für tablet *******************  */
+/* *************************************************** */
+/* *********** ab hier für desktop ******************* */
 .open-drawer {
   background-color: #004570;
   bottom: 0;

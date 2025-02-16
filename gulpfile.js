@@ -59,6 +59,7 @@ const allFrontAppJsFiles = [
 	'./src/assets/js/guiControll/imageCarousel.js',
 	'./src/assets/js/guiControll/imageSlider.js',
 	'./src/assets/js/guiControll/kontaktform.js',
+	'./src/assets/js/guiControll/newsPage.js',
 	
 	'./src/assets/js/app.js',
 	'./src/assets/js/ready.js'

@@ -18,6 +18,7 @@ const Crypto = (function () {
 	// 	  .map(byteHex)
 	// 	  .join("");
 	//   };
+	 
 	  
 	//https://stackoverflow.com/questions/18279141/javascript-string-encryption-and-decryption
 	const decrypt = (salt, encoded) => {
@@ -34,6 +35,10 @@ const Crypto = (function () {
 	function decryptLinkToMessenger(salt, key) {
 		const linkToWhatsApp = decrypt(salt, key);
 		window.open(linkToWhatsApp, '_blank');
+	}
+
+	function decryptLinkToNewsGroup(salt, key) {
+		return decrypt(salt, key);
 	}
 
 	// https://jumk.de/nospam/stopspam.html
@@ -57,6 +62,7 @@ const Crypto = (function () {
 	return {
 		linkToUnCryptMailto,
 		UnCryptMailto,
-		decryptLinkToMessenger
+		decryptLinkToMessenger,
+		decryptLinkToNewsGroup
 	};
 })();

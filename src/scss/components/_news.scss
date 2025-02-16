@@ -1,0 +1,52 @@
+.newsgroup-wrapper{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    margin: 2*$basicHeight 0;
+
+    .paragraph{
+        margin-top: 2*$basicHeight;
+        text-align: center;
+    }
+}
+
+.newsgroup-image{
+    max-width: 50%;
+}
+
+.newsgroup-button-wrapper{
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.copy-newsgroup-button--signal, .copy-newsgroup-button--whatsapp{
+    margin: $basicHeight 0;
+}
+
+.copied__action-message{
+    font-weight: bold;
+    color: $complimentaryColor1;
+    opacity: 0;
+    margin-bottom: $basicHeight;
+}
+
+.copied__action-message.js-fadeaway{
+    animation: fadeOut 1.2s 1;
+    align-self: center;
+}
+
+
+/* *************************************************** */
+/* *********** ab hier für tablet *******************  */
+@media screen and (min-width: $breakpoint-medium) {   // > 688px
+   
+}
+
+
+/* *************************************************** */
+/* *********** ab hier für desktop ******************* */
+@media screen and (min-width: $breakpoint-large) { //wenn Bildschirm grösser 740 px gross ist, dann...
+
+    
+}

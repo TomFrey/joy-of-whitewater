@@ -22,6 +22,7 @@ const App = (function (Globals, Responsive, PageConfig, RenderHeader, Navigation
 					CourseDates.loadAndRender()
 						.then(() => {
 							ContactForm.init();
+							NewsPage.init();
 							CourseRegistration.init();
 							Navigation.init();
 							YoutubeVideoControl.init();
@@ -49,6 +50,7 @@ const App = (function (Globals, Responsive, PageConfig, RenderHeader, Navigation
 					PageConfig.callFnAccordingToCurrentPage(Responsive.renderHeaderWithImagesAccordingToBreakPoint);
 
 					ContactForm.init();
+					NewsPage.init();
 					CourseRegistration.init();
 					Navigation.init();
 					YoutubeVideoControl.init();
