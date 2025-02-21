@@ -1,10 +1,13 @@
 .show-more-button, .show-less-button{
     @include standardTextFont();
     display: flex;
-    border: none;
+    border: 1px solid $color-drawer-buttonToOpenDrawer;
+    border-radius: $basicHeight;
+    padding: 0.5*$basicHeight 0.5*$basicWidth;
     color: $color-drawer-buttonToOpenDrawer;
     background-color: $color-textContainer-background;
     cursor: pointer;
+   
    
     .show-less-button__label, .show-more-button__label{
         pointer-events: none;
@@ -20,22 +23,29 @@
         height: 12px;
         width: 12px;
         margin-left: 12px;
-        transform: rotate(45 + deg);
+        margin-right: 4px;
     }
 
     .show-more-button__icon{
         transform: rotate(45 + deg);
+        transition: transform 0.2s ease-in-out;
     }
 
-    .show-less-button__icon{
+    .show-more-button__icon.js-show{
+        transform: rotate(-135deg);
+        margin-top: 4px;
+    }
+
+    .show-less-button__icon.js-show{
         transform: rotate(225 + deg);
         align-self: flex-end;
     }
 
-   
+    .show-less-button__icon{
+        transform: rotate(45 + deg);
+        transition: transform 0.2s ease-in-out;
+    }
 }
-
-
 
 
 /* *************************************************** */
@@ -50,15 +60,11 @@
 /* *********** ab hier für desktop ******************* */
 @media screen and (min-width: $breakpoint-large) { //wenn Bildschirm grösser 740 px gross ist, dann...
 
-    .course-container-intro-item-more:hover, .course-container-intro-item-less:hover{
-        .show-more-button__label, .show-less-button__label{
-            color: $complimentaryColor3;
-        }
+    .course-container-intro-item-more:hover, .course-container-intro-item-less:hover,
+    .show-more-less-container-more-button:hover, .show-more-less-container-less-button:hover{
 
-        .show-less-button__icon, .show-more-button__icon{
-            border-bottom: 2px solid $complimentaryColor3;
-            border-right: 2px solid $complimentaryColor3;
+        .show-more-button, .show-less-button{
+            background-color: $complimentaryColor1;
         }
     }
-   
 }

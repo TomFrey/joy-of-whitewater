@@ -27,8 +27,7 @@ const Navigation = (function (RenderImageSlider, Images, Globals, Responsive, Co
 	let drawerButtons;
 	let courseLists;
 	let courseOverviewDrawerButtons;
-	let moreDetailsButtons;
-	let lessDetailsButtons;
+	let moreAndLessDetailsButtons;
 	let faqButtons;
 
 
@@ -265,12 +264,22 @@ const Navigation = (function (RenderImageSlider, Images, Globals, Responsive, Co
 	}
 
 
-	function toggleContent(event) {
-		const introContainer = event.parentElement.parentElement;
+	function toggleMoreLessContent(event) {
+		const parentContainer = event.parentElement.parentElement;
 		
 		function getMoreButton(){
-			for (const child of introContainer.children) {
-				if (child.classList.contains('course-container-intro-item-more')){
+			for (const child of parentContainer.children) {
+				if (child.classList.contains('show-more-less-container-more-button') || 
+				    child.classList.contains('course-container-intro-item-more')){
+					return child;
+				};
+			}
+		}
+
+		function getLessButton(){
+			for (const child of parentContainer.children) {
+				if (child.classList.contains('show-more-less-container-less-button') || 
+				    child.classList.contains('course-container-intro-item-less')){
 					return child;
 				};
 			}
@@ -281,7 +290,7 @@ const Navigation = (function (RenderImageSlider, Images, Globals, Responsive, Co
 		}
 	
 		function togglePaddle(){
-			for (const child of introContainer.children) {
+			for (const child of parentContainer.children) {
 				if (child.classList.contains('course-container-intro-item-paddle')){
 					child.classList.toggle(SHOW);
 				};
@@ -296,7 +305,19 @@ const Navigation = (function (RenderImageSlider, Images, Globals, Responsive, Co
 			}
 		}
 
+		function toggleMoreButtonIcon(){
+			let moreButtonWrapper = getMoreButton();
+			moreButtonWrapper.firstElementChild.lastElementChild.classList.toggle(SHOW);
+		}
+
+		function toggleLessButtonIcon(){
+			let lessButtonWrapper = getLessButton();
+			lessButtonWrapper.firstElementChild.lastElementChild.classList.toggle(SHOW);
+		}
+
 		togglePaddle();
+		toggleMoreButtonIcon();
+		toggleLessButtonIcon();
 		toggleMoreButton(getMoreButton());
 		toggleElementsAfterMoreButton(getMoreButton()); //content1, content2 und lessButton
 	}
@@ -441,24 +462,6 @@ const Navigation = (function (RenderImageSlider, Images, Globals, Responsive, Co
 			});
 		}
 
-		moreDetailsButtons = document.querySelectorAll('.course-container-intro-item-more button');
-		if (moreDetailsButtons !== null) {
-			moreDetailsButtons.forEach((moreDetailsButton) => {
-				moreDetailsButton.addEventListener('click', (event) => {
-					toggleContent(event.target);
-				});
-			});
-		}
-
-		lessDetailsButtons = document.querySelectorAll('.course-container-intro-item-less button');
-		if (lessDetailsButtons !== null) {
-			lessDetailsButtons.forEach((lessDetailsButton) => {
-				lessDetailsButton.addEventListener('click', (event) => {
-					toggleContent(event.target);
-				});
-			});
-		}
-
 		faqButtons = document.querySelectorAll('.open-close-faq-button');
 		if (faqButtons !== null) {
 			faqButtons.forEach((faqButton) => {
@@ -468,7 +471,14 @@ const Navigation = (function (RenderImageSlider, Images, Globals, Responsive, Co
 			});
 		}
 
-		
+		moreAndLessDetailsButtons = document.querySelectorAll('.show-more-less-container-more-button button, .show-more-less-container-less-button button, .course-container-intro-item-more button, .course-container-intro-item-less button');
+		if (moreAndLessDetailsButtons !== null) {
+			moreAndLessDetailsButtons.forEach((moreLessDetailsButton) => {
+				moreLessDetailsButton.addEventListener('click', (event) => {
+					toggleMoreLessContent(event.target);
+				});
+			});
+		}
 	}
 
 	// public api

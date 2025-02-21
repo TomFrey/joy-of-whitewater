@@ -1,0 +1,102 @@
+.show-more-less-container-wrapper{
+    display: grid;
+
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: 
+        "moreButton"
+        "content1"
+        "content2"
+        "lessButton";
+        
+    column-gap: $basicWidth;
+    row-gap: 0px;
+    background-color: $color-textContainer-background;
+}
+
+
+.show-more-less-container-more-button{
+    grid-area: moreButton;
+    justify-self: center;
+    visibility: visible;
+    padding-top: $basicHeight;
+    transition: visibility 0.1s ease-in-out 0.4s;
+}
+.show-more-less-container-more-button.js-hide{
+    visibility: hidden;
+    padding-top: 0px;
+    transition: visibility 0.1s ease-in-out 0.2s;
+}
+
+.show-more-less-container-content1{
+    grid-area: content1;
+    max-height: 1000px;
+    transition: max-height 0.4s ease-in-out 0s;
+}
+.show-more-less-container-content1.js-hide{
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out 0s;
+}
+
+.show-more-less-container-content2{
+    grid-area: content2;
+    max-height: 1000px;
+    transition: max-height 0.4s ease-in-out 0s;
+}
+.show-more-less-container-content2.js-hide{
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out 0s;
+}
+
+.show-more-less-container-less-button{
+    grid-area: lessButton;
+    justify-self: center;
+    visibility: visible;
+    max-height: 44px;
+    padding-top: $basicHeight;
+    padding-bottom: $basicHeight;
+    transition: all 0s ease-in-out 0.3s;
+}
+.show-more-less-container-less-button.js-hide{
+    visibility: hidden;
+    max-height: 0px;
+    padding-top: 0;
+    padding-bottom: 0;
+    transition: all 0.1s ease-in-out 0.2s;
+}
+
+
+
+/* *************************************************** */
+/* *********** ab hier für tablet *******************  */
+@media screen and (min-width: $breakpoint-medium) {   // > 688px
+    .show-more-less-container-wrapper{
+        margin-top: $basicHeight;
+    
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+        grid-template-areas: 
+            "moreButton ."
+            "content1   content2"
+            "lessButton .";
+            
+        column-gap: $basicWidth;
+        row-gap: $basicHeight;
+        background-color: $color-textContainer-background;
+    }
+
+    .show-more-less-container-less-button, .show-more-less-container-more-button{
+        justify-self: start;
+    }   
+
+}
+
+
+/* *************************************************** */
+/* *********** ab hier für desktop ******************* */
+@media screen and (min-width: $breakpoint-large) { //wenn Bildschirm grösser 740 px gross ist, dann...
+
+   
+}

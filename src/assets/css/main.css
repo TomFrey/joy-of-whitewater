@@ -3714,58 +3714,64 @@ Desktop und Tablet
 
 .course-container-intro-item-level {
   grid-area: level;
+  margin-bottom: 8px;
 }
 
 .course-container-intro-item-more {
   grid-area: more;
   justify-self: center;
   visibility: visible;
-  padding-top: 8px;
-  transition: visibility 0s ease-in-out 0.4s;
+  transition: visibility 0.1s ease-in-out 0.4s;
 }
 
 .course-container-intro-item-more.js-hide {
   visibility: hidden;
-  transition: visibility 0s ease-in-out 0s;
+  padding-top: 0px;
+  transition: visibility 0.1s ease-in-out 0.4s;
+}
+
+.course-container-intro-item-content1 {
+  grid-area: inhalt1;
+  max-height: 1000px;
+  transition: max-height 0.4s ease-in-out 0s;
 }
 
 .course-container-intro-item-content1.js-hide {
   grid-area: inhalt1;
   max-height: 0px;
   overflow: hidden;
-  transition: max-height 0.4s ease-in-out;
+  transition: max-height 0.4s ease-in-out 0s;
 }
 
-.course-container-intro-item-content1 {
-  grid-area: inhalt1;
+.course-container-intro-item-content2 {
+  grid-area: inhalt2;
   max-height: 1000px;
-  transition: max-height 0.4s ease-in-out;
+  transition: max-height 0.4s ease-in-out 0.4s;
 }
 
 .course-container-intro-item-content2.js-hide {
   grid-area: inhalt2;
   max-height: 0px;
   overflow: hidden;
-  transition: max-height 0.4s ease-in-out;
-}
-
-.course-container-intro-item-content2 {
-  grid-area: inhalt2;
-  max-height: 1000px;
-  transition: max-height 0.4s ease-in-out;
+  transition: max-height 0.4s ease-in-out 0s;
 }
 
 .course-container-intro-item-less {
   grid-area: less;
   justify-self: center;
   visibility: visible;
+  max-height: 44px;
   padding-top: 8px;
-  transition: visibility 0s ease-in-out 0.4s;
+  padding-bottom: 8px;
+  transition: visibility 0s ease-in-out 0.6s;
 }
 
 .course-container-intro-item-less.js-hide {
   visibility: hidden;
-  transition: visibility 0s ease-in-out 0s;
+  max-height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  transition: all 0.1s ease-in-out 0.2s;
 }
 
 .course-container-level {
@@ -3968,9 +3974,6 @@ Desktop und Tablet
   }
   .course-container-intro-item-more, .course-container-intro-item-less {
     justify-self: start;
-  }
-  .course-container-intro-item-more, .course-container-intro-item-less {
-    padding-top: 16px;
   }
 }
 .ausflug-container-intro {
@@ -4179,7 +4182,7 @@ Desktop und Tablet
   .journey-kalendar-overview {
     display: grid;
     grid-template: [Zeile1] "jan feb march april" auto [Zeile1Ende] [Zeile2] "may june july aug" auto [Zeile2Ende] [Zeile3] "sept oct nov dec" auto [Zeile3 Ende]/1fr 1fr 1fr 1fr;
-    margin-bottom: 24px;
+    margin-bottom: 0;
   }
   .journey-kalendar-month:nth-child(3), .journey-kalendar-month:nth-child(6), .journey-kalendar-month:nth-child(9) {
     border-right: 1px #004570 solid;
@@ -4235,6 +4238,90 @@ Desktop und Tablet
 
 /* *************************************************** */
 /* *********** ab hier für tablet *******************  */
+/* *************************************************** */
+/* *********** ab hier für desktop ******************* */
+.show-more-less-container-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  grid-template-areas: "moreButton" "content1" "content2" "lessButton";
+  column-gap: 8px;
+  row-gap: 0px;
+  background-color: #E6E6E6;
+}
+
+.show-more-less-container-more-button {
+  grid-area: moreButton;
+  justify-self: center;
+  visibility: visible;
+  padding-top: 8px;
+  transition: visibility 0.1s ease-in-out 0.4s;
+}
+
+.show-more-less-container-more-button.js-hide {
+  visibility: hidden;
+  padding-top: 0px;
+  transition: visibility 0.1s ease-in-out 0.2s;
+}
+
+.show-more-less-container-content1 {
+  grid-area: content1;
+  max-height: 1000px;
+  transition: max-height 0.4s ease-in-out 0s;
+}
+
+.show-more-less-container-content1.js-hide {
+  max-height: 0px;
+  overflow: hidden;
+  transition: max-height 0.4s ease-in-out 0s;
+}
+
+.show-more-less-container-content2 {
+  grid-area: content2;
+  max-height: 1000px;
+  transition: max-height 0.4s ease-in-out 0s;
+}
+
+.show-more-less-container-content2.js-hide {
+  max-height: 0px;
+  overflow: hidden;
+  transition: max-height 0.4s ease-in-out 0s;
+}
+
+.show-more-less-container-less-button {
+  grid-area: lessButton;
+  justify-self: center;
+  visibility: visible;
+  max-height: 44px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  transition: all 0s ease-in-out 0.3s;
+}
+
+.show-more-less-container-less-button.js-hide {
+  visibility: hidden;
+  max-height: 0px;
+  padding-top: 0;
+  padding-bottom: 0;
+  transition: all 0.1s ease-in-out 0.2s;
+}
+
+/* *************************************************** */
+/* *********** ab hier für tablet *******************  */
+@media screen and (min-width: 688px) {
+  .show-more-less-container-wrapper {
+    margin-top: 8px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: "moreButton ." "content1   content2" "lessButton .";
+    column-gap: 8px;
+    row-gap: 8px;
+    background-color: #E6E6E6;
+  }
+  .show-more-less-container-less-button, .show-more-less-container-more-button {
+    justify-self: start;
+  }
+}
 /* *************************************************** */
 /* *********** ab hier für desktop ******************* */
 .open-drawer {
@@ -4656,7 +4743,9 @@ a.open-drawer-wrapper, .open-close-faq-button {
   font-size: 1rem;
   font-weight: normal;
   display: flex;
-  border: none;
+  border: 1px solid #004570;
+  border-radius: 8px;
+  padding: 4px 4px;
   color: #004570;
   background-color: #E6E6E6;
   cursor: pointer;
@@ -4673,14 +4762,23 @@ a.open-drawer-wrapper, .open-close-faq-button {
   height: 12px;
   width: 12px;
   margin-left: 12px;
-  transform: rotate(45deg);
+  margin-right: 4px;
 }
 .show-more-button .show-more-button__icon, .show-less-button .show-more-button__icon {
   transform: rotate(45deg);
+  transition: transform 0.2s ease-in-out;
 }
-.show-more-button .show-less-button__icon, .show-less-button .show-less-button__icon {
+.show-more-button .show-more-button__icon.js-show, .show-less-button .show-more-button__icon.js-show {
+  transform: rotate(-135deg);
+  margin-top: 4px;
+}
+.show-more-button .show-less-button__icon.js-show, .show-less-button .show-less-button__icon.js-show {
   transform: rotate(225deg);
   align-self: flex-end;
+}
+.show-more-button .show-less-button__icon, .show-less-button .show-less-button__icon {
+  transform: rotate(45deg);
+  transition: transform 0.2s ease-in-out;
 }
 
 /* *************************************************** */
@@ -4688,12 +4786,10 @@ a.open-drawer-wrapper, .open-close-faq-button {
 /* *************************************************** */
 /* *********** ab hier für desktop ******************* */
 @media screen and (min-width: 992px) {
-  .course-container-intro-item-more:hover .show-more-button__label, .course-container-intro-item-more:hover .show-less-button__label, .course-container-intro-item-less:hover .show-more-button__label, .course-container-intro-item-less:hover .show-less-button__label {
-    color: #000000;
-  }
-  .course-container-intro-item-more:hover .show-less-button__icon, .course-container-intro-item-more:hover .show-more-button__icon, .course-container-intro-item-less:hover .show-less-button__icon, .course-container-intro-item-less:hover .show-more-button__icon {
-    border-bottom: 2px solid #000000;
-    border-right: 2px solid #000000;
+  .course-container-intro-item-more:hover .show-more-button, .course-container-intro-item-more:hover .show-less-button, .course-container-intro-item-less:hover .show-more-button, .course-container-intro-item-less:hover .show-less-button,
+.show-more-less-container-more-button:hover .show-more-button,
+.show-more-less-container-more-button:hover .show-less-button, .show-more-less-container-less-button:hover .show-more-button, .show-more-less-container-less-button:hover .show-less-button {
+    background-color: #ffffff;
   }
 }
 /* Border Box Trick */

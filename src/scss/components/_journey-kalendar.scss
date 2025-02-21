@@ -192,7 +192,7 @@
                         [Zeile2] "may june july aug" auto [Zeile2Ende]
                         [Zeile3] "sept oct nov dec" auto [Zeile3 Ende]
                         / 1fr 1fr 1fr 1fr;
-        margin-bottom: 3*$basicHeight;
+        margin-bottom: 0;
     }
 
     .journey-kalendar-month:nth-child(3), .journey-kalendar-month:nth-child(6), .journey-kalendar-month:nth-child(9){
