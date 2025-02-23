@@ -505,7 +505,7 @@ const RenderCourseDates = (function (Dates, Globals) {
 		column2.classList.add('gridx12__width5--col2of2');
 		const meetingPoint = document.createElement('div');
 		meetingPoint.classList.add('text-container-drawer__meetingPoint');
-		meetingPoint.innerText = courseDate.treffpunkt;
+		meetingPoint.innerHTML = courseDate.treffpunkt;
 		column2.appendChild(meetingPoint);
 
 		paddelJourneyTimePlace.appendChild(column1);
@@ -547,6 +547,7 @@ const RenderCourseDates = (function (Dates, Globals) {
 		//Anmelde Button ganz am Schluss
 		const paddelJourneyRegistration = document.createElement('div');
 		paddelJourneyRegistration.classList.add('gridx12');
+		paddelJourneyRegistration.classList.add('width100');
 
 		column1 = document.createElement('div');
 		column1.classList.add('gridx12__width5--col1of2');
@@ -728,22 +729,32 @@ const RenderCourseDates = (function (Dates, Globals) {
 		paddleJourneyGroups.forEach((paddleJourneyGroup) => {
 			const courseListPaddleJourneyWrapper = document.querySelector('.course-list-wrapper-paddleJourney' + paddleJourneyGroup[0].paddelreiseGruppe);
 
+			console.log('paddleJourneyGroup[0].paddelreiseGruppe = '+paddleJourneyGroup[0].paddelreiseGruppe);
+
 			if (courseListPaddleJourneyWrapper !== null) {
 				// delete all current children
 				while (courseListPaddleJourneyWrapper.firstChild) {
 					courseListPaddleJourneyWrapper.removeChild(courseListPaddleJourneyWrapper.firstChild);
 				}
 				paddleJourneyGroup = sortDatumAscending(paddleJourneyGroup);
+				console.log('1 paddleJourneyGroup.length = '+paddleJourneyGroup.length);
 				// add the course dates
-				paddleJourneyGroup.forEach((paddleJourney) => {
-					if (paddleJourney.status !== 'blue') {
-						const courseListItemDetailStatus = createCourseItemDetailStatus(paddleJourney);
-						courseListPaddleJourneyWrapper.appendChild(courseListItemDetailStatus);
-					}
-					const courseListItem = createPaddleJourneyItem(paddleJourney);
-					courseListPaddleJourneyWrapper.appendChild(courseListItem);
-				});
-			}
+				if(typeof paddleJourneyGroup !== 'undefined' && paddleJourneyGroup.length > 0){
+					console.log('2 paddleJourneyGroup.length = '+paddleJourneyGroup.length);
+					paddleJourneyGroup.forEach((paddleJourney) => {
+						if (paddleJourney.status !== 'blue') {
+							const courseListItemDetailStatus = createCourseItemDetailStatus(paddleJourney);
+							courseListPaddleJourneyWrapper.appendChild(courseListItemDetailStatus);
+						}
+						const courseListItem = createPaddleJourneyItem(paddleJourney);
+						courseListPaddleJourneyWrapper.appendChild(courseListItem);
+					});
+				// Keine Daten gefunden für die entsprechende Reise
+				} else {
+					console.log('keine Daten gefunden');
+					renderEmptyCourseList('.course-list-wrapper-paddleJourney' + paddleJourneyGroup[0].paddelreiseGruppe);
+				}
+			} 
 		});
 	}
 

@@ -22,6 +22,11 @@
                    / 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 	grid-row-gap: 2*$basicWidth;
 	margin-bottom: 2*$basicHeight;
+	padding: 0 $basicWidth;
+}
+
+.gridx12.width100{
+	padding: 0;
 }
 
 .gridx12__width5--col1of2{
@@ -212,6 +217,7 @@
                    / 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 		grid-column-gap: 2*$basicWidth;
 		margin-bottom: 3*$basicHeight;
+		padding: 0;
 	}
 
 	.gridx12__width5--col1of2{

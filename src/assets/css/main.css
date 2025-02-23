@@ -2306,6 +2306,11 @@ h4.course-list-detail__title::after {
   grid-template: [Zeile1] "row1 row1 row1 row1 row1 row1 row1 row1 row1 row1 row1 row1" auto [Zeile1Ende]/1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-row-gap: 16px;
   margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+.gridx12.width100 {
+  padding: 0;
 }
 
 .gridx12__width5--col1of2 {
@@ -2456,6 +2461,7 @@ h4.course-list-detail__title::after {
     grid-template: [Zeile1] "row1 row1 row1 row1 row1 row1 row1 row1 row1 row1 row1 row1" auto [Zeile1Ende]/1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-column-gap: 16px;
     margin-bottom: 24px;
+    padding: 0;
   }
   .gridx12__width5--col1of2 {
     grid-area: 1/2/1/7;
