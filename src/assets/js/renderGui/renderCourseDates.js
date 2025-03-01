@@ -719,6 +719,9 @@ const RenderCourseDates = (function (Dates, Globals) {
 	 * @param courseDates
 	 */
 	function renderListsForAllPaddleJournies(courseDates) {
+		let location = Images.getPaddleJourneyLocation() ? Images.getPaddleJourneyLocation().toUpperCase() : Images.getPaddleJourneyLocation();
+		//var courseListPaddleJourneyWrapper;
+		let match = 0;
 		let paddleJournies = courseDates.filter((courseDate) => {
 			return courseDate.typ === 'Paddelreise';
 		});
@@ -728,19 +731,19 @@ const RenderCourseDates = (function (Dates, Globals) {
 		//Für jede Paddelreise Gruppe den entsprechenden Wrapper im html suchen
 		paddleJourneyGroups.forEach((paddleJourneyGroup) => {
 			const courseListPaddleJourneyWrapper = document.querySelector('.course-list-wrapper-paddleJourney' + paddleJourneyGroup[0].paddelreiseGruppe);
-
-			console.log('paddleJourneyGroup[0].paddelreiseGruppe = '+paddleJourneyGroup[0].paddelreiseGruppe);
-
-			if (courseListPaddleJourneyWrapper !== null) {
-				// delete all current children
-				while (courseListPaddleJourneyWrapper.firstChild) {
-					courseListPaddleJourneyWrapper.removeChild(courseListPaddleJourneyWrapper.firstChild);
-				}
-				paddleJourneyGroup = sortDatumAscending(paddleJourneyGroup);
-				console.log('1 paddleJourneyGroup.length = '+paddleJourneyGroup.length);
-				// add the course dates
-				if(typeof paddleJourneyGroup !== 'undefined' && paddleJourneyGroup.length > 0){
-					console.log('2 paddleJourneyGroup.length = '+paddleJourneyGroup.length);
+			if(paddleJourneyGroup[0].paddelreiseGruppe.toUpperCase() === location){
+				match++;
+				if (courseListPaddleJourneyWrapper !== null) {
+					console.log('courseListPaddleJourneyWrapper is not null');
+					// delete all current children
+					while (courseListPaddleJourneyWrapper.firstChild) {
+						courseListPaddleJourneyWrapper.removeChild(courseListPaddleJourneyWrapper.firstChild);
+					}
+					paddleJourneyGroup = sortDatumAscending(paddleJourneyGroup);
+					//console.log('1 paddleJourneyGroup.length = '+paddleJourneyGroup.length);
+					// add the course dates
+					
+					//console.log('2 paddleJourneyGroup.length = '+paddleJourneyGroup.length);
 					paddleJourneyGroup.forEach((paddleJourney) => {
 						if (paddleJourney.status !== 'blue') {
 							const courseListItemDetailStatus = createCourseItemDetailStatus(paddleJourney);
@@ -748,15 +751,58 @@ const RenderCourseDates = (function (Dates, Globals) {
 						}
 						const courseListItem = createPaddleJourneyItem(paddleJourney);
 						courseListPaddleJourneyWrapper.appendChild(courseListItem);
-					});
-				// Keine Daten gefunden für die entsprechende Reise
-				} else {
-					console.log('keine Daten gefunden');
-					renderEmptyCourseList('.course-list-wrapper-paddleJourney' + paddleJourneyGroup[0].paddelreiseGruppe);
-				}
-			} 
+					});	
+				} 
+			}
 		});
+
+		console.log('match -> ' + match);
+		if (match === 0 && location !== undefined) {
+			console.log('keine Daten gefunden');
+			//leeres paddleJourneyItem generieren
+			const courseListPaddleJourneyWrapper = document.querySelector('.course-list-wrapper-paddleJourney' + capitalizeFirstLetter(Images.getPaddleJourneyLocation()));
+			console.log('.course-list-wrapper-paddleJourney' + capitalizeFirstLetter(Images.getPaddleJourneyLocation()));
+
+			if (courseListPaddleJourneyWrapper !== null){
+				console.log('leeres paddleJourneyItem generieren');
+				const emptyCourseListItem = createEmptyPaddleJourneyItem(capitalizeFirstLetter(Images.getPaddleJourneyLocation()));
+				courseListPaddleJourneyWrapper.appendChild(emptyCourseListItem);
+			}
+			
+		} 
 	}
+
+	function capitalizeFirstLetter(value) {
+		return String(value).charAt(0).toUpperCase() + String(value).slice(1);
+	}
+
+
+
+	function createEmptyPaddleJourneyItem(location){
+		const paddelJourneyTitle = document.createElement('div');
+		paddelJourneyTitle.classList.add('gridx12');
+
+		let column1 = document.createElement('div');
+		column1.classList.add('gridx12__width5--col1of2');
+		const courseName = document.createElement('h3');
+		courseName.classList.add('title');
+		courseName.innerText = 'Im Moment ist keine Wildwasserreise nach ' + location + ' geplant';
+		column1.appendChild(courseName);
+
+		let column2 = document.createElement('div');
+		column2.classList.add('gridx12__width5--col2of2');
+
+		paddelJourneyTitle.appendChild(column1);
+		paddelJourneyTitle.appendChild(column2);
+
+		const emptyPaddelJourneyItem = document.createElement('div');
+		emptyPaddelJourneyItem.classList.add('paddleJourneyItem');
+		emptyPaddelJourneyItem.appendChild(paddelJourneyTitle);
+		
+		return emptyPaddelJourneyItem;
+	}
+
+
 
 	// public api
 	return {
