@@ -218,7 +218,7 @@ const Navigation = (function (RenderImageSlider, Images, Globals, Responsive, Co
 					sliderName = 'durance';
 				break;
 				case 'Details Wildnisreise':
-					sliderName = 'wildnisreiseNorthAmerica';
+					sliderName = 'yukon';
 				break;
 				case 'Details zur Chile Reise':
 					sliderName = 'chile';

@@ -116,7 +116,7 @@ const PageConfig = (function (Images, Globals) {
 					case 'durance':
 					
 						break;
-					case 'territory':
+					case 'yukon':
 						pageData = {
 							headerTitle: 'Wildnisreise im Yukon<br> Territory',
 							mobileImages: Images.getMobileImagesForYukon(),

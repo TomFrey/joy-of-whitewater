@@ -255,7 +255,7 @@ function copyXml(){
  * Kopiert die robots.txt und nicht die .htaccess Dateien in den dist Ordner
  */
 function copyRobotsAndHtaccess(){
-	return gulp.src(['./src/assets/webServerConfig/robots.txt', '!./src/assets/webServerConfig/.htaccess'])
+	return gulp.src(['./src/assets/webServerConfig/robots.txt', './src/assets/webServerConfig/.htaccess'])
 		.pipe(gulp.dest('dist'));
 }
 
@@ -403,10 +403,10 @@ function build(enviroment) {
 		gulp.parallel(	minifyFrontJsForDist,
 						compileScss),
 		gulp.parallel(	minifyCss),
-		gulp.parallel(	//copyApi,
+		gulp.parallel(	copyApi,
 						copyHTML,
 						copyFrontJs,
-						//copyImages,
+						copyImages,
 						copyXml,
 						copyRobotsAndHtaccess,
 						copyGoogleConfirmationFile,

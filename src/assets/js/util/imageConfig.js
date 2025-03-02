@@ -438,7 +438,7 @@ var Images = (function () {
 			  alt: 'Paddeln auf dem Aoos in Griechenland' 
 			}
 		],
-		wildnisreiseNorthAmerica: [
+		yukon: [
 			{ name: 'northAmerica_1_gr.jpg', 
 			  nameTablet: 'northAmerica_1_mi.jpg',
 			  nameMobile: 'northAmerica_1_kl.jpg', 

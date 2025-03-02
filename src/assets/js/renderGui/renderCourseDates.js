@@ -1,5 +1,10 @@
 // eslint-disable-next-line no-unused-vars
 const RenderCourseDates = (function (Dates, Globals) {
+
+	function capitalizeFirstLetter(value) {
+		return String(value).charAt(0).toUpperCase() + String(value).slice(1);
+	}
+
 	/**
 	 * Sortiert die Kursdaten nach vonDatum aufsteigend
 	 * @param courseDates
@@ -719,9 +724,9 @@ const RenderCourseDates = (function (Dates, Globals) {
 	 * @param courseDates
 	 */
 	function renderListsForAllPaddleJournies(courseDates) {
-		let location = Images.getPaddleJourneyLocation() ? Images.getPaddleJourneyLocation().toUpperCase() : Images.getPaddleJourneyLocation();
-		//var courseListPaddleJourneyWrapper;
-		let match = 0;
+		let currentPaddleJourneyPage = Images.getPaddleJourneyLocation() ? Images.getPaddleJourneyLocation().toUpperCase() : Images.getPaddleJourneyLocation();
+		//Matched die aktuelle Seite mit einer Paddelreise(Gruppe) aus der DB
+		let paddleGroupFromDbMatchesCurentPage = 0; 
 		let paddleJournies = courseDates.filter((courseDate) => {
 			return courseDate.typ === 'Paddelreise';
 		});
@@ -731,19 +736,15 @@ const RenderCourseDates = (function (Dates, Globals) {
 		//Für jede Paddelreise Gruppe den entsprechenden Wrapper im html suchen
 		paddleJourneyGroups.forEach((paddleJourneyGroup) => {
 			const courseListPaddleJourneyWrapper = document.querySelector('.course-list-wrapper-paddleJourney' + paddleJourneyGroup[0].paddelreiseGruppe);
-			if(paddleJourneyGroup[0].paddelreiseGruppe.toUpperCase() === location){
-				match++;
+			if(paddleJourneyGroup[0].paddelreiseGruppe.toUpperCase() === currentPaddleJourneyPage){
+				paddleGroupFromDbMatchesCurentPage++;
 				if (courseListPaddleJourneyWrapper !== null) {
-					console.log('courseListPaddleJourneyWrapper is not null');
 					// delete all current children
 					while (courseListPaddleJourneyWrapper.firstChild) {
 						courseListPaddleJourneyWrapper.removeChild(courseListPaddleJourneyWrapper.firstChild);
 					}
 					paddleJourneyGroup = sortDatumAscending(paddleJourneyGroup);
-					//console.log('1 paddleJourneyGroup.length = '+paddleJourneyGroup.length);
 					// add the course dates
-					
-					//console.log('2 paddleJourneyGroup.length = '+paddleJourneyGroup.length);
 					paddleJourneyGroup.forEach((paddleJourney) => {
 						if (paddleJourney.status !== 'blue') {
 							const courseListItemDetailStatus = createCourseItemDetailStatus(paddleJourney);
@@ -756,28 +757,18 @@ const RenderCourseDates = (function (Dates, Globals) {
 			}
 		});
 
-		console.log('match -> ' + match);
-		if (match === 0 && location !== undefined) {
-			console.log('keine Daten gefunden');
+		//in der DB gibt es keine Paddelreise zu der entsprechenden Seite
+		if (paddleGroupFromDbMatchesCurentPage === 0 && currentPaddleJourneyPage !== undefined) {
 			//leeres paddleJourneyItem generieren
 			const courseListPaddleJourneyWrapper = document.querySelector('.course-list-wrapper-paddleJourney' + capitalizeFirstLetter(Images.getPaddleJourneyLocation()));
-			console.log('.course-list-wrapper-paddleJourney' + capitalizeFirstLetter(Images.getPaddleJourneyLocation()));
-
 			if (courseListPaddleJourneyWrapper !== null){
-				console.log('leeres paddleJourneyItem generieren');
 				const emptyCourseListItem = createEmptyPaddleJourneyItem(capitalizeFirstLetter(Images.getPaddleJourneyLocation()));
 				courseListPaddleJourneyWrapper.appendChild(emptyCourseListItem);
 			}
-			
 		} 
 	}
 
-	function capitalizeFirstLetter(value) {
-		return String(value).charAt(0).toUpperCase() + String(value).slice(1);
-	}
-
-
-
+	
 	function createEmptyPaddleJourneyItem(location){
 		const paddelJourneyTitle = document.createElement('div');
 		paddelJourneyTitle.classList.add('gridx12');
@@ -786,7 +777,7 @@ const RenderCourseDates = (function (Dates, Globals) {
 		column1.classList.add('gridx12__width5--col1of2');
 		const courseName = document.createElement('h3');
 		courseName.classList.add('title');
-		courseName.innerText = 'Im Moment ist keine Wildwasserreise nach ' + location + ' geplant';
+		courseName.innerText = 'Wildwasser Reise ' + location;
 		column1.appendChild(courseName);
 
 		let column2 = document.createElement('div');
@@ -795,13 +786,59 @@ const RenderCourseDates = (function (Dates, Globals) {
 		paddelJourneyTitle.appendChild(column1);
 		paddelJourneyTitle.appendChild(column2);
 
+
+		const emptyPaddelJourneyDescription = document.createElement('div');
+		emptyPaddelJourneyDescription.classList.add('gridx12');
+
+		let descriptionColumn1 = document.createElement('div');
+		descriptionColumn1.classList.add('gridx12__width5--col1of2');
+
+		const textArea1 = document.createElement('p');
+		textArea1.classList.add('paragraph');
+		textArea1.innerText = 'Es steht noch kein Datum fest für die nächste Wildwasserreise.';
+
+		const textArea2 = document.createElement('p');
+		textArea2.classList.add('paragraph');
+		textArea2.innerHTML = 'Gerne darfst du ' +
+							  '<a class="link-in-text" title="Kontakt mit der Kanuschule" href="/kontakt.html">Kontakt</a>' +
+							  ' mit uns aufnehmen, wenn du Interesse hast. Und falls ihr ' +
+							  'mindestens eine dreier Gruppe seit, können wir auch direkt eine Wildwasserreise für dich planen.'
+
+		descriptionColumn1.appendChild(textArea1);
+		descriptionColumn1.appendChild(textArea2);
+
+
+		let descriptionColumn2 = document.createElement('div');
+		descriptionColumn2.classList.add('gridx12__width5--col2of2');
+
+		const textArea3 = document.createElement('p');
+		textArea3.classList.add('paragraph');
+		textArea3.innerHTML = 'Die Wildwasserreisen, welche schon eingeplant sind, findest du im ' + 
+							  '<a class="link-in-text" href="/paddelreisen.html#paddleJourneyCalendarAnchor">Jahreskalender</a>.';
+
+		const textArea4 = document.createElement('p');
+		textArea4.classList.add('paragraph');
+		textArea4.innerHTML = 'Weitere Informationen findest du, wenn du auf den Detailknopf drückst.';
+
+		const textArea5 = document.createElement('p');
+		textArea5.classList.add('paragraph');
+		textArea5.innerHTML = 'Das beschriebene Programm kann von Jahr zu Jahr etwas variieren. Findet die Reise ' +
+							  'auf einem anderen Wildwasserschwierigkeitgrad statt oder dauert länger etc.';
+
+		descriptionColumn2.appendChild(textArea3);
+		descriptionColumn2.appendChild(textArea4);
+		descriptionColumn2.appendChild(textArea5);
+
+		emptyPaddelJourneyDescription.appendChild(descriptionColumn1);
+		emptyPaddelJourneyDescription.appendChild(descriptionColumn2);
+
 		const emptyPaddelJourneyItem = document.createElement('div');
 		emptyPaddelJourneyItem.classList.add('paddleJourneyItem');
 		emptyPaddelJourneyItem.appendChild(paddelJourneyTitle);
+		emptyPaddelJourneyItem.appendChild(emptyPaddelJourneyDescription);
 		
 		return emptyPaddelJourneyItem;
 	}
-
 
 
 	// public api

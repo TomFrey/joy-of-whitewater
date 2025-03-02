@@ -1,4 +1,4 @@
-# Redirect von http zu https wird auf Plesk gemacht. Somit im Moment keine .htaccess Datei verwenden.
+# Redirect von http zu https wird auf Plesk gemacht.
 # RewriteEngine On
 # RewriteCond %{HTTPS} !=on
 # RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301,NE]
@@ -7,3 +7,11 @@
 # RewriteEngine On
 # RewriteCond %{HTTP_HOST} !^www.joyofwhitewater.ch$
 # RewriteRule ^(.*)$ https://www.joyofwhitewater.ch/$1 [R=301,L]
+
+
+# Redirect von https://joyofwhitewater.ch/packraft.html und /kanukurse.html zu https://www.joyofwhitewater.ch
+RewriteEngine On
+Redirect 301 /packraft.html https://www.joyofwhitewater.ch
+Redirect 301 /kanukurse.html https://www.joyofwhitewater.ch
+
+
