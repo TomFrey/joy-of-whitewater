@@ -304,7 +304,7 @@ img.text-container-fill__bottom {
 }
 
 //Liste im Detail Drawer
-.text-container-drawer__list{
+.text-container-drawer__list, .text-container-drawer__sublist{
 	list-style: none;
 }
 
@@ -322,7 +322,7 @@ img.text-container-fill__bottom {
 	content: ':';
 }
 
-.text-container-drawer-list__value{
+.text-container-drawer-list__value, .text-container-drawer__sublist{
 	flex: 3 3 66%;
 }
 
@@ -632,7 +632,7 @@ img.text-container-fill__bottom {
 		flex: 1 1 25%;
 	}
 
-	.text-container-drawer-list__value{
+	.text-container-drawer-list__value, .text-container-drawer__sublist{
 		flex: 3 3 75%;
 	}
 

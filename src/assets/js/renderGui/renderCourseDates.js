@@ -453,6 +453,46 @@ const RenderCourseDates = (function (Dates, Globals) {
 	}
 
 	/**
+	 * Kreiert ein li Element in der Liste der Paddelreisen (also nicht auf der Termin Übersicht),
+	 * welches eine Liste mit den Preisen pro Person enthält.
+	 * @param label
+	 * @param listElements  [{"numberOfPerson":3,"price":"1400.00"},{"numberOfPerson":4,"price":"1250.00"},{"numberOfPerson":5,"price":"1100.00"}]
+	 * @returns {HTMLElement}
+	 */
+	function createListItemWithPriceTable(label, listElements) {
+		const listItem = document.createElement('li');
+		listItem.classList.add('text-container-drawer__list-item');
+
+		const listItemLabel = document.createElement('span');
+		listItemLabel.classList.add('text-container-drawer-list__label');
+		listItemLabel.innerText = label;
+
+		const subList = document.createElement('ul');
+		subList.classList.add('text-container-drawer__sublist');
+			
+		listElements.forEach((listElement) => {
+			const subListItem = document.createElement('li');
+			subListItem.classList.add('text-container-drawer__sublist-item');
+
+			const subListItemLabel = document.createElement('span');
+			subListItemLabel.classList.add('text-container-drawer-sublist__label');
+			subListItemLabel.innerText = 'bei ' + listElement.numberOfPerson + ' Personen ';
+
+			const subListItemValue = document.createElement('span');
+			subListItemValue.classList.add('text-container-drawer-sublist__value');
+			subListItemValue.innerText = listElement.price + ' CHF';
+
+			subListItem.appendChild(subListItemLabel);
+			subListItem.appendChild(subListItemValue);
+
+			subList.appendChild(subListItem);
+		})
+		listItem.appendChild(listItemLabel);
+		listItem.appendChild(subList);
+		return listItem;
+	}
+
+	/**
 	 * Kreiert einen Eintrag bei den Paddelreisen. Also wenn es zwei Mal nach Korsika geht, dann gibt es zwei
 	 * Einträge.
 	 * @param courseDate
@@ -535,7 +575,14 @@ const RenderCourseDates = (function (Dates, Globals) {
 		}
 		
 		list.appendChild(createListItemForPaddleJourney('Kursleitung', courseDate.guide));
-		list.appendChild(createListItemForPaddleJourney('Preis', courseDate.preisKurs));
+		
+		//Check, ob es abgestufte Preise, entsprechend der Anzahl Personen, gibt.
+		if (Array.isArray(courseDate.preisKurs)) {
+			list.appendChild(createListItemWithPriceTable('Preise', courseDate.preisKurs));
+		} else {
+			//nur ein Preis
+			list.appendChild(createListItemForPaddleJourney('Preis', courseDate.preisKurs));
+		}
 		column1.appendChild(list);
 
 		column2 = document.createElement('div');
