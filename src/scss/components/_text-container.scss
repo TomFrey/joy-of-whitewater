@@ -207,6 +207,7 @@ Tablet / Desktop
 
 			img {
 				max-width: 100%;
+				width: 100%; /* damit auch .svg angezeigt werden */
 				height: auto;
 			}
     	}
@@ -524,6 +525,7 @@ img.text-container-fill__bottom {
 	
 			img{
 				max-width: 100%;
+				width: 100%; /* damit auch .svg angezeigt werden */
 				height: auto;
 			}
 	

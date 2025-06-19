@@ -925,6 +925,7 @@ Tablet / Desktop
 }
 .text-container-main > .filler .filler__picture img, .text-container-main .filler__home .filler__picture img, .text-container-main__home > .filler .filler__picture img, .text-container-main__home .filler__home .filler__picture img {
   max-width: 100%;
+  width: 100%; /* damit auch .svg angezeigt werden */
   height: auto;
 }
 
@@ -1194,6 +1195,7 @@ img.text-container-fill__bottom {
   }
   .text-container-main > .filler img {
     max-width: 100%;
+    width: 100%; /* damit auch .svg angezeigt werden */
     height: auto;
   }
   .text-container-main > .filler img.width-50 {

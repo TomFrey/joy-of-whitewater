@@ -8958,12 +8958,12 @@ __metadata:
   version: 0.6.1
   resolution: "vinyl-ftp@npm:0.6.1"
   dependencies:
-    ftp: "npm:^0.3.8"
-    minimatch: "npm:^3.0.2"
-    object-assign: "npm:^4.1.1"
-    parallel-transform: "npm:^1.1.0"
-    through2: "npm:^2.0.3"
-    vinyl: "npm:^2.0.1"
+    ftp: ^0.3.8
+    minimatch: ^3.0.2
+    object-assign: ^4.1.1
+    parallel-transform: ^1.1.0
+    through2: ^2.0.3
+    vinyl: ^2.0.1
   checksum: 4b45d4413e14795e6c8c1ea767fe6c7440aa0dccad61dc53f81eb85fd5e6dc28f14e2f50e22fd996de47605c86470523eac2e1c7e0e0d1b2581efe761f4d0a6c
   languageName: node
   linkType: hard
