@@ -158,7 +158,7 @@ const PageConfig = (function (Images, Globals) {
 
 			case '': // Startseite
 				pageData = {
-					headerTitle: '<strong>Kanuschule</strong><br>THE JOY OF WHITEWATER',
+					headerTitle: 'THE JOY OF WHITEWATER',
 					selectedNavigation: 'home',
 					mobileImages: Images.getMobileImagesForJoyOfWhitewater(),
 					carouselImages: Images.getImagesForJoyOfWhitewater(),

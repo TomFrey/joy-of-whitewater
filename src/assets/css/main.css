@@ -827,7 +827,7 @@ Tablet / Desktop
 }
 .text-container h1.title, .text-container__home h1.title {
   font-family: "Gloria Hallelujah", "Arial", "sans-serif";
-  font-size: 3rem;
+  font-size: 2.25rem;
   color: #004570;
   line-height: 2rem;
   margin-top: 1rem;
@@ -841,7 +841,7 @@ Tablet / Desktop
   margin-top: 1.25rem;
   margin-bottom: 0.75rem;
 }
-.text-container h3.title, .text-container__home h3.title {
+.text-container h3.title, .text-container .title-size-of-h3, .text-container__home h3.title, .text-container__home .title-size-of-h3 {
   font-family: "Gloria Hallelujah", "Arial", "sans-serif";
   font-size: 1.25rem;
   color: #004570;
@@ -4934,13 +4934,15 @@ main .text-container, main .text-container__home {
     background: inherit;
     background-attachment: fixed;
     z-index: 15;
+    text-align: center;
   }
-  header .images-carousel .containerForTitle h1 {
+  header .images-carousel .containerForTitle span.siteTitle {
     position: relative;
     z-index: 5;
     width: 100%;
     font-family: "Gloria Hallelujah", "Arial", "sans-serif";
     font-size: 3rem;
+    font-weight: bold;
     color: #941216;
     line-height: 3rem;
     text-align: center;

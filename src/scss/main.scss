@@ -174,14 +174,16 @@ main{
 				background-attachment: fixed;
 				//overflow: hidden;
 				z-index: 15;
+				text-align: center;
 			}
 
-			.containerForTitle h1{
+			.containerForTitle span.siteTitle{
 				position: relative;
 				z-index: 5;
 				width: 100%;
 				font-family: $textContainerTitleFont;
-				font-size: $bigTitleSize;
+				font-size: $XLTitleSize;
+				font-weight: bold;
 				color: $color-main-titleInTheBigPicture;
 				line-height: 3rem;
 				text-align: center;
