@@ -404,6 +404,9 @@ img.text-container-fill__bottom {
 		font-size: 4.5vw;
 		color: $complimentaryColor4;
 	}
+	 h3.journey-icon-label{
+		font-weight: normal;
+	 }
 }
 
 .journey-text-item-text::first-letter{
@@ -412,6 +415,13 @@ img.text-container-fill__bottom {
 	color: $color-textContainer-text;
 }
 
+.journey-text-item h4.journey-text-item-title{
+	font-family: $textContainerTitleFont;
+	font-size: 1.2rem;
+	font-weight: bold;
+	color: $complimentaryColor4;
+	margin: $basicHeight 0;
+}
 
 
 
@@ -690,6 +700,10 @@ img.text-container-fill__bottom {
 		width: 20%;
 	}
 
+	.journey-text-item h4.journey-text-item-title{
+		font-size: 1.4rem;
+	}
+
 	.journey-icon{
 		
 		.journey-icon-label{
@@ -851,5 +865,9 @@ img.text-container-fill__bottom {
 		.journey-icon-label{
 			font-size: 1.5rem;
 		}
+	}
+
+	.journey-text-item h4.journey-text-item-title{
+		margin: 2*$basicHeight 0 $basicHeight 0;
 	}
 }

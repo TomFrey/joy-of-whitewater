@@ -1102,11 +1102,22 @@ img.text-container-fill__bottom {
   font-size: 4.5vw;
   color: #941216;
 }
+.journey-icon h3.journey-icon-label {
+  font-weight: normal;
+}
 
 .journey-text-item-text::first-letter {
   font-family: "Open Sans", "Arial", "sans-serif";
   font-size: 1.75rem;
   color: #000000;
+}
+
+.journey-text-item h4.journey-text-item-title {
+  font-family: "Gloria Hallelujah", "Arial", "sans-serif";
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #941216;
+  margin: 8px 0;
 }
 
 /* *************************************************** */
@@ -1310,6 +1321,9 @@ img.text-container-fill__bottom {
   .journey-text-item-icon-wrapper {
     width: 20%;
   }
+  .journey-text-item h4.journey-text-item-title {
+    font-size: 1.4rem;
+  }
   .journey-icon .journey-icon-label {
     font-size: 3.5vw;
   }
@@ -1417,6 +1431,9 @@ img.text-container-fill__bottom {
   }
   .journey-icon .journey-icon-label {
     font-size: 1.5rem;
+  }
+  .journey-text-item h4.journey-text-item-title {
+    margin: 16px 0 8px 0;
   }
 }
 .images-carousel {
