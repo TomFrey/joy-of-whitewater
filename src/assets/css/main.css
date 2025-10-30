@@ -849,6 +849,9 @@ Tablet / Desktop
   margin-top: 1.25rem;
   margin-bottom: 0.5rem;
 }
+.text-container h3.title.bigger, .text-container__home h3.title.bigger {
+  font-size: 1.5rem;
+}
 .text-container h4.title, .text-container__home h4.title {
   font-family: "Open Sans", "Arial", "sans-serif";
   font-size: 1rem;
@@ -1075,38 +1078,58 @@ img.text-container-fill__bottom {
   margin: 8px 0;
 }
 
-.journey-text-item {
+.journey-text-item, .course-paragraph-graphic-item {
   margin-bottom: 40px;
   clear: both;
 }
 
-.journey-text-item-icon-wrapper {
+.journey-text-item-icon-wrapper, .course-paragraph-graphic-item-icon-wrapper {
   display: inline;
   float: left;
   margin-right: 16px;
   margin-bottom: 16px;
+}
+
+.journey-text-item-icon-wrapper {
   width: 25%;
 }
 
-.journey-icon {
+.course-paragraph-graphic-item-icon-wrapper {
+  width: 18%;
+}
+
+.journey-icon, .course-paragraph-graphic-item-icon {
   display: flex;
   flex-flow: column nowrap;
   align-items: flex-start;
 }
-.journey-icon .journey-icon-icon {
+.journey-icon .journey-icon-icon, .journey-icon .course-paragraph-graphic-item-icon-img, .course-paragraph-graphic-item-icon .journey-icon-icon, .course-paragraph-graphic-item-icon .course-paragraph-graphic-item-icon-img {
   max-width: 100%;
   padding-bottom: 4px;
 }
-.journey-icon .journey-icon-label {
+.journey-icon .course-paragraph-graphic-item-icon-img, .course-paragraph-graphic-item-icon .course-paragraph-graphic-item-icon-img {
+  margin-bottom: 16px;
+}
+.journey-icon .journey-icon-label, .journey-icon .course-paragraph-graphic-item-icon-label, .course-paragraph-graphic-item-icon .journey-icon-label, .course-paragraph-graphic-item-icon .course-paragraph-graphic-item-icon-label {
   font-family: "Open Sans", "Arial", "sans-serif";
   font-size: 4.5vw;
   color: #941216;
 }
-.journey-icon h3.journey-icon-label {
+.journey-icon .journey-icon-label, .course-paragraph-graphic-item-icon .journey-icon-label {
+  font-size: 4.5vw;
+}
+.journey-icon .course-paragraph-graphic-item-icon-label, .course-paragraph-graphic-item-icon .course-paragraph-graphic-item-icon-label {
+  font-size: 3.6vw;
+}
+.journey-icon h3.journey-icon-label, .course-paragraph-graphic-item-icon h3.journey-icon-label {
   font-weight: normal;
 }
+.journey-icon h4.course-paragraph-graphic-item-icon-label, .course-paragraph-graphic-item-icon h4.course-paragraph-graphic-item-icon-label {
+  font-weight: bold;
+  padding-bottom: 4px;
+}
 
-.journey-text-item-text::first-letter {
+.journey-text-item-text::first-letter, .course-paragraph-graphic-item-text::first-letter {
   font-family: "Open Sans", "Arial", "sans-serif";
   font-size: 1.75rem;
   color: #000000;
@@ -1318,7 +1341,10 @@ img.text-container-fill__bottom {
     left: 32%;
     padding: 12px;
   }
-  .journey-text-item-icon-wrapper {
+  .course-paragraph-graphic-item {
+    margin-bottom: 16px;
+  }
+  .journey-text-item-icon-wrapper, .course-paragraph-graphic-item-icon-wrapper {
     width: 20%;
   }
   .journey-text-item h4.journey-text-item-title {
@@ -1326,6 +1352,9 @@ img.text-container-fill__bottom {
   }
   .journey-icon .journey-icon-label {
     font-size: 3.5vw;
+  }
+  .course-paragraph-graphic-item-icon .course-paragraph-graphic-item-icon-label {
+    font-size: 2.1vw;
   }
 }
 /* *************************************************** */
@@ -1425,12 +1454,23 @@ img.text-container-fill__bottom {
     left: 36%;
     padding: 16px;
   }
-  .journey-text-item-icon-wrapper {
+  .journey-text-item-icon-wrapper, .course-paragraph-graphic-item-icon-wrapper {
     margin-bottom: 0;
+  }
+  .journey-text-item-icon-wrapper {
     width: 30%;
+  }
+  .course-paragraph-graphic-item-icon-wrapper {
+    width: 20%;
   }
   .journey-icon .journey-icon-label {
     font-size: 1.5rem;
+  }
+  .course-paragraph-graphic-item-icon .course-paragraph-graphic-item-icon-label {
+    font-size: 1.1rem;
+  }
+  .course-paragraph-graphic-item-icon .course-paragraph-graphic-item-icon-img {
+    margin-bottom: 40px;
   }
   .journey-text-item h4.journey-text-item-title {
     margin: 16px 0 8px 0;
