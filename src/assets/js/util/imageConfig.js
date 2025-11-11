@@ -51,7 +51,11 @@ var Images = (function () {
 		korsikaImages: [
 			{name: 'paddelreisen_5.jpg', title: 'Wildwasser Reise - Taravo, Korsika', alt: 'Wildwasser Reise - Taravo, Korsika' },
 			{name: 'paddelreisen_10.jpg', title: 'Wildwasserreise - Tavignano, Korsika', alt: 'Wildwasserreise - Tavignano, Korsika'}
-			
+		],
+		noceImages: [
+			{name: 'wildwasser_reise_noce_1.webp', title: 'Wildwasserreise Noce, Trentino', alt: 'Wildwasserreise Noce, Trentino' },
+			{name: 'wildwasser_reise_noce_2.webp', title: 'Wildwasserreise Noce, Val di Sole', alt: 'Wildwasserreise Noce, Val di Sole' },
+			{name: 'wildwasser_reise_noce_3.webp', title: 'Wildwasserreise Noce, Trentino', alt: 'Wildwasserreise Noce, Trentino' }
 		],
 		griechenlandImages: [
 			{name: 'wildwasser_reise_griechenland_3.webp', title: 'Wildwasser Griechenland, Arachtos', alt: 'Wildwasser Griechenland, Arachtos' },
@@ -126,6 +130,10 @@ var Images = (function () {
 		korsikaImages: [
 			{ name: 'mobile_quer_korsikakurse.webp', title: 'Wildwasser paddeln in Korsika', alt: 'Wildwasser paddeln in Korsika' },
 			{ name: 'mobile_korsikakurse.webp', title: 'Wildwasser paddeln in Korsika', alt: 'Wildwasser paddeln in Korsika' }
+		],
+		noceImages: [
+			{ name: 'mobile_quer_noce_wildwasserreise.webp', title: 'Wildwasser Reisen auf dem Noce', alt: 'Wildwasser Reisen auf dem Noce' },
+			{ name: 'mobile_noce_wildwasserreise.webp', title: 'Wildwasser Reisen auf dem Noce', alt: 'Wildwasser Reisen auf dem Noce' }
 		],
 		griechenlandImages: [
 			{ name: 'mobile_quer_griechenland_wildwasserreise.webp', title: 'Wildwasser paddeln in Griechenland', alt: 'Wildwasser paddeln in Griechenland' },
@@ -637,6 +645,38 @@ var Images = (function () {
 			  title: 'Im Open Canoe durch die Preussenschleuder auf dem Inn', 
 			  alt: 'Im Open Canoe durch die Preussenschleuder auf dem Inn' 
 			}
+		],
+		noce: [
+			{ name: 'noce_3_gr.webp', 
+			  nameTablet: 'noce_3_mi.webp',
+			  nameMobile: 'noce_3_kl.webp', 
+			  title: 'Kajakreise auf dem Noce', 
+			  alt: 'Kajakreise auf dem Noce' 
+		  	},
+			{ name: 'noce_5_gr.webp', 
+			  nameTablet: 'noce_5_mi.webp',
+			  nameMobile: 'noce_5_kl.webp', 
+			  title: 'Kajakreise auf dem Noce', 
+			  alt: 'Kajakreise auf dem Noce' 
+		  	},
+			{ name: 'noce_2_gr.webp', 
+			  nameTablet: 'noce_2_mi.webp',
+			  nameMobile: 'noce_2_kl.webp', 
+			  title: 'Kajakreise auf dem Noce', 
+			  alt: 'Kajakreise auf dem Noce' 
+		  	},
+			{ name: 'noce_1_gr.webp', 
+			  nameTablet: 'noce_1_mi.webp',
+			  nameMobile: 'noce_1_kl.webp', 
+			  title: 'Kajakreise auf dem Noce', 
+			  alt: 'Kajakreise auf dem Noce' 
+		  	},
+			{ name: 'noce_4_gr.webp', 
+			  nameTablet: 'noce_4_mi.webp',
+			  nameMobile: 'noce_4_kl.webp', 
+			  title: 'Kajakreise auf dem Noce', 
+			  alt: 'Kajakreise auf dem Noce' 
+		  	}
 		]
 	};
 
@@ -674,6 +714,10 @@ var Images = (function () {
 
 	function getImagesForSocaCarousel() {
 		return imageCarousel.socaImages;
+	}
+
+	function getImagesForNoceCarousel() {
+		return imageCarousel.noceImages;
 	}
 
 	function getImagesForInnCarousel() {
@@ -735,6 +779,10 @@ var Images = (function () {
 
 	function getTheFirstImageForSoca() {
 		return imageCarousel.socaImages[0];
+	}
+
+	function getTheFirstImageForNoce() {
+		return imageCarousel.noceImages[0];
 	}
 
 	function getTheFirstImageForInn() {
@@ -806,6 +854,10 @@ var Images = (function () {
 		return mobileImages.socaImages;
 	}
 
+	function getMobileImagesForNoce() {
+		return mobileImages.noceImages;
+	}
+
 	function getMobileImagesForInn() {
 		return mobileImages.innImages;
 	}
@@ -867,6 +919,7 @@ var Images = (function () {
 		getImagesForGriechenlandCarousel,
 		getImagesForSesiaCarousel,
 		getImagesForSocaCarousel,
+		getImagesForNoceCarousel,
 		getImagesForInnCarousel,
 		getImagesForGeorgienCarousel,
 		getImagesForAlbanienCarousel,
@@ -884,6 +937,7 @@ var Images = (function () {
 		getTheFirstImageForGriechenland,
 		getTheFirstImageForSesia,
 		getTheFirstImageForSoca,
+		getTheFirstImageForNoce,
 		getTheFirstImageForInn,
 		getTheFirstImageForGeorgien,
 		getTheFirstImageForYukon,
@@ -901,6 +955,7 @@ var Images = (function () {
 		getMobileImagesForGriechenland,
 		getMobileImagesForSesia,
 		getMobileImagesForSoca,
+		getMobileImagesForNoce,
 		getMobileImagesForInn,
 		getMobileImagesForGeorgien,
 		getMobileImagesForYukon,

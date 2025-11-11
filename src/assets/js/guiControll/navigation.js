@@ -227,6 +227,9 @@ const Navigation = (function (RenderImageSlider, Images, Globals, Responsive, Co
 				case 'Details zum Inn':
 					sliderName = 'engadin';
 				break;
+				case 'Details zum Noce':
+					sliderName = 'noce';
+				break;
 				default:
 					sliderName = 'korsika';
 					break;

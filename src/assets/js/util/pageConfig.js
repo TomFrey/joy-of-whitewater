@@ -73,6 +73,14 @@ const PageConfig = (function (Images, Globals) {
 							firstImageForCarousel: Images.getTheFirstImageForKorsika().name
 						};
 						break;
+					case 'noce':
+						pageData = {
+							headerTitle: 'Wildwasser paddeln<br> auf dem Noce',
+							mobileImages: Images.getMobileImagesForNoce(),
+							carouselImages: Images.getImagesForNoceCarousel(),
+							firstImageForCarousel: Images.getTheFirstImageForNoce().name
+						};
+						break;
 					case 'soca':
 						pageData = {
 							headerTitle: 'Wildwasser paddeln<br> auf der Soča',
