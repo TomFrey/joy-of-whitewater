@@ -185,8 +185,8 @@ var Images = (function () {
 			{ name: 'mobile_packraft.jpg', title: 'Packraft Kurse', alt: 'Packraft Kurse' }
 		],
 		tirolImages: [
-			{ name: 'mobile_quer_packraft.jpg', title: 'Packraft Kurse', alt: 'Packraft Kurse' },
-			{ name: 'mobile_packraft.jpg', title: 'Packraft Kurse', alt: 'Packraft Kurse' }
+			{ name: 'mobile_quer_tirol_wildwasserreise.webp', title: 'Wildwasser paddeln auf Imster, Ötz und Sanna', alt: 'Wildwasser paddeln auf Imster, Ötz und Sanna' },
+			{ name: 'mobile_tirol_wildwasserreise.webp', title: 'Wildwasser paddeln auf Imster, Ötz und Sanna', alt: 'Wildwasser paddeln auf Imster, Ötz und Sanna' }
 		]
 	};
 
