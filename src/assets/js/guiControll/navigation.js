@@ -230,6 +230,9 @@ const Navigation = (function (RenderImageSlider, Images, Globals, Responsive, Co
 				case 'Details zum Noce':
 					sliderName = 'noce';
 				break;
+				case 'Details zur Spritztour ins Tirol':
+					sliderName = 'tirol';
+				break;
 				default:
 					sliderName = 'korsika';
 					break;

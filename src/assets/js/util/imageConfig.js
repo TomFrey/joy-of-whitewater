@@ -104,6 +104,11 @@ var Images = (function () {
 			{name: 'wildwasser_reise_chile_3.webp', title: 'Wildwasserreise nach Chile, Rio Claro de Teno', alt: 'Wildwasserreise nach Chile, Rio Claro de Teno' },
 			{name: 'wildwasser_reise_chile_2.webp', title: 'Chilenische Araukarien', alt: 'Chilenische Araukarien' },
 			
+		],
+		tirolImages: [
+			{name: 'wildwasser_reise_tirol_1.webp', title: 'Spritztour ins Tirol, Imsterschlucht', alt: 'Spritztour ins Tirol, Imsterschlucht' },
+			{name: 'wildwasser_reise_tirol_2.webp', title: 'Wildwassertour an Ötz, Imsterschlucht und Sanna', alt: 'Wildwassertour an Ötz, Imsterschlucht und Sanna' },
+			{name: 'wildwasser_reise_tirol_3.webp', title: 'Wildwassertour an Ötz, Imsterschlucht und Sanna', alt: 'Wildwassertour an Ötz, Imsterschlucht und Sanna' },
 		]
 	};
 
@@ -176,6 +181,10 @@ var Images = (function () {
 			{ name: 'mobile_specialskurse.webp', title: 'Sicherheits- und Eskimotierkurse', alt: 'Sicherheits- und Eskimotierkurse' }
 		],
 		ausflugImages: [
+			{ name: 'mobile_quer_packraft.jpg', title: 'Packraft Kurse', alt: 'Packraft Kurse' },
+			{ name: 'mobile_packraft.jpg', title: 'Packraft Kurse', alt: 'Packraft Kurse' }
+		],
+		tirolImages: [
 			{ name: 'mobile_quer_packraft.jpg', title: 'Packraft Kurse', alt: 'Packraft Kurse' },
 			{ name: 'mobile_packraft.jpg', title: 'Packraft Kurse', alt: 'Packraft Kurse' }
 		]
@@ -677,6 +686,38 @@ var Images = (function () {
 			  title: 'Kajakreise auf dem Noce', 
 			  alt: 'Kajakreise auf dem Noce' 
 		  	}
+		],
+		tirol: [
+			{ name: 'tirol_6_gr.webp', 
+			  nameTablet: 'tirol_6_mi.webp',
+			  nameMobile: 'tirol_6_kl.webp', 
+			  title: 'Wildwasserspritztour ins Tirol, obere Ötz', 
+			  alt: 'Wildwasserspritztour ins Tirol, obere Ötz' 
+			},
+			{ name: 'tirol_2_gr.webp', 
+			  nameTablet: 'tirol_2_mi.webp',
+			  nameMobile: 'tirol_2_kl.webp', 
+			  title: 'Wildwassertour an Ötz, Imsterschlucht und Sanna', 
+			  alt: 'Wildwassertour an Ötz, Imsterschlucht und Sanna' 
+		  	},
+			{ name: 'tirol_7_gr.webp', 
+			  nameTablet: 'tirol_7_mi.webp',
+			  nameMobile: 'tirol_7_kl.webp', 
+			  title: 'Wildwassertour an Ötz, Imsterschlucht und Sanna', 
+			  alt: 'Wildwassertour an Ötz, Imsterschlucht und Sanna' 
+			},
+			{ name: 'tirol_5_gr.webp', 
+			  nameTablet: 'tirol_5_mi.webp',
+			  nameMobile: 'tirol_5_kl.webp', 
+			  title: 'Wildwassertour an Ötz, Imsterschlucht und Sanna', 
+			  alt: 'Wildwassertour an Ötz, Imsterschlucht und Sanna' 
+		  	},
+			{ name: 'tirol_1_gr.webp', 
+			  nameTablet: 'tirol_1_mi.webp',
+			  nameMobile: 'tirol_1_kl.webp', 
+			  title: 'Wildwasserspritztour ins Tirol, Imsterschlucht', 
+			  alt: 'Wildwasserspritztour ins Tirol, Imsterschlucht' 
+			}
 		]
 	};
 
@@ -738,6 +779,10 @@ var Images = (function () {
 
 	function getImagesForChileCarousel() {
 		return imageCarousel.chileImages;
+	}
+
+	function getImagesForTirolCarousel() {
+		return imageCarousel.tirolImages;
 	}
 
 	function getImagesForAusfluege() {
@@ -803,6 +848,10 @@ var Images = (function () {
 
 	function getTheFirstImageForChile() {
 		return imageCarousel.chileImages[0];
+	}
+
+	function getTheFirstImageForTirol() {
+		return imageCarousel.tirolImages[0];
 	}
 
 	function getTheFirstImageForKajakkurse() {
@@ -878,6 +927,10 @@ var Images = (function () {
 		return mobileImages.chileImages;
 	}
 
+	function getMobileImagesForTirol() {
+		return mobileImages.tirolImages;
+	}
+
 	function getMobileImagesForJoyOfWhitewater() {
 		return mobileImages.theJoyOfWhiteWaterImages;
 	}
@@ -920,6 +973,7 @@ var Images = (function () {
 		getImagesForSesiaCarousel,
 		getImagesForSocaCarousel,
 		getImagesForNoceCarousel,
+		getImagesForTirolCarousel,
 		getImagesForInnCarousel,
 		getImagesForGeorgienCarousel,
 		getImagesForAlbanienCarousel,
@@ -938,6 +992,7 @@ var Images = (function () {
 		getTheFirstImageForSesia,
 		getTheFirstImageForSoca,
 		getTheFirstImageForNoce,
+		getTheFirstImageForTirol,
 		getTheFirstImageForInn,
 		getTheFirstImageForGeorgien,
 		getTheFirstImageForYukon,
@@ -956,6 +1011,7 @@ var Images = (function () {
 		getMobileImagesForSesia,
 		getMobileImagesForSoca,
 		getMobileImagesForNoce,
+		getMobileImagesForTirol,
 		getMobileImagesForInn,
 		getMobileImagesForGeorgien,
 		getMobileImagesForYukon,

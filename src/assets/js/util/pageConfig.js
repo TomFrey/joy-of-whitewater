@@ -148,6 +148,14 @@ const PageConfig = (function (Images, Globals) {
 							firstImageForCarousel: Images.getTheFirstImageForChile().name
 						};
 						break;
+					case 'tirol':
+						pageData = {
+							headerTitle: 'Wildwasser paddeln<br> auf Ötz, Imster, Sanna',
+							mobileImages: Images.getMobileImagesForTirol(),
+							carouselImages: Images.getImagesForTirolCarousel(),
+							firstImageForCarousel: Images.getTheFirstImageForTirol().name
+						};
+						break;
 					default:
 						RenderHeader.addJustFirstImage(Images.getImagesForPaddelreisen());
 						Navigation.setHeaderTitle('Wildwasser Reisen');
