@@ -4,11 +4,11 @@ var Images = (function () {
 	// Die Bilder müssen unter /assets/images/carousel/*.jpg liegen
 	const imageCarousel = {
 		theJoyOfWhiteWaterImages: [
-			{ name: 'joyOfWhitewater_6.jpg', title: 'Kanuschule', alt: 'Kanuschule - The Joy Of Whitewater' },
-			{ name: 'joyOfWhitewater_3.jpg', title: 'Kanuschule', alt: 'Kanuschule - The Joy Of Whitewater' },
-			{ name: 'joyOfWhitewater_1.jpg', title: 'Kanuschule', alt: 'Kanuschule - The Joy Of Whitewater' },
-			{ name: 'joyOfWhitewater_2.jpg', title: 'Kanuschule', alt: 'Kanuschule - The Joy Of Whitewater' },
-			{ name: 'joyOfWhitewater_8.jpg', title: 'Kanuschule', alt: 'Kanuschule - The Joy Of Whitewater' }
+			{ name: 'joyOfWhitewater_9.webp', title: 'Kanuschule - The Joy Of Whitewater', alt: 'Kanuschule - The Joy Of Whitewater' },
+			{ name: 'joyOfWhitewater_11.webp', title: 'Kanuschule - The Joy Of Whitewater, am Vorderrhein', alt: 'Kanuschule - The Joy Of Whitewater' },
+			{ name: 'joyOfWhitewater_10.webp', title: 'Wildwasser Kurse und Reisen', alt: 'Wildwasser Kurse und Reisen' },
+			{ name: 'joyOfWhitewater_12.webp', title: 'Wildwasserkurse im Open Canoe, Kajak und Packraft', alt: 'Wildwasserkurse im Open Canoe, Kajak und Packraft' },
+			{ name: 'joyOfWhitewater_13.webp', title: 'Wildwassertouren und Wildwasserreisen', alt: 'Wildwassertouren und Wildwasserreisen' }
 		],
 		kajakkurseImages: [
 			{ name: 'kanukurse_5.jpg', title: 'Kajakkurse', alt: 'Kajakkurse' },
