@@ -121,15 +121,24 @@
             margin-bottom: $basicHeight;
         }
 
+
+       
+
         .dropdown-list ul li:hover:not(.dropdown-list-group){
-            background-color: $color-drawer-buttonToOpenDrawerText;
             border: 1px solid $color-drawer-buttonToOpenDrawer;
             color: $color-drawer-buttonToOpenDrawer;
-            transform: scale(1.02);
+            transform: scale(1.03);
+             cursor: pointer;
         }
 
         .dropdown-list ul li:active:not(.dropdown-list-group){
+            background-color: $color-drawer-buttonToOpenDrawerText;
             transform: scale(0.98);
+        }
+       
+
+        .dropdown-button{
+            cursor: pointer;
         }
     }
 

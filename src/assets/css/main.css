@@ -4896,13 +4896,17 @@ a.open-drawer-wrapper, .open-close-faq-button {
     margin-bottom: 8px;
   }
   .dropdown-button-wrapper .dropdown-list ul li:hover:not(.dropdown-list-group) {
-    background-color: #ffffff;
     border: 1px solid #004570;
     color: #004570;
-    transform: scale(1.02);
+    transform: scale(1.03);
+    cursor: pointer;
   }
   .dropdown-button-wrapper .dropdown-list ul li:active:not(.dropdown-list-group) {
+    background-color: #ffffff;
     transform: scale(0.98);
+  }
+  .dropdown-button-wrapper .dropdown-button {
+    cursor: pointer;
   }
   .dropdown-button-wrapper:first-of-type {
     margin-right: 16px;
