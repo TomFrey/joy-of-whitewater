@@ -319,6 +319,14 @@ const Validator = (function () {
 		encodedText = encodedText.replace(/%C3%B6/g, "ö");
 		encodedText = encodedText.replace(/%C3%96/g, "Ö");
 		encodedText = encodedText.replace(/%2C/g, ",");
+		encodedText = encodedText.replace(/%2B/g, "+");
+		encodedText = encodedText.replace(/%C3%B1/g, "ñ");
+		encodedText = encodedText.replace(/%C3%B3/g, "ó");
+		encodedText = encodedText.replace(/%C3%BA/g, "ú");
+		encodedText = encodedText.replace(/%C3%AD/g, "í");
+		encodedText = encodedText.replace(/%C3%A9/g, "é");
+		encodedText = encodedText.replace(/%C3%A1/g, "á");
+		encodedText = encodedText.replace(/%C4%8D/g, "č");
 		return encodedText;
 	}
 
