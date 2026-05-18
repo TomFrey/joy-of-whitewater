@@ -1,9 +1,47 @@
+.language-button-wrapper{
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: flex-end;
+	column-gap: $basicWidth;
+	padding: 1.5*$basicHeight $basicWidth 0px 0px;
+	background-color: $color-main-background;
+}
+
+.nav-flex-wrapper{
+		display: flex;
+		justify-content: space-between;
+		position: fixed;
+		z-index: 4;
+		left: 0;
+		right: 0;
+		height: 6*$basicHeight;
+		background-color: $color-main-background;
+		top: 6*$basicHeight;
+		transition: top 1s ease-in-out;
+}
+
+.mobile-header-logo{
+	height: 150px;
+	transition: height 1s ease-in-out;
+	padding: $basicHeight 2*$basicWidth;
+}
+
+.gridx3.animate-when-ypos-reached.animate{
+	.nav-flex-wrapper {
+		top: 0px
+	}
+
+	.mobile-header-logo{
+		height: 90px;
+	}	
+}
+
 .hamburger-wrapper {
-	padding-top: 7px;
-	background-color: $color-nav-mobile-background;
-	position: fixed;
-	top: 0;
-	z-index: 5;
+	// padding-top: 7px;
+	// background-color: $color-nav-mobile-background;
+	// position: fixed;
+	// top: 6*$basicHeight; //0;
+	// z-index: 5;
 }
 
 #hamburger {
@@ -236,25 +274,52 @@ nav{
 		z-index: 5;
 	}
 
-	.nav-flex-wrapper{
-		display: flex;
-		justify-content: flex-end;
-		height: 8*$basicHeight;
-		background-color: $color-main-background;
+	.language-button-wrapper{
+		padding: 2.5*$basicHeight $basicWidth 2.5*$basicHeight 0px;
 	}
 
-	nav {
-		background-color: $color-nav-desktop-background;
-		padding-bottom: $basicHeight;
-		padding-top: 16px;
-		position: fixed;
-		top: 0;
-		z-index: 5;
-		width: unset;
-
-		#hamburger {
+	.gridx3.test.animate-when-ypos-reached.animate{
+		
 			display: none;
-		}
+		
+
+		
+	}
+
+	.nav-flex-wrapper{
+		position: unset;
+		left: unset;
+		right: unset;
+		height: 8*$basicHeight;
+	}
+
+	.hamburger-wrapper{
+		display: none;
+	}
+
+	.mobile-header-logo{
+		padding: 2*$basicHeight 2*$basicWidth;
+	}
+
+	.gridx3.animate-when-ypos-reached.animate{
+		.mobile-header-logo{
+			height: 120px;
+		}	
+	}
+
+
+	nav {
+		position: unset;
+		width: unset;
+		padding-top: 2*$basicHeight;
+		// background-color: $color-nav-desktop-background;
+		// padding-bottom: $basicHeight;
+		// padding-top: 16px;
+		// position: fixed;
+		// top: 0;
+		// z-index: 5;
+		// width: unset;
+
 
 		ul.main-navi-desktop, ul.main-navi-desktop.js-hide {
 			display: block;

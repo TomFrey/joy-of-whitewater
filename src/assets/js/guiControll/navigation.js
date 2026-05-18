@@ -29,6 +29,7 @@ const Navigation = (function (RenderImageSlider, Images, Globals, Responsive, Co
 	let courseOverviewDrawerButtons;
 	let moreAndLessDetailsButtons;
 	let faqButtons;
+	let eleAnimateWhenYPosReached;
 
 
 	function setHeaderTitle() {
@@ -330,6 +331,34 @@ const Navigation = (function (RenderImageSlider, Images, Globals, Responsive, Co
 	}
 
 
+	function toggleClassWhenYPosReached(elements, yPos){
+		console.log('toggleClassWhenYPosReached');
+		
+		function yPositionBiggerThen(yParameter) {
+			if (window.scrollY > yParameter) {
+				return true;
+			}
+			return false;
+		}
+		
+		function toggleClasses(){
+			elements.forEach(element => {
+				if (yPositionBiggerThen(yPos)) {
+					element.classList.add('animate');
+				} else if (window.scrollY <= 20) {
+					element.classList.remove('animate');
+				}
+			});
+		}
+		
+		window.addEventListener('scroll', (event) => {
+			toggleClasses();
+		});
+	}
+
+	
+
+
 	function initiate() {	
 		hamburger = document.getElementById('hamburger');
 		hamburger.addEventListener('click', showHideNavigation);
@@ -345,6 +374,15 @@ const Navigation = (function (RenderImageSlider, Images, Globals, Responsive, Co
 			toggleInfoNavigation();
 		  });
 		}
+
+		//Listener auf Elemente, die animert werden, wenn ein bestimmte y-Position erreicht wurde
+		eleAnimateWhenYPosReached = document.querySelectorAll('.animate-when-ypos-reached');
+		if (eleAnimateWhenYPosReached.length !== 0) {
+			console.log('nicht leer');
+			toggleClassWhenYPosReached(eleAnimateWhenYPosReached, 120);
+		}
+
+
 
 		//'Level1 Kurse' anzeigen Button
 		level1KursDrawerButton = document.querySelector('#open-close-drawer-button-level1kurse');

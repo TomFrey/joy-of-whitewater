@@ -7,15 +7,20 @@
 
 .info-nav{
   position: absolute;
-  top: -40px;
-  left: 85px;
+  top: -15px;
+  left: 250px;
   width: 3.5em;
   height: 3.5em;
   transition: all 1s ease;
 }
 
-.info-nav.opened-nav{
-  top: 140px;
+.info-nav.animate-when-ypos-reached.animate{
+  top: -80px; 
+}
+
+.info-nav.opened-nav.animate-when-ypos-reached.animate,
+.info-nav.opened-nav.animate-when-ypos-reached{
+  top: 80px;
   left: 158px;
   transition: all 1s ease;
 }
@@ -231,9 +236,82 @@
 }
 
 
+
+
+/* ************************************************************* */
+/* *********** ab hier für mobile quer ******************* */
+@media screen and (min-width: 400px) {    // wenn Bildschirm grösser als 600px dann...
+
+  .info-nav{
+      top: -15px;
+      left: 320px;
+      transition: all 1s ease;
+  }
+
+  .info-nav.animate-when-ypos-reached.animate{
+    top: -90px; 
+  }
+
+  .info-nav.opened-nav.animate-when-ypos-reached.animate,
+  .info-nav.opened-nav.animate-when-ypos-reached{
+    top: 100px;
+    left: 180px;
+    transition: all 1s ease;
+  }
+
+}
+
+
+
+
 /* *************************************************** */
-/* *********** ab hier für tablet ******************* */
+/* *********** ab hier für tablet ******************* 688px */
 @media screen and (min-width: $breakpoint-medium) { 
+  .info-nav{
+    top: -15px;
+    left: 570px;
+    transition: all 1s ease;
+  }
+
+  .info-nav.animate-when-ypos-reached.animate{
+    top: -90px; 
+  }
+
+  .info-nav.opened-nav.animate-when-ypos-reached.animate,
+  .info-nav.opened-nav.animate-when-ypos-reached{
+    top: 100px;
+    left: 450px;
+    transition: all 1s ease;
+  }
+
+}
+
+
+
+
+
+
+
+/* ************************************************************* */
+/* *********** ab hier für mobile quer ******************* */
+@media screen and (min-width: 850px) {    // wenn Bildschirm grösser als 600px dann...
+
+  .info-nav{
+      top: -15px;
+      left: 750px;
+      transition: all 1s ease;
+  }
+
+  .info-nav.animate-when-ypos-reached.animate{
+    top: -90px; 
+  }
+
+  .info-nav.opened-nav.animate-when-ypos-reached.animate,
+  .info-nav.opened-nav.animate-when-ypos-reached{
+    top: 100px;
+    left: 450px;
+    transition: all 1s ease;
+  }
 
 }
 
@@ -250,16 +328,27 @@
   
   .info-nav{
     top: 35px; 
-    right: 80px;
-    left: unset;
+    left: 750px;
+    //left: unset;
     width: 4.5em;
     height: 4.5em;
   }
   
   .info-nav.opened-nav{
     top: 180px;
-    right: 180px;
-    left: unset;
+    left: 180px;
+   // left: unset;
+  }
+
+  .info-nav.animate-when-ypos-reached.animate{
+    top: 20px; 
+  }
+
+  .info-nav.opened-nav.animate-when-ypos-reached.animate,
+  .info-nav.opened-nav.animate-when-ypos-reached{
+    top: 200px;
+    left: 550px;
+    transition: all 1s ease;
   }
 
 
