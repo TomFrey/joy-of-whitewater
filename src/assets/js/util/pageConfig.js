@@ -174,7 +174,7 @@ const PageConfig = (function (Images, Globals) {
 
 			case '': // Startseite
 				pageData = {
-					headerTitle: 'THE JOY OF WHITEWATER',
+					headerTitle: 'Wildwasser Abenteuer',
 					selectedNavigation: 'home',
 					mobileImages: Images.getMobileImagesForJoyOfWhitewater(),
 					carouselImages: Images.getImagesForJoyOfWhitewater(),
